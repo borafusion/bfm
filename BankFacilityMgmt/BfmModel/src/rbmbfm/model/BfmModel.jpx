@@ -14,11 +14,36 @@
     <Attr Name="_appModuleNames0" Value="rbmbfm.model.vo.master.BfmMasterAM"/>
   </DesignTime>
   <Containee
+    Name="ao"
+    PackageName="rbmbfm.model.eo.master.ao"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="master"
+    PackageName="rbmbfm.model.eo.master"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="master"
     PackageName="rbmbfm.model.vo.master"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vlink"
+    PackageName="rbmbfm.model.vo.master.vlink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>
