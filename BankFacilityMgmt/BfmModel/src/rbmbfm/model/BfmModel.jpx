@@ -14,19 +14,10 @@
     <Attr Name="_appModuleNames0" Value="rbmbfm.model.vo.master.BfmMasterAM"/>
   </DesignTime>
   <Containee
-    Name="eo"
-    PackageName="rbmbfm.model.eo"
-    ObjectType="JboPackage">
-    <DesignTime>
-      <Attr Name="_EO" Value="true"/>
-    </DesignTime>
-  </Containee>
-  <Containee
     Name="master"
     PackageName="rbmbfm.model.vo.master"
     ObjectType="JboPackage">
     <DesignTime>
-      <Attr Name="_VO" Value="true"/>
       <Attr Name="_AM" Value="true"/>
     </DesignTime>
   </Containee>
