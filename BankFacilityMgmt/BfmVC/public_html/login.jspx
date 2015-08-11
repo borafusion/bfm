@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="login.jspx" id="d1">
+            <af:form id="f1">
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow height="50px" id="gr1">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc3">
+                            <!-- Header -->
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="100%" id="gr3">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                            <af:inputText label="UserName" id="it1"
+                                          value="#{viewScope.loginBean.userName}"/>
+                            <af:inputText label="Password" id="it2"
+                                          value="#{viewScope.loginBean.passward}" secret="true"/>
+                            <af:commandButton text="Login" id="cb1"
+                                              actionListener="#{viewScope.loginBean.doLogin}"/>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="50px" id="gr2">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                            <!-- Footer -->
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

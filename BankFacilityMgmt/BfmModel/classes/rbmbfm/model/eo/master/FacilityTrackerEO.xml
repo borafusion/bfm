@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FacilityTrackerEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XXBFM_FACILITY_TRACKER_ALL"
+  AliasName="FacilityTrackerEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="FacilityTrackerId"
+    IsNotNull="true"
+    ColumnName="FACILITY_TRACKER_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"
+    PrimaryKey="true">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_FACILITY_TRACKER_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="BankId"
+    IsNotNull="true"
+    ColumnName="BANK_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="BusinessEntityId"
+    IsNotNull="true"
+    ColumnName="BUSINESS_ENTITY_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="FacilityStructureId"
+    IsNotNull="true"
+    ColumnName="FACILITY_STRUCTURE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="CurrencyId"
+    ColumnName="CURRENCY_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="FacilityValue"
+    ColumnName="FACILITY_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="BankReference"
+    Precision="256"
+    ColumnName="BANK_REFERENCE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StartDate"
+    ColumnName="START_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="EndDate"
+    ColumnName="END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="Status"
+    Precision="256"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="256"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="256"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="LastUpdateLogin"
+    Precision="32"
+    ColumnName="LAST_UPDATE_LOGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="32"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TenantId"
+    ColumnName="TENANT_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <AccessorAttribute
+    Name="BankEO"
+    Association="rbmbfm.model.eo.master.ao.BankToFacilityTrackerAO"
+    AssociationEnd="rbmbfm.model.eo.master.ao.BankToFacilityTrackerAO.BankEO"
+    AssociationOtherEnd="rbmbfm.model.eo.master.ao.BankToFacilityTrackerAO.FacilityTrackerEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="BusinessEntityEO"
+    Association="rbmbfm.model.eo.master.ao.BusinessEntityToFacilityTrackerAO"
+    AssociationEnd="rbmbfm.model.eo.master.ao.BusinessEntityToFacilityTrackerAO.BusinessEntityEO"
+    AssociationOtherEnd="rbmbfm.model.eo.master.ao.BusinessEntityToFacilityTrackerAO.FacilityTrackerEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="FacilityStructureEO"
+    Association="rbmbfm.model.eo.master.ao.FacilityStructtureToFacilityTrackerAO"
+    AssociationEnd="rbmbfm.model.eo.master.ao.FacilityStructtureToFacilityTrackerAO.FacilityStructureEO"
+    AssociationOtherEnd="rbmbfm.model.eo.master.ao.FacilityStructtureToFacilityTrackerAO.FacilityTrackerEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CurrencyEO"
+    Association="rbmbfm.model.eo.master.ao.CurrencyToFacilityTrackerAO"
+    AssociationEnd="rbmbfm.model.eo.master.ao.CurrencyToFacilityTrackerAO.CurrencyEO"
+    AssociationOtherEnd="rbmbfm.model.eo.master.ao.CurrencyToFacilityTrackerAO.FacilityTrackerEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XxbfmFacilityTrackerPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXBFM_FACILITY_TRACKER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityTrackerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmFacilityTrackerFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_BANK_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_FACILITY_TRACKER_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.BankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmFacilityTrackerFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_BUSINESS_ENTITY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_FACILITY_TRACKER_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.BusinessEntityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmFacilityTrackerFk3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_FACILITY_STRUCTURE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_FACILITY_TRACKER_FK3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityStructureId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmFacilityTrackerFk4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_CURRENCY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_FACILITY_TRACKER_FK4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.CurrencyId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="rbmbfm.view" ClientType="Generic">
+  <pageMap>
+    <page path="/login.jspx" usageId="rbmbfm_view_loginPageDef"/>
+    <page path="/home.jspx" usageId="rbmbfm_view_homePageDef"/>
+    <page path="/error.jspx" usageId="rbmbfm_view_errorPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
+    <page id="rbmbfm_view_homePageDef" path="rbmbfm.view.pageDefs.homePageDef"/>
+    <page id="rbmbfm_view_errorPageDef" path="rbmbfm.view.pageDefs.errorPageDef"/>
+  </pageDefinitionUsages>
+</Application>

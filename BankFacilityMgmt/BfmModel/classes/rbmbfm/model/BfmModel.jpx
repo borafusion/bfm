@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BfmModel"
+  Version="12.1.3.10.8"
+  SeparateXMLFiles="true"
+  PackageName="rbmbfm.model">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../BfmModel.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="bfm"/>
+    <Attr Name="_appModuleNames0" Value="rbmbfm.model.vo.master.BfmMasterAM"/>
+  </DesignTime>
+  <Containee
+    Name="ao"
+    PackageName="rbmbfm.model.eo.master.ao"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="master"
+    PackageName="rbmbfm.model.eo.master"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="master"
+    PackageName="rbmbfm.model.vo.master"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vlink"
+    PackageName="rbmbfm.model.vo.master.vlink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>
