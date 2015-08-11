@@ -16,9 +16,9 @@
                             <af:inputText label="UserName" id="it1"
                                           value="#{viewScope.loginBean.userName}"/>
                             <af:inputText label="Password" id="it2"
-                                          value="#{viewScope.loginBean.passward}" secret="true"/>
+                                          value="#{viewScope.loginBean.password}" secret="true"/>
                             <af:commandButton text="Login" id="cb1"
-                                              actionListener="#{viewScope.loginBean.doLogin}"/>
+                                              action="#{viewScope.loginBean.doLogin}"/>
                         </af:gridCell>
                     </af:gridRow>
                     <af:gridRow height="50px" id="gr2">

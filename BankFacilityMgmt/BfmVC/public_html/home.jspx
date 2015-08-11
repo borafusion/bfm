@@ -8,9 +8,14 @@
                 <af:panelGridLayout id="pgl1">
                     <af:gridRow height="50px" id="gr1">
                         <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc3">
-                            <af:link text="#{securityContext.authenticated ? &quot;Logout&quot; : &quot;Login&quot;}" id="l1"
-                                       destination="#{securityContext.authenticated ? &quot;/adfAuthentication?logout=true&amp;end_url=/faces/login.jspx&quot; : &quot;/adfAuthentication?success_url=/faces/home.jspx&quot;}" />
-                            
+                            <af:panelGroupLayout layout="horizontal">
+                                <af:outputText value="Welcome #{securityContext.userName}!"
+                                               inlineStyle="font-weight:bold; width:100px" id="ptot2"
+                                               rendered="#{securityContext.authenticated}"/>
+                                <af:spacer width="10px"/>
+                                <af:link text='#{securityContext.authenticated ? "Logout" : "Login"}' id="l1"
+                                         destination='#{securityContext.authenticated ? "/adfAuthentication?logout=true&amp;end_url=/faces/login.jspx" : "/adfAuthentication?success_url=/faces/home.jspx"}'/>
+                            </af:panelGroupLayout>
                         </af:gridCell>
                     </af:gridRow>
                     <af:gridRow height="100%" id="gr3">
