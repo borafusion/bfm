@@ -58,43 +58,43 @@
   <ViewLinkUsage
     Name="XxbfmDiscountingLimitFk1Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.CustomerToDiscountingLimitVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.CustomerVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.DiscountingLimitVO2"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.CustomerVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.DiscountingLimitVO2"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmDiscountingLimitFk2Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.CurrencyToDiscountingLimitVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.CurrencyVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.DiscountingLimitVO3"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.CurrencyVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.DiscountingLimitVO3"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmFacilityTrackerFk1Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.BankToFacilityTrackerVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.BankVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.FacilityTrackerVO2"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.BankVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.FacilityTrackerVO2"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmFacilityTrackerFk2Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.BusinessEntityToFacilityTrackerVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.BusinessEntityVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.FacilityTrackerVO3"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.BusinessEntityVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.FacilityTrackerVO3"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmFacilityTrackerFk3Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.FacilityStructureToFacilityTrackerVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.FacilityStructureVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.FacilityTrackerVO4"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.FacilityStructureVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.FacilityTrackerVO4"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmFacilityTrackerFk4Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.CurrenctyToFacilityTrackerVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.CurrencyVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.FacilityTrackerVO5"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.CurrencyVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.FacilityTrackerVO5"
     Reversed="false"/>
   <ViewLinkUsage
     Name="XxbfmLookupValueFk1Link1"
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.LookupTypeToValueVL"
-    SrcViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.LookupTypeVO1"
-    DstViewUsageName="rbmbfm.model.vo.master.BfmMasterAM.LookupValueVO2"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupTypeVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupValueVO2"
     Reversed="false"/>
 </AppModule>

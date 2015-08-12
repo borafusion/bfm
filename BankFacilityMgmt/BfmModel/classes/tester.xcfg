@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="rbmbfm.model.am.BFMTransactionAM">
+      <AppModuleConfig name="14F206DC20A" JDBCName="bfm" DeployPlatform="LOCAL" jbo.project="rbmbfm.model.BfmModel" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="BFMTransactionAMLocal" ApplicationName="rbmbfm.model.am.BFMTransactionAM" DBconnection="java:comp/env/jdbc/bfmDS">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="rbmbfm.model.am.BFMTransactionAM"/>
+         <Tester FullProxyInterfaceName="rbmbfm.model.am.common.BFMTransactionAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/bfmDS" ns0:_testers_credentials_needed="false" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

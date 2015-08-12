@@ -11,8 +11,33 @@
     <Attr Name="_jprName" Value="../../../BfmModel.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="bfm"/>
-    <Attr Name="_appModuleNames0" Value="rbmbfm.model.vo.master.BfmMasterAM"/>
+    <Attr Name="_appModuleNames0" Value="rbmbfm.model.am.master.BfmMasterAM"/>
+    <Attr Name="_appModuleNames1" Value="rbmbfm.model.am.BFMTransactionAM"/>
   </DesignTime>
+  <Containee
+    Name="am"
+    PackageName="rbmbfm.model.am"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="master"
+    PackageName="rbmbfm.model.am.master"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="app"
+    PackageName="rbmbfm.model.eo.app"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
   <Containee
     Name="ao"
     PackageName="rbmbfm.model.eo.master.ao"
@@ -30,11 +55,18 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="app"
+    PackageName="rbmbfm.model.vo.app"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="master"
     PackageName="rbmbfm.model.vo.master"
     ObjectType="JboPackage">
     <DesignTime>
-      <Attr Name="_AM" Value="true"/>
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>

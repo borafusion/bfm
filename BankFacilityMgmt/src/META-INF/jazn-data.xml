@@ -4,12 +4,35 @@
     <jazn-realm default="jazn.com">
         <realm>
             <name>jazn.com</name>
+            <users>
+                <user>
+                    <name>test</name>
+                    <credentials>{903}uRhcdvNYL9PyBbHdaUWvXQsVkdPvQZ52T9b42AaH86c=</credentials>
+                </user>
+            </users>
         </realm>
     </jazn-realm>
     <policy-store>
         <applications>
             <application>
                 <name>BankFacilityMgmt</name>
+                <app-roles>
+                    <app-role>
+                        <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                        <name>test-all</name>
+                        <display-name>test-all</display-name>
+                        <members>
+                            <member>
+                                <class>oracle.security.jps.internal.core.principals.JpsAnonymousRoleImpl</class>
+                                <name>anonymous-role</name>
+                            </member>
+                            <member>
+                                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                                <name>test</name>
+                            </member>
+                        </members>
+                    </app-role>
+                </app-roles>
                 <resource-types>
                     <resource-type>
                         <name>RegionResourceType</name>

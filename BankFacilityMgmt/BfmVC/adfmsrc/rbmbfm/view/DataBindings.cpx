@@ -5,10 +5,21 @@
     <page path="/login.jspx" usageId="rbmbfm_view_loginPageDef"/>
     <page path="/home.jspx" usageId="rbmbfm_view_homePageDef"/>
     <page path="/error.jspx" usageId="rbmbfm_view_errorPageDef"/>
+    <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@CreateInsert"
+          usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
     <page id="rbmbfm_view_homePageDef" path="rbmbfm.view.pageDefs.homePageDef"/>
     <page id="rbmbfm_view_errorPageDef" path="rbmbfm.view.pageDefs.errorPageDef"/>
+    <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="BFMTransactionAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>
