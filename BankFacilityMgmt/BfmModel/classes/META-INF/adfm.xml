@@ -3,5 +3,4 @@
    <BusinessComponentProjectRegistry path="rbmbfm/model/BfmModel.jpx"/>
    <BusinessComponentServiceRegistry path="rbmbfm/model/am/master/common/bc4j.xcfg"/>
    <BusinessComponentServiceRegistry path="rbmbfm/model/am/common/bc4j.xcfg"/>
-   <BusinessComponentServiceRegistry path="rbmbfm/model/vo/master/common/bc4j.xcfg"/>
 </MetadataDirectory>

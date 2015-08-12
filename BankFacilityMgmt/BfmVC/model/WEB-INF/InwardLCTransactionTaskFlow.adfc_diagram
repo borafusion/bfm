@@ -38,6 +38,33 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R29,L37</property>
+         name="sdm:polyPoints">R50,194.0,202.59766,321.01465,130.79883,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">InwardLCTransactionDetail</property>
+      <property
+         name="page">/bfm/InwardLCTransactionDetail.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>InwardLCTransactionDetail&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">131.09766</property>
+      <property
+         name="x">645.3662</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall3"
+      to="View5">
+      <property
+         name="fromOutcome">CreateInsert</property>
+      <property
+         name="sdm:polyPoints">R50,403.01465,130.79883,604.3662,130.74707,L50</property>
    </ControlFlowCase>
 </SDM>

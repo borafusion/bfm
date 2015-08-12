@@ -14,7 +14,7 @@
         <expression>#{pageFlowScope.selectedTransactionId != ''}</expression>
         <outcome>edit</outcome>
       </case>
-      <default-outcome>edit</default-outcome>
+      <default-outcome>add</default-outcome>
     </router>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -22,11 +22,21 @@
         <fixed-outcome>CreateInsert</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="InwardLCTransactionDetail">
+      <page>/bfm/InwardLCTransactionDetail.jsff</page>
+    </view>
     <control-flow-rule id="__3">
       <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__4">
         <from-outcome>add</from-outcome>
         <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>InwardLCTransactionDetail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
