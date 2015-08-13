@@ -53,9 +53,9 @@
       <property
          name="y">131.09766</property>
       <property
-         name="x">645.3662</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">645.3662</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -66,5 +66,28 @@
          name="fromOutcome">CreateInsert</property>
       <property
          name="sdm:polyPoints">R50,403.01465,130.79883,604.3662,130.74707,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">Commit</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Commit&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">164.14941</property>
+      <property
+         name="x">871.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View5"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">submit</property>
+      <property
+         name="sdm:polyPoints">R50,686.3662,130.74707,830.5,163.79883,L50</property>
    </ControlFlowCase>
 </SDM>

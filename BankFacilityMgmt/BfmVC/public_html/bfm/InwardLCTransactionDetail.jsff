@@ -73,8 +73,8 @@
           <f:validator binding="#{bindings.SourceType.validator}"/>
         </af:inputText>
         <f:facet name="footer">
-          <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
-                     disabled="#{!bindings.Commit.enabled}"/>
+          <af:button text="Submit" id="b1" action="submit"
+                     partialSubmit="true"/>
         </f:facet>
       </af:panelFormLayout>
     </f:facet>

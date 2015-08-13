@@ -21,6 +21,12 @@
     <view id="InwardLCTransactionDetail">
       <page>/bfm/InwardLCTransactionDetail.jsff</page>
     </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__4">
@@ -33,6 +39,13 @@
       <control-flow-case id="__6">
         <from-outcome>CreateInsert</from-outcome>
         <to-activity-id>InwardLCTransactionDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>InwardLCTransactionDetail</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>submit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
