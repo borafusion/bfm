@@ -28,10 +28,10 @@
         <Item Value="SourceId"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_BusinessEntityId"
-                  id="BusinessEntityId"/>
-    <listOfValues IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_IssuingBankId"
-                  id="IssuingBankId"/>
+    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_BusinessEntityId"
+          id="BusinessEntityId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_IssuingBankId"
+          id="IssuingBankId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_FacilityTrackerId"
           id="FacilityTrackerId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="ApprovalStatus">
@@ -46,5 +46,7 @@
         <Item Value="SourceType"/>
       </AttrNames>
     </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="BFMTransactionAMDataControl"/>
   </bindings>
 </pageDefinition>

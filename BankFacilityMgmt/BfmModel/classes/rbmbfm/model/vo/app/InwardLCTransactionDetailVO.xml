@@ -33,7 +33,6 @@
     Name="LOV_BusinessEntityId"
     ListVOName="BusinessEntityVVO"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -52,7 +51,6 @@
     Name="LOV_IssuingBankId"
     ListVOName="IssuingBankVVO"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -152,7 +150,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="combo_lov"/>
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -166,7 +164,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="combo_lov"/>
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -190,7 +188,8 @@
     PrecisionRule="true"
     EntityAttrName="ApprovalStatus"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="APPROVAL_STATUS"/>
+    AliasName="APPROVAL_STATUS"
+    DefaultValue="Draft"/>
   <ViewAttribute
     Name="BeneficiaryBankId"
     PrecisionRule="true"

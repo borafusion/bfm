@@ -7,12 +7,8 @@
     </data-control-scope>
     <router id="addEditRouter">
       <case id="__1">
-        <expression>#{pageFlowScope.selectedTransactionId == ''}</expression>
+        <expression>#{pageFlowScope.selectedTransactionId != null}</expression>
         <outcome>add</outcome>
-      </case>
-      <case id="__2">
-        <expression>#{pageFlowScope.selectedTransactionId != ''}</expression>
-        <outcome>edit</outcome>
       </case>
       <default-outcome>add</default-outcome>
     </router>

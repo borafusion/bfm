@@ -18,10 +18,9 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
-    PrimaryKey="true"
-    IsUpdateable="while_insert">
+    PrimaryKey="true">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_INWARD_LC_TRANS_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_INWARD_LC_TRANS_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="TransactionType"
@@ -122,7 +121,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -134,7 +136,10 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -143,7 +148,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -155,7 +163,10 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -163,7 +174,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="32"/>
     </DesignTime>
@@ -174,7 +188,11 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"
+    ChangeIndicator="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    HistoryColumn="VersionHistory"/>
   <Key
     Name="XxbfmInwardLcTransDtlPk"
     PrimaryKey="true">
