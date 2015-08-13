@@ -15,6 +15,7 @@
     <page path="/bfm/InwardLCTransactionDetail.jsff" usageId="rbmbfm_view_InwardLCTransactionDetailPageDef"/>
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@Commit"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
+    <page path="/test.jsf" usageId="rbmbfm_view_testPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -26,12 +27,18 @@
           path="rbmbfm.view.pageDefs.InwardLCTransactionDetailPageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
+    <page id="rbmbfm_view_testPageDef" path="rbmbfm.view.pageDefs.testPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="BFMTransactionAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="BfmMasterAMDataControl" Package="rbmbfm.model.am.master"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="BfmMasterAMLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

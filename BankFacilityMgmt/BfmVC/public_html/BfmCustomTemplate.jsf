@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+     <af:panelSplitter id="pt_ps1" orientation="vertical" splitterPosition="75" disabled="true">
+      <f:facet name="first">
+        <!-- <af:panelGridLayout id="pt_pgl2">
+          <af:gridRow marginTop="0px" marginBottom="0px" height="auto"
+                      id="pt_gr1">
+            <af:gridCell marginStart="0px" marginEnd="0px" width="100%"
+                         id="pt_gc1" halign="stretch" inlineStyle="background-color:Navy;"> -->
+           <!--<af:panelBox id="pt_pb1" background="light" showDisclosure="false">
+              <f:facet name="toolbar"/> -->
+              <af:panelGridLayout id="pt_pgl3">
+                <af:gridRow marginTop="0px" height="auto" id="pt_gr3">
+                  <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="pt_gc2" halign="center">
+                    <af:outputText value="Bank Facility Management" id="pt_ot1"
+                                   inlineStyle="color:Red; font-size:xx-large; text-align:center;"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="pt_gr4">
+                  <af:gridCell marginStart="0px" width="34%" id="pt_gc4">
+                    <af:spacer width="10" height="10" id="pt_s1"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="0px" width="33%" id="pt_gc5" halign="end">
+                    <af:outputText value="david.john@gmail.com" id="pt_ot2" inlineStyle="font-size:medium;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="0px" width="33%" marginEnd="0px" id="pt_gc6" halign="end">
+                  <af:panelGroupLayout id="pt_pgl1" halign="end" >
+                        <af:button   text="Home" id="pt_b1" action="home" inlineStyle="background-color:Red;"/>
+                        <af:button   text="Dashboard" id="pt_b2" inlineStyle="background-color:Red;"/>
+                        <af:button   text="Preferences" id="pt_b3" inlineStyle="background-color:Red;"/>
+                        <af:button   text="Logout" id="pt_b4" inlineStyle="background-color:Red;"/>
+                    </af:panelGroupLayout>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            <!--  </af:panelBox> -->
+            <!--  <af:panelGridLayout id="pt_pgl1">
+                <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="pt_gr2">
+                  <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="pt_gc2" halign="center">
+                    <af:outputText value="Bank Facility Management" id="pt_ot1"
+                                   inlineStyle="color:White; font-size:xx-large; text-align:center;"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout> -->
+           <!-- </af:panelBox>
+            
+           
+            </af:gridCell>
+          </af:gridRow> 
+        </af:panelGridLayout>  -->
+      </f:facet>
+      <f:facet name="second">
+        <af:panelSplitter id="pt_ps2" splitterPosition="200" firstBorder="skin" secondBorder="skin">
+          <f:facet name="first">
+          <af:panelGridLayout id="pt_pgl4">
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="pt_gr1">
+              <af:gridCell marginStart="5px" width="5%" id="pt_gc1"/>
+              <af:gridCell marginStart="0px" width="90%" id="pt_gc3">
+                <af:panelGroupLayout id="pt_pgl2" layout="vertical">
+                  <af:outputText value="Master" id="pt_ot3"
+                                 inlineStyle="font-weight:bold; font-size:medium; font-family:sans-serif;"/>
+                  <af:separator id="pt_s2"/>
+                  <af:navigationPane id="pt_np1" hint="list" inlineStyle="font-size:small; background-color:inherit;">
+                    <af:commandNavigationItem text="Currency" id="pt_cni1" action="hr-emp"/>
+                    <af:commandNavigationItem text="Banks" id="pt_cni2" action="hr-dept"/>
+                    <af:commandNavigationItem text="Business Entity" id="pt_cni3" action="hr-pay"/>
+                    <af:commandNavigationItem text="Facility Structure" id="pt_cni4"/>
+                    <af:commandNavigationItem text="Status" id="pt_cni5"/>
+                    <af:commandNavigationItem text="Discounting Facility Limits"
+                                            id="pt_cni6"/>
+                  <af:commandNavigationItem text="Facility Tracker"
+                                            id="pt_cni12"/>
+                 <af:commandNavigationItem text="Lookup"
+                                            id="pt_cni12_1"/>
+ </af:navigationPane>                                            
+                    <af:spacer width="10" height="10" id="pt_s3"/>
+                    <af:outputText value="Transactions" id="pt_ot4"
+                                 inlineStyle="font-weight:bold; font-size:medium; font-family:sans-serif;"/>
+                  <af:separator id="pt_s21"/>
+                  <af:navigationPane hint="list" id="pt_np2">
+                    <af:commandNavigationItem id="ni1" text="Inward LC"/>
+                    <af:commandNavigationItem text="Outward LC" id="pt_cni7"/>
+                    <af:commandNavigationItem text="Loan" id="pt_cni8"/>
+                    <af:commandNavigationItem text="Other" id="pt_cni9"/>
+                  </af:navigationPane>
+                </af:panelGroupLayout>
+              </af:gridCell>
+              <af:gridCell marginStart="0px" width="5%" marginEnd="5px" id="pt_gc7"/>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <!--  <af:panelAccordion id="pt_pa1" dimensionsFrom="children" inlineStyle="background-color:inherit;">
+              <af:showDetailItem text="Master" id="pt_sdi1"
+                                 disclosed="true" inlineStyle="background-color:inherit;">
+              
+                <af:navigationPane id="pt_np1" hint="list" inlineStyle="font-size:small; background-color:inherit;">
+               
+                  <af:commandNavigationItem text="Currency"
+                                            id="pt_cni1" action="hr-emp"/>
+                  <af:commandNavigationItem text="Banks"
+                                            id="pt_cni2" action="hr-dept"/>
+                  <af:commandNavigationItem text="Business Entity"
+                                            id="pt_cni3" action="hr-pay"/>
+                  <af:commandNavigationItem text="Facility Structure"
+                                            id="pt_cni4"/>
+                  <af:commandNavigationItem text="Status"
+                                            id="pt_cni5"/>
+                  <af:commandNavigationItem text="Discounting Facility Limits"
+                                            id="pt_cni6"/>
+                  <af:commandNavigationItem text="Facility Tracker"
+                                            id="pt_cni12"/>
+                 <af:commandNavigationItem text="Lookup"
+                                            id="pt_cni12_1"/>
+            
+                  </af:navigationPane>
+               
+              </af:showDetailItem>
+               <af:showDetailItem text="Transactions" id="pt_sdi11" inlineStyle="background-color:Aqua;">
+                <af:navigationPane id="pt_np2" hint="list" inlineStyle="background-color:Aqua;">
+                  <af:commandNavigationItem text="Customer Releations Dashboard"
+                                            id="pt_cni7" action="crm"/>
+                  <af:commandNavigationItem text="Marketing"
+                                            id="pt_cni8"/>
+                  <af:commandNavigationItem text="Partner Management"
+                                            id="pt_cni9"/>
+                  <af:commandNavigationItem text="Remote Customers"
+                                            id="pt_cni10"/>
+                  <af:commandNavigationItem text="International Customers"
+                                            id="pt_cni11"/>
+                </af:navigationPane>
+              </af:showDetailItem>
+                <af:showDetailItem text="Reports" id="pt_sdi12">
+                <af:navigationPane id="pt_np3"/>
+              </af:showDetailItem>
+            </af:panelAccordion> -->
+   
+          </f:facet>
+          <f:facet name="second">
+         <af:panelBox id="pt_pb2" showHeader="never" showDisclosure="false"> 
+            <f:facet name="toolbar"/>
+            <af:facetRef facetName="page_cont"/>
+        </af:panelBox>
+        </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+    </af:panelSplitter>
+    
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>BfmCustomTemplate</afc:display-name>
+         <afc:facet>
+          <afc:facet-name>page_cont</afc:facet-name>
+        </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+</af:pageTemplateDef>

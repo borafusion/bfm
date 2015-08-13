@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="test.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/BfmCustomTemplate.jsf" id="pt1">
+                <f:facet name="page_cont">
+                    <af:panelGroupLayout layout="vertical" id="pgl1">
+                        <af:panelHeader text="BankEO" id="ph1">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::resId1"/>
+                        </af:panelHeader>
+                        <af:table value="#{bindings.BankVO1.collectionModel}" var="row"
+                                  rows="#{bindings.BankVO1.rangeSize}"
+                                  emptyText="#{bindings.BankVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.BankVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BankVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.BankVO1.rangeSize}"
+                                  filterModel="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                  filterVisible="true" varStatus="vs" id="resId1">
+                            <af:column sortProperty="#{bindings.BankVO1.hints.BankId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.BankId.label}"
+                                       id="resId1c1">
+                                <af:outputText value="#{row.BankId}"
+                                               shortDesc="#{bindings.BankVO1.hints.BankId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BankVO1.hints.BankId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.BankShortname.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.BankShortname.label}"
+                                       id="resId1c2">
+                                <af:outputText value="#{row.BankShortname}"
+                                               shortDesc="#{bindings.BankVO1.hints.BankShortname.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.BankName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.BankName.label}"
+                                       id="resId1c3">
+                                <af:outputText value="#{row.BankName}"
+                                               shortDesc="#{bindings.BankVO1.hints.BankName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.BranchAddress.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.BranchAddress.label}"
+                                       id="resId1c4">
+                                <af:outputText value="#{row.BranchAddress}"
+                                               shortDesc="#{bindings.BankVO1.hints.BranchAddress.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.Accountno.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.Accountno.label}"
+                                       id="resId1c5">
+                                <af:outputText value="#{row.Accountno}"
+                                               shortDesc="#{bindings.BankVO1.hints.Accountno.tooltip}" id="ot5"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.StartDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.StartDate.label}"
+                                       id="resId1c6">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.StartDate.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.BankVO1.hints.StartDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.StartDate}"
+                                               shortDesc="#{bindings.BankVO1.hints.StartDate.tooltip}" id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.BankVO1.hints.StartDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.EndDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.EndDate.label}"
+                                       id="resId1c7">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EndDate.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.BankVO1.hints.EndDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.EndDate}"
+                                               shortDesc="#{bindings.BankVO1.hints.EndDate.tooltip}" id="ot7">
+                                    <af:convertDateTime pattern="#{bindings.BankVO1.hints.EndDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.CreatedBy.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.CreatedBy.label}"
+                                       id="resId1c8">
+                                <af:outputText value="#{row.CreatedBy}"
+                                               shortDesc="#{bindings.BankVO1.hints.CreatedBy.tooltip}" id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.CreationDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.CreationDate.label}"
+                                       id="resId1c9">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.CreationDate.value}"
+                                                  id="id3">
+                                        <af:convertDateTime pattern="#{bindings.BankVO1.hints.CreationDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.CreationDate}"
+                                               shortDesc="#{bindings.BankVO1.hints.CreationDate.tooltip}" id="ot9">
+                                    <af:convertDateTime pattern="#{bindings.BankVO1.hints.CreationDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.LastUpdatedBy.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.LastUpdatedBy.label}"
+                                       id="resId1c10">
+                                <af:outputText value="#{row.LastUpdatedBy}"
+                                               shortDesc="#{bindings.BankVO1.hints.LastUpdatedBy.tooltip}" id="ot10"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.LastUpdateDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.LastUpdateDate.label}"
+                                       id="resId1c11">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdateDate.value}"
+                                                  id="id4">
+                                        <af:convertDateTime pattern="#{bindings.BankVO1.hints.LastUpdateDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.LastUpdateDate}"
+                                               shortDesc="#{bindings.BankVO1.hints.LastUpdateDate.tooltip}" id="ot11">
+                                    <af:convertDateTime pattern="#{bindings.BankVO1.hints.LastUpdateDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.LastUpdateLogin.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.LastUpdateLogin.label}"
+                                       id="resId1c12">
+                                <af:outputText value="#{row.LastUpdateLogin}"
+                                               shortDesc="#{bindings.BankVO1.hints.LastUpdateLogin.tooltip}" id="ot12"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BankVO1.hints.TenantId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.BankVO1.hints.TenantId.label}"
+                                       id="resId1c13">
+                                <af:outputText value="#{row.TenantId}"
+                                               shortDesc="#{bindings.BankVO1.hints.TenantId.tooltip}" id="ot13">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BankVO1.hints.TenantId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelGroupLayout> 
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
