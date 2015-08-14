@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="testPageDef"
+                Package="rbmbfm.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BankVO1" RangeSize="25" DataControl="BfmMasterAMDataControl" id="BankVO1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="BankVO1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BankVO1Iterator" id="BankVO1">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.BankVO" Name="BankVO10">
+        <AttrNames>
+          <Item Value="BankId"/>
+          <Item Value="BankShortname"/>
+          <Item Value="BankName"/>
+          <Item Value="BranchAddress"/>
+          <Item Value="Accountno"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="TenantId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
