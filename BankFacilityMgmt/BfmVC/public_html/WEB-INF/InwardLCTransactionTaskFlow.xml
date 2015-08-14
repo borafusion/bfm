@@ -31,12 +31,6 @@
     <view id="SearchInwardLCTransaction">
       <page>/bfm/SearchInwardLCTransaction.jsff</page>
     </view>
-    <method-call id="SetCurrentRowWithKey">
-      <method>#{bindings.setCurrentRowWithKey.execute}</method>
-      <outcome>
-        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
-      </outcome>
-    </method-call>
     <task-flow-return id="Save">
       <outcome>
         <name>Save</name>
@@ -49,15 +43,21 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__4">
         <from-outcome>add</from-outcome>
         <to-activity-id>CreateInsert</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__11">
+      <control-flow-case id="__2">
         <from-outcome>edit</from-outcome>
-        <to-activity-id>SetCurrentRowWithKey</to-activity-id>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">
@@ -74,13 +74,6 @@
         <to-activity-id>addEditRouter</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__12">
-      <from-activity-id>SetCurrentRowWithKey</from-activity-id>
-      <control-flow-case id="__13">
-        <from-outcome>setCurrentRowWithKey</from-outcome>
-        <to-activity-id>InwardLCTransactionDetail</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__14">
       <from-activity-id>InwardLCTransactionDetail</from-activity-id>
       <control-flow-case id="__15">
@@ -90,6 +83,13 @@
       <control-flow-case id="__16">
         <from-outcome>cancel</from-outcome>
         <to-activity-id>Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>InwardLCTransactionDetail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
