@@ -15,6 +15,7 @@
     <page path="/bfm/InwardLCTransactionDetail.jsff" usageId="rbmbfm_view_InwardLCTransactionDetailPageDef"/>
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@Commit"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
+    <page path="/bfm/SearchInwardLCTransaction.jsff" usageId="rbmbfm_view_SearchInwardLCTransactionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -26,6 +27,7 @@
           path="rbmbfm.view.pageDefs.InwardLCTransactionDetailPageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
+    <page id="rbmbfm_view_SearchInwardLCTransactionPageDef" path="bfm.SearchInwardLCTransactionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

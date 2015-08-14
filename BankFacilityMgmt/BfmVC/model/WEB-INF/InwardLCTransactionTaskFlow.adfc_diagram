@@ -7,13 +7,13 @@
       <property
          name="activityId">addEditRouter</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>addEditRouter&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>addEditRouter&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">202.94824</property>
+         name="y">200.49414</property>
       <property
          name="x">153.0</property>
    </Router>
@@ -38,7 +38,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R50,194.0,202.59766,321.01465,130.79883,L50</property>
+         name="sdm:polyPoints">R50,194.0,200.49414,321.01465,130.79883,L50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -89,5 +89,34 @@
          name="fromOutcome">submit</property>
       <property
          name="sdm:polyPoints">R50,686.3662,130.74707,830.5,163.79883,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">SearchInwardLCTransaction</property>
+      <property
+         name="page">/bfm/SearchInwardLCTransaction.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SearchInwardLCTransaction&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">51.097656</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">154.03711</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View9"
+      to="Router2">
+      <property
+         name="fromOutcome">addEdit</property>
+      <property
+         name="sdm:polyPoints">B50,154.03711,104.74707,153.0,146.49414,T50</property>
    </ControlFlowCase>
 </SDM>

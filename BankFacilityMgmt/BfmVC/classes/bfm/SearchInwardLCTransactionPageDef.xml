@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="SearchInwardLCTransactionPageDef" Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SearchInwardLCTransactionDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="SearchInwardLCTransactionDetailVOIterator"/>
+    <searchRegion Criteria="InwardLCTransactionDetailSearchCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SearchInwardLCTransactionDetailVOIterator" id="InwardLCTransactionDetailSearchCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SearchInwardLCTransactionDetailVOIterator" id="SearchInwardLCTransactionDetailVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"
+                      Name="SearchInwardLCTransactionDetailVO0">
+        <AttrNames>
+          <Item Value="TransactionType"/>
+          <Item Value="TransactionDate"/>
+          <Item Value="TransactionNumber"/>
+          <Item Value="SourceId"/>
+          <Item Value="BusinessEntityId"/>
+          <Item Value="IssuingBankId"/>
+          <Item Value="FacilityTrackerId"/>
+          <Item Value="ApprovalStatus"/>
+          <Item Value="BeneficiaryBankId"/>
+          <Item Value="SourceType"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="Version"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

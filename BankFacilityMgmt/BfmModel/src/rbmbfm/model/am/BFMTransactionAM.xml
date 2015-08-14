@@ -16,6 +16,13 @@
   <ViewUsage
     Name="InwardLCTransactionDetailVO1"
     ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"/>
+  <ViewUsage
+    Name="SearchInwardLCTransactionDetailVO"
+    ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO">
+    <ViewCriteriaUsage
+      Name="InwardLCTransactionDetailSearchCriteria"
+      FullName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InwardLCTransactionDetailSearchCriteria"/>
+  </ViewUsage>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"
