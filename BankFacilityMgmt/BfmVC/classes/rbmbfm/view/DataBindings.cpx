@@ -13,9 +13,9 @@
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@CreateInsert"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef"/>
     <page path="/bfm/InwardLCTransactionDetail.jsff" usageId="rbmbfm_view_InwardLCTransactionDetailPageDef"/>
-    <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@Commit"
-          usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
     <page path="/bfm/SearchInwardLCTransaction.jsff" usageId="rbmbfm_view_SearchInwardLCTransactionPageDef"/>
+    <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@SetCurrentRowWithKey"
+          usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -25,9 +25,9 @@
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionDetailPageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionDetailPageDef"/>
-    <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"
-          path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CommitPageDef"/>
     <page id="rbmbfm_view_SearchInwardLCTransactionPageDef" path="bfm.SearchInwardLCTransactionPageDef"/>
+    <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyPageDef"
+          path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

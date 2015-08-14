@@ -21,7 +21,7 @@
     PrimaryKey="true"
     RetrievedOnInsert="true">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_INWARD_LC_TRANS_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_INWARD_LC_TRANS_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

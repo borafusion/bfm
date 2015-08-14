@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:f="http://java.sun.com/jsf/core">
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="InwardLCTransactionDetailEO" id="ph1">
+    <af:panelHeader text="" id="ph1">
       <af:query id="qryId1" headerText="Search" disclosed="true"
                 value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
                 model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
@@ -10,6 +10,9 @@
                 queryOperationListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQueryOperation}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
+    <af:button text="Create Inward LC" id="b1" action="addEdit" partialSubmit="true">
+        <af:setActionListener from="" to="#{pageFlowScope.selectedTransactionId}"/>
+    </af:button>
     <af:table value="#{bindings.SearchInwardLCTransactionDetailVO.collectionModel}" var="row"
               rows="#{bindings.SearchInwardLCTransactionDetailVO.rangeSize}"
               emptyText="#{bindings.SearchInwardLCTransactionDetailVO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -44,9 +47,14 @@
       <af:column sortProperty="#{bindings.SearchInwardLCTransactionDetailVO.hints.TransactionNumber.name}"
                  filterable="true" sortable="true"
                  headerText="#{bindings.SearchInwardLCTransactionDetailVO.hints.TransactionNumber.label}" id="resId1c3">
+        <!--
         <af:outputText value="#{row.TransactionNumber}"
                        shortDesc="#{bindings.SearchInwardLCTransactionDetailVO.hints.TransactionNumber.tooltip}"
                        id="ot3"/>
+        -->
+        <af:commandLink action="addEdit" partialSubmit="true" id="cl1" text="#{row.TransactionNumber} -- #{row.TransactionId}">
+            <af:setActionListener from="#{row.TransactionId}" to="#{pageFlowScope.selectedTransactionId}"/>        
+        </af:commandLink>
       </af:column>
       <af:column sortProperty="#{bindings.SearchInwardLCTransactionDetailVO.hints.SourceId.name}" filterable="true"
                  sortable="true" headerText="#{bindings.SearchInwardLCTransactionDetailVO.hints.SourceId.label}"
