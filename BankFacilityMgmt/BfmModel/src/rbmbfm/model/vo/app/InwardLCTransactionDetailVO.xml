@@ -70,7 +70,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="BankName"/>
-      <Item Value="BankShortname"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -90,7 +89,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="BankName"/>
-      <Item Value="BankShortname"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

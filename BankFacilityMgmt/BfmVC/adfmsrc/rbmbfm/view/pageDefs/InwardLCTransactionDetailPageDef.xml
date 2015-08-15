@@ -50,5 +50,10 @@
             DataControl="BFMTransactionAMDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="BFMTransactionAMDataControl"/>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

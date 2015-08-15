@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XXBFM_INWARD_LC_TRANS_DTL"
   AliasName="InwardLCTransactionDetailEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="rbmbfm.model.eo.app.InwardLCTransactionDetailEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="TransactionId"
     IsNotNull="true"
@@ -20,8 +25,6 @@
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
     PrimaryKey="true"
     RetrievedOnInsert="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_INWARD_LC_TRANS_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -76,6 +79,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="rbmbfm.model.eo.app.InwardLCTransactionDetailEO.TransactionNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -196,7 +201,6 @@
     ColumnType="VARCHAR2"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
     IsUpdateable="while_insert"
-    RetrievedOnInsert="true"
     HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
@@ -217,7 +221,6 @@
     ColumnType="TIMESTAMP"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
     IsUpdateable="while_insert"
-    RetrievedOnInsert="true"
     HistoryColumn="DateHistory">
     <Properties>
       <SchemaBasedProperties>
@@ -235,8 +238,6 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
-    RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"
     HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
@@ -256,8 +257,6 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
-    RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"
     HistoryColumn="DateHistory">
     <Properties>
       <SchemaBasedProperties>
@@ -274,8 +273,6 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
-    RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"
     HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="32"/>
@@ -295,8 +292,6 @@
     ColumnType="NUMBER"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
     ChangeIndicator="true"
-    RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"
     HistoryColumn="VersionHistory"/>
   <Key
     Name="XxbfmInwardLcTransDtlPk"

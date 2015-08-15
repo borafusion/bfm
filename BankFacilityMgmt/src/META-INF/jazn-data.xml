@@ -67,11 +67,6 @@
                                 <name>rbmbfm.view.pageDefs.loginPageDef</name>
                                 <actions>view</actions>
                             </permission>
-                            <permission>
-                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
-                                <name>rbmbfm.view.pageDefs.errorPageDef</name>
-                                <actions>view</actions>
-                            </permission>
                         </permissions>
                     </grant>
                     <grant>
@@ -86,22 +81,7 @@
                         <permissions>
                             <permission>
                                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
-                                <name>rbmbfm.view.pageDefs.homePageDef</name>
-                                <actions>view</actions>
-                            </permission>
-                            <permission>
-                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                                <name>/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow</name>
-                                <actions>view</actions>
-                            </permission>
-                            <permission>
-                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
-                                <name>rbmbfm.view.pageDefs.InwardLCTransactionDetailPageDef</name>
-                                <actions>view</actions>
-                            </permission>
-                            <permission>
-                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
-                                <name>rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_CreateInsertPageDef</name>
+                                <name>rbmbfm.view.pageDefs.InwardLCTransactionPageDef</name>
                                 <actions>view</actions>
                             </permission>
                         </permissions>

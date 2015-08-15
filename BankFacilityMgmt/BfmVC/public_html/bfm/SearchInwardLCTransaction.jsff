@@ -64,7 +64,7 @@
                        id="ot3"/>
         -->
                     <af:commandLink action="addEdit" partialSubmit="true" id="cl1"
-                                    text="#{row.TransactionNumber} -- #{row.TransactionId}">
+                                    text="#{row.TransactionNumber}">
                         <af:setActionListener from="#{row.TransactionId}" to="#{pageFlowScope.selectedTransactionId}"/>
                     </af:commandLink>
                 </af:column>
