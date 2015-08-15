@@ -2,4 +2,38 @@
 <SDM>
    <OverallProperties
       id="OverallProperties1"/>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule2">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">241.29883</property>
+      <property
+         name="x">114.0</property>
+   </WildcardControlFlowRule>
+   <View
+      id="View3">
+      <property
+         name="activityId">InwardLCTransaction</property>
+      <property
+         name="page">/InwardLCTransaction.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>InwardLCTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">254.79883</property>
+      <property
+         name="x">491.02637</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="WildcardControlFlowRule2"
+      to="View3">
+      <property
+         name="fromOutcome">InwardLC</property>
+      <property
+         name="sdm:polyPoints">R50,150.0,241.44824,450.02637,254.44824,L50</property>
+   </ControlFlowCase>
 </SDM>

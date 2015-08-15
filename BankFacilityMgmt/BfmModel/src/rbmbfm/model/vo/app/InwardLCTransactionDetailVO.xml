@@ -271,16 +271,16 @@
       <CustomProperties>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="autoExecute"
           Value="false"/>
         <Property
           Name="allowConjunctionOverride"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="showInList"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -296,7 +296,14 @@
         Conjunction="AND"
         Value=":transactionNumberBind"
         IsBindVarValue="true"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="InwardLCTransactionDetailVOCriteria_InwardLCTransactionDetailVOCriteria_row_0_ApprovalStatus"
         ViewAttribute="ApprovalStatus"
@@ -304,7 +311,14 @@
         Conjunction="AND"
         Value=":approvalStatusBind"
         IsBindVarValue="true"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
 </ViewObject>

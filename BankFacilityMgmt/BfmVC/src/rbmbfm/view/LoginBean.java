@@ -90,7 +90,7 @@ public class LoginBean {
             ServletAuthentication.runAs(mySubject, request);
             ServletAuthentication.generateNewSessionID(request);
             //String loginUrl = "/adfAuthentication?success_url=/faces" + ctx.getViewRoot().getViewId();
-            String loginUrl = "/adfAuthentication?success_url=/faces/home.jspx";
+            String loginUrl = "/adfAuthentication?success_url=/faces/home.jsf";
             HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
             sendForward(request, response, loginUrl);
         } catch (FailedLoginException fle) {

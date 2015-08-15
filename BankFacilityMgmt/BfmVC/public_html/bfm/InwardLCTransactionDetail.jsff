@@ -73,8 +73,14 @@
           <f:validator binding="#{bindings.SourceType.validator}"/>
         </af:inputText>
         <f:facet name="footer">
-          <af:button text="Submit" id="b1" action="submit"
-                     partialSubmit="true"/>
+          <af:panelGroupLayout layout="horizontal">
+            <af:button text="Submit" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}" action="search"/>
+            <af:spacer width="10px" id="s1"/>
+            <af:button text="Cancel" id="b2" partialSubmit="true" actionListener="#{bindings.Rollback.execute}" action="search"
+                       immediate="true">
+              <af:resetActionListener/>
+            </af:button>
+          </af:panelGroupLayout>
         </f:facet>
       </af:panelFormLayout>
     </f:facet>

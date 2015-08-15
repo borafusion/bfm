@@ -79,7 +79,7 @@
                                  inlineStyle="font-weight:bold; font-size:medium; font-family:sans-serif;"/>
                   <af:separator id="pt_s21"/>
                   <af:navigationPane hint="list" id="pt_np2">
-                    <af:commandNavigationItem id="ni1" text="Inward LC"/>
+                    <af:commandNavigationItem id="ni1" text="Inward LC" action="InwardLC"/>
                     <af:commandNavigationItem text="Outward LC" id="pt_cni7"/>
                     <af:commandNavigationItem text="Loan" id="pt_cni8"/>
                     <af:commandNavigationItem text="Other" id="pt_cni9"/>

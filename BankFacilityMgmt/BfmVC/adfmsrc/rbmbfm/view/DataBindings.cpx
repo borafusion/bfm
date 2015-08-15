@@ -19,6 +19,7 @@
     <page path="/test.jsf" usageId="rbmbfm_view_testPageDef"/>
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@SetCurrentRowWithKeyValue"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/InwardLCTransaction.jsf" usageId="rbmbfm_view_InwardLCTransactionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -34,6 +35,7 @@
     <page id="rbmbfm_view_testPageDef" path="rbmbfm.view.pageDefs.testPageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="rbmbfm_view_InwardLCTransactionPageDef" path="rbmbfm.view.pageDefs.InwardLCTransactionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"
