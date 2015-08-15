@@ -22,14 +22,17 @@
                     <af:spacer width="10" height="10" id="pt_s1"/>
                   </af:gridCell>
                   <af:gridCell marginStart="0px" width="33%" id="pt_gc5" halign="end">
-                    <af:outputText value="david.john@gmail.com" id="pt_ot2" inlineStyle="font-size:medium;"/>
+                    <!--<af:outputText value="david.john@gmail.com" id="pt_ot2" inlineStyle="font-size:medium;"/>-->
+                        <af:outputText value="Welcome #{securityContext.userName}!"
+                                       inlineStyle="font-weight:bold; width:100px; font-size:medium;" id="ptot2"
+                                       rendered="#{securityContext.authenticated}"/>                    
                   </af:gridCell>
                   <af:gridCell marginStart="0px" width="33%" marginEnd="0px" id="pt_gc6" halign="end">
                   <af:panelGroupLayout id="pt_pgl1" halign="end" >
                         <af:button   text="Home" id="pt_b1" action="home" inlineStyle="background-color:Red;"/>
                         <af:button   text="Dashboard" id="pt_b2" inlineStyle="background-color:Red;"/>
                         <af:button   text="Preferences" id="pt_b3" inlineStyle="background-color:Red;"/>
-                        <af:button   text="Logout" id="pt_b4" inlineStyle="background-color:Red;"/>
+                        <af:button   text="Logout" id="pt_b4" inlineStyle="background-color:Red;" action="#{viewScope.loginBean.onLogout}"/>
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>

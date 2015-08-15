@@ -98,8 +98,11 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="BankFacilityMgmt_BfmModel">
+         <hash n="BFMModel">
             <value n="adflib-connectionDetails" v="true"/>
+            <list n="adflib-excludedConnections">
+               <string v="|"/>
+            </list>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -133,55 +136,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/BankFacilityMgmt_BfmModel.jar"/>
-            <hash n="LibraryDependencies"/>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="BankFacilityMgmt_BfmModel"/>
-         </hash>
-         <hash n="BankFacilityMgmt_BfmModel_adflib">
-            <value n="adflib-connectionDetails" v="true"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
+            <url n="jarURL" path="deploy/BFMModel.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList"/>
             </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="WEB-INF/classes/**"/>
-                              <value n="type" v="1"/>
-                           </hash>
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/BankFacilityMgmt_BfmModel_adflib.jar"/>
-            <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="BankFacilityMgmt_BfmModel_adflib"/>
+            <value n="profileName" v="BFMModel"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="BankFacilityMgmt_BfmModel_adflib"/>
-         <string v="BankFacilityMgmt_BfmModel"/>
+         <string v="BFMModel"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
