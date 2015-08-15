@@ -80,8 +80,8 @@ public class LoginBean {
          }*/
 
 
-        String un = userName;
-        byte[] pw = password.getBytes();
+        String un = userName != null ? userName : "";
+        byte[] pw = password != null ? password.getBytes() : new byte[]{};
         FacesContext ctx = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
         CallbackHandler handler = new SimpleCallbackHandler(un, pw);

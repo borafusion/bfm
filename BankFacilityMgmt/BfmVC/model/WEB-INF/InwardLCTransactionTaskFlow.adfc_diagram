@@ -38,7 +38,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R50,194.0,152.11328,321.01465,130.79883,L50</property>
+         name="sdm:polyPoints">R50,194.94386,152.1133,320.07077,130.79886,L50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -65,7 +65,7 @@
       <property
          name="fromOutcome">CreateInsert</property>
       <property
-         name="sdm:polyPoints">R50,403.01465,130.79883,538.3662,205.64355,L50</property>
+         name="sdm:polyPoints">R50,403.95853,130.79886,537.42236,201.1997,L45</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -94,7 +94,7 @@
       <property
          name="fromOutcome">addEdit</property>
       <property
-         name="sdm:polyPoints">B50,153.03711,45.0459,153.0,98.11328,T50</property>
+         name="sdm:polyPoints">B50,153.0371,45.989758,153.0,97.16943,T50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn14">
@@ -134,7 +134,7 @@
       <property
          name="fromOutcome">submit</property>
       <property
-         name="sdm:polyPoints">R46,620.3662,202.14355,797.0,121.896484,L50</property>
+         name="sdm:polyPoints">R45,621.31006,201.1997,796.05615,121.896484,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -144,7 +144,7 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">R54,620.3662,209.14355,805.0,325.89648,L50</property>
+         name="sdm:polyPoints">R55,621.31006,210.08743,804.0561,325.89645,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
@@ -177,6 +177,6 @@
       <property
          name="fromOutcome">setCurrentRowWithKeyValue</property>
       <property
-         name="sdm:polyPoints">R16,L75</property>
+         name="sdm:polyPoints">R50,408.64407,346.09766,537.42236,210.08743,L55</property>
    </ControlFlowCase>
 </SDM>
