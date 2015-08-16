@@ -65,24 +65,28 @@
                                  inlineStyle="font-weight:bold; font-size:medium; font-family:sans-serif;"/>
                   <af:separator id="pt_s2"/>
                   <af:navigationPane id="pt_np1" hint="list" inlineStyle="font-size:small; background-color:inherit;">
-                    <af:commandNavigationItem text="Currency" id="pt_cni1" action="hr-emp"/>
-                    <af:commandNavigationItem text="Banks" id="pt_cni2" action="hr-dept"/>
-                    <af:commandNavigationItem text="Business Entity" id="pt_cni3" action="hr-pay"/>
-                    <af:commandNavigationItem text="Facility Structure" id="pt_cni4"/>
-                    <af:commandNavigationItem text="Status" id="pt_cni5"/>
+                    <af:commandNavigationItem text="Currency" id="pt_cni1" action="currency"/>
+                    <af:commandNavigationItem text="Banks" id="pt_cni2" action="bank"/>
+                    <af:commandNavigationItem text="Business Entity" id="pt_cni3" action="bentity"/>
+                    <af:commandNavigationItem text="Facility Structure" id="pt_cni4" action="fac_struct"/>
+                    <af:commandNavigationItem text="Status" id="pt_cni5" action="status"/>
                     <af:commandNavigationItem text="Discounting Facility Limits"
-                                            id="pt_cni6"/>
+                                            id="pt_cni6" action="dis_fac_limit"/>
                   <af:commandNavigationItem text="Facility Tracker"
-                                            id="pt_cni12"/>
+                                            id="pt_cni12" action="fac_track"/>
                  <af:commandNavigationItem text="Lookup"
-                                            id="pt_cni12_1"/>
+                                            id="pt_cni12_1" action="lookup"/>
  </af:navigationPane>                                            
                     <af:spacer width="10" height="10" id="pt_s3"/>
                     <af:outputText value="Transactions" id="pt_ot4"
                                  inlineStyle="font-weight:bold; font-size:medium; font-family:sans-serif;"/>
                   <af:separator id="pt_s21"/>
                   <af:navigationPane hint="list" id="pt_np2">
-                    <af:commandNavigationItem id="ni1" text="Inward LC" action="InwardLC"/>
+                    <af:commandNavigationItem id="ni1" text="Inward LC" action="InwardLC" rendered="#{attrs.page_name != 'inward_lc'}"/>
+                    <af:commandNavigationItem id="ni1_a" text="Inward LC" action="InwardLC"
+                                              inlineStyle="font-weight:bold;"
+                                              rendered="#{attrs.page_name == 'inward_lc'}"/>
+                                              
                     <af:commandNavigationItem text="Outward LC" id="pt_cni7"/>
                     <af:commandNavigationItem text="Loan" id="pt_cni8"/>
                     <af:commandNavigationItem text="Other" id="pt_cni9"/>
@@ -92,51 +96,7 @@
               <af:gridCell marginStart="0px" width="5%" marginEnd="5px" id="pt_gc7"/>
             </af:gridRow>
           </af:panelGridLayout>
-          <!--  <af:panelAccordion id="pt_pa1" dimensionsFrom="children" inlineStyle="background-color:inherit;">
-              <af:showDetailItem text="Master" id="pt_sdi1"
-                                 disclosed="true" inlineStyle="background-color:inherit;">
-              
-                <af:navigationPane id="pt_np1" hint="list" inlineStyle="font-size:small; background-color:inherit;">
-               
-                  <af:commandNavigationItem text="Currency"
-                                            id="pt_cni1" action="hr-emp"/>
-                  <af:commandNavigationItem text="Banks"
-                                            id="pt_cni2" action="hr-dept"/>
-                  <af:commandNavigationItem text="Business Entity"
-                                            id="pt_cni3" action="hr-pay"/>
-                  <af:commandNavigationItem text="Facility Structure"
-                                            id="pt_cni4"/>
-                  <af:commandNavigationItem text="Status"
-                                            id="pt_cni5"/>
-                  <af:commandNavigationItem text="Discounting Facility Limits"
-                                            id="pt_cni6"/>
-                  <af:commandNavigationItem text="Facility Tracker"
-                                            id="pt_cni12"/>
-                 <af:commandNavigationItem text="Lookup"
-                                            id="pt_cni12_1"/>
-            
-                  </af:navigationPane>
-               
-              </af:showDetailItem>
-               <af:showDetailItem text="Transactions" id="pt_sdi11" inlineStyle="background-color:Aqua;">
-                <af:navigationPane id="pt_np2" hint="list" inlineStyle="background-color:Aqua;">
-                  <af:commandNavigationItem text="Customer Releations Dashboard"
-                                            id="pt_cni7" action="crm"/>
-                  <af:commandNavigationItem text="Marketing"
-                                            id="pt_cni8"/>
-                  <af:commandNavigationItem text="Partner Management"
-                                            id="pt_cni9"/>
-                  <af:commandNavigationItem text="Remote Customers"
-                                            id="pt_cni10"/>
-                  <af:commandNavigationItem text="International Customers"
-                                            id="pt_cni11"/>
-                </af:navigationPane>
-              </af:showDetailItem>
-                <af:showDetailItem text="Reports" id="pt_sdi12">
-                <af:navigationPane id="pt_np3"/>
-              </af:showDetailItem>
-            </af:panelAccordion> -->
-   
+          
           </f:facet>
           <f:facet name="second">
          <af:panelBox id="pt_pb2" showHeader="never" showDisclosure="false"> 
@@ -155,6 +115,10 @@
          <afc:facet>
           <afc:facet-name>page_cont</afc:facet-name>
         </afc:facet>
+        <afc:attribute>
+                <afc:attribute-name>page_name</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
         </afc:component>
     </af:xmlContent>
 </af:pageTemplateDef>

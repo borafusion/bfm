@@ -7,6 +7,7 @@
                 <f:facet name="page_cont">
                     <af:region value="#{bindings.InwardLCTransactionTaskFlow1.regionModel}" id="r1"/>
                 </f:facet>
+                 <f:attribute name="page_name" value="inward_lc"/>
             </af:pageTemplate>
         </af:form>
     </af:document>
