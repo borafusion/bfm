@@ -76,7 +76,6 @@
                         shortDesc="#{bindings.SourceType.hints.tooltip}" id="it4">
             <f:validator binding="#{bindings.SourceType.validator}"/>
           </af:inputText>
-          <af:outputText value="TEST_#{bindings.CreatedBy.inputValue}"/>
           <f:facet name="footer">
             <af:panelGroupLayout layout="horizontal" id="pgl1">
               <af:button text="Submit" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}"
