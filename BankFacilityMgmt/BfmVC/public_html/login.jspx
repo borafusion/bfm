@@ -4,10 +4,86 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="login.jspx" id="d1">
+            <af:form id="f2" defaultCommand="cb1">
+                <af:panelGridLayout id="pgl1" inlineStyle="background-color:lightblue;">
+                    <af:gridRow height="100px" id="gr3" marginBottom="10px">
+                        <af:gridCell width="200px" halign="stretch" valign="stretch" id="gc2">
+
+
+                        </af:gridCell>
+                        <af:gridCell halign="stretch" valign="stretch" columnSpan="2" id="gc5" width="100%">
+                            <af:panelGroupLayout layout="horizontal" id="pgl4" styleClass="AFStretchWidth">
+                                <af:image source="/images/AdaptJoy.png" id="i1"></af:image>
+                                <af:spacer width="10px"/>
+                                <af:outputText value="Bank Finance Management" inlineStyle="font-size:large;"/>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="10px">
+                        <af:gridCell columnSpan="3" width="100%">
+                            <af:separator inlineStyle="background-color:Red;"/>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="100%" id="gr2">
+                        <af:gridCell width="100px" halign="stretch" valign="stretch" id="gc8">
+
+                        </af:gridCell>
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                            <af:panelGroupLayout id="pgl3">
+                                <af:spacer height="100px" id="s2"/>
+                                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                    <af:spacer width="400px" id="s1"/>
+                                    <af:panelBox background="default" showDisclosure="false"
+                                                 inlineStyle="width:300px; height:150px;" text="Welcome" id="pb1">
+
+                                        <af:panelFormLayout id="pfl1" fieldWidth="30px" maxColumns="2">
+                                            <af:messages inline="true" id="m1" inlineStyle="text-decoration:none;"/>
+                                            <af:panelLabelAndMessage id="plam1" label="Username">
+                                                <af:inputText id="it1" value="#{viewScope.loginBean.userName}"/>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="Password" id="plam2">
+                                                <af:inputText id="it2" value="#{viewScope.loginBean.password}"
+                                                              secret="true"/>
+                                            </af:panelLabelAndMessage>
+                                            <f:facet name="footer">
+                                                <af:panelLabelAndMessage id="plam3">
+                                                    <af:commandButton text="Login" id="cb1"
+                                                                      action="#{viewScope.loginBean.doLogin}"/>
+                                                </af:panelLabelAndMessage>
+                                            </f:facet>
+                                        </af:panelFormLayout>
+                                    </af:panelBox>
+                                    <af:spacer width="400px" id="s3"/>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                        <af:gridCell width="100px" halign="stretch" valign="stretch" id="gc4">
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="50px" id="gr1">
+                        <af:gridCell width="200px" halign="stretch" valign="stretch" id="gc6">
+
+                        </af:gridCell>
+                        <af:gridCell halign="stretch" valign="stretch" columnSpan="3" id="gc3">
+                            <af:navigationPane hint="bar" id="np1">
+                                <af:commandNavigationItem id="ni1" text="About AdaptJoy"/>
+                                <af:commandNavigationItem id="ni2" text="Contact Us"/>
+                                <af:commandNavigationItem id="ni3" text="Legal Notices"/>
+                                <af:commandNavigationItem id="ni4" text="Terms of Use"/>
+                                <af:commandNavigationItem id="ni5" text="Your Privacy Rights"/>
+                            </af:navigationPane>
+                        </af:gridCell>
+                        <af:gridCell width="100px" halign="stretch" valign="stretch" id="gc7">
+
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:form>
+            <!--
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc3">
-                        <!-- Header -->
+
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr3">
@@ -19,7 +95,6 @@
                                     <af:spacer width="400px" id="s1"/>
                                     <af:panelBox background="default" showDisclosure="false"
                                                  inlineStyle="width:300px; height:150px;" text="Welcome" id="pb1">
-                                        <!--border-width:5px; border-color:Blue; border-style:double; -->
                                         <af:panelFormLayout id="pfl1" fieldWidth="30px" maxColumns="2">
                                             <af:messages inline="true" id="m1" inlineStyle="text-decoration:none;"/>
                                             <af:panelLabelAndMessage id="plam1" label="Username">
@@ -46,10 +121,11 @@
                 </af:gridRow>
                 <af:gridRow height="50px" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
-                        <!-- Footer -->
+
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>
+            -->
         </af:document>
     </f:view>
 </jsp:root>

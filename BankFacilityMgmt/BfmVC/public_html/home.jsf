@@ -5,7 +5,74 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/BfmCustomTemplate.jsf" id="pt1">
                 <f:facet name="page_cont">
-                    <af:outputText value="Login Successful"/>
+                    <af:panelDashboard id="dashboard" dimensionsFrom="auto" columns="2" rowHeight="300px">
+                        <af:panelBox id="panelBox1" text="Quick Links" showDisclosure="false" >
+                                    <af:panelGridLayout id="pgl2">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                            <af:gridCell marginStart="5px" width="50%" id="gc5" halign="stretch"
+                                                         valign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb5"
+                                                             background="medium">
+                                                    <f:facet name="toolbar">
+                                                           </f:facet>
+                                                    <af:link text="Maintain Masters" id="l2"
+                                                             icon="/images/AdaptJoy.png"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb6"
+                                                             background="medium">
+                                                    <f:facet name="toolbar"/>
+                                                    <af:link text="Transactions" id="l3"
+                                                             icon="/images/AdaptJoy.png"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                            <af:gridCell marginStart="5px" width="50%" id="gc7" halign="stretch"
+                                                         valign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb7"
+                                                             background="medium">
+                                                    <f:facet name="toolbar"/>
+                                                    <af:link text="Reports" id="l1"
+                                                             icon="/images/AdaptJoy.png"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb8"
+                                                             background="medium">
+                                                    <af:link text="Administration" id="l4"
+                                                             icon="/images/AdaptJoy.png"/>
+                                                    <f:facet name="toolbar"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                        </af:panelBox>
+                        <af:panelBox id="panelBox2" text="Approval Requests" showDisclosure="false">
+                            <af:panelGroupLayout id="pglS2" layout="scroll">
+                                <af:panelGroupLayout id="pglV2" layout="vertical" inlineStyle="padding: 4px">
+
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:panelBox>
+                        <af:panelBox id="panelBox3" text="Bank Calendar" showDisclosure="false">
+                                <af:panelGroupLayout id="pglV3" layout="horizontal" 
+                                                     inlineStyle="padding:10px;">
+                                    <af:chooseDate id="cd1" minValue="2015-07-17" maxValue="2015-08-17"/>
+                                    <af:chooseDate id="cd2" minValue="2015-09-17" maxValue="2015-10-17"/>
+                                </af:panelGroupLayout>
+                        </af:panelBox>
+                        <af:panelBox id="panelBox4" text="Recent Activities" showDisclosure="false">
+                            <af:panelGroupLayout id="pglS4" layout="scroll">
+                                <af:panelGroupLayout id="pglV4" layout="vertical" inlineStyle="padding: 4px">
+                                    
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:panelBox>
+                    </af:panelDashboard>
                 </f:facet>
             </af:pageTemplate>
         </af:form>
