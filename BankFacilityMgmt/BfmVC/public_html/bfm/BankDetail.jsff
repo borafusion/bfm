@@ -13,7 +13,7 @@
                 <af:panelFormLayout id="pfl1">
                 
                     <af:panelLabelAndMessage label="#{bindings.BankShortname.hints.label}" id="plam1">
-                        <af:outputFormatted value="#{bindings.BankShortname.inputValue}__Test - #{pageFlowScope.bankIdParam}" id="of1"/>
+                        <af:outputFormatted value="#{bindings.BankShortname.inputValue}" id="of1"/>
                     </af:panelLabelAndMessage>
                     <af:panelLabelAndMessage label="#{bindings.BankName.hints.label}" id="plam2">
                         <af:outputFormatted value="#{bindings.BankName.inputValue}" id="of2"/>

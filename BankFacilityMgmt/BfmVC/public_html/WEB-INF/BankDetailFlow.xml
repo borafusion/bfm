@@ -3,7 +3,7 @@
   <task-flow-definition id="BankDetailFlow">
     <default-activity>ExecuteWithParams</default-activity>
     <data-control-scope>
-      <shared/>
+      <isolated/>
     </data-control-scope>
     <input-parameter-definition id="__1">
       <name>bankIdParam</name>

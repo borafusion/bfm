@@ -10,10 +10,10 @@
   <af:panelStretchLayout id="psl1">
     <f:facet name="bottom"/>
     <f:facet name="center">
-      <af:panelGroupLayout layout="vertical" id="pgl2">
+      <af:panelGroupLayout layout="vertical" id="pgl2"  inlineStyle="padding:4px;">
         <af:panelBox text="Inward LC" id="pb1">
           <f:facet name="toolbar"/>
-          <af:panelFormLayout id="pfl1">
+          <af:panelFormLayout id="pfl1" maxColumns="4" rows="5" fieldWidth="50px" labelWidth="30px">
             <af:inputText value="#{bindings.TransactionType.inputValue}" label="#{bindings.TransactionType.hints.label}"
                           required="#{bindings.TransactionType.hints.mandatory}"
                           columns="#{bindings.TransactionType.hints.displayWidth}"
@@ -91,10 +91,12 @@
             </f:facet>
           </af:panelFormLayout>
         </af:panelBox>
+        <af:spacer height="4px"/>
         <af:panelGroupLayout layout="horizontal" inlineStyle="width:100%">
           <af:panelBox text="Issuing Bank" inlineStyle="width:100%">
             <af:region value="#{bindings.BankDetailFlow1.regionModel}" id="r1"/>
           </af:panelBox>
+          <af:spacer width="1px"/>
           <af:panelBox text="Beneficiary Bank" inlineStyle="width:100%">
             <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2"/>
           </af:panelBox>
