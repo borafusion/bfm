@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelFormLayout id="pfl1">
+                
+                    <af:panelLabelAndMessage label="#{bindings.BankShortname.hints.label}" id="plam1">
+                        <af:outputFormatted value="#{bindings.BankShortname.inputValue}__Test - #{pageFlowScope.bankIdParam}" id="of1"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.BankName.hints.label}" id="plam2">
+                        <af:outputFormatted value="#{bindings.BankName.inputValue}" id="of2"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.BranchAddress.hints.label}" id="plam3">
+                        <af:outputFormatted value="#{bindings.BranchAddress.inputValue}" id="of3"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.Accountno.hints.label}" id="plam4">
+                        <af:outputFormatted value="#{bindings.Accountno.inputValue}" id="of4"/>
+                    </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</jsp:root>
+<!--
+</ui:composition>
+-->
