@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-  <af:panelBox>
-    <af:panelGroupLayout layout="vertical" id="pgl1">
+  <af:panelBox showHeader="never">
+    <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="padding:4px;">
         <af:panelBox text="PanelBox1" id="pb1" background="dark" showHeader="never" showDisclosure="false">
             <f:facet name="toolbar"/>
             <af:query id="qryId1" headerText="Search LC Transaction" disclosed="true" saveQueryMode="hidden"
