@@ -23,6 +23,13 @@
       Name="InwardLCTransactionDetailSearchCriteria"
       FullName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InwardLCTransactionDetailSearchCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="BankDetailVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO">
+    <ViewCriteriaUsage
+      Name="BankIdCriteria"
+      FullName="rbmbfm.model.vo.master.BankVO.BankIdCriteria"/>
+  </ViewUsage>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"

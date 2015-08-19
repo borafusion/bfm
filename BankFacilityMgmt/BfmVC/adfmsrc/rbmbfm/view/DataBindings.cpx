@@ -20,6 +20,9 @@
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@SetCurrentRowWithKeyValue"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/InwardLCTransaction.jsf" usageId="rbmbfm_view_InwardLCTransactionPageDef"/>
+    <page path="/WEB-INF/BankDetailFlow.xml#BankDetailFlow@ExecuteWithParams"
+          usageId="rbmbfm_view_BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
+    <page path="/bfm/BankDetail.jsff" usageId="rbmbfm_view_BankDetailPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -36,6 +39,9 @@
     <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_SetCurrentRowWithKeyValuePageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionPageDef" path="rbmbfm.view.pageDefs.InwardLCTransactionPageDef"/>
+    <page id="rbmbfm_view_BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"
+          path="rbmbfm.view.pageDefs.BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
+    <page id="rbmbfm_view_BankDetailPageDef" path="bfm.BankDetailPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

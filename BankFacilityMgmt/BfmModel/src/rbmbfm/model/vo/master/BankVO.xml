@@ -14,6 +14,10 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="bankIdParam"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="BankEO"
     Entity="rbmbfm.model.eo.master.BankEO"/>
@@ -104,6 +108,42 @@
     EntityAttrName="TenantId"
     EntityUsage="BankEO"
     AliasName="TENANT_ID"/>
+  <ViewCriteria
+    Name="BankIdCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="BankVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BankId"
+        ViewAttribute="BankId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bankIdParam"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FacilityTrackerVO"
     ViewLink="rbmbfm.model.vo.master.vlink.BankToFacilityTrackerVL"

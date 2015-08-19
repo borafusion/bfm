@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelBox>
     <af:panelGroupLayout layout="vertical" id="pgl1">
         <af:panelBox text="PanelBox1" id="pb1" background="dark" showHeader="never" showDisclosure="false">
             <f:facet name="toolbar"/>
@@ -149,6 +150,7 @@
                                    shortDesc="#{bindings.SearchInwardLCTransactionDetailVO.hints.SourceType.tooltip}"
                                    id="ot6"/>
                 </af:column>
+                <!--
                 <af:column sortProperty="#{bindings.SearchInwardLCTransactionDetailVO.hints.CreatedBy.name}"
                            filterable="true" sortable="true"
                            headerText="#{bindings.SearchInwardLCTransactionDetailVO.hints.CreatedBy.label}"
@@ -216,7 +218,9 @@
                                           pattern="#{bindings.SearchInwardLCTransactionDetailVO.hints.Version.format}"/>
                     </af:outputText>
                 </af:column>
+                -->
             </af:table>
         </af:panelCollection>
     </af:panelGroupLayout>
+    </af:panelBox>
 </jsp:root>
