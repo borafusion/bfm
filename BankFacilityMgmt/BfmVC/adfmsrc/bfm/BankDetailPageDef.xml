@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="BankDetailPageDef" Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BankDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl" id="BankDetailVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BankDetailVOIterator" id="BankShortname">
+      <AttrNames>
+        <Item Value="BankShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankDetailVOIterator" id="BankName">
+      <AttrNames>
+        <Item Value="BankName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankDetailVOIterator" id="BranchAddress">
+      <AttrNames>
+        <Item Value="BranchAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankDetailVOIterator" id="Accountno">
+      <AttrNames>
+        <Item Value="Accountno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

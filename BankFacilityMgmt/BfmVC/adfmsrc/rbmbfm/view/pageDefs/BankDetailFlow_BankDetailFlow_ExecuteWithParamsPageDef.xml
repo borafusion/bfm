@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef" Package="rbmbfm.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="BankDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl" id="BankDetailVOIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="BankDetailVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="bankIdParam" NDValue="#{pageFlowScope.bankIdParam}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>
