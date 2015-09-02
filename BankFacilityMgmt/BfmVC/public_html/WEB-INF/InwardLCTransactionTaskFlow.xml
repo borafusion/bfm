@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="InwardLCTransactionTaskFlow">
-    <default-activity>SearchInwardLCTransaction</default-activity>
+    <default-activity>SearchInwardLC</default-activity>
     <transaction>
       <new-transaction/>
     </transaction>
@@ -37,6 +37,9 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SearchInwardLC">
+      <page>/bfm/SearchInwardLC.jsff</page>
+    </view>
     <control-flow-rule id="__3">
       <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__4">

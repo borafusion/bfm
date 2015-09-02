@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+ <af:panelGridLayout id="pt_pgl1"> 
+    <af:gridRow marginTop="5px" id="pt_gr1" height="11%">
+      <af:gridCell marginStart="5px" width="10%" id="pt_gc1">
+        <af:spacer width="10" height="10" id="pt_s2"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="70%" id="pt_gc2" halign="stretch" inlineStyle="border-bottom-style:none;">
+    
+          <af:panelGridLayout id="pt_pgl3" inlineStyle="border-top-style:none; border-bottom-style:groove;">
+            <af:gridRow marginTop="0px" height="auto" id="pt_gr3">
+              <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="pt_gc21" halign="start">
+              <af:panelGroupLayout id="pt_pgl2" layout="horizontal">
+                <af:image source="/images/AdaptJoy1.png" id="pt_i1"/>
+                <af:outputText value="Bank Facility Management" id="pt_ot1"
+                               inlineStyle="color:Red; font-size:x-large; text-align:center; font-weight:bold;"/>
+              </af:panelGroupLayout>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="pt_gr4">
+              <af:gridCell marginStart="0px" width="0%" id="pt_gc4">
+                <af:spacer width="10" height="10" id="pt_s1"/>
+              </af:gridCell>
+              <af:gridCell marginStart="0px" width="67%" id="pt_gc5" halign="start">
+               
+                <af:outputText value="Welcome #{securityContext.userName}"
+                               inlineStyle="width:100px; font-size:small; color:Black;" id="ptot2"
+                               rendered="#{securityContext.authenticated}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="0px" width="33%" marginEnd="0px" id="pt_gc6" halign="end">
+                <af:panelGroupLayout id="pt_pgl11" halign="end">
+                  <!-- <af:button text="Home" id="pt_b1" action="home" styleClass="AFAppNavbarButton"  
+                  icon="/resources/images/naviBarFaces/navi_person_24_ena.png" />
+                  <af:button text="Dashboard" id="pt_b2" inlineStyle="background-color:Red;" 
+                  icon="/resources/images/naviBarFaces/navi_people_24_ena.png"/>
+                  <af:button text="Preferences" id="pt_b3" inlineStyle="background-color:Red;"/>
+                  <af:button text="Logout" id="pt_b4" inlineStyle="background-color:Red;"
+                             action="#{viewScope.loginBean.onLogout}"/> -->
+                <af:button text="Home" id="b1" styleClass="AFAppNavbarButton" selected="true" type="radio"
+                               icon="/resources/images/naviBarFaces/navi_person_24_ena.png"
+                               hoverIcon="/resources/images/naviBarFaces/navi_person_24_hov.png"
+                               depressedIcon="/resources/images/naviBarFaces/navi_person_24_act.png" action="home"/>
+                    <af:button text="Dashboard" id="b2" styleClass="AFAppNavbarButton" type="radio"
+                               icon="/resources/images/naviBarFaces/navi_people_24_ena.png"
+                               hoverIcon="/resources/images/naviBarFaces/navi_people_24_hov.png"
+                               depressedIcon="/resources/images/naviBarFaces/navi_people_24_act.png"/>
+                    <af:button text="Reports" id="b3" styleClass="AFAppNavbarButton" type="radio"
+                               icon="/resources/images/naviBarFaces/navi_dashboard_24_ena.png"
+                               hoverIcon="/resources/images/naviBarFaces/navi_dashboard_24_hov.png"
+                               depressedIcon="/resources/images/naviBarFaces/navi_dashboard_24_act.png"/>
+                   <af:button text="Logout" id="b3l" styleClass="AFAppNavbarButton" type="radio"
+                               icon="/resources/images/naviBarFaces/logout24.jpg"
+                               hoverIcon="/resources/images/naviBarFaces/logout24.jpg"
+                               depressedIcon="/resources/images/naviBarFaces/logout24.jpg"
+                               action="#{viewScope.loginBean.onLogout}"/>
+                </af:panelGroupLayout>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+      
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="15%" marginEnd="5px" id="pt_gc3">
+        <af:spacer width="10" height="10" id="pt_s3"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="84%" id="pt_gr2">
+      <af:gridCell marginStart="5px" width="15%" id="pt_gc41">
+        <af:spacer width="10" height="10" id="pt_s4"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="70%" id="pt_gc51" halign="stretch" valign="stretch">
+        <af:facetRef facetName="page_cont"/>
+       <!-- <af:panelBox text="PanelBox1" id="pt_pb1">
+          <f:facet name="toolbar"/>
+          <af:facetRef facetName="page_cont"/>
+        </af:panelBox> -->
+        
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="15%" marginEnd="5px" id="pt_gc61">
+        <af:spacer width="10" height="10" id="pt_s5"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" marginBottom="5px" id="pt_gr31" height="5%">
+      <af:gridCell marginStart="5px" width="15%" id="pt_gc7">
+        <af:spacer width="10" height="10" id="pt_s6"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="70%" id="pt_gc8" inlineStyle="border-top-style:outset;" halign="stretch">
+        <af:navigationPane hint="bar" id="np1">
+                        <af:commandNavigationItem id="ni1" text="About BFM"/>
+                        <af:commandNavigationItem id="ni2" text="Contact Us"/>
+                        <af:commandNavigationItem id="ni3" text="Legal Notices"/>
+                        <af:commandNavigationItem id="ni4" text="Terms of Use"/>
+                        <af:commandNavigationItem id="ni5" text="Your Privacy Rights"/>
+                    </af:navigationPane>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="15%" marginEnd="5px" id="pt_gc9">
+        <af:spacer width="10" height="10" id="pt_s7"/>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:xmlContent>
+    <afc:component>
+      <afc:description/>
+      <afc:display-name>BfmTrendyTemplate</afc:display-name>
+      <afc:facet>
+        <afc:facet-name>page_cont</afc:facet-name>
+      </afc:facet>
+    </afc:component>
+  </af:xmlContent>
+</af:pageTemplateDef>

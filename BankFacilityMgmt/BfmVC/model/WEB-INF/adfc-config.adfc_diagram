@@ -34,6 +34,31 @@
       <property
          name="fromOutcome">InwardLC</property>
       <property
-         name="sdm:polyPoints">R50,150.0,241.44824,450.02637,254.44824,L50</property>
+         name="sdm:polyPoints">R45,151.51349,237.94824,450.02637,254.44824,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">home</property>
+      <property
+         name="page">/home.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>home&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">445.09766</property>
+      <property
+         name="x">300.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="WildcardControlFlowRule2"
+      to="View5">
+      <property
+         name="fromOutcome">home</property>
+      <property
+         name="sdm:polyPoints">R55,150.0,244.94824,300.5,391.44824,T50</property>
    </ControlFlowCase>
 </SDM>

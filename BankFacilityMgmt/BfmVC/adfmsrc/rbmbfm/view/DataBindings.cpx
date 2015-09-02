@@ -23,6 +23,7 @@
     <page path="/WEB-INF/BankDetailFlow.xml#BankDetailFlow@ExecuteWithParams"
           usageId="rbmbfm_view_BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
     <page path="/bfm/BankDetail.jsff" usageId="rbmbfm_view_BankDetailPageDef"/>
+    <page path="/bfm/SearchInwardLC.jsff" usageId="rbmbfm_view_SearchInwardLCPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -42,6 +43,7 @@
     <page id="rbmbfm_view_BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"
           path="rbmbfm.view.pageDefs.BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
     <page id="rbmbfm_view_BankDetailPageDef" path="bfm.BankDetailPageDef"/>
+    <page id="rbmbfm_view_SearchInwardLCPageDef" path="bfm.SearchInwardLCPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

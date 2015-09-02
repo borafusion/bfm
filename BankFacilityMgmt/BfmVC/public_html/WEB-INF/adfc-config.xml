@@ -3,11 +3,18 @@
   <view id="InwardLCTransaction">
     <page>/InwardLCTransaction.jsf</page>
   </view>
+  <view id="home">
+    <page>/home.jsf</page>
+  </view>
   <control-flow-rule id="__2">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__3">
       <from-outcome>InwardLC</from-outcome>
       <to-activity-id>InwardLCTransaction</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>home</from-outcome>
+      <to-activity-id>home</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">
