@@ -53,9 +53,9 @@
       <property
          name="y">205.99414</property>
       <property
-         name="x">579.3662</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">579.3662</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -82,20 +82,10 @@
       <property
          name="y">-8.603516</property>
       <property
-         name="x">153.03711</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">153.03711</property>
    </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View9"
-      to="Router2">
-      <property
-         name="fromOutcome">addEdit</property>
-      <property
-         name="sdm:polyPoints">B50,153.03711,45.0459,154.0,125.41211,T50</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
       <property
@@ -129,25 +119,6 @@
       <property
          name="sdm:polyPoints">R50,407.7002,346.09766,538.3662,209.14355,L54</property>
    </ControlFlowCase>
-   <WildcardControlFlowRule
-      id="WildcardControlFlowRule16">
-      <property
-         name="activityId">*</property>
-      <property
-         name="y">-161.70117</property>
-      <property
-         name="x">86.0</property>
-   </WildcardControlFlowRule>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase17"
-      from="WildcardControlFlowRule16"
-      to="View9">
-      <property
-         name="fromOutcome">search</property>
-      <property
-         name="sdm:polyPoints">B50,86.0,-119.05176,153.03711,-62.9541,T50</property>
-   </ControlFlowCase>
    <View
       id="View15">
       <property
@@ -163,8 +134,47 @@
       <property
          name="y">-54.75293</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">362.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule17">
+      <property
+         name="activityId">*</property>
+      <property
+         name="srcid">__12</property>
+      <property
+         name="y">-133.0</property>
+      <property
+         name="x">230.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase18"
+      from="WildcardControlFlowRule17"
+      to="View15">
+      <property
+         name="fromOutcome">search</property>
+      <property
+         name="tosrcid">__13</property>
+      <property
+         name="fromsrcid">__12</property>
+      <property
+         name="sdm:polyPoints">R50,266.0,-133.0,321.0,-55.103516,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="View15"
+      to="Router2">
+      <property
+         name="fromOutcome">addEdit</property>
+      <property
+         name="tosrcid">__9</property>
+      <property
+         name="fromsrcid">__8</property>
+      <property
+         name="sdm:polyPoints">B50,362.0,-1.1035156,154.0,125.41211,T50</property>
+   </ControlFlowCase>
 </SDM>

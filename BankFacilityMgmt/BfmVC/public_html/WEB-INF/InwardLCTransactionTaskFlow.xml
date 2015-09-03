@@ -59,7 +59,7 @@
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__8">
-      <from-activity-id>SearchInwardLCTransaction</from-activity-id>
+      <from-activity-id>SearchInwardLC</from-activity-id>
       <control-flow-case id="__9">
         <from-outcome>addEdit</from-outcome>
         <to-activity-id>addEditRouter</to-activity-id>
@@ -76,7 +76,7 @@
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__13">
         <from-outcome>search</from-outcome>
-        <to-activity-id>SearchInwardLCTransaction</to-activity-id>
+        <to-activity-id>SearchInwardLC</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

@@ -6,8 +6,10 @@
                 <af:outputFormatted value="Inward LC" id="of1" styleClass="WBPageTitleText"
                                     inlineStyle="font-size:large; font-weight:bold;"/>
             </af:gridCell>
-            <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">
-                <af:button text="New" id="b1"/>
+            <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">                
+                <af:button text="New" id="b1" action="addEdit" partialSubmit="true">
+                    <af:setActionListener from="" to="#{pageFlowScope.selectedTransactionId}"/>
+                </af:button>                
             </af:gridCell>
             <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">
                
