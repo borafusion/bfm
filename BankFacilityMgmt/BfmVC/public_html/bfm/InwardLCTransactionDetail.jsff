@@ -69,7 +69,7 @@
                             <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
                         </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}"
-                                            label="#{bindings.IssuingBankId.label}"
+                                            label="#{bindings.IssuingBankId.label}" autoSubmit="true"
                                             required="#{bindings.IssuingBankId.hints.mandatory}"
                                             shortDesc="#{bindings.IssuingBankId.hints.tooltip}" id="soc2">
                             <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
@@ -85,7 +85,7 @@
                         </af:selectOneChoice>
                         -->
                         <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
-                                            label="#{bindings.BeneficiaryBankId.label}"
+                                            label="#{bindings.BeneficiaryBankId.label}" autoSubmit="true"
                                             required="#{bindings.BeneficiaryBankId.hints.mandatory}"
                                             shortDesc="#{bindings.BeneficiaryBankId.hints.tooltip}" id="soc4">
                             <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si4"/>
@@ -114,15 +114,16 @@
                     </af:panelFormLayout>
                     <af:separator/>
                     <af:panelGroupLayout layout="horizontal" inlineStyle="width:100%">
-                        <af:panelHeader text="Issuing Bank" inlineStyle="width:100%">
+                        <af:panelHeader text="Issuing Bank" inlineStyle="width:100%" partialTriggers="soc2">
                             <!--<af:panelLabelAndMessage label="Issuing Bank">-->
-                            <af:region value="#{bindings.BankDetailFlow1.regionModel}" id="r1"/>
+                            <af:region value="#{bindings.BankDetailFlow1.regionModel}" id="r1"
+                                       visible="#{not empty bindings.IssuingBankId.inputValue}"/>
                             <!--</af:panelLabelAndMessage>-->
                         </af:panelHeader>
                         <af:spacer width="1px"/>
-                        <af:panelHeader text="Beneficiary Bank" inlineStyle="width:100%">
+                        <af:panelHeader text="Beneficiary Bank" inlineStyle="width:100%" partialTriggers="soc4">
                             <!--<af:panelLabelAndMessage label="Beneficiary Bank">-->
-                            <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2"/>
+                            <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2" visible="#{not empty bindings.BeneficiaryBankId.inputValue}"/>
                             <!--</af:panelLabelAndMessage>-->
                         </af:panelHeader>
                          <af:spacer width="1px"/>

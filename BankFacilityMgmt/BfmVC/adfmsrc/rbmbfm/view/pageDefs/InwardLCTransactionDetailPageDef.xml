@@ -7,13 +7,13 @@
     <iterator Binds="InwardLCTransactionDetailVO1" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="InwardLCTransactionDetailVO1Iterator"/>
     <taskFlow id="BankDetailFlow1" taskFlowId="/WEB-INF/BankDetailFlow.xml#BankDetailFlow" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
       <parameters>
         <parameter id="bankIdParam" value="#{bindings.IssuingBankId.attributeValue}"/>
       </parameters>
     </taskFlow>
     <taskFlow id="BankDetailFlow2" taskFlowId="/WEB-INF/BankDetailFlow.xml#BankDetailFlow" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
       <parameters>
         <parameter id="bankIdParam" value="#{bindings.BeneficiaryBankId.attributeValue}"/>
       </parameters>
