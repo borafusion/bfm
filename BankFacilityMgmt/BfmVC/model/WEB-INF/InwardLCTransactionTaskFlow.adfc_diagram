@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">152.46387</property>
+         name="y">179.7627</property>
       <property
-         name="x">153.0</property>
+         name="x">154.0</property>
    </Router>
    <MethodCall
       id="MethodCall3">
@@ -38,7 +38,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R50,194.0,152.11328,321.01465,130.79883,L50</property>
+         name="sdm:polyPoints">R50,195.0,179.41211,321.01465,130.79883,L50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -74,9 +74,9 @@
       <property
          name="page">/bfm/SearchInwardLCTransaction.jsff</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>SearchInwardLCTransaction&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>SearchInwardLCTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -94,7 +94,7 @@
       <property
          name="fromOutcome">addEdit</property>
       <property
-         name="sdm:polyPoints">B50,153.03711,45.0459,153.0,98.11328,T50</property>
+         name="sdm:polyPoints">B50,153.03711,45.0459,154.0,125.41211,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
@@ -117,7 +117,7 @@
       <property
          name="fromOutcome">edit</property>
       <property
-         name="sdm:polyPoints">B50,153.0,206.11328,325.7002,346.09766,L50</property>
+         name="sdm:polyPoints">B50,154.0,233.41211,325.7002,346.09766,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -148,4 +148,23 @@
       <property
          name="sdm:polyPoints">B50,86.0,-119.05176,153.03711,-62.9541,T50</property>
    </ControlFlowCase>
+   <View
+      id="View15">
+      <property
+         name="activityId">SearchInwardLC</property>
+      <property
+         name="page">/bfm/SearchInwardLC.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SearchInwardLC&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-54.75293</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">362.0</property>
+   </View>
 </SDM>

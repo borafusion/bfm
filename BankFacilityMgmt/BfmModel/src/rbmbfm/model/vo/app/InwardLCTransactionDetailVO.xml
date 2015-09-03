@@ -187,7 +187,16 @@
     PrecisionRule="true"
     EntityAttrName="TransactionDate"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="TRANSACTION_DATE"/>
+    AliasName="TRANSACTION_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.TransactionDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.TransactionDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionNumber"
     PrecisionRule="true"
@@ -381,4 +390,8 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
