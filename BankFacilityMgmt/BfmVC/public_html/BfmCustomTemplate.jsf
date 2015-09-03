@@ -12,9 +12,20 @@
               <f:facet name="toolbar"/> -->
               <af:panelGridLayout id="pt_pgl3">
                 <af:gridRow marginTop="0px" height="auto" id="pt_gr3">
-                  <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="pt_gc2" halign="center">
+                  <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="pt_gc2" halign="left" columnSpan="3">
                     <af:outputText value="Bank Facility Management" id="pt_ot1"
                                    inlineStyle="color:Red; font-size:xx-large; text-align:center;"/>
+                    <!--
+                            <af:panelGroupLayout layout="horizontal" id="pgl4" styleClass="AFStretchWidth" inlineStyle=""
+                                                 halign="left">
+                                <af:image source="/images/AdaptJoy.png" id="i1"  inlineStyle="width: 40px"></af:image>
+                                <af:outputText value="Bank Finance Management"/>
+                                <af:spacer width="10px"/>
+                                <af:outputText value="Bank Finance Management"
+                                               inlineStyle="font-size:large; border-color:Red; border-style:double;"/>
+                            </af:panelGroupLayout>
+                    -->
+                    
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="pt_gr4">

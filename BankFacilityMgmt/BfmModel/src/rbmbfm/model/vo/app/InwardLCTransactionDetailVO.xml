@@ -37,6 +37,14 @@
     Name="FacilityTrackerVVO"
     ViewObjectName="rbmbfm.model.vo.master.FacilityTrackerVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TransactionTypeVVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionTypeVVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InwardLCTransactionSourceVVO"
+    ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionSourceVVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BusinessEntityId"
     ListVOName="BusinessEntityVVO"
@@ -111,6 +119,44 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_TransactionType"
+    ListVOName="TransactionTypeVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransactionType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SourceId"
+    ListVOName="InwardLCTransactionSourceVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SourceId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SourceId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PoId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="InwardLCTransactionDetailEO"
     Entity="rbmbfm.model.eo.app.InwardLCTransactionDetailEO"/>
@@ -127,7 +173,15 @@
     PrecisionRule="true"
     EntityAttrName="TransactionType"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="TRANSACTION_TYPE"/>
+    AliasName="TRANSACTION_TYPE"
+    LOVName="LOV_TransactionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionDate"
     PrecisionRule="true"
@@ -145,7 +199,15 @@
     PrecisionRule="true"
     EntityAttrName="SourceId"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="SOURCE_ID"/>
+    AliasName="SOURCE_ID"
+    LOVName="LOV_SourceId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BusinessEntityId"
     PrecisionRule="true"

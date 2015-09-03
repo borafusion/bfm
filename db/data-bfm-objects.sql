@@ -20,3 +20,104 @@
   VALUES(XXBFM_FACILITY_TRACKER_SEQ.NEXTVAL,108,101,101, 101,1,'ICICI');
 
   --------------------------  
+  
+  --LOV--
+
+INSERT
+INTO XXBFM.XXBFM_LOOKUP_TYPE_ALL
+  (
+    LOOKUP_TYPE_ID,
+    LOOKUP_TYPE,
+    DESCRIPTION,
+    START_DATE,
+    END_DATE,
+    STATUS,
+    CREATED_BY,
+    CREATION_DATE,
+    LAST_UPDATED_BY,
+    LAST_UPDATE_DATE,
+    LAST_UPDATE_LOGIN,
+    TENANT_ID
+  )
+  VALUES
+  (
+    XXBFM_LOOKUP_TYPE_SEQ.NEXTVAL,
+    'TRANSACTION_TYPE',
+    'Transaction Type',
+    TO_DATE('15-Nov-1980','dd-mon-yyyy'),
+    TO_DATE('15-Nov-2020','dd-mon-yyyy'),
+    'ACTIV',
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    1
+  );
+INSERT
+INTO XXBFM.XXBFM_LOOKUP_VALUE_ALL
+  (
+    LOOKUP_VALUE_ID,
+    LOOKUP_TYPE,
+    LOOKUP_VALUE,
+    DESCRIPTION,
+    START_DATE,
+    END_DATE,
+    STATUS,
+    CREATED_BY,
+    CREATION_DATE,
+    LAST_UPDATED_BY,
+    LAST_UPDATE_DATE,
+    LAST_UPDATE_LOGIN,
+    TENANT_ID
+  )
+  VALUES
+  (
+    XXBFM_LOOKUP_VALUE_SEQ.NEXTVAL,
+    'TRANSACTION_TYPE',
+    'Inward',
+    'Inward LC Transaction',
+    TO_DATE('15-Nov-1980','dd-mon-yyyy'),
+    TO_DATE('15-Nov-2020','dd-mon-yyyy'),
+    'ACTIV',
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    1
+  );
+INSERT
+INTO XXBFM.XXBFM_LOOKUP_VALUE_ALL
+  (
+    LOOKUP_VALUE_ID,
+    LOOKUP_TYPE,
+    LOOKUP_VALUE,
+    DESCRIPTION,
+    START_DATE,
+    END_DATE,
+    STATUS,
+    CREATED_BY,
+    CREATION_DATE,
+    LAST_UPDATED_BY,
+    LAST_UPDATE_DATE,
+    LAST_UPDATE_LOGIN,
+    TENANT_ID
+  )
+  VALUES
+  (
+    XXBFM_LOOKUP_VALUE_SEQ.NEXTVAL,
+    'TRANSACTION_TYPE',
+    'Outward',
+    'Outward LC Transaction',
+    TO_DATE('15-Nov-1980','dd-mon-yyyy'),
+    TO_DATE('15-Nov-2020','dd-mon-yyyy'),
+    'ACTIV',
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    SYSDATE,
+    'SYSADMIN',
+    1
+  );  
+  

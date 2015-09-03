@@ -30,6 +30,9 @@
       Name="BankIdCriteria"
       FullName="rbmbfm.model.vo.master.BankVO.BankIdCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="InwardLCTransactionTypeVVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionTypeVVO"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"

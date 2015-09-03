@@ -11,7 +11,15 @@
             <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="padding:10px;">
                 <af:panelHeader text="Inward LC" id="pb1">
                     <f:facet name="toolbar"/>
-                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="5" fieldWidth="50px" labelWidth="30px">
+                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="5" fieldWidth="100px" labelWidth="50px">
+                        <af:selectOneChoice value="#{bindings.TransactionType1.inputValue}"
+                                            label="#{bindings.TransactionType1.label}"
+                                            required="#{bindings.TransactionType1.hints.mandatory}"
+                                            shortDesc="#{bindings.TransactionType1.hints.tooltip}" id="soc5">
+                            <f:selectItems value="#{bindings.TransactionType1.items}" id="si5"/>
+                            <f:validator binding="#{bindings.TransactionType1.validator}"/>
+                        </af:selectOneChoice>
+                        <!--
                         <af:inputText value="#{bindings.TransactionType.inputValue}"
                                       label="#{bindings.TransactionType.hints.label}"
                                       required="#{bindings.TransactionType.hints.mandatory}"
@@ -20,6 +28,7 @@
                                       shortDesc="#{bindings.TransactionType.hints.tooltip}" id="it1">
                             <f:validator binding="#{bindings.TransactionType.validator}"/>
                         </af:inputText>
+                        -->
                         <af:inputDate value="#{bindings.TransactionDate.inputValue}"
                                       label="#{bindings.TransactionDate.hints.label}"
                                       required="#{bindings.TransactionDate.hints.mandatory}"
@@ -33,9 +42,10 @@
                                       required="#{bindings.TransactionNumber.hints.mandatory}"
                                       columns="#{bindings.TransactionNumber.hints.displayWidth}"
                                       maximumLength="#{bindings.TransactionNumber.hints.precision}"
-                                      shortDesc="#{bindings.TransactionNumber.hints.tooltip}" id="it2">
+                                      shortDesc="#{bindings.TransactionNumber.hints.tooltip}" id="it2" readOnly="true">
                             <f:validator binding="#{bindings.TransactionNumber.validator}"/>
                         </af:inputText>
+                        <!--
                         <af:inputText value="#{bindings.SourceId.inputValue}" label="#{bindings.SourceId.hints.label}"
                                       required="#{bindings.SourceId.hints.mandatory}"
                                       columns="#{bindings.SourceId.hints.displayWidth}"
@@ -44,6 +54,13 @@
                             <f:validator binding="#{bindings.SourceId.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.SourceId.format}"/>
                         </af:inputText>
+                        -->
+                        <af:selectOneChoice value="#{bindings.SourceId1.inputValue}" label="#{bindings.SourceId1.label}"
+                                            required="#{bindings.SourceId1.hints.mandatory}"
+                                            shortDesc="#{bindings.SourceId1.hints.tooltip}" id="soc6">
+                            <f:selectItems value="#{bindings.SourceId1.items}" id="si6"/>
+                            <f:validator binding="#{bindings.SourceId1.validator}"/>
+                        </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.BusinessEntityId.inputValue}"
                                             label="#{bindings.BusinessEntityId.label}"
                                             required="#{bindings.BusinessEntityId.hints.mandatory}"
@@ -58,6 +75,7 @@
                             <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
                             <f:validator binding="#{bindings.IssuingBankId.validator}"/>
                         </af:selectOneChoice>
+                        <!--
                         <af:selectOneChoice value="#{bindings.FacilityTrackerId.inputValue}"
                                             label="#{bindings.FacilityTrackerId.label}"
                                             required="#{bindings.FacilityTrackerId.hints.mandatory}"
@@ -65,6 +83,7 @@
                             <f:selectItems value="#{bindings.FacilityTrackerId.items}" id="si3"/>
                             <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
                         </af:selectOneChoice>
+                        -->
                         <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
                                             label="#{bindings.BeneficiaryBankId.label}"
                                             required="#{bindings.BeneficiaryBankId.hints.mandatory}"
@@ -106,8 +125,21 @@
                             <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2"/>
                             <!--</af:panelLabelAndMessage>-->
                         </af:panelHeader>
+                         <af:spacer width="1px"/>
+                        <af:panelHeader text="Beneficiary" inlineStyle="width:100%">
+                            <af:panelGroupLayout layout="vertical" inlineStyle="vertical-align:top;">
+                                <af:panelLabelAndMessage label="Beneficiary Name">
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="Contact Name">
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="Contact Num">
+                                </af:panelLabelAndMessage>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
                     </af:panelGroupLayout>
                     <af:separator/>
+                    <af:panelHeader text="Document Details: LC" inlineStyle="width:100%">
+                    </af:panelHeader>
                 </af:panelHeader>
                 <af:spacer height="4px"/>
             </af:panelGroupLayout>
