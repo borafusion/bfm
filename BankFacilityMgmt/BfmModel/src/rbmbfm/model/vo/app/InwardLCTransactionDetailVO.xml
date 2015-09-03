@@ -45,6 +45,17 @@
     Name="InwardLCTransactionSourceVVO"
     ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionSourceVVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BankFacilityStructureVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bankIdBind">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[BeneficiaryBankId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_BusinessEntityId"
     ListVOName="BusinessEntityVVO"
@@ -102,7 +113,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_FacilityTrackerId"
-    ListVOName="FacilityTrackerVVO"
+    ListVOName="BankFacilityStructureVVO"
     ListRangeSize="-1"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
@@ -115,7 +126,7 @@
       <Item Value="FacilityTrackerId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FacilityValue"/>
+      <Item Value="FacilityName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

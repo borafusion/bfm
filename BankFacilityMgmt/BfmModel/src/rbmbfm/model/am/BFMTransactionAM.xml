@@ -33,6 +33,9 @@
   <ViewUsage
     Name="InwardLCTransactionTypeVVO"
     ViewObjectName="rbmbfm.model.vo.app.TransactionTypeVVO"/>
+  <ViewUsage
+    Name="BankFacilityStructureVVO1"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"

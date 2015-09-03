@@ -11,18 +11,10 @@
                     <af:setActionListener from="" to="#{pageFlowScope.selectedTransactionId}"/>
                 </af:button>                
             </af:gridCell>
-            <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">
-               
-                    <af:quickQuery id="qryId1" value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
-                                   model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
-                                   queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"/>
-                       <!-- <af:query id="qryId1" headerText="Search" disclosed="true"
-                                  value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
-                                  model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
-                                  queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"
-                                  queryOperationListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQueryOperation}"/> -->
-                   
-                    
+            <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">               
+                <af:quickQuery id="qryId1" value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
+                               model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
+                               queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"/>                                   
             </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">

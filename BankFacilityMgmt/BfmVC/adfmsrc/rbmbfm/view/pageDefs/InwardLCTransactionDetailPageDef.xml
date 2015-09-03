@@ -45,7 +45,7 @@
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_IssuingBankId"
           id="IssuingBankId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_FacilityTrackerId"
-          id="FacilityTrackerId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+          id="FacilityTrackerId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="ApprovalStatus">
       <AttrNames>
         <Item Value="ApprovalStatus"/>
