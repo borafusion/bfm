@@ -27,9 +27,17 @@
                     <af:listItem id="li1" styleClass="WBListPadding">
                         <af:panelGridLayout id="pgl3">
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            
                                 <af:gridCell marginStart="5px" id="gc5" halign="stretch">
+                                                                <!--  
                                 <af:image id="i1" styleClass="WBImage WBImageBorder"
                                           source="/resources/images/qual_myorg_70.png"/>
+
+            -->
+                                <af:commandImageLink action="addEdit" partialSubmit="true" id="cl1" icon="/resources/images/qual_myorg_70.png">
+                                    <af:setActionListener from="#{item.bindings.TransactionId}" to="#{pageFlowScope.selectedTransactionId}"/>
+                                </af:commandImageLink>                                          
+                                
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="20%" id="gc6">
                                 <af:panelGroupLayout id="pgl3c1" layout="vertical">

@@ -36,6 +36,15 @@
   <ViewUsage
     Name="BankFacilityStructureVVO1"
     ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"/>
+  <ViewUsage
+    Name="GetBeneficiaryDetailVO1"
+    ViewObjectName="rbmbfm.model.vo.app.GetBeneficiaryDetailVO"/>
+  <ViewLinkUsage
+    Name="InwardLCToBeneficiaryDetailsVL1"
+    ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO1"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.GetBeneficiaryDetailVO1"
+    Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"

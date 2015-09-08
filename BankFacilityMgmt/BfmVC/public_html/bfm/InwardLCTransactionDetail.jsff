@@ -56,7 +56,7 @@
                         </af:inputText>
                         -->
                         <af:selectOneChoice value="#{bindings.SourceId1.inputValue}" label="#{bindings.SourceId1.label}"
-                                            required="#{bindings.SourceId1.hints.mandatory}"
+                                            required="#{bindings.SourceId1.hints.mandatory}" autoSubmit="true"
                                             shortDesc="#{bindings.SourceId1.hints.tooltip}" id="soc6">
                             <f:selectItems value="#{bindings.SourceId1.items}" id="si6"/>
                             <f:validator binding="#{bindings.SourceId1.validator}"/>
@@ -91,14 +91,13 @@
                             <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si4"/>
                             <f:validator binding="#{bindings.BeneficiaryBankId.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputText value="#{bindings.SourceType.inputValue}"
-                                      label="#{bindings.SourceType.hints.label}"
-                                      required="#{bindings.SourceType.hints.mandatory}"
-                                      columns="20"
-                                      maximumLength="#{bindings.SourceType.hints.precision}"
-                                      shortDesc="#{bindings.SourceType.hints.tooltip}" id="it4">
+                        <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
+                                            label="#{bindings.SourceType.label}"
+                                            required="#{bindings.SourceType.hints.mandatory}"
+                                            shortDesc="#{bindings.SourceType.hints.tooltip}" id="soc7">
+                            <f:selectItems value="#{bindings.SourceType.items}" id="si7"/>
                             <f:validator binding="#{bindings.SourceType.validator}"/>
-                        </af:inputText>
+                        </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.FacilityTrackerId.inputValue}"
                                             label="#{bindings.FacilityTrackerId.label}" partialTriggers="soc4"
                                             required="#{bindings.FacilityTrackerId.hints.mandatory}"
@@ -134,15 +133,51 @@
                             <!--</af:panelLabelAndMessage>-->
                         </af:panelHeader>
                          <af:spacer width="1px"/>
-                        <af:panelHeader text="Beneficiary" inlineStyle="width:100%">
-                            <af:panelGroupLayout layout="vertical" inlineStyle="vertical-align:top;">
-                                <af:panelLabelAndMessage label="Beneficiary Name">
-                                </af:panelLabelAndMessage>
-                                <af:panelLabelAndMessage label="Contact Name">
-                                </af:panelLabelAndMessage>
-                                <af:panelLabelAndMessage label="Contact Num">
-                                </af:panelLabelAndMessage>
-                            </af:panelGroupLayout>
+                        <af:panelHeader text="Beneficiary" inlineStyle="width:100%" partialTriggers="soc6">
+                        <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{bindings.BeneficiaryId.inputValue}"
+                                          label="#{bindings.BeneficiaryId.hints.label}"
+                                          required="#{bindings.BeneficiaryId.hints.mandatory}"
+                                          columns="#{bindings.BeneficiaryId.hints.displayWidth}"
+                                          maximumLength="#{bindings.BeneficiaryId.hints.precision}"
+                                          shortDesc="#{bindings.BeneficiaryId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.BeneficiaryId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.BeneficiaryId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.BeneficiaryName.inputValue}"
+                                          label="#{bindings.BeneficiaryName.hints.label}"
+                                          required="#{bindings.BeneficiaryName.hints.mandatory}"
+                                          columns="#{bindings.BeneficiaryName.hints.displayWidth}"
+                                          maximumLength="#{bindings.BeneficiaryName.hints.precision}"
+                                          shortDesc="#{bindings.BeneficiaryName.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.BeneficiaryName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ContactName.inputValue}"
+                                          label="#{bindings.ContactName.hints.label}"
+                                          required="#{bindings.ContactName.hints.mandatory}"
+                                          columns="#{bindings.ContactName.hints.displayWidth}"
+                                          maximumLength="#{bindings.ContactName.hints.precision}"
+                                          shortDesc="#{bindings.ContactName.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.ContactName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ContactNumber.inputValue}"
+                                          label="#{bindings.ContactNumber.hints.label}"
+                                          required="#{bindings.ContactNumber.hints.mandatory}"
+                                          columns="#{bindings.ContactNumber.hints.displayWidth}"
+                                          maximumLength="#{bindings.ContactNumber.hints.precision}"
+                                          shortDesc="#{bindings.ContactNumber.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.ContactNumber.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.SourceId2.inputValue}"
+                                          label="#{bindings.SourceId2.hints.label}"
+                                          required="#{bindings.SourceId2.hints.mandatory}"
+                                          columns="#{bindings.SourceId2.hints.displayWidth}"
+                                          maximumLength="#{bindings.SourceId2.hints.precision}"
+                                          shortDesc="#{bindings.SourceId2.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.SourceId2.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.SourceId2.format}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
                         </af:panelHeader>
                     </af:panelGroupLayout>
                     <af:separator/>

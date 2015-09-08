@@ -18,6 +18,8 @@
         <parameter id="bankIdParam" value="#{bindings.BeneficiaryBankId.attributeValue}"/>
       </parameters>
     </taskFlow>
+    <iterator Binds="GetBeneficiaryDetailVO1" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="GetBeneficiaryDetailVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="TransactionType">
@@ -53,11 +55,6 @@
     </attributeValues>
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_BeneficiaryBankId"
           id="BeneficiaryBankId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="SourceType">
-      <AttrNames>
-        <Item Value="SourceType"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
             DataControl="BFMTransactionAMDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
@@ -71,5 +68,32 @@
           id="TransactionType1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_SourceId" id="SourceId1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_SourceType" id="SourceType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GetBeneficiaryDetailVO1Iterator" id="BeneficiaryId">
+      <AttrNames>
+        <Item Value="BeneficiaryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GetBeneficiaryDetailVO1Iterator" id="BeneficiaryName">
+      <AttrNames>
+        <Item Value="BeneficiaryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GetBeneficiaryDetailVO1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GetBeneficiaryDetailVO1Iterator" id="ContactNumber">
+      <AttrNames>
+        <Item Value="ContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GetBeneficiaryDetailVO1Iterator" id="SourceId2">
+      <AttrNames>
+        <Item Value="SourceId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

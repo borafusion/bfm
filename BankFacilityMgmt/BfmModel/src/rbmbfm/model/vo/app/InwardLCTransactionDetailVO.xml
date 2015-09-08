@@ -56,6 +56,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SourceTypeVVO"
+    ViewObjectName="rbmbfm.model.vo.master.SourceTypeVVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BusinessEntityId"
     ListVOName="BusinessEntityVVO"
@@ -165,6 +169,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="PoId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SourceType"
+    ListVOName="SourceTypeVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SourceType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValue"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -297,7 +320,15 @@
     PrecisionRule="true"
     EntityAttrName="SourceType"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="SOURCE_TYPE"/>
+    AliasName="SOURCE_TYPE"
+    LOVName="LOV_SourceType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -401,6 +432,11 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="GetBeneficiaryDetailVO"
+    ViewLink="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="rbmbfm.model.BfmModelBundle"/>

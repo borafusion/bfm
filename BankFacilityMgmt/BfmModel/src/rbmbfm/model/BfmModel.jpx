@@ -13,6 +13,7 @@
     <Attr Name="_NamedConnection" Value="bfm"/>
     <Attr Name="_appModuleNames0" Value="rbmbfm.model.am.master.BfmMasterAM"/>
     <Attr Name="_appModuleNames1" Value="rbmbfm.model.am.BFMTransactionAM"/>
+    <Attr Name="_domainNames0" Value="rbmbfm.model.vo.app.Type"/>
   </DesignTime>
   <Containee
     Name="am"
@@ -60,6 +61,15 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vlink"
+    PackageName="rbmbfm.model.vo.app.vlink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

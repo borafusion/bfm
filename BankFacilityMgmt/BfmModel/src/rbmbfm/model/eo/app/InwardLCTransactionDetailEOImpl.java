@@ -60,6 +60,8 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int TRANSACTIONID = AttributesEnum.TransactionId.index();
     public static final int TRANSACTIONTYPE = AttributesEnum.TransactionType.index();
     public static final int TRANSACTIONDATE = AttributesEnum.TransactionDate.index();
@@ -83,6 +85,14 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
      */
     public InwardLCTransactionDetailEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("rbmbfm.model.eo.app.InwardLCTransactionDetailEO");
+    }
+
 
     /**
      * Gets the attribute value for TransactionId, using the alias name TransactionId.
@@ -308,6 +318,7 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
         return (BigDecimal) getAttributeInternal(VERSION);
     }
 
+
     /**
      * @param transactionId key constituent
 
@@ -315,13 +326,6 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(BigDecimal transactionId) {
         return new Key(new Object[] { transactionId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("rbmbfm.model.eo.app.InwardLCTransactionDetailEO");
     }
 
     /**
