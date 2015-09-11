@@ -14,6 +14,22 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindCombination"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindBEntity"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindBGroup"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindProject"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="BusinessEntityEO"
     Entity="rbmbfm.model.eo.master.BusinessEntityEO"/>
@@ -49,7 +65,18 @@
     PrecisionRule="true"
     EntityAttrName="Combination"
     EntityUsage="BusinessEntityEO"
-    AliasName="COMBINATION"/>
+    AliasName="COMBINATION">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[BusinessEntity + '-' + BusinessGroup + '-' + ProjectCode]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="BusinessEntity"/>
+      <Item
+        Value="BusinessGroup"/>
+      <Item
+        Value="ProjectCode"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="Status"
     PrecisionRule="true"
@@ -61,25 +88,29 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="BusinessEntityEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="BusinessEntityEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="BusinessEntityEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="BusinessEntityEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -92,6 +123,66 @@
     EntityAttrName="TenantId"
     EntityUsage="BusinessEntityEO"
     AliasName="TENANT_ID"/>
+  <ViewCriteria
+    Name="BusinessEntityVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.BusinessEntityVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="BusinessEntityVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BusinessEntityVOCriteria_BusinessEntityVOCriteria_row_0_BusinessEntity"
+        ViewAttribute="BusinessEntity"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindBEntity"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BusinessGroup"
+        ViewAttribute="BusinessGroup"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindBGroup"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProjectCode"
+        ViewAttribute="ProjectCode"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindProject"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Combination"
+        ViewAttribute="Combination"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindCombination"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FacilityTrackerVO"
     ViewLink="rbmbfm.model.vo.master.vlink.BusinessEntityToFacilityTrackerVL"

@@ -18,6 +18,14 @@
     Name="bankIdParam"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="BindBankName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindBankAddress"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="BankEO"
     Entity="rbmbfm.model.eo.master.BankEO"/>
@@ -27,35 +35,80 @@
     PrecisionRule="true"
     EntityAttrName="BankId"
     EntityUsage="BankEO"
-    AliasName="BANK_ID"/>
+    AliasName="BANK_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.BankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BankShortname"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BankShortname"
     EntityUsage="BankEO"
-    AliasName="BANK_SHORTNAME"/>
+    AliasName="BANK_SHORTNAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.BankShortname_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BankName"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BankName"
     EntityUsage="BankEO"
-    AliasName="BANK_NAME"/>
+    AliasName="BANK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.BankName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="120"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BranchAddress"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BranchAddress"
     EntityUsage="BankEO"
-    AliasName="BRANCH_ADDRESS"/>
+    AliasName="BRANCH_ADDRESS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.BranchAddress_LABEL"/>
+        <DISPLAYWIDTH
+          Value="75"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Accountno"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Accountno"
     EntityUsage="BankEO"
-    AliasName="ACCOUNTNO"/>
+    AliasName="ACCOUNTNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.Accountno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="75"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StartDate"
     PrecisionRule="true"
@@ -74,28 +127,56 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="BankEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="BankEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.CreationDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="BankEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdateDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="BankEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankVO.LastUpdateDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -144,9 +225,57 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="BankVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="BankVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BankName"
+        ViewAttribute="BankName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindBankName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BranchAddress"
+        ViewAttribute="BranchAddress"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindBankAddress"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FacilityTrackerVO"
     ViewLink="rbmbfm.model.vo.master.vlink.BankToFacilityTrackerVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

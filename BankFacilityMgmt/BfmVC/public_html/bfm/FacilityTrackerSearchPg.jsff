@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/BfmSearchTemplate.jsf" id="pt1">
+        <f:facet name="new_button">
+            <af:button text="New" id="b1" action="new"/>
+           
+        </f:facet>
+        <f:facet name="query_search">
+            <af:panelGroupLayout layout="vertical" id="pgl2">
+               
+                   <af:quickQuery id="qryId1" value="#{bindings.FacilityTrackerVOCriteriaQuery.queryDescriptor}"
+                               model="#{bindings.FacilityTrackerVOCriteriaQuery.queryModel}"
+                               queryListener="#{bindings.FacilityTrackerVOCriteriaQuery.processQuery}"/>   
+                    
+              
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="results_search">
+            <af:listView value="#{bindings.FacilityTrackerVO1.collectionModel}" var="row"
+                         emptyText="#{bindings.FacilityTrackerVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.FacilityTrackerVO1.rangeSize}" id="lv1" partialTriggers="::qryId1"
+                         selectedRowKeys="#{bindings.FacilityTrackerVO1.collectionModel.selectedRow}"
+                         selection="single" selectionListener="#{bindings.FacilityTrackerVO1.collectionModel.makeCurrent}">
+                <af:listItem id="li1">
+                    <af:panelGridLayout id="pgl3">
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px"  id="gc5" halign="stretch" width="5%">
+                                 <af:commandImageLink action="edit" partialSubmit="true" id="cl1" 
+                                 icon="/resources/images/BANK-50.png">
+                                                        
+                                </af:commandImageLink> 
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc6" halign="stretch" width="40%">
+                                <af:panelGroupLayout id="pgl4" layout="vertical">
+                                    <af:selectOneChoice value="#{row.BankId}"
+                                                        label="#{bindings.BankId.label}"
+                                                        required="#{bindings.BankId.hints.mandatory}"
+                                                        shortDesc="#{bindings.BankId.hints.tooltip}" id="soc5"
+                                                        readOnly="true">
+                                        <f:selectItems value="#{bindings.BankId.items}" id="si5"/>
+                                        <f:validator binding="#{bindings.BankId.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{row.BusinessEntityId}"
+                                                        label="#{bindings.BusinessEntityId.label}"
+                                                        required="#{bindings.BusinessEntityId.hints.mandatory}"
+                                                        shortDesc="#{bindings.BusinessEntityId.hints.tooltip}"
+                                                        id="soc6"  readOnly="true">
+                                        <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si6"/>
+                                        <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{row.FacilityStructureId}"
+                                                        label="#{bindings.FacilityStructureId.label}"
+                                                        required="#{bindings.FacilityStructureId.hints.mandatory}"
+                                                        shortDesc="#{bindings.FacilityStructureId.hints.tooltip}"
+                                                        id="soc7"  readOnly="true">
+                                        <f:selectItems value="#{bindings.FacilityStructureId.items}" id="si7"/>
+                                        <f:validator binding="#{bindings.FacilityStructureId.validator}"/>
+                                    </af:selectOneChoice>
+                                    
+                                   </af:panelGroupLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc7" halign="stretch" width="15%">
+                                <af:panelGroupLayout id="pgl5" layout="vertical">
+                                    <af:outputText value="#{row.FacilityValue}"
+                                                   shortDesc="#{bindings.FacilityValue.hints.tooltip}" id="ot1"
+                                                   inlineStyle="font-weight:bold;">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.FacilityValue.format}"/>
+                                    </af:outputText>
+                                   
+                                    <af:outputText value="Facility Limit" id="ot5"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc8" halign="stretch" width="15%">
+                                <af:panelGroupLayout id="pgl6" layout="vertical">
+                                    <af:outputText value="#{row.UtilizedValue}"
+                                                   shortDesc="#{bindings.UtilizedValue.hints.tooltip}" id="ot3"
+                                                   inlineStyle="font-weight:bold;">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.UtilizedValue.format}"/>
+                                    </af:outputText>
+                                    <af:outputText value="Utilized Value" id="ot6"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc8p" halign="stretch" width="15%">
+                                <af:panelGroupLayout id="pgl6p" layout="vertical">
+                                    <af:outputText value="#{row.AvailableValue}"
+                                                   shortDesc="#{bindings.AvailableValue.hints.tooltip}" id="ot4"
+                                                   inlineStyle="font-weight:bold; font-size:large;">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.AvailableValue.format}"/>
+                                    </af:outputText>
+                                    <af:outputText value="Availiable Limit" id="ot6p"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                     
+                    </af:panelGridLayout>
+                </af:listItem>
+            </af:listView>
+        </f:facet>
+          <f:attribute name="page_heading" value="Facility Tracker Search"/>
+    </af:pageTemplate>
+</ui:composition>

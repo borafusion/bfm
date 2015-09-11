@@ -14,6 +14,22 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindCombination"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindFName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindComp"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindSubComp"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="FacilityStructureEO"
     Entity="rbmbfm.model.eo.master.FacilityStructureEO"/>
@@ -66,25 +82,29 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="FacilityStructureEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="FacilityStructureEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="FacilityStructureEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="FacilityStructureEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -97,6 +117,66 @@
     EntityAttrName="TenantId"
     EntityUsage="FacilityStructureEO"
     AliasName="TENANT_ID"/>
+  <ViewCriteria
+    Name="FacilityStructureVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.FacilityStructureVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FacilityStructureVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FacilityName"
+        ViewAttribute="FacilityName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindFName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FacilityStructureVOCriteria_FacilityStructureVOCriteria_row_0_Component1"
+        ViewAttribute="Component1"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindComp"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SubComp"
+        ViewAttribute="SubComp"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindSubComp"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FacilityCombination"
+        ViewAttribute="FacilityCombination"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindCombination"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FacilityTrackerVO"
     ViewLink="rbmbfm.model.vo.master.vlink.FacilityStructureToFacilityTrackerVL"

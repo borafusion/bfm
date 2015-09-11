@@ -19,8 +19,7 @@
     ColumnType="NUMBER"
     TableName="XXBFM_BUSINESS_ENTITY_ALL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_BUSINESS_ENTITY_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_BUSINESS_ENTITY_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="BusinessEntity"
@@ -34,10 +33,17 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.BusinessEntityEO.BusinessEntity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BusinessGroup"
-    IsNotNull="true"
     Precision="256"
     ColumnName="BUSINESS_GROUP"
     SQLType="VARCHAR"
@@ -47,6 +53,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.BusinessEntityEO.BusinessGroup_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ProjectCode"
@@ -59,6 +73,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.BusinessEntityEO.ProjectCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Combination"
@@ -67,10 +89,25 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_BUSINESS_ENTITY_ALL">
+    TableName="XXBFM_BUSINESS_ENTITY_ALL"
+    DefaultValue="test1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1024"/>
     </DesignTime>
+    <Dependencies>
+      <Item
+        Value="BusinessEntity"/>
+      <Item
+        Value="BusinessGroup"/>
+      <Item
+        Value="ProjectCode"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Status"
@@ -91,7 +128,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_BUSINESS_ENTITY_ALL">
+    TableName="XXBFM_BUSINESS_ENTITY_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -102,7 +141,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_BUSINESS_ENTITY_ALL"/>
+    TableName="XXBFM_BUSINESS_ENTITY_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="256"
@@ -110,7 +151,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_BUSINESS_ENTITY_ALL">
+    TableName="XXBFM_BUSINESS_ENTITY_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -121,7 +163,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_BUSINESS_ENTITY_ALL"/>
+    TableName="XXBFM_BUSINESS_ENTITY_ALL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -158,4 +201,8 @@
       <Item Value="rbmbfm.model.eo.master.BusinessEntityEO.BusinessEntityId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </Entity>

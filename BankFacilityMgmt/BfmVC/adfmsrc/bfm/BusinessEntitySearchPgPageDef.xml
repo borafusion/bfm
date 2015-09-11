@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="BusinessEntitySearchPgPageDef"
+                Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BusinessEntityVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="BusinessEntityVO1Iterator"/>
+    <searchRegion Criteria="BusinessEntityVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="BusinessEntityVO1Iterator" id="BusinessEntityVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BusinessEntityVO1Iterator" id="BusinessEntityVO1">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.BusinessEntityVO" Name="BusinessEntityVO10">
+        <AttrNames>
+          <Item Value="BusinessEntityId"/>
+          <Item Value="BusinessEntity"/>
+          <Item Value="BusinessGroup"/>
+          <Item Value="ProjectCode"/>
+          <Item Value="Combination"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="TenantId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

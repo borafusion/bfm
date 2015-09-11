@@ -14,6 +14,107 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindBank"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="BindBentity"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="BindFStructure"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <ViewAccessor
+    Name="BankVO1"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BusinessEntityVO1"
+    ViewObjectName="rbmbfm.model.vo.master.BusinessEntityVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FacilityStructureVO1"
+    ViewObjectName="rbmbfm.model.vo.master.FacilityStructureVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrencyVO1"
+    ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_BankId"
+    ListVOName="BankVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BusinessEntityId"
+    ListVOName="BusinessEntityVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BusinessEntityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessEntityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Combination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FacilityStructureId"
+    ListVOName="FacilityStructureVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FacilityCombination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CurrencyId"
+    ListVOName="CurrencyVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="FacilityTrackerEO"
     Entity="rbmbfm.model.eo.master.FacilityTrackerEO"/>
@@ -30,33 +131,71 @@
     PrecisionRule="true"
     EntityAttrName="BankId"
     EntityUsage="FacilityTrackerEO"
-    AliasName="BANK_ID"/>
+    AliasName="BANK_ID"
+    LOVName="LOV_BankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BusinessEntityId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BusinessEntityId"
     EntityUsage="FacilityTrackerEO"
-    AliasName="BUSINESS_ENTITY_ID"/>
+    AliasName="BUSINESS_ENTITY_ID"
+    LOVName="LOV_BusinessEntityId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FacilityStructureId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="FacilityStructureId"
     EntityUsage="FacilityTrackerEO"
-    AliasName="FACILITY_STRUCTURE_ID"/>
+    AliasName="FACILITY_STRUCTURE_ID"
+    LOVName="LOV_FacilityStructureId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CurrencyId"
     PrecisionRule="true"
     EntityAttrName="CurrencyId"
     EntityUsage="FacilityTrackerEO"
-    AliasName="CURRENCY_ID"/>
+    AliasName="CURRENCY_ID"
+    LOVName="LOV_CurrencyId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FacilityValue"
     PrecisionRule="true"
     EntityAttrName="FacilityValue"
     EntityUsage="FacilityTrackerEO"
     AliasName="FACILITY_VALUE"/>
+  <ViewAttribute
+    Name="UtilizedValue"
+    PrecisionRule="true"
+    EntityAttrName="UtilizedValue"
+    EntityUsage="FacilityTrackerEO"
+    AliasName="UTILIZED_VALUE"/>
   <ViewAttribute
     Name="BankReference"
     PrecisionRule="true"
@@ -86,25 +225,29 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="FacilityTrackerEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="FacilityTrackerEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="FacilityTrackerEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="FacilityTrackerEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -117,4 +260,90 @@
     EntityAttrName="TenantId"
     EntityUsage="FacilityTrackerEO"
     AliasName="TENANT_ID"/>
+  <ViewAttribute
+    Name="AvailableValue"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.math.BigDecimal"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (FacilityValue - UtilizedValue)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.FacilityTrackerVO.AvailableValue_LABEL"/>
+        <FMT_FORMATTER
+          ResId="rbmbfm.model.vo.master.FacilityTrackerVO.AvailableValue_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="FacilityValue"/>
+      <Item
+        Value="UtilizedValue"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="FacilityTrackerVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.FacilityTrackerVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FacilityTrackerVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BankId"
+        ViewAttribute="BankId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindBank"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BusinessEntityId"
+        ViewAttribute="BusinessEntityId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindBentity"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FacilityStructureId"
+        ViewAttribute="FacilityStructureId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindFStructure"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

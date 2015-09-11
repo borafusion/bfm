@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="FacilityStructureSearchPgPageDef" Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FacilityStructureVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="FacilityStructureVO1Iterator"/>
+    <searchRegion Criteria="FacilityStructureVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="FacilityStructureVO1Iterator" id="FacilityStructureVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="FacilityStructureVO1Iterator" id="FacilityStructureVO1">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.FacilityStructureVO" Name="FacilityStructureVO10">
+        <AttrNames>
+          <Item Value="FacilityStructureId"/>
+          <Item Value="FacilityName"/>
+          <Item Value="Component1"/>
+          <Item Value="SubComp"/>
+          <Item Value="FacilityCombination"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="TenantId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

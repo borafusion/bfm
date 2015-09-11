@@ -96,7 +96,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_BANK_ALL">
+    TableName="XXBFM_BANK_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -108,7 +110,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_BANK_ALL"/>
+    TableName="XXBFM_BANK_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -117,7 +121,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_BANK_ALL">
+    TableName="XXBFM_BANK_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -129,7 +134,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_BANK_ALL"/>
+    TableName="XXBFM_BANK_ALL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"

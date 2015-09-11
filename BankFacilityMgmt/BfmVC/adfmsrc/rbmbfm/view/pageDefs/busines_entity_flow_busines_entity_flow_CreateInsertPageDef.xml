@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="busines_entity_flow_busines_entity_flow_CreateInsertPageDef" Package="rbmbfm.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="BusinessEntityVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="BusinessEntityVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="BusinessEntityVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

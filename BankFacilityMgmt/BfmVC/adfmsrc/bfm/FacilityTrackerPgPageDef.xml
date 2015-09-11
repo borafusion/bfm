@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="FacilityTrackerPgPageDef"
+                Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FacilityTrackerVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="FacilityTrackerVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="FacilityTrackerId">
+      <AttrNames>
+        <Item Value="FacilityTrackerId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="FacilityTrackerVO1Iterator" StaticList="false" Uses="LOV_BankId" id="BankId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="FacilityTrackerVO1Iterator" StaticList="false" Uses="LOV_BusinessEntityId"
+          id="BusinessEntityId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="FacilityTrackerVO1Iterator" StaticList="false" Uses="LOV_FacilityStructureId"
+          id="FacilityStructureId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="FacilityTrackerVO1Iterator" StaticList="false" Uses="LOV_CurrencyId" id="CurrencyId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="FacilityValue">
+      <AttrNames>
+        <Item Value="FacilityValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="UtilizedValue">
+      <AttrNames>
+        <Item Value="UtilizedValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="AvailableValue">
+      <AttrNames>
+        <Item Value="AvailableValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="BankReference">
+      <AttrNames>
+        <Item Value="BankReference"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityTrackerVO1Iterator" id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BfmMasterAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="BfmMasterAMDataControl"/>
+  </bindings>
+</pageDefinition>

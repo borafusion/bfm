@@ -5,200 +5,277 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/BfmTrendyTemplate.jsf" id="pt1">
                 <f:facet name="page_cont">
-                   
-                    <af:panelGridLayout id="pgl1">
-                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                            <af:gridCell marginStart="5px" width="20%" id="gc1" halign="stretch">
-                                <af:panelGridLayout id="pgl2">
-                                    <af:gridRow marginTop="5px" height="auto" id="gr6">
-                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11"
-                                                     halign="stretch" valign="stretch">
-                                            <af:panelBox text="Quicklinks" showDisclosure="false" id="pb5">
-                                                <f:facet name="toolbar"/>
-                                                <af:link text="Facility Tracker" id="l3"
-                                                         icon="/resources/images/org_icon_small.png"/>
-                                            </af:panelBox>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" id="gr7">
-                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12"
-                                                     halign="stretch">
-                                            <af:panelBox text="" showDisclosure="false" id="pb6">
-                                                <af:link text="Bank Master" id="l4"
-                                                         icon="/resources/images/func_twitter_16@2x.png"/>
-                                                <f:facet name="toolbar"/>
-                                            </af:panelBox>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" id="gr8">
-                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13"
-                                                     halign="stretch" valign="stretch">
-                                                      <af:panelBox text="" showDisclosure="false" id="pb6LC">
-                                                <af:link text="Inward LC" id="l4lc"
-                                                         icon="/resources/images/func_worldglobe_32_act.png"
-                                                         action="InwardLC"/>
-                                                <f:facet name="toolbar"/>
-                                            </af:panelBox>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" id="gr9">
-                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14"
-                                                     halign="stretch" valign="stretch"/>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15"
-                                                     halign="stretch" valign="stretch"/>
-                                    </af:gridRow>
-                                </af:panelGridLayout>
-                            </af:gridCell>
-                            <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2">
-                               <af:decorativeBox id="db1" theme="medium">
-                                    <f:facet name="center">
-                                        <af:panelSpringboard id="ps1" displayMode="grid">
-                                            <af:showDetailItem text="Home" styleClass="WBPageTitleText" id="sdi7"
-                                                               icon="/resources/images/home/home.png"/>
-                                            <af:showDetailItem text="Masters" id="sdi1"
-                                                               icon="/resources/images/home/master.png">
-                                                <af:panelGridLayout id="pgl1c">
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr1c">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc1c"
-                                                                     halign="stretch" valign="stretch">
-                                                            <af:panelBox text="" id="pb1" showDisclosure="false">
-                                                                <f:facet name="toolbar"/>
-                                                                <af:link text="" id="l1" styleClass="WBPageTitleText"
-                                                                         action="importLC"
-                                                                         icon="/resources/images/people/101.png"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc2c" halign="stretch" valign="stretch">
-                                                            <af:panelBox text="" showDisclosure="false" id="pb2">
-                                                                <af:outputText value="Bank Master - " id="ot2"/>
-                                                                <af:outputFormatted value="This Master entry screen allows the user to record Bank details"
-                                                                                    id="of1"/>
-                                                                <f:facet name="toolbar"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc3">
-                                                            <af:panelBox text="" id="pb3" showDisclosure="false">
-                                                                <f:facet name="toolbar"/>
-                                                                <af:link text="" id="l2" styleClass="WBPageTitleText"
-                                                                         action="importLC"
-                                                                         icon="/resources/images/people/102.png"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc4">
-                                                            <af:panelBox text="" showDisclosure="false" id="pb4">
-                                                                <af:outputText value="Currency - " id="ot3"/>
-                                                                <af:outputFormatted value="This Master entry screen allows the user to record Currency details"
-                                                                                    id="of2"/>
-                                                                <f:facet name="toolbar"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc5"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc6"/>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc7"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc8"/>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
-                                                                id="gr5">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc9"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc10"/>
-                                                    </af:gridRow>
-                                                </af:panelGridLayout>
-                                            </af:showDetailItem>
-                                            <af:showDetailItem text="Transactions" id="sdi2"
-                                                               icon="/resources/images/home/transaction.jpg">
-                                                <af:panelGridLayout id="pgl3">
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr11">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc16"
-                                                                     halign="stretch">
-                                                            <af:panelBox text="" id="pb7" showDisclosure="false"
-                                                                         showHeader="never">
-                                                                <f:facet name="toolbar"/>
-                                                                <af:link text="" id="l5" styleClass="WBPageTitleText"
-                                                                         action="InwardLC"
-                                                                         icon="/resources/images/organizations/10.png"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc17" halign="stretch" valign="stretch">
-                                                            <af:panelBox text="" showDisclosure="false" id="pb8">
-                                                                <af:outputText value="Inward LC - " id="ot4"/>
-                                                                <af:outputFormatted value="This transaction entry screen allows the user to manage Inward LC transaction"
-                                                                                    id="of3"/>
-                                                                <f:facet name="toolbar"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr12">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc18"
-                                                                     halign="stretch">
-                                                            <af:panelBox text="" id="pb9" showDisclosure="false"
-                                                                         showHeader="never">
-                                                                <f:facet name="toolbar"/>
-                                                                <af:link text="" id="l6" styleClass="WBPageTitleText"
-                                                                         action="ExportLC"
-                                                                         icon="/resources/images/organizations/100.png"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc19" halign="stretch">
-                                                            <af:panelBox text="" showDisclosure="false" id="pb10">
-                                                                <af:outputText value="Export LC - " id="ot5"/>
-                                                                <af:outputFormatted value="This transaction entry screen allows the user to record Export LC details"
-                                                                                    id="of4"/>
-                                                                <f:facet name="toolbar"/>
-                                                            </af:panelBox>
-                                                        </af:gridCell>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr13">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc20"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc21"/>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr14">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc22"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc23"/>
-                                                    </af:gridRow>
-                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
-                                                                id="gr15">
-                                                        <af:gridCell marginStart="5px" width="25%" id="gc24"/>
-                                                        <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
-                                                                     id="gc25"/>
-                                                    </af:gridRow>
-                                                </af:panelGridLayout>
-                                            </af:showDetailItem>
-                                            <af:showDetailItem text="Administration" id="sdi3"
-                                                               icon="/resources/images/home/administration.jpg"/>
-                                            <af:showDetailItem text="Reports" id="sdi4"
-                                                               icon="/resources/images/home/reports.jpg"/>
-                                            <af:showDetailItem text="Dashboard" id="sdi5"
-                                                               icon="/resources/images/home/dashboard.jpg"/>
-                                            <af:showDetailItem text="Analytics" id="sdi6"
-                                                               icon="/resources/images/home/Analytics.png"/>
-                                            <af:showDetailItem text="Exit" id="sdi8"
-                                                               icon="/resources/images/home/exit.jpg"/>
-                                        </af:panelSpringboard>
-                                    </f:facet>
-                                    <f:facet name="top"/>
-                                </af:decorativeBox>
-                            </af:gridCell>
-                        </af:gridRow>
-                    </af:panelGridLayout>
-                  
-                 
+                    <af:panelGroupLayout id="pgl4" layout="scroll">
+                        <af:panelGridLayout id="pgl1">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                <af:gridCell marginStart="5px" width="20%" id="gc1" halign="stretch">
+                                    <af:panelGridLayout id="pgl2">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelBox text="Quicklinks" showDisclosure="false" id="pb5">
+                                                    <f:facet name="toolbar"/>
+                                                    <af:link text="Facility Tracker" id="l3"
+                                                             icon="/resources/images/org_icon_small.png"
+                                                             action="facility-tracker-master"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr7">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12"
+                                                         halign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb6">
+                                                    <af:link text="Bank Master" id="l4"
+                                                             icon="/resources/images/func_twitter_16@2x.png"
+                                                             action="bank_master"/>
+                                                    <f:facet name="toolbar"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr8">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelBox text="" showDisclosure="false" id="pb6LC">
+                                                    <af:link text="Inward LC" id="l4lc"
+                                                             icon="/resources/images/func_worldglobe_32_act.png"
+                                                             action="InwardLC"/>
+                                                    <f:facet name="toolbar"/>
+                                                </af:panelBox>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr9">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14"
+                                                         halign="stretch" valign="stretch"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15"
+                                                         halign="stretch" valign="stretch"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2">
+                                    <af:decorativeBox id="db1" theme="medium">
+                                        <f:facet name="center">
+                                            <af:panelSpringboard id="ps1" displayMode="grid">
+                                                <af:showDetailItem text="Home" styleClass="WBPageTitleText" id="sdi7"
+                                                                   icon="/resources/images/home/home.png"/>
+                                                <af:showDetailItem text="Masters" id="sdi1"
+                                                                   icon="/resources/images/home/master.png">
+                                                    <af:panelGridLayout id="pgl1c">
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1c">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1c"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1" showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l1"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="bank_master"
+                                                                             icon="/resources/images/BANK-50.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc2c" halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb2">
+                                                                    <af:outputText value="Bank Master - " id="ot2"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to record Bank details"
+                                                                                        id="of1"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1cbe">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1cbe"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1be" showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l1be"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="business_entity_master"
+                                                                             icon="/resources/images/BANK-50.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc2cbe" halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb2be">
+                                                                    <af:outputText value="Business Entity Master - "
+                                                                                   id="ot2be"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to manage Business Entities"
+                                                                                        id="of1be"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1cbefs">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1cbefs"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1befs"
+                                                                             showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l1befs"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="facility-structure-master"
+                                                                             icon="/resources/images/BANK-50.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc2cbefs" halign="stretch"
+                                                                         valign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false"
+                                                                             id="pb2befs">
+                                                                    <af:outputText value="Facility Structure - "
+                                                                                   id="ot2befs"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to manage Facility Structure"
+                                                                                        id="of1befs"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1cbeft">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1cbeft"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1beft"
+                                                                             showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l1beft"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="facility-tracker-master"
+                                                                             icon="/resources/images/BANK-50.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc2cbeft" halign="stretch"
+                                                                         valign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false"
+                                                                             id="pb2beft">
+                                                                    <af:outputText value="Facility Tracker - "
+                                                                                   id="ot2beft"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to manage Facility Tracker"
+                                                                                        id="of1beft"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc3">
+                                                                <af:panelBox text="" id="pb3" showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l2"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="importLC"
+                                                                             icon=""/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc4">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb4">
+                                                                    <af:outputText value="Currency - " id="ot3"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to record Currency details"
+                                                                                        id="of2"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc5"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc6"/>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc7"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc8"/>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                    id="gr5">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc9"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc10"/>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:showDetailItem>
+                                                <af:showDetailItem text="Transactions" id="sdi2"
+                                                                   icon="/resources/images/home/transaction.jpg">
+                                                    <af:panelGridLayout id="pgl3">
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr11">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc16"
+                                                                         halign="stretch">
+                                                                <af:panelBox text="" id="pb7" showDisclosure="false"
+                                                                             showHeader="never">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l5"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="InwardLC"
+                                                                             icon="/resources/images/organizations/10.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc17" halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb8">
+                                                                    <af:outputText value="Inward LC - " id="ot4"/>
+                                                                    <af:outputFormatted value="This transaction entry screen allows the user to manage Inward LC transaction"
+                                                                                        id="of3"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr12">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc18"
+                                                                         halign="stretch">
+                                                                <af:panelBox text="" id="pb9" showDisclosure="false"
+                                                                             showHeader="never">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l6"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="ExportLC"
+                                                                             icon="/resources/images/organizations/100.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc19" halign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb10">
+                                                                    <af:outputText value="Export LC - " id="ot5"/>
+                                                                    <af:outputFormatted value="This transaction entry screen allows the user to record Export LC details"
+                                                                                        id="of4"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr13">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc20"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc21"/>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr14">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc22"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc23"/>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                    id="gr15">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc24"/>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc25"/>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:showDetailItem>
+                                                <af:showDetailItem text="Administration" id="sdi3"
+                                                                   icon="/resources/images/home/administration.jpg"/>
+                                                <af:showDetailItem text="Reports" id="sdi4"
+                                                                   icon="/resources/images/home/reports.jpg"/>
+                                                <af:showDetailItem text="Dashboard" id="sdi5"
+                                                                   icon="/resources/images/home/dashboard.jpg"/>
+                                                <af:showDetailItem text="Analytics" id="sdi6"
+                                                                   icon="/resources/images/home/Analytics.png"/>
+                                                <af:showDetailItem text="Exit" id="sdi8"
+                                                                   icon="/resources/images/home/exit.jpg"/>
+                                            </af:panelSpringboard>
+                                        </f:facet>
+                                        <f:facet name="top"/>
+                                    </af:decorativeBox>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:panelGroupLayout>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

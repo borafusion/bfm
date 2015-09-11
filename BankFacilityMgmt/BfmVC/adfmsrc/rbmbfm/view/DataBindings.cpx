@@ -24,6 +24,26 @@
           usageId="rbmbfm_view_BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
     <page path="/bfm/BankDetail.jsff" usageId="rbmbfm_view_BankDetailPageDef"/>
     <page path="/bfm/SearchInwardLC.jsff" usageId="rbmbfm_view_SearchInwardLCPageDef"/>
+    <page path="/WEB-INF/bank-master-flow.xml#bank-master-flow@CreateInsert"
+          usageId="rbmbfm_view_bank_master_flow_bank_master_flow_CreateInsertPageDef"/>
+    <page path="/bfm/BankSearcHPg.jsff" usageId="rbmbfm_view_BankSearcgPgPageDef"/>
+    <page path="/BankMain.jsf" usageId="rbmbfm_view_BankMainPageDef"/>
+    <page path="/bfm/BankPg.jsff" usageId="rbmbfm_view_BankPgPageDef"/>
+    <page path="/WEB-INF/busines-entity-flow.xml#busines-entity-flow@CreateInsert"
+          usageId="rbmbfm_view_busines_entity_flow_busines_entity_flow_CreateInsertPageDef"/>
+    <page path="/bfm/BusinessEntitySearchPg.jsff" usageId="rbmbfm_view_BusinessEntitySearchPgPageDef"/>
+    <page path="/bfm/BusinessEntityPg.jsff" usageId="rbmbfm_view_BusinessEntityPgPageDef"/>
+    <page path="/BusinessEntityMain.jsf" usageId="rbmbfm_view_BusinessEntityMainPageDef"/>
+    <page path="/WEB-INF/facility-structure-flow.xml#facility-structure-flow@CreateInsert"
+          usageId="rbmbfm_view_facility_structure_flow_facility_structure_flow_CreateInsertPageDef"/>
+    <page path="/bfm/FacilityStructureSearchPg.jsff" usageId="rbmbfm_view_FacilityStructureSearchPgPageDef"/>
+    <page path="/bfm/FacilityStructurePg.jsff" usageId="rbmbfm_view_FacilityStructurePgPageDef"/>
+    <page path="/FacilityStructureMain.jsf" usageId="rbmbfm_view_FacilityStructureMainPageDef"/>
+    <page path="/WEB-INF/facility-tracker-flow.xml#facility-tracker-flow@CreateInsert"
+          usageId="rbmbfm_view_facility_tracker_flow_facility_tracker_flow_CreateInsertPageDef"/>
+    <page path="/FacilityTrackerMain.jsf" usageId="rbmbfm_view_FacilityTrackerMainPageDef"/>
+    <page path="/bfm/FacilityTrackerSearchPg.jsff" usageId="rbmbfm_view_FacilityTrackerSearchPgPageDef"/>
+    <page path="/bfm/FacilityTrackerPg.jsff" usageId="rbmbfm_view_FacilityTrackerPgPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -44,6 +64,26 @@
           path="rbmbfm.view.pageDefs.BankDetailFlow_BankDetailFlow_ExecuteWithParamsPageDef"/>
     <page id="rbmbfm_view_BankDetailPageDef" path="bfm.BankDetailPageDef"/>
     <page id="rbmbfm_view_SearchInwardLCPageDef" path="bfm.SearchInwardLCPageDef"/>
+    <page id="rbmbfm_view_bank_master_flow_bank_master_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.bank_master_flow_bank_master_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_BankSearcgPgPageDef" path="rbmbfm.view.pageDefs.BankSearcgPgPageDef"/>
+    <page id="rbmbfm_view_BankMainPageDef" path="rbmbfm.view.pageDefs.BankMainPageDef"/>
+    <page id="rbmbfm_view_BankPgPageDef" path="bfm.BankPgPageDef"/>
+    <page id="rbmbfm_view_busines_entity_flow_busines_entity_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.busines_entity_flow_busines_entity_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_BusinessEntitySearchPgPageDef" path="bfm.BusinessEntitySearchPgPageDef"/>
+    <page id="rbmbfm_view_BusinessEntityPgPageDef" path="bfm.BusinessEntityPgPageDef"/>
+    <page id="rbmbfm_view_BusinessEntityMainPageDef" path="rbmbfm.view.pageDefs.BusinessEntityMainPageDef"/>
+    <page id="rbmbfm_view_facility_structure_flow_facility_structure_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.facility_structure_flow_facility_structure_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_FacilityStructureSearchPgPageDef" path="bfm.FacilityStructureSearchPgPageDef"/>
+    <page id="rbmbfm_view_FacilityStructurePgPageDef" path="bfm.FacilityStructurePgPageDef"/>
+    <page id="rbmbfm_view_FacilityStructureMainPageDef" path="rbmbfm.view.pageDefs.FacilityStructureMainPageDef"/>
+    <page id="rbmbfm_view_facility_tracker_flow_facility_tracker_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.facility_tracker_flow_facility_tracker_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_FacilityTrackerMainPageDef" path="rbmbfm.view.pageDefs.FacilityTrackerMainPageDef"/>
+    <page id="rbmbfm_view_FacilityTrackerSearchPgPageDef" path="bfm.FacilityTrackerSearchPgPageDef"/>
+    <page id="rbmbfm_view_FacilityTrackerPgPageDef" path="bfm.FacilityTrackerPgPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

@@ -19,8 +19,13 @@
     ColumnType="NUMBER"
     TableName="XXBFM_FACILITY_TRACKER_ALL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_FACILITY_TRACKER_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_FACILITY_TRACKER_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityTrackerId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BankId"
@@ -29,7 +34,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.BankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BusinessEntityId"
     IsNotNull="true"
@@ -37,7 +49,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.BusinessEntityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FacilityStructureId"
     IsNotNull="true"
@@ -45,21 +64,44 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityStructureId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CurrencyId"
     ColumnName="CURRENCY_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.CurrencyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FacilityValue"
     ColumnName="FACILITY_VALUE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityValue_LABEL"/>
+        <FMT_FORMATTER
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.FacilityValue_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BankReference"
     Precision="256"
@@ -71,6 +113,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.BankReference_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="StartDate"
@@ -97,6 +145,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedBy"
@@ -105,7 +159,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    TableName="XXBFM_FACILITY_TRACKER_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -116,7 +172,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="256"
@@ -124,7 +182,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    TableName="XXBFM_FACILITY_TRACKER_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -135,7 +194,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+    TableName="XXBFM_FACILITY_TRACKER_ALL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -155,6 +215,22 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="XXBFM_FACILITY_TRACKER_ALL"/>
+  <Attribute
+    Name="UtilizedValue"
+    Precision="38"
+    Scale="2"
+    ColumnName="UTILIZED_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="rbmbfm.model.eo.master.FacilityTrackerEO.UtilizedValue_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="BankEO"
     Association="rbmbfm.model.eo.master.ao.BankToFacilityTrackerAO"
@@ -237,4 +313,8 @@
       <Item Value="rbmbfm.model.eo.master.FacilityTrackerEO.CurrencyId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </Entity>

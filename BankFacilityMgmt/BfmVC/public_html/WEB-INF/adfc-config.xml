@@ -6,6 +6,18 @@
   <view id="home">
     <page>/home.jsf</page>
   </view>
+  <view id="BankMain">
+    <page>/BankMain.jsf</page>
+  </view>
+  <view id="BusinessEntityMain">
+    <page>/BusinessEntityMain.jsf</page>
+  </view>
+  <view id="FacilityStructureMain">
+    <page>/FacilityStructureMain.jsf</page>
+  </view>
+  <view id="FacilityTrackerMain">
+    <page>/FacilityTrackerMain.jsf</page>
+  </view>
   <control-flow-rule id="__2">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__3">
@@ -15,6 +27,22 @@
     <control-flow-case id="__4">
       <from-outcome>home</from-outcome>
       <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>bank_master</from-outcome>
+      <to-activity-id>BankMain</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>business_entity_master</from-outcome>
+      <to-activity-id>BusinessEntityMain</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>facility-structure-master</from-outcome>
+      <to-activity-id>FacilityStructureMain</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>facility-tracker-master</from-outcome>
+      <to-activity-id>FacilityTrackerMain</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/BfmSearchTemplate.jsf" id="pt1">
+        <f:facet name="new_button">
+            <af:button text="New" id="b1" action="new"/>
+        </f:facet>
+        <f:facet name="query_search">
+            <af:panelGroupLayout layout="vertical" id="pgl2">
+               
+                   <af:quickQuery id="qryId1" value="#{bindings.BankVOCriteriaQuery.queryDescriptor}"
+                               model="#{bindings.BankVOCriteriaQuery.queryModel}"
+                               queryListener="#{bindings.BankVOCriteriaQuery.processQuery}"/>   
+                    
+              
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="results_search">
+            <af:listView value="#{bindings.BankVO1.collectionModel}" var="row"
+                         emptyText="#{bindings.BankVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.BankVO1.rangeSize}" id="lv1" partialTriggers="::qryId1"
+                         selectedRowKeys="#{bindings.BankVO1.collectionModel.selectedRow}"
+                         selection="single" selectionListener="#{bindings.BankVO1.collectionModel.makeCurrent}">
+                <af:listItem id="li1">
+                    <af:panelGridLayout id="pgl3">
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px"  id="gc5" halign="stretch" width="5%">
+                                 <af:commandImageLink action="edit" partialSubmit="true" id="cl1" 
+                                 icon="/resources/images/BANK-50.png">
+                                                                
+                                </af:commandImageLink> 
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc6" halign="stretch" width="40%">
+                                <af:panelGroupLayout id="pgl4" layout="vertical">
+                                    <af:link shortDesc="#{bindings.BankName.hints.tooltip}" id="ot1"
+                                             inlineStyle="font-size:large; font-weight:bold;" text="#{row.BankName}"
+                                             action="edit"/>
+                                    <af:outputText value="#{row.BranchAddress}"
+                                                   shortDesc="#{bindings.BranchAddress.hints.tooltip}" id="ot2"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc7" halign="stretch" width="20%">
+                                <af:panelGroupLayout id="pgl5" layout="vertical">
+                                    <af:outputText value="#{row.BankId}"
+                                                   shortDesc="#{bindings.BankId.hints.tooltip}" id="ot3"
+                                                   inlineStyle="font-weight:bold;">
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.BankId.format}"/>
+                                    </af:outputText>
+                                    <af:outputText value="Bank ID" id="ot5"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc8" halign="stretch" width="20%">
+                                <af:panelGroupLayout id="pgl6" layout="vertical">
+                                    <af:outputText value="#{row.Accountno}"
+                                                   shortDesc="#{bindings.Accountno.hints.tooltip}" id="ot4"
+                                                   inlineStyle="font-weight:bold;"/>
+                                    <af:outputText value="Account Number" id="ot6"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                     
+                    </af:panelGridLayout>
+                </af:listItem>
+            </af:listView>
+        </f:facet>
+          <f:attribute name="page_heading" value="Bank Search"/>
+    </af:pageTemplate>
+</ui:composition>

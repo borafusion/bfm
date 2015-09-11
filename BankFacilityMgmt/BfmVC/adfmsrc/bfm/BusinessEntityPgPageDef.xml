@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="BusinessEntityPgPageDef"
+                Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BusinessEntityVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="BusinessEntityVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="BusinessEntityId">
+      <AttrNames>
+        <Item Value="BusinessEntityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="BusinessEntity">
+      <AttrNames>
+        <Item Value="BusinessEntity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="BusinessGroup">
+      <AttrNames>
+        <Item Value="BusinessGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="ProjectCode">
+      <AttrNames>
+        <Item Value="ProjectCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="Combination">
+      <AttrNames>
+        <Item Value="Combination"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BusinessEntityVO1Iterator" id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BfmMasterAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="BfmMasterAMDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <pageTemplateDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/pagetemplate">
+  <pagetemplate-jsp-ui-def>/BfmSearchTemplate.jsf</pagetemplate-jsp-ui-def>
   <pagetemplate-jsp-ui-def>/BfmTrendyTemplate.jsf</pagetemplate-jsp-ui-def>
   <pagetemplate-jsp-ui-def>/BfmCustomTemplate.jsf</pagetemplate-jsp-ui-def>
 </pageTemplateDefs>

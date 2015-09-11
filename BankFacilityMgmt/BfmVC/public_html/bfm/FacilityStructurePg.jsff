@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelFormLayout id="pfl1">
+            <af:inputText value="#{bindings.FacilityStructureId.inputValue}"
+                          label="#{bindings.FacilityStructureId.hints.label}"
+                          required="#{bindings.FacilityStructureId.hints.mandatory}"
+                          columns="#{bindings.FacilityStructureId.hints.displayWidth}"
+                          maximumLength="#{bindings.FacilityStructureId.hints.precision}"
+                          shortDesc="#{bindings.FacilityStructureId.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.FacilityStructureId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FacilityStructureId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.FacilityName.inputValue}" label="#{bindings.FacilityName.hints.label}"
+                          required="#{bindings.FacilityName.hints.mandatory}"
+                          columns="#{bindings.FacilityName.hints.displayWidth}"
+                          maximumLength="#{bindings.FacilityName.hints.precision}"
+                          shortDesc="#{bindings.FacilityName.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.FacilityName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Component1.inputValue}" label="#{bindings.Component1.hints.label}"
+                          required="#{bindings.Component1.hints.mandatory}"
+                          columns="#{bindings.Component1.hints.displayWidth}"
+                          maximumLength="#{bindings.Component1.hints.precision}"
+                          shortDesc="#{bindings.Component1.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.Component1.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SubComp.inputValue}" label="#{bindings.SubComp.hints.label}"
+                          required="#{bindings.SubComp.hints.mandatory}"
+                          columns="#{bindings.SubComp.hints.displayWidth}"
+                          maximumLength="#{bindings.SubComp.hints.precision}"
+                          shortDesc="#{bindings.SubComp.hints.tooltip}" id="it4">
+                <f:validator binding="#{bindings.SubComp.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.FacilityCombination.inputValue}"
+                          label="#{bindings.FacilityCombination.hints.label}"
+                          required="#{bindings.FacilityCombination.hints.mandatory}"
+                          columns="#{bindings.FacilityCombination.hints.displayWidth}"
+                          maximumLength="#{bindings.FacilityCombination.hints.precision}"
+                          shortDesc="#{bindings.FacilityCombination.hints.tooltip}" id="it5">
+                <f:validator binding="#{bindings.FacilityCombination.validator}"/>
+            </af:inputText>
+            <f:facet name="footer">
+                <af:toolbar id="t1">
+                   
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2"
+                               action="search">
+                        <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1" action="search"/>
+                </af:toolbar>
+            </f:facet>
+        </af:panelFormLayout>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelBox text="History" id="pb1" background="light">
+            <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                    <af:gridCell marginStart="5px" width="50%" id="gc1">
+                        <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                                      required="#{bindings.CreatedBy.hints.mandatory}"
+                                      columns="#{bindings.CreatedBy.hints.displayWidth}"
+                                      maximumLength="#{bindings.CreatedBy.hints.precision}"
+                                      shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it6" readOnly="true">
+                            <f:validator binding="#{bindings.CreatedBy.validator}"/>
+                        </af:inputText>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                        <af:inputDate value="#{bindings.CreationDate.inputValue}"
+                                      label="#{bindings.CreationDate.hints.label}"
+                                      required="#{bindings.CreationDate.hints.mandatory}"
+                                      columns="#{bindings.CreationDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.CreationDate.hints.tooltip}" id="id1" readOnly="true">
+                            <f:validator binding="#{bindings.CreationDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
+                        </af:inputDate>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                    <af:gridCell marginStart="5px" width="50%" id="gc3">
+                        <af:inputText value="#{bindings.LastUpdatedBy.inputValue}"
+                                      label="#{bindings.LastUpdatedBy.hints.label}"
+                                      required="#{bindings.LastUpdatedBy.hints.mandatory}"
+                                      columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
+                                      maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
+                                      shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}" id="it7" readOnly="true">
+                            <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
+                        </af:inputText>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4">
+                        <af:inputDate value="#{bindings.LastUpdateDate.inputValue}"
+                                      label="#{bindings.LastUpdateDate.hints.label}"
+                                      required="#{bindings.LastUpdateDate.hints.mandatory}"
+                                      columns="#{bindings.LastUpdateDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.LastUpdateDate.hints.tooltip}" id="id2" readOnly="true">
+                            <f:validator binding="#{bindings.LastUpdateDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.LastUpdateDate.format}"/>
+                        </af:inputDate>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <f:facet name="toolbar"/>
+        </af:panelBox>
+    </af:panelGroupLayout>
+</ui:composition>
+

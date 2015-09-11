@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="FacilityStructurePgPageDef"
+                Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FacilityStructureVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="FacilityStructureVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="FacilityStructureId">
+      <AttrNames>
+        <Item Value="FacilityStructureId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="FacilityName">
+      <AttrNames>
+        <Item Value="FacilityName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="Component1">
+      <AttrNames>
+        <Item Value="Component1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="SubComp">
+      <AttrNames>
+        <Item Value="SubComp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="FacilityCombination">
+      <AttrNames>
+        <Item Value="FacilityCombination"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityStructureVO1Iterator" id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BfmMasterAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="BfmMasterAMDataControl"/>
+  </bindings>
+</pageDefinition>
