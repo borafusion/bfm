@@ -49,10 +49,13 @@
     Name="BankFacilityStructureVVO"
     ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
     RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="BankFacilityStructureViewCriteria"
+      FullName="rbmbfm.model.vo.master.BankFacilityStructureVVO.BankFacilityStructureViewCriteria"/>
     <ParameterMap>
-      <PIMap Variable="bankIdBind">
+      <PIMap Variable="businessEntityIdBind">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[BeneficiaryBankId]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[BusinessEntityId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -435,6 +438,11 @@
   <ViewLinkAccessor
     Name="GetBeneficiaryDetailVO"
     ViewLink="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="BankFacilityStructureVO"
+    ViewLink="rbmbfm.model.vo.master.vlink.LCTransactionDetailToBankFacilityStructureVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

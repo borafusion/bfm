@@ -20,6 +20,8 @@
     </taskFlow>
     <iterator Binds="GetBeneficiaryDetailVO1" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="GetBeneficiaryDetailVO1Iterator"/>
+    <iterator Binds="BankFacilityStructureVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="BankFacilityStructureVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="TransactionType">
@@ -95,5 +97,16 @@
         <Item Value="SourceId"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="BankFacilityStructureVOIterator" id="BankFacilityStructureVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.BankFacilityStructureVO" Name="BankFacilityStructureVO0">
+        <AttrNames>
+          <Item Value="FacilityName"/>
+          <Item Value="BankId"/>
+          <Item Value="BusinessEntityId"/>
+          <Item Value="FacilityValue"/>
+          <Item Value="UtilizedValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
