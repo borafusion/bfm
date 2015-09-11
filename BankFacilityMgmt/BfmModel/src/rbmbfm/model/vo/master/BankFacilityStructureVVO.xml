@@ -19,12 +19,16 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
+    Name="businessEntityIdBind"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
     Name="bankIdBind"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID from XXBFM_FACILITY_TRACKER XFT, XXBFM_FACILITY_STRUCTURE XFS 
-where XFT.BANK_ID=:bankIdBind 
-AND XFT.FACILITY_TRACKER_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE   
+from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE XFS        
+where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
   <ViewAttribute
     Name="FacilityName"
     IsUpdateable="false"
@@ -70,6 +74,84 @@ AND XFT.FACILITY_TRACKER_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
     AliasName="FACILITY_TRACKER_ID"
     Expression="FACILITY_TRACKER_ID"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="BusinessEntityId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="BUSINESS_ENTITY_ID"
+    Expression="BUSINESS_ENTITY_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FacilityValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="2"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FACILITY_VALUE"
+    Expression="FACILITY_VALUE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="UtilizedValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="2"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="UTILIZED_VALUE"
+    Expression="UTILIZED_VALUE"
+    SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="BankFacilityStructureViewCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="BankFacilityStructureVVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BankFacilityStructureViewCriteria_BankFacilityStructureVVOCriteria_row_0_BankId"
+        ViewAttribute="BankId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bankIdBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BankFacilityStructureVVOCriteria_BankFacilityStructureVVOCriteria_row_0_BusinessEntityId"
+        ViewAttribute="BusinessEntityId"
+        Operator="="
+        Conjunction="AND"
+        Value=":businessEntityIdBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="FacilityStructureId"/>
   </AttrArray>

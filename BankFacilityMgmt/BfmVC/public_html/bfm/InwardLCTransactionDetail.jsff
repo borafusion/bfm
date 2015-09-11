@@ -105,6 +105,61 @@
                             <f:selectItems value="#{bindings.FacilityTrackerId.items}" id="si3"/>
                             <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
                         </af:selectOneChoice>
+                    <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
+                              rows="#{bindings.BankFacilityStructureVO.rangeSize}" width="100%"
+                              emptyText="#{bindings.BankFacilityStructureVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructureVO.rangeSize}" id="t1">
+                        <af:column headerText="Facility Name" id="c1">
+                            <af:outputText value="#{row.FacilityName}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityName.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                        <!--
+                        <af:column headerText="Bank" id="c2">
+                            <af:outputText value="#{row.BankId}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BankId.tooltip}"
+                                           id="ot2">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BankId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        -->
+                        <!--
+                        <af:column headerText="Business Entity" id="c3">
+                            <af:outputText value="#{row.BusinessEntityId}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.tooltip}"
+                                           id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        -->
+                        <af:column headerText="Facility Value" id="c5">
+                            <af:outputText value="#{row.FacilityValue}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityValue.tooltip}"
+                                           id="ot5">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.FacilityValue.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="Utilized Value" id="c4">
+                            <af:outputText value="#{row.UtilizedValue}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.tooltip}"
+                                           id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
+                            </af:outputText>
+                        </af:column>
+
+                        <af:column headerText="Available Limit" id="c2">
+                            <af:outputText value="#{row.FacilityValue - row.UtilizedValue}"
+                                           id="ot2">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
+                            </af:outputText>
+                        </af:column>                        
+                    </af:table>
+                        
                         <f:facet name="footer">
                             <af:panelGroupLayout layout="horizontal" id="pgl1">
                                 <af:button text="Submit" id="b1" partialSubmit="true"
@@ -118,6 +173,51 @@
                             </af:panelGroupLayout>
                         </f:facet>
                     </af:panelFormLayout>
+                    <af:separator/>
+                    <!--
+                    <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
+                              rows="#{bindings.BankFacilityStructureVO.rangeSize}"
+                              emptyText="#{bindings.BankFacilityStructureVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructureVO.rangeSize}" id="t1">
+                        <af:column headerText="Facility Name" id="c1">
+                            <af:outputText value="#{row.FacilityName}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityName.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                        <af:column headerText="Bank" id="c2">
+                            <af:outputText value="#{row.BankId}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BankId.tooltip}"
+                                           id="ot2">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BankId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="Business Entity" id="c3">
+                            <af:outputText value="#{row.BusinessEntityId}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.tooltip}"
+                                           id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="Facility Value" id="c5">
+                            <af:outputText value="#{row.FacilityValue}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityValue.tooltip}"
+                                           id="ot5">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.FacilityValue.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="Utilized Value" id="c4">
+                            <af:outputText value="#{row.UtilizedValue}"
+                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.tooltip}"
+                                           id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
+                            </af:outputText>
+                        </af:column>
+                    </af:table>
+                    -->
                     <af:separator/>
                     <af:panelGroupLayout layout="horizontal" inlineStyle="width:100%">
                         <af:panelHeader text="Issuing Bank" inlineStyle="width:100%" partialTriggers="soc2">

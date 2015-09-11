@@ -39,11 +39,47 @@
   <ViewUsage
     Name="GetBeneficiaryDetailVO1"
     ViewObjectName="rbmbfm.model.vo.app.GetBeneficiaryDetailVO"/>
+  <ViewUsage
+    Name="InwardLCTransactionDetailVO2"
+    ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"/>
+  <ViewUsage
+    Name="BankFacilityStructureVVO2"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"/>
+  <ViewUsage
+    Name="BankFacilityStructureVO1"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
+  <ViewUsage
+    Name="InwardLCTransactionDetailVO3"
+    ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"/>
+  <ViewUsage
+    Name="BankFacilityStructureVO2"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
+  <ViewUsage
+    Name="BankFacilityStructureVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
     SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO1"
     DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.GetBeneficiaryDetailVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InwardLCToFacilityStructureVL"
+    ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToFacilityStructureVL"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO2"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.BankFacilityStructureVVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LCTransactionDetailToBankFacilityStructureVL"
+    ViewLinkObjectName="rbmbfm.model.vo.master.vlink.LCTransactionDetailToBankFacilityStructureVL"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO3"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.BankFacilityStructureVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LCTransactionDetailToBankFacilityStructureVL1"
+    ViewLinkObjectName="rbmbfm.model.vo.master.vlink.LCTransactionDetailToBankFacilityStructureVL"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO1"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.BankFacilityStructureVO"
     Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
