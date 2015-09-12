@@ -37,7 +37,13 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
         LastUpdatedBy,
         LastUpdateDate,
         LastUpdateLogin,
-        Version;
+        Version,
+        InvoiceNumber,
+        InvoiceDate,
+        InvoiceValue,
+        InvoiceDueDate,
+        InvoiceStatus,
+        TenantId;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -79,6 +85,12 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
     public static final int LASTUPDATELOGIN = AttributesEnum.LastUpdateLogin.index();
     public static final int VERSION = AttributesEnum.Version.index();
+    public static final int INVOICENUMBER = AttributesEnum.InvoiceNumber.index();
+    public static final int INVOICEDATE = AttributesEnum.InvoiceDate.index();
+    public static final int INVOICEVALUE = AttributesEnum.InvoiceValue.index();
+    public static final int INVOICEDUEDATE = AttributesEnum.InvoiceDueDate.index();
+    public static final int INVOICESTATUS = AttributesEnum.InvoiceStatus.index();
+    public static final int TENANTID = AttributesEnum.TenantId.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -318,6 +330,102 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
         return (BigDecimal) getAttributeInternal(VERSION);
     }
 
+
+    /**
+     * Gets the attribute value for InvoiceNumber, using the alias name InvoiceNumber.
+     * @return the value of InvoiceNumber
+     */
+    public String getInvoiceNumber() {
+        return (String) getAttributeInternal(INVOICENUMBER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InvoiceNumber.
+     * @param value value to set the InvoiceNumber
+     */
+    public void setInvoiceNumber(String value) {
+        setAttributeInternal(INVOICENUMBER, value);
+    }
+
+    /**
+     * Gets the attribute value for InvoiceDate, using the alias name InvoiceDate.
+     * @return the value of InvoiceDate
+     */
+    public Timestamp getInvoiceDate() {
+        return (Timestamp) getAttributeInternal(INVOICEDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InvoiceDate.
+     * @param value value to set the InvoiceDate
+     */
+    public void setInvoiceDate(Timestamp value) {
+        setAttributeInternal(INVOICEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for InvoiceValue, using the alias name InvoiceValue.
+     * @return the value of InvoiceValue
+     */
+    public BigDecimal getInvoiceValue() {
+        return (BigDecimal) getAttributeInternal(INVOICEVALUE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InvoiceValue.
+     * @param value value to set the InvoiceValue
+     */
+    public void setInvoiceValue(BigDecimal value) {
+        setAttributeInternal(INVOICEVALUE, value);
+    }
+
+    /**
+     * Gets the attribute value for InvoiceDueDate, using the alias name InvoiceDueDate.
+     * @return the value of InvoiceDueDate
+     */
+    public Timestamp getInvoiceDueDate() {
+        return (Timestamp) getAttributeInternal(INVOICEDUEDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InvoiceDueDate.
+     * @param value value to set the InvoiceDueDate
+     */
+    public void setInvoiceDueDate(Timestamp value) {
+        setAttributeInternal(INVOICEDUEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for InvoiceStatus, using the alias name InvoiceStatus.
+     * @return the value of InvoiceStatus
+     */
+    public String getInvoiceStatus() {
+        return (String) getAttributeInternal(INVOICESTATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InvoiceStatus.
+     * @param value value to set the InvoiceStatus
+     */
+    public void setInvoiceStatus(String value) {
+        setAttributeInternal(INVOICESTATUS, value);
+    }
+
+    /**
+     * Gets the attribute value for TenantId, using the alias name TenantId.
+     * @return the value of TenantId
+     */
+    public BigDecimal getTenantId() {
+        return (BigDecimal) getAttributeInternal(TENANTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TenantId.
+     * @param value value to set the TenantId
+     */
+    public void setTenantId(BigDecimal value) {
+        setAttributeInternal(TENANTID, value);
+    }
 
     /**
      * @param transactionId key constituent

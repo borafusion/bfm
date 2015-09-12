@@ -21,7 +21,7 @@
     <iterator Binds="GetBeneficiaryDetailVO1" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="GetBeneficiaryDetailVO1Iterator"/>
     <iterator Binds="BankFacilityStructureVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
-              id="BankFacilityStructureVOIterator"/>
+              id="BankFacilityStructureVOIterator" Refresh="default"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="TransactionType">
@@ -108,5 +108,25 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceDate">
+      <AttrNames>
+        <Item Value="InvoiceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceDueDate">
+      <AttrNames>
+        <Item Value="InvoiceDueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceNumber">
+      <AttrNames>
+        <Item Value="InvoiceNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceValue">
+      <AttrNames>
+        <Item Value="InvoiceValue"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

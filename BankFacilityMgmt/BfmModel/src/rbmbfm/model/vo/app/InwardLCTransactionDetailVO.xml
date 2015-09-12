@@ -377,6 +377,73 @@
     EntityAttrName="Version"
     EntityUsage="InwardLCTransactionDetailEO"
     AliasName="VERSION"/>
+  <ViewAttribute
+    Name="InvoiceDate"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceDate"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="INVOICE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceDueDate"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceDueDate"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="INVOICE_DUE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceDueDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceNumber"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceNumber"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="INVOICE_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceStatus"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceStatus"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="INVOICE_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceValue"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceValue"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="INVOICE_VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="InwardLCTransactionDetailSearchCriteria"
     ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"

@@ -293,6 +293,58 @@
     TableName="XXBFM_INWARD_LC_TRANS_DTL"
     ChangeIndicator="true"
     HistoryColumn="VersionHistory"/>
+  <Attribute
+    Name="InvoiceNumber"
+    Precision="100"
+    ColumnName="INVOICE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvoiceDate"
+    ColumnName="INVOICE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="InvoiceValue"
+    ColumnName="INVOICE_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="InvoiceDueDate"
+    ColumnName="INVOICE_DUE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="InvoiceStatus"
+    Precision="100"
+    ColumnName="INVOICE_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TenantId"
+    ColumnName="TENANT_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
   <Key
     Name="XxbfmInwardLcTransDtlPk"
     PrimaryKey="true">
@@ -306,7 +358,7 @@
   <Key
     Name="XxbfmInwardLcTransDtlFk1">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="XXBFM_CUSTOMER_PK"/>
+      <Attr Name="_referencedKey" Value="XXBFM_BUSINESS_ENTITY_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="XXBFM_INWARD_LC_TRANS_DTL_FK1"/>
     </DesignTime>
@@ -345,6 +397,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="rbmbfm.model.eo.app.InwardLCTransactionDetailEO.FacilityTrackerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmInwardLcTransDtlFk5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_INWARD_LC_TXN_SOURCE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_INWARD_LC_TRANS_DTL_FK5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.InwardLCTransactionDetailEO.SourceId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

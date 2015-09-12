@@ -11,7 +11,19 @@
             <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="padding:10px;">
                 <af:panelHeader text="Inward LC" id="pb1">
                     <f:facet name="toolbar"/>
-                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="200px" styleClass="AFStretchWidth">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
+                            <af:button text="Submit" id="b1" partialSubmit="true"
+                                       actionListener="#{bindings.Commit.execute}" action="search"/>
+                            <af:spacer width="10px" id="s1"/>
+                            <af:button text="Cancel" id="b2" partialSubmit="true"
+                                       actionListener="#{bindings.Rollback.execute}" action="search"
+                                       immediate="true">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="250px" styleClass="AFStretchWidth" >
+                        <f:facet name="footer">
+                        </f:facet>                    
                         <af:selectOneChoice value="#{bindings.TransactionType1.inputValue}"
                                             label="#{bindings.TransactionType1.label}"
                                             required="#{bindings.TransactionType1.hints.mandatory}"
@@ -105,14 +117,50 @@
                             <f:selectItems value="#{bindings.FacilityTrackerId.items}" id="si3"/>
                             <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
                         </af:selectOneChoice>
-                    <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
+                        <af:inputDate value="#{bindings.InvoiceDate.inputValue}"
+                                      label="#{bindings.InvoiceDate.hints.label}"                        
+                                      required="#{bindings.InvoiceDate.hints.mandatory}"
+                                      columns="#{bindings.InvoiceDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.InvoiceDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.InvoiceDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.InvoiceDate.format}"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.InvoiceDueDate.inputValue}"
+                                      label="#{bindings.InvoiceDueDate.hints.label}"
+                                      required="#{bindings.InvoiceDueDate.hints.mandatory}"
+                                      columns="#{bindings.InvoiceDueDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.InvoiceDueDate.hints.tooltip}" id="id3">
+                            <f:validator binding="#{bindings.InvoiceDueDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.InvoiceDueDate.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.InvoiceNumber.inputValue}"
+                                      label="#{bindings.InvoiceNumber.hints.label}"
+                                      required="#{bindings.InvoiceNumber.hints.mandatory}"
+                                      columns="#{bindings.InvoiceNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.InvoiceNumber.hints.precision}"
+                                      shortDesc="#{bindings.InvoiceNumber.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.InvoiceNumber.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.InvoiceValue.inputValue}"
+                                      label="#{bindings.InvoiceValue.hints.label}"
+                                      required="#{bindings.InvoiceValue.hints.mandatory}"
+                                      columns="#{bindings.InvoiceValue.hints.displayWidth}"
+                                      maximumLength="#{bindings.InvoiceValue.hints.precision}" autoSubmit="true"
+                                      shortDesc="#{bindings.InvoiceValue.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.InvoiceValue.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.InvoiceValue.format}"/>
+                        </af:inputText>
+                        <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
                               rows="#{bindings.BankFacilityStructureVO.rangeSize}" width="100%"
+                              partialTriggers="::soc1 ::soc2 ::it8"
                               emptyText="#{bindings.BankFacilityStructureVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                               rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructureVO.rangeSize}" id="t1">
                         <af:column headerText="Facility Name" id="c1">
                             <af:outputText value="#{row.FacilityName}"
                                            shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityName.tooltip}"
+                                           inlineStyle="#{(row.FacilityValue - bindings.InvoiceValue.attributeValue - row.UtilizedValue)  > 0 ? 'color:Green;font-weight:bold;' : 'color:Red;font-weight:bold;'}"
                                            id="ot1"/>
+                            <!-- inlineStyle="#{(bindings.InvoiceValue - (row.FacilityValue - row.UtilizedValue)) > 0 ? 'color:Green;' : 'color:Red;'}" -->
                         </af:column>
                         <!--
                         <af:column headerText="Bank" id="c2">
@@ -158,20 +206,7 @@
                                                   pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
                             </af:outputText>
                         </af:column>                        
-                    </af:table>
-                        
-                        <f:facet name="footer">
-                            <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                <af:button text="Submit" id="b1" partialSubmit="true"
-                                           actionListener="#{bindings.Commit.execute}" action="search"/>
-                                <af:spacer width="10px" id="s1"/>
-                                <af:button text="Cancel" id="b2" partialSubmit="true"
-                                           actionListener="#{bindings.Rollback.execute}" action="search"
-                                           immediate="true">
-                                    <af:resetActionListener/>
-                                </af:button>
-                            </af:panelGroupLayout>
-                        </f:facet>
+                    </af:table>                        
                     </af:panelFormLayout>
                     <af:separator/>
                     <!--
