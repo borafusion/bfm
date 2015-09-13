@@ -43,7 +43,15 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
         InvoiceValue,
         InvoiceDueDate,
         InvoiceStatus,
-        TenantId;
+        TenantId,
+        FacilityStructureId,
+        DocumentRef,
+        DocumentDate,
+        CurrencyId,
+        DocumentVal,
+        ExchgRate,
+        OtherRef,
+        HeaderNotes;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -91,6 +99,14 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
     public static final int INVOICEDUEDATE = AttributesEnum.InvoiceDueDate.index();
     public static final int INVOICESTATUS = AttributesEnum.InvoiceStatus.index();
     public static final int TENANTID = AttributesEnum.TenantId.index();
+    public static final int FACILITYSTRUCTUREID = AttributesEnum.FacilityStructureId.index();
+    public static final int DOCUMENTREF = AttributesEnum.DocumentRef.index();
+    public static final int DOCUMENTDATE = AttributesEnum.DocumentDate.index();
+    public static final int CURRENCYID = AttributesEnum.CurrencyId.index();
+    public static final int DOCUMENTVAL = AttributesEnum.DocumentVal.index();
+    public static final int EXCHGRATE = AttributesEnum.ExchgRate.index();
+    public static final int OTHERREF = AttributesEnum.OtherRef.index();
+    public static final int HEADERNOTES = AttributesEnum.HeaderNotes.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -428,6 +444,134 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for FacilityStructureId, using the alias name FacilityStructureId.
+     * @return the value of FacilityStructureId
+     */
+    public BigDecimal getFacilityStructureId() {
+        return (BigDecimal) getAttributeInternal(FACILITYSTRUCTUREID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FacilityStructureId.
+     * @param value value to set the FacilityStructureId
+     */
+    public void setFacilityStructureId(BigDecimal value) {
+        setAttributeInternal(FACILITYSTRUCTUREID, value);
+    }
+
+    /**
+     * Gets the attribute value for DocumentRef, using the alias name DocumentRef.
+     * @return the value of DocumentRef
+     */
+    public String getDocumentRef() {
+        return (String) getAttributeInternal(DOCUMENTREF);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DocumentRef.
+     * @param value value to set the DocumentRef
+     */
+    public void setDocumentRef(String value) {
+        setAttributeInternal(DOCUMENTREF, value);
+    }
+
+    /**
+     * Gets the attribute value for DocumentDate, using the alias name DocumentDate.
+     * @return the value of DocumentDate
+     */
+    public Timestamp getDocumentDate() {
+        return (Timestamp) getAttributeInternal(DOCUMENTDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DocumentDate.
+     * @param value value to set the DocumentDate
+     */
+    public void setDocumentDate(Timestamp value) {
+        setAttributeInternal(DOCUMENTDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for CurrencyId, using the alias name CurrencyId.
+     * @return the value of CurrencyId
+     */
+    public BigDecimal getCurrencyId() {
+        return (BigDecimal) getAttributeInternal(CURRENCYID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CurrencyId.
+     * @param value value to set the CurrencyId
+     */
+    public void setCurrencyId(BigDecimal value) {
+        setAttributeInternal(CURRENCYID, value);
+    }
+
+    /**
+     * Gets the attribute value for DocumentVal, using the alias name DocumentVal.
+     * @return the value of DocumentVal
+     */
+    public BigDecimal getDocumentVal() {
+        return (BigDecimal) getAttributeInternal(DOCUMENTVAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DocumentVal.
+     * @param value value to set the DocumentVal
+     */
+    public void setDocumentVal(BigDecimal value) {
+        setAttributeInternal(DOCUMENTVAL, value);
+    }
+
+    /**
+     * Gets the attribute value for ExchgRate, using the alias name ExchgRate.
+     * @return the value of ExchgRate
+     */
+    public BigDecimal getExchgRate() {
+        return (BigDecimal) getAttributeInternal(EXCHGRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ExchgRate.
+     * @param value value to set the ExchgRate
+     */
+    public void setExchgRate(BigDecimal value) {
+        setAttributeInternal(EXCHGRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for OtherRef, using the alias name OtherRef.
+     * @return the value of OtherRef
+     */
+    public String getOtherRef() {
+        return (String) getAttributeInternal(OTHERREF);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OtherRef.
+     * @param value value to set the OtherRef
+     */
+    public void setOtherRef(String value) {
+        setAttributeInternal(OTHERREF, value);
+    }
+
+    /**
+     * Gets the attribute value for HeaderNotes, using the alias name HeaderNotes.
+     * @return the value of HeaderNotes
+     */
+    public String getHeaderNotes() {
+        return (String) getAttributeInternal(HEADERNOTES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for HeaderNotes.
+     * @param value value to set the HeaderNotes
+     */
+    public void setHeaderNotes(String value) {
+        setAttributeInternal(HEADERNOTES, value);
+    }
+
+    /**
      * @param transactionId key constituent
 
      * @return a Key object based on given key constituents.
@@ -445,6 +589,8 @@ public class InwardLCTransactionDetailEOImpl extends EntityImpl {
         SequenceImpl seqImpl = new SequenceImpl("XXBFM_INWARD_LC_TRANS_DTL_SEQ", this.getDBTransaction());
         BigDecimal seqBD = seqImpl.getSequenceNumber().getBigDecimalValue();
         setTransactionId(seqBD);
+        
+        setTransactionNumber("TXN"+System.currentTimeMillis());
     }
 }
 

@@ -24,6 +24,7 @@
     <AttrArray Name="Attributes">
       <Item Value="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.IssuingBankId"/>
       <Item Value="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.BusinessEntityId"/>
+      <Item Value="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.FacilityStructureId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -37,6 +38,7 @@
     <AttrArray Name="Attributes">
       <Item Value="rbmbfm.model.vo.master.BankFacilityStructureVO.BankId"/>
       <Item Value="rbmbfm.model.vo.master.BankFacilityStructureVO.BusinessEntityId"/>
+      <Item Value="rbmbfm.model.vo.master.BankFacilityStructureVO.FacilityStructureId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

@@ -46,22 +46,16 @@
     ViewObjectName="rbmbfm.model.vo.app.InwardLCTransactionSourceVVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="BankFacilityStructureVVO"
-    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="BankFacilityStructureViewCriteria"
-      FullName="rbmbfm.model.vo.master.BankFacilityStructureVVO.BankFacilityStructureViewCriteria"/>
-    <ParameterMap>
-      <PIMap Variable="businessEntityIdBind">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[BusinessEntityId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
     Name="SourceTypeVVO"
     ViewObjectName="rbmbfm.model.vo.master.SourceTypeVVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BankFacilityStructureVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrencyVVO"
+    ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BusinessEntityId"
@@ -119,25 +113,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_FacilityTrackerId"
-    ListVOName="BankFacilityStructureVVO"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="FacilityTrackerId"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="FacilityTrackerId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FacilityName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_TransactionType"
     ListVOName="TransactionTypeVVO"
     ListRangeSize="-1"
@@ -191,6 +166,44 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="LookupValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FacilityStructureId"
+    ListVOName="BankFacilityStructureVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FacilityCombination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CurrencyId"
+    ListVOName="CurrencyVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -265,6 +278,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.BusinessEntityId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -279,6 +294,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.IssuingBankId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -287,15 +304,7 @@
     PrecisionRule="true"
     EntityAttrName="FacilityTrackerId"
     EntityUsage="InwardLCTransactionDetailEO"
-    AliasName="FACILITY_TRACKER_ID"
-    LOVName="LOV_FacilityTrackerId">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="FACILITY_TRACKER_ID"/>
   <ViewAttribute
     Name="ApprovalStatus"
     IsNotNull="true"
@@ -441,6 +450,122 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.InvoiceValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FacilityStructureId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="FacilityStructureId"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="FACILITY_STRUCTURE_ID"
+    LOVName="LOV_FacilityStructureId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.FacilityStructureId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocumentDate"
+    PrecisionRule="true"
+    EntityAttrName="DocumentDate"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="DOCUMENT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.DocumentDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocumentRef"
+    PrecisionRule="true"
+    EntityAttrName="DocumentRef"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="DOCUMENT_REF">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.DocumentRef_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <DISPLAYHEIGHT
+          Value="2"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocumentVal"
+    PrecisionRule="true"
+    EntityAttrName="DocumentVal"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="DOCUMENT_VAL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.DocumentVal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExchgRate"
+    PrecisionRule="true"
+    EntityAttrName="ExchgRate"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="EXCHG_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.ExchgRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrencyId"
+    PrecisionRule="true"
+    EntityAttrName="CurrencyId"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="CURRENCY_ID"
+    LOVName="LOV_CurrencyId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.CurrencyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HeaderNotes"
+    PrecisionRule="true"
+    EntityAttrName="HeaderNotes"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="HEADER_NOTES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.HeaderNotes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OtherRef"
+    PrecisionRule="true"
+    EntityAttrName="OtherRef"
+    EntityUsage="InwardLCTransactionDetailEO"
+    AliasName="OTHER_REF">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.OtherRef_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

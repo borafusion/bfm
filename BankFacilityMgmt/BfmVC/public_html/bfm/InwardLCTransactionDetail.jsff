@@ -5,328 +5,269 @@
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">-->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelStretchLayout id="psl1">
-        <f:facet name="bottom"/>
-        <f:facet name="center">
-            <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="padding:10px;">
+    <af:panelStretchLayout id="psl1" topHeight="60px">
+        <f:facet name="top">
                 <af:panelHeader text="Inward LC" id="pb1">
                     <f:facet name="toolbar"/>
-                        <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
-                            <af:button text="Submit" id="b1" partialSubmit="true"
-                                       actionListener="#{bindings.Commit.execute}" action="search"/>
-                            <af:spacer width="10px" id="s1"/>
-                            <af:button text="Cancel" id="b2" partialSubmit="true"
-                                       actionListener="#{bindings.Rollback.execute}" action="search"
-                                       immediate="true">
-                                <af:resetActionListener/>
-                            </af:button>
-                        </af:panelGroupLayout>
-                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="250px" styleClass="AFStretchWidth" >
-                        <f:facet name="footer">
-                        </f:facet>                    
-                        <af:selectOneChoice value="#{bindings.TransactionType1.inputValue}"
-                                            label="#{bindings.TransactionType1.label}"
-                                            required="#{bindings.TransactionType1.hints.mandatory}"
-                                            shortDesc="#{bindings.TransactionType1.hints.tooltip}" id="soc5">
-                            <f:selectItems value="#{bindings.TransactionType1.items}" id="si5"/>
-                            <f:validator binding="#{bindings.TransactionType1.validator}"/>
-                        </af:selectOneChoice>
-                        <!--
-                        <af:inputText value="#{bindings.TransactionType.inputValue}"
-                                      label="#{bindings.TransactionType.hints.label}"
-                                      required="#{bindings.TransactionType.hints.mandatory}"
-                                      columns="#{bindings.TransactionType.hints.displayWidth}"
-                                      maximumLength="#{bindings.TransactionType.hints.precision}"
-                                      shortDesc="#{bindings.TransactionType.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.TransactionType.validator}"/>
-                        </af:inputText>
-                        -->
-                        <af:inputDate value="#{bindings.TransactionDate.inputValue}"
-                                      label="#{bindings.TransactionDate.hints.label}"
-                                      required="#{bindings.TransactionDate.hints.mandatory}"
-                                      columns="#{bindings.TransactionDate.hints.displayWidth}"
-                                      shortDesc="#{bindings.TransactionDate.hints.tooltip}" id="id1">
-                            <f:validator binding="#{bindings.TransactionDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.TransactionDate.format}"/>
-                        </af:inputDate>
-                        <af:inputText value="#{bindings.TransactionNumber.inputValue}"
-                                      label="#{bindings.TransactionNumber.hints.label}"
-                                      required="#{bindings.TransactionNumber.hints.mandatory}"
-                                      columns="#{bindings.TransactionNumber.hints.displayWidth}"
-                                      maximumLength="#{bindings.TransactionNumber.hints.precision}"
-                                      shortDesc="#{bindings.TransactionNumber.hints.tooltip}" id="it2" readOnly="true">
-                            <f:validator binding="#{bindings.TransactionNumber.validator}"/>
-                        </af:inputText>
-                        <!--
-                        <af:inputText value="#{bindings.SourceId.inputValue}" label="#{bindings.SourceId.hints.label}"
-                                      required="#{bindings.SourceId.hints.mandatory}"
-                                      columns="#{bindings.SourceId.hints.displayWidth}"
-                                      maximumLength="#{bindings.SourceId.hints.precision}"
-                                      shortDesc="#{bindings.SourceId.hints.tooltip}" id="it3">
-                            <f:validator binding="#{bindings.SourceId.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.SourceId.format}"/>
-                        </af:inputText>
-                        -->
-                        <af:selectOneChoice value="#{bindings.SourceId1.inputValue}" label="#{bindings.SourceId1.label}"
-                                            required="#{bindings.SourceId1.hints.mandatory}" autoSubmit="true"
-                                            shortDesc="#{bindings.SourceId1.hints.tooltip}" id="soc6">
-                            <f:selectItems value="#{bindings.SourceId1.items}" id="si6"/>
-                            <f:validator binding="#{bindings.SourceId1.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.BusinessEntityId.inputValue}"
-                                            label="#{bindings.BusinessEntityId.label}"
-                                            required="#{bindings.BusinessEntityId.hints.mandatory}"
-                                            shortDesc="#{bindings.BusinessEntityId.hints.tooltip}" id="soc1">
-                            <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si1"/>
-                            <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}"
-                                            label="#{bindings.IssuingBankId.label}" autoSubmit="true"
-                                            required="#{bindings.IssuingBankId.hints.mandatory}"
-                                            shortDesc="#{bindings.IssuingBankId.hints.tooltip}" id="soc2">
-                            <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
-                            <f:validator binding="#{bindings.IssuingBankId.validator}"/>
-                        </af:selectOneChoice>
-                        <!--
-                        <af:selectOneChoice value="#{bindings.FacilityTrackerId.inputValue}"
-                                            label="#{bindings.FacilityTrackerId.label}"
-                                            required="#{bindings.FacilityTrackerId.hints.mandatory}"
-                                            shortDesc="#{bindings.FacilityTrackerId.hints.tooltip}" id="soc3">
-                            <f:selectItems value="#{bindings.FacilityTrackerId.items}" id="si3"/>
-                            <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
-                        </af:selectOneChoice>
-                        -->
-                        <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
-                                            label="#{bindings.BeneficiaryBankId.label}" autoSubmit="true"
-                                            required="#{bindings.BeneficiaryBankId.hints.mandatory}"
-                                            shortDesc="#{bindings.BeneficiaryBankId.hints.tooltip}" id="soc4">
-                            <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si4"/>
-                            <f:validator binding="#{bindings.BeneficiaryBankId.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
-                                            label="#{bindings.SourceType.label}"
-                                            required="#{bindings.SourceType.hints.mandatory}"
-                                            shortDesc="#{bindings.SourceType.hints.tooltip}" id="soc7">
-                            <f:selectItems value="#{bindings.SourceType.items}" id="si7"/>
-                            <f:validator binding="#{bindings.SourceType.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.FacilityTrackerId.inputValue}"
-                                            label="#{bindings.FacilityTrackerId.label}" partialTriggers="soc4"
-                                            required="#{bindings.FacilityTrackerId.hints.mandatory}"
-                                            shortDesc="#{bindings.FacilityTrackerId.hints.tooltip}" id="soc3">
-                            <f:selectItems value="#{bindings.FacilityTrackerId.items}" id="si3"/>
-                            <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
-                        </af:selectOneChoice>
-                        <af:inputDate value="#{bindings.InvoiceDate.inputValue}"
-                                      label="#{bindings.InvoiceDate.hints.label}"                        
-                                      required="#{bindings.InvoiceDate.hints.mandatory}"
-                                      columns="#{bindings.InvoiceDate.hints.displayWidth}"
-                                      shortDesc="#{bindings.InvoiceDate.hints.tooltip}" id="id2">
-                            <f:validator binding="#{bindings.InvoiceDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.InvoiceDate.format}"/>
-                        </af:inputDate>
-                        <af:inputDate value="#{bindings.InvoiceDueDate.inputValue}"
-                                      label="#{bindings.InvoiceDueDate.hints.label}"
-                                      required="#{bindings.InvoiceDueDate.hints.mandatory}"
-                                      columns="#{bindings.InvoiceDueDate.hints.displayWidth}"
-                                      shortDesc="#{bindings.InvoiceDueDate.hints.tooltip}" id="id3">
-                            <f:validator binding="#{bindings.InvoiceDueDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.InvoiceDueDate.format}"/>
-                        </af:inputDate>
-                        <af:inputText value="#{bindings.InvoiceNumber.inputValue}"
-                                      label="#{bindings.InvoiceNumber.hints.label}"
-                                      required="#{bindings.InvoiceNumber.hints.mandatory}"
-                                      columns="#{bindings.InvoiceNumber.hints.displayWidth}"
-                                      maximumLength="#{bindings.InvoiceNumber.hints.precision}"
-                                      shortDesc="#{bindings.InvoiceNumber.hints.tooltip}" id="it7">
-                            <f:validator binding="#{bindings.InvoiceNumber.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.InvoiceValue.inputValue}"
-                                      label="#{bindings.InvoiceValue.hints.label}"
-                                      required="#{bindings.InvoiceValue.hints.mandatory}"
-                                      columns="#{bindings.InvoiceValue.hints.displayWidth}"
-                                      maximumLength="#{bindings.InvoiceValue.hints.precision}" autoSubmit="true"
-                                      shortDesc="#{bindings.InvoiceValue.hints.tooltip}" id="it8">
-                            <f:validator binding="#{bindings.InvoiceValue.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.InvoiceValue.format}"/>
-                        </af:inputText>
-                        <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
-                              rows="#{bindings.BankFacilityStructureVO.rangeSize}" width="100%"
-                              partialTriggers="::soc1 ::soc2 ::it8"
-                              emptyText="#{bindings.BankFacilityStructureVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructureVO.rangeSize}" id="t1">
-                        <af:column headerText="Facility Name" id="c1">
-                            <af:outputText value="#{row.FacilityName}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityName.tooltip}"
-                                           inlineStyle="#{(row.FacilityValue - bindings.InvoiceValue.attributeValue - row.UtilizedValue)  > 0 ? 'color:Green;font-weight:bold;' : 'color:Red;font-weight:bold;'}"
-                                           id="ot1"/>
-                            <!-- inlineStyle="#{(bindings.InvoiceValue - (row.FacilityValue - row.UtilizedValue)) > 0 ? 'color:Green;' : 'color:Red;'}" -->
-                        </af:column>
-                        <!--
-                        <af:column headerText="Bank" id="c2">
-                            <af:outputText value="#{row.BankId}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BankId.tooltip}"
-                                           id="ot2">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BankId.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        -->
-                        <!--
-                        <af:column headerText="Business Entity" id="c3">
-                            <af:outputText value="#{row.BusinessEntityId}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.tooltip}"
-                                           id="ot3">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        -->
-                        <af:column headerText="Facility Value" id="c5">
-                            <af:outputText value="#{row.FacilityValue}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityValue.tooltip}"
-                                           id="ot5">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.FacilityValue.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="Utilized Value" id="c4">
-                            <af:outputText value="#{row.UtilizedValue}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.tooltip}"
-                                           id="ot4">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
-                            </af:outputText>
-                        </af:column>
-
-                        <af:column headerText="Available Limit" id="c2">
-                            <af:outputText value="#{row.FacilityValue - row.UtilizedValue}"
-                                           id="ot2">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
-                            </af:outputText>
-                        </af:column>                        
-                    </af:table>                        
-                    </af:panelFormLayout>
-                    <af:separator/>
-                    <!--
-                    <af:table value="#{bindings.BankFacilityStructureVO.collectionModel}" var="row"
-                              rows="#{bindings.BankFacilityStructureVO.rangeSize}"
-                              emptyText="#{bindings.BankFacilityStructureVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructureVO.rangeSize}" id="t1">
-                        <af:column headerText="Facility Name" id="c1">
-                            <af:outputText value="#{row.FacilityName}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityName.tooltip}"
-                                           id="ot1"/>
-                        </af:column>
-                        <af:column headerText="Bank" id="c2">
-                            <af:outputText value="#{row.BankId}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BankId.tooltip}"
-                                           id="ot2">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BankId.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="Business Entity" id="c3">
-                            <af:outputText value="#{row.BusinessEntityId}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.tooltip}"
-                                           id="ot3">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.BusinessEntityId.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="Facility Value" id="c5">
-                            <af:outputText value="#{row.FacilityValue}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.FacilityValue.tooltip}"
-                                           id="ot5">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.FacilityValue.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="Utilized Value" id="c4">
-                            <af:outputText value="#{row.UtilizedValue}"
-                                           shortDesc="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.tooltip}"
-                                           id="ot4">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BankFacilityStructureVO.hints.UtilizedValue.format}"/>
-                            </af:outputText>
-                        </af:column>
-                    </af:table>
-                    -->
-                    <af:separator/>
-                    <af:panelGroupLayout layout="horizontal" inlineStyle="width:100%">
-                        <af:panelHeader text="Issuing Bank" inlineStyle="width:100%" partialTriggers="soc2">
-                            <!--<af:panelLabelAndMessage label="Issuing Bank">-->
-                            <af:region value="#{bindings.BankDetailFlow1.regionModel}" id="r1"
-                                       visible="#{not empty bindings.IssuingBankId.inputValue}"/>
-                            <!--</af:panelLabelAndMessage>-->
-                        </af:panelHeader>
-                        <af:spacer width="1px"/>
-                        <af:panelHeader text="Beneficiary Bank" inlineStyle="width:100%" partialTriggers="soc4">
-                            <!--<af:panelLabelAndMessage label="Beneficiary Bank">-->
-                            <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2" visible="#{not empty bindings.BeneficiaryBankId.inputValue}"/>
-                            <!--</af:panelLabelAndMessage>-->
-                        </af:panelHeader>
-                         <af:spacer width="1px"/>
-                        <af:panelHeader text="Beneficiary" inlineStyle="width:100%" partialTriggers="soc6">
-                        <af:panelFormLayout id="pfl2">
-                            <af:inputText value="#{bindings.BeneficiaryId.inputValue}"
-                                          label="#{bindings.BeneficiaryId.hints.label}"
-                                          required="#{bindings.BeneficiaryId.hints.mandatory}"
-                                          columns="#{bindings.BeneficiaryId.hints.displayWidth}"
-                                          maximumLength="#{bindings.BeneficiaryId.hints.precision}"
-                                          shortDesc="#{bindings.BeneficiaryId.hints.tooltip}" id="it1">
-                                <f:validator binding="#{bindings.BeneficiaryId.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.BeneficiaryId.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.BeneficiaryName.inputValue}"
-                                          label="#{bindings.BeneficiaryName.hints.label}"
-                                          required="#{bindings.BeneficiaryName.hints.mandatory}"
-                                          columns="#{bindings.BeneficiaryName.hints.displayWidth}"
-                                          maximumLength="#{bindings.BeneficiaryName.hints.precision}"
-                                          shortDesc="#{bindings.BeneficiaryName.hints.tooltip}" id="it3">
-                                <f:validator binding="#{bindings.BeneficiaryName.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.ContactName.inputValue}"
-                                          label="#{bindings.ContactName.hints.label}"
-                                          required="#{bindings.ContactName.hints.mandatory}"
-                                          columns="#{bindings.ContactName.hints.displayWidth}"
-                                          maximumLength="#{bindings.ContactName.hints.precision}"
-                                          shortDesc="#{bindings.ContactName.hints.tooltip}" id="it4">
-                                <f:validator binding="#{bindings.ContactName.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.ContactNumber.inputValue}"
-                                          label="#{bindings.ContactNumber.hints.label}"
-                                          required="#{bindings.ContactNumber.hints.mandatory}"
-                                          columns="#{bindings.ContactNumber.hints.displayWidth}"
-                                          maximumLength="#{bindings.ContactNumber.hints.precision}"
-                                          shortDesc="#{bindings.ContactNumber.hints.tooltip}" id="it5">
-                                <f:validator binding="#{bindings.ContactNumber.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.SourceId2.inputValue}"
-                                          label="#{bindings.SourceId2.hints.label}"
-                                          required="#{bindings.SourceId2.hints.mandatory}"
-                                          columns="#{bindings.SourceId2.hints.displayWidth}"
-                                          maximumLength="#{bindings.SourceId2.hints.precision}"
-                                          shortDesc="#{bindings.SourceId2.hints.tooltip}" id="it6">
-                                <f:validator binding="#{bindings.SourceId2.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.SourceId2.format}"/>
-                            </af:inputText>
-                        </af:panelFormLayout>
-                        </af:panelHeader>
+                    <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
+                        <af:button text="Submit" id="b1" partialSubmit="true"
+                                   actionListener="#{bindings.Commit.execute}" action="search"/>
+                        <af:spacer width="10px" id="s1"/>
+                        <af:button text="Cancel" id="b2" partialSubmit="true"
+                                   actionListener="#{bindings.Rollback.execute}" action="search" immediate="true">
+                            <af:resetActionListener/>
+                        </af:button>
                     </af:panelGroupLayout>
-                    <af:separator/>
-                    <af:panelHeader text="Document Details: LC" inlineStyle="width:100%">
-                    </af:panelHeader>
-                </af:panelHeader>
-                <af:spacer height="4px"/>
-            </af:panelGroupLayout>
+                </af:panelHeader>        
+        </f:facet>
+        <f:facet name="center">
+            <af:panelGroupLayout layout="scroll" id="pgl2" inlineStyle="padding:10px;">
+
+
+                        <af:panelBox text="Transaction Details" id="pb2">
+                            <af:panelFormLayout id="pfl3" maxColumns="4" rows="2" fieldWidth="200px" labelWidth="250px"
+                                                styleClass="AFStretchWidth">
+                                <af:selectOneChoice value="#{bindings.TransactionType1.inputValue}"
+                                                    label="#{bindings.TransactionType1.label}"
+                                                    required="#{bindings.TransactionType1.hints.mandatory}"
+                                                    shortDesc="#{bindings.TransactionType1.hints.tooltip}" id="soc5">
+                                    <f:selectItems value="#{bindings.TransactionType1.items}" id="si5"/>
+                                    <f:validator binding="#{bindings.TransactionType1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputDate value="#{bindings.TransactionDate.inputValue}"
+                                              label="#{bindings.TransactionDate.hints.label}"
+                                              required="#{bindings.TransactionDate.hints.mandatory}"
+                                              columns="#{bindings.TransactionDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.TransactionDate.hints.tooltip}" id="id1">
+                                    <f:validator binding="#{bindings.TransactionDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.TransactionDate.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.TransactionNumber.inputValue}"
+                                              label="#{bindings.TransactionNumber.hints.label}"
+                                              required="#{bindings.TransactionNumber.hints.mandatory}"
+                                              columns="#{bindings.TransactionNumber.hints.displayWidth}"
+                                              maximumLength="#{bindings.TransactionNumber.hints.precision}"
+                                              shortDesc="#{bindings.TransactionNumber.hints.tooltip}" id="it2"
+                                              readOnly="true">
+                                    <f:validator binding="#{bindings.TransactionNumber.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl4" maxColumns="4" rows="3" fieldWidth="200px" labelWidth="250px"
+                                                styleClass="AFStretchWidth">
+                                <af:selectOneChoice value="#{bindings.BusinessEntityId.inputValue}"
+                                                    label="#{bindings.BusinessEntityId.label}"
+                                                    required="#{bindings.BusinessEntityId.hints.mandatory}"
+                                                    autoSubmit="true"
+                                                    shortDesc="#{bindings.BusinessEntityId.hints.tooltip}" id="soc1">
+                                    <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}"
+                                                    label="#{bindings.IssuingBankId.label}"
+                                                    required="#{bindings.IssuingBankId.hints.mandatory}"
+                                                    autoSubmit="true"
+                                                    shortDesc="#{bindings.IssuingBankId.hints.tooltip}" id="soc2">
+                                    <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.IssuingBankId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.FacilityStructureId.inputValue}"
+                                                    label="#{bindings.FacilityStructureId.label}" autoSubmit="true"
+                                                    required="#{bindings.FacilityStructureId.hints.mandatory}"
+                                                    shortDesc="#{bindings.FacilityStructureId.hints.tooltip}" id="soc8">
+                                    <f:selectItems value="#{bindings.FacilityStructureId.items}" id="si8"/>
+                                    <f:validator binding="#{bindings.FacilityStructureId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.FacilityValue.attributeValue - bindings.UtilizedValue.attributeValue}"
+                                              label="Available Limit" readOnly="true" id="it9"/>
+                                <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
+                                                    label="#{bindings.SourceType.label}"
+                                                    required="#{bindings.SourceType.hints.mandatory}"
+                                                    shortDesc="#{bindings.SourceType.hints.tooltip}" id="soc7">
+                                    <f:selectItems value="#{bindings.SourceType.items}" id="si7"/>
+                                    <f:validator binding="#{bindings.SourceType.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.ApprovalStatus.attributeValue}" label="Approval Status"
+                                              readOnly="true" id="it10"/>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl5" maxColumns="4" rows="3" fieldWidth="200px" labelWidth="250px"
+                                                styleClass="AFStretchWidth">
+                                <af:inputText value="#{bindings.DocumentRef.inputValue}"
+                                              label="#{bindings.DocumentRef.hints.label}"
+                                              required="#{bindings.DocumentRef.hints.mandatory}"
+                                              columns="#{bindings.DocumentRef.hints.displayWidth}"
+                                              maximumLength="#{bindings.DocumentRef.hints.precision}"
+                                              shortDesc="#{bindings.DocumentRef.hints.tooltip}" id="it11">
+                                    <f:validator binding="#{bindings.DocumentRef.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.DocumentDate.inputValue}"
+                                              label="#{bindings.DocumentDate.hints.label}"
+                                              required="#{bindings.DocumentDate.hints.mandatory}"
+                                              columns="#{bindings.DocumentDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id4">
+                                    <f:validator binding="#{bindings.DocumentDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
+                                </af:inputDate>
+                                <af:selectOneChoice value="#{bindings.CurrencyId.inputValue}"
+                                                    label="#{bindings.CurrencyId.label}"
+                                                    required="#{bindings.CurrencyId.hints.mandatory}"
+                                                    shortDesc="#{bindings.CurrencyId.hints.tooltip}" id="soc3">
+                                    <f:selectItems value="#{bindings.CurrencyId.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.CurrencyId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.DocumentVal.inputValue}"
+                                              label="#{bindings.DocumentVal.hints.label}"
+                                              required="#{bindings.DocumentVal.hints.mandatory}"
+                                              columns="#{bindings.DocumentVal.hints.displayWidth}"
+                                              maximumLength="#{bindings.DocumentVal.hints.precision}" autoSubmit="true"
+                                              shortDesc="#{bindings.DocumentVal.hints.tooltip}" id="it12">
+                                    <f:validator binding="#{bindings.DocumentVal.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DocumentVal.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ExchgRate.inputValue}"
+                                              label="#{bindings.ExchgRate.hints.label}"
+                                              required="#{bindings.ExchgRate.hints.mandatory}"
+                                              columns="#{bindings.ExchgRate.hints.displayWidth}"
+                                              maximumLength="#{bindings.ExchgRate.hints.precision}" autoSubmit="true"
+                                              shortDesc="#{bindings.ExchgRate.hints.tooltip}" id="it13">
+                                    <f:validator binding="#{bindings.ExchgRate.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ExchgRate.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.DocumentVal.attributeValue * bindings.ExchgRate.attributeValue}"
+                                              label="Functional Value" partialTriggers="::it12 ::it13" readOnly="true"
+                                              id="it14"/>
+                            </af:panelFormLayout>
+                        </af:panelBox>
+                        <af:panelBox text="Source Details" id="pb3">
+                            <af:panelFormLayout id="pfl6" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="250px"
+                                                styleClass="AFStretchWidth">
+                                <af:selectOneChoice value="#{bindings.SourceId1.inputValue}"
+                                                    label="#{bindings.SourceId1.label}"
+                                                    required="#{bindings.SourceId1.hints.mandatory}" autoSubmit="true"
+                                                    shortDesc="#{bindings.SourceId1.hints.tooltip}" id="soc6">
+                                    <f:selectItems value="#{bindings.SourceId1.items}" id="si6"/>
+                                    <f:validator binding="#{bindings.SourceId1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
+                                                    label="#{bindings.BeneficiaryBankId.label}" autoSubmit="true"
+                                                    required="#{bindings.BeneficiaryBankId.hints.mandatory}"
+                                                    shortDesc="#{bindings.BeneficiaryBankId.hints.tooltip}" id="soc4">
+                                    <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si4"/>
+                                    <f:validator binding="#{bindings.BeneficiaryBankId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
+                                                    label="#{bindings.SourceType.label}"
+                                                    required="#{bindings.SourceType.hints.mandatory}"
+                                                    shortDesc="#{bindings.SourceType.hints.tooltip}" id="soc9">
+                                    <f:selectItems value="#{bindings.SourceType.items}" id="si9"/>
+                                    <f:validator binding="#{bindings.SourceType.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputDate value="#{bindings.InvoiceDate.inputValue}"
+                                              label="#{bindings.InvoiceDate.hints.label}"
+                                              required="#{bindings.InvoiceDate.hints.mandatory}"
+                                              columns="#{bindings.InvoiceDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.InvoiceDate.hints.tooltip}" id="id2">
+                                    <f:validator binding="#{bindings.InvoiceDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.InvoiceDate.format}"/>
+                                </af:inputDate>
+                                <af:inputDate value="#{bindings.InvoiceDueDate.inputValue}"
+                                              label="#{bindings.InvoiceDueDate.hints.label}"
+                                              required="#{bindings.InvoiceDueDate.hints.mandatory}"
+                                              columns="#{bindings.InvoiceDueDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.InvoiceDueDate.hints.tooltip}" id="id3">
+                                    <f:validator binding="#{bindings.InvoiceDueDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.InvoiceDueDate.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.InvoiceNumber.inputValue}"
+                                              label="#{bindings.InvoiceNumber.hints.label}"
+                                              required="#{bindings.InvoiceNumber.hints.mandatory}"
+                                              columns="#{bindings.InvoiceNumber.hints.displayWidth}"
+                                              maximumLength="#{bindings.InvoiceNumber.hints.precision}"
+                                              shortDesc="#{bindings.InvoiceNumber.hints.tooltip}" id="it7">
+                                    <f:validator binding="#{bindings.InvoiceNumber.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.InvoiceValue.inputValue}"
+                                              label="#{bindings.InvoiceValue.hints.label}"
+                                              required="#{bindings.InvoiceValue.hints.mandatory}"
+                                              columns="#{bindings.InvoiceValue.hints.displayWidth}"
+                                              maximumLength="#{bindings.InvoiceValue.hints.precision}" autoSubmit="true"
+                                              shortDesc="#{bindings.InvoiceValue.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.InvoiceValue.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.InvoiceValue.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelBox>
+                        <af:panelBox text="Bank Details">
+                            <af:panelGroupLayout layout="horizontal" inlineStyle="width:100%">
+                                <af:panelBox text="Issuing Bank" inlineStyle="width:100%" partialTriggers="soc2"
+                                             id="pb4" showDisclosure="false">
+                                    <!--<af:panelLabelAndMessage label="Issuing Bank">-->
+                                    <af:region value="#{bindings.BankDetailFlow1.regionModel}" id="r1"
+                                               visible="#{not empty bindings.IssuingBankId.inputValue}"/>
+                                    <!--</af:panelLabelAndMessage>-->
+                                </af:panelBox>
+                                <af:spacer width="1px"/>
+                                <af:panelBox text="Beneficiary Bank" inlineStyle="width:100%" partialTriggers="soc4" showDisclosure="false">
+                                    <!--<af:panelLabelAndMessage label="Beneficiary Bank">-->
+                                    <af:region value="#{bindings.BankDetailFlow2.regionModel}" id="r2"
+                                               visible="#{not empty bindings.BeneficiaryBankId.inputValue}"/>
+                                    <!--</af:panelLabelAndMessage>-->
+                                </af:panelBox>
+                                <af:spacer width="1px"/>
+                                <af:panelBox text="Beneficiary" inlineStyle="width:100%" partialTriggers="soc6" showDisclosure="false">
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText value="#{bindings.BeneficiaryId.inputValue}"
+                                                      label="#{bindings.BeneficiaryId.hints.label}"
+                                                      required="#{bindings.BeneficiaryId.hints.mandatory}"
+                                                      columns="#{bindings.BeneficiaryId.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BeneficiaryId.hints.precision}"
+                                                      shortDesc="#{bindings.BeneficiaryId.hints.tooltip}" id="it1">
+                                            <f:validator binding="#{bindings.BeneficiaryId.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.BeneficiaryId.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.BeneficiaryName.inputValue}"
+                                                      label="#{bindings.BeneficiaryName.hints.label}"
+                                                      required="#{bindings.BeneficiaryName.hints.mandatory}"
+                                                      columns="#{bindings.BeneficiaryName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BeneficiaryName.hints.precision}"
+                                                      shortDesc="#{bindings.BeneficiaryName.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.BeneficiaryName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ContactName.inputValue}"
+                                                      label="#{bindings.ContactName.hints.label}"
+                                                      required="#{bindings.ContactName.hints.mandatory}"
+                                                      columns="#{bindings.ContactName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ContactName.hints.precision}"
+                                                      shortDesc="#{bindings.ContactName.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.ContactName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ContactNumber.inputValue}"
+                                                      label="#{bindings.ContactNumber.hints.label}"
+                                                      required="#{bindings.ContactNumber.hints.mandatory}"
+                                                      columns="#{bindings.ContactNumber.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ContactNumber.hints.precision}"
+                                                      shortDesc="#{bindings.ContactNumber.hints.tooltip}" id="it5">
+                                            <f:validator binding="#{bindings.ContactNumber.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.SourceId2.inputValue}"
+                                                      label="#{bindings.SourceId2.hints.label}"
+                                                      required="#{bindings.SourceId2.hints.mandatory}"
+                                                      columns="#{bindings.SourceId2.hints.displayWidth}"
+                                                      maximumLength="#{bindings.SourceId2.hints.precision}"
+                                                      shortDesc="#{bindings.SourceId2.hints.tooltip}" id="it6">
+                                            <f:validator binding="#{bindings.SourceId2.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.SourceId2.format}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </af:panelBox>
+                            </af:panelGroupLayout>
+                        </af:panelBox>
+                    </af:panelGroupLayout>                
         </f:facet>
         <f:facet name="start"/>
         <f:facet name="end"/>
-        <f:facet name="top">
-            <af:messages id="m1"/>
-        </f:facet>
+
     </af:panelStretchLayout>
     <!--</ui:composition>-->
 </jsp:root>

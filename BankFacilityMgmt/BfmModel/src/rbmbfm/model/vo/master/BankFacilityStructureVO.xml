@@ -18,8 +18,8 @@
         ResId="rbmbfm.model.vo.master.BankFacilityStructureVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE     
-from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE XFS 
+  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE      
+from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE_ALL XFS  
 where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
   <ViewAttribute
     Name="FacilityName"
@@ -102,6 +102,7 @@ where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
     SQLType="NUMERIC"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="FacilityStructureId"/>
+    <Item Value="FacilityTrackerId"/>
   </AttrArray>
   <ResourceBundle>
     <PropertiesBundle

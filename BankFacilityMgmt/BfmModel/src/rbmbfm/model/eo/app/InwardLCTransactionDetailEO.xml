@@ -345,6 +345,78 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="FacilityStructureId"
+    ColumnName="FACILITY_STRUCTURE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false"/>
+  <Attribute
+    Name="DocumentRef"
+    Precision="200"
+    ColumnName="DOCUMENT_REF"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DocumentDate"
+    ColumnName="DOCUMENT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="CurrencyId"
+    ColumnName="CURRENCY_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="DocumentVal"
+    ColumnName="DOCUMENT_VAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="ExchgRate"
+    ColumnName="EXCHG_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL"/>
+  <Attribute
+    Name="OtherRef"
+    Precision="200"
+    ColumnName="OTHER_REF"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HeaderNotes"
+    Precision="500"
+    ColumnName="HEADER_NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_INWARD_LC_TRANS_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XxbfmInwardLcTransDtlPk"
     PrimaryKey="true">

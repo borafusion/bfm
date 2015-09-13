@@ -20,8 +20,8 @@
     </taskFlow>
     <iterator Binds="GetBeneficiaryDetailVO1" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="GetBeneficiaryDetailVO1Iterator"/>
-    <iterator Binds="BankFacilityStructureVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
-              id="BankFacilityStructureVOIterator" Refresh="default"/>
+    <iterator Binds="FacilityAvailableLimitVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="FacilityAvailableLimitVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="TransactionType">
@@ -48,8 +48,6 @@
           id="BusinessEntityId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_IssuingBankId"
           id="IssuingBankId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_FacilityTrackerId"
-          id="FacilityTrackerId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="ApprovalStatus">
       <AttrNames>
         <Item Value="ApprovalStatus"/>
@@ -97,17 +95,6 @@
         <Item Value="SourceId"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="BankFacilityStructureVOIterator" id="BankFacilityStructureVO">
-      <nodeDefinition DefName="rbmbfm.model.vo.master.BankFacilityStructureVO" Name="BankFacilityStructureVO0">
-        <AttrNames>
-          <Item Value="FacilityName"/>
-          <Item Value="BankId"/>
-          <Item Value="BusinessEntityId"/>
-          <Item Value="FacilityValue"/>
-          <Item Value="UtilizedValue"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceDate">
       <AttrNames>
         <Item Value="InvoiceDate"/>
@@ -126,6 +113,40 @@
     <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="InvoiceValue">
       <AttrNames>
         <Item Value="InvoiceValue"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_FacilityStructureId"
+          id="FacilityStructureId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="FacilityAvailableLimitVOIterator" id="FacilityValue">
+      <AttrNames>
+        <Item Value="FacilityValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FacilityAvailableLimitVOIterator" id="UtilizedValue">
+      <AttrNames>
+        <Item Value="UtilizedValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="DocumentDate">
+      <AttrNames>
+        <Item Value="DocumentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="DocumentRef">
+      <AttrNames>
+        <Item Value="DocumentRef"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="InwardLCTransactionDetailVO1Iterator" StaticList="false" Uses="LOV_CurrencyId" id="CurrencyId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="DocumentVal">
+      <AttrNames>
+        <Item Value="DocumentVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InwardLCTransactionDetailVO1Iterator" id="ExchgRate">
+      <AttrNames>
+        <Item Value="ExchgRate"/>
       </AttrNames>
     </attributeValues>
   </bindings>
