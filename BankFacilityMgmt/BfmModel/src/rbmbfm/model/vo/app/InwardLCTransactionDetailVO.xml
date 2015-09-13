@@ -553,6 +553,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="rbmbfm.model.vo.app.InwardLCTransactionDetailVO.HeaderNotes_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

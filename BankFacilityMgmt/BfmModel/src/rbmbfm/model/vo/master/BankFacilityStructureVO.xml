@@ -18,8 +18,8 @@
         ResId="rbmbfm.model.vo.master.BankFacilityStructureVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE      
-from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE_ALL XFS  
+  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE, XFS.FACILITY_COMBINATION        
+from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE_ALL XFS    
 where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
   <ViewAttribute
     Name="FacilityName"
@@ -87,7 +87,14 @@ where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="FACILITY_VALUE"
     Expression="FACILITY_VALUE"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankFacilityStructureVO.FacilityValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UtilizedValue"
     IsUpdateable="false"
@@ -99,7 +106,35 @@ where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="UTILIZED_VALUE"
     Expression="UTILIZED_VALUE"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankFacilityStructureVO.UtilizedValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FacilityCombination"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1024"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FACILITY_COMBINATION"
+    Expression="FACILITY_COMBINATION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1024"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankFacilityStructureVO.FacilityCombination_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="FacilityStructureId"/>
     <Item Value="FacilityTrackerId"/>
