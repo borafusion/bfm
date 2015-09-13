@@ -9,13 +9,14 @@
     <searchRegion Criteria="InwardLCTransactionDetailSearchCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SearchInwardLCTransactionDetailVOIterator" id="InwardLCTransactionDetailSearchCriteriaQuery"/>
+    <iterator Binds="SearchTransactionDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="SearchTransactionDetailVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SearchInwardLCTransactionDetailVOIterator" id="SearchInwardLCTransactionDetailVO">
       <nodeDefinition DefName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"
                       Name="SearchInwardLCTransactionDetailVO0">
         <AttrNames>
-          <Item Value="TransactionId"/>
           <Item Value="TransactionType"/>
           <Item Value="TransactionDate"/>
           <Item Value="TransactionNumber"/>
@@ -26,12 +27,20 @@
           <Item Value="ApprovalStatus"/>
           <Item Value="BeneficiaryBankId"/>
           <Item Value="SourceType"/>
-          <Item Value="CreatedBy"/>
-          <Item Value="CreationDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="LastUpdateDate"/>
-          <Item Value="LastUpdateLogin"/>
-          <Item Value="Version"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SearchTransactionDetailVOIterator" id="SearchTransactionDetailVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.SearchTransactionDetailVO" Name="SearchTransactionDetailVO0">
+        <AttrNames>
+          <Item Value="TransactionType"/>
+          <Item Value="TransactionDate"/>
+          <Item Value="TransactionNumber"/>
+          <Item Value="InvoiceValue"/>
+          <Item Value="ApprovalStatus"/>
+          <Item Value="IssuingBankName"/>
+          <Item Value="BeneficiaryBankName"/>
+          <Item Value="TransactionId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

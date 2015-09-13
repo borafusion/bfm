@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SearchTransactionDetailVO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="rbmbfm.model.vo.app.SearchTransactionDetailVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="ApprovalStatusBind"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT TRANSACTION_TYPE, TRANSACTION_ID, TRANSACTION_DATE, TRANSACTION_NUMBER, INVOICE_VALUE, APPROVAL_STATUS, (SELECT BANK_NAME FROM XXBFM_BANK_ALL   
+WHERE BANK_ID=ISSUING_BANK_ID) ISSUING_BANK_NAME, (SELECT BANK_NAME FROM XXBFM_BANK_ALL   
+WHERE BANK_ID=BENEFICIARY_BANK_ID) BENEFICIARY_BANK_NAME    
+FROM XXBFM_INWARD_LC_TRANS_DTL]]></SQLQuery>
+  <ViewAttribute
+    Name="TransactionType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRANSACTION_TYPE"
+    Expression="TRANSACTION_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TRANSACTION_ID"
+    Expression="TRANSACTION_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="TransactionDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="TRANSACTION_DATE"
+    Expression="TRANSACTION_DATE"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="TransactionNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRANSACTION_NUMBER"
+    Expression="TRANSACTION_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="INVOICE_VALUE"
+    Expression="INVOICE_VALUE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="ApprovalStatus"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="APPROVAL_STATUS"
+    Expression="APPROVAL_STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuingBankName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="256"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ISSUING_BANK_NAME"
+    Expression="ISSUING_BANK_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BeneficiaryBankName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="256"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BENEFICIARY_BANK_NAME"
+    Expression="BENEFICIARY_BANK_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -51,6 +51,9 @@
   <ViewUsage
     Name="FacilityAvailableLimitVO"
     ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
+  <ViewUsage
+    Name="SearchTransactionDetailVO"
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionDetailVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"

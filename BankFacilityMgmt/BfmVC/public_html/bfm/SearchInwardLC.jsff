@@ -1,67 +1,132 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGridLayout id="pgl1">
         <af:gridRow marginTop="5px" height="auto" id="gr1">
             <af:gridCell valign="middle" id="gc1">
                 <af:outputFormatted value="Inward LC" id="of1" styleClass="WBPageTitleText"
                                     inlineStyle="font-size:large; font-weight:bold;"/>
             </af:gridCell>
-            <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">                
+            <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">
                 <af:button text="New" id="b1" action="addEdit" partialSubmit="true">
                     <af:setActionListener from="" to="#{pageFlowScope.selectedTransactionId}"/>
-                </af:button>                
+                </af:button>
             </af:gridCell>
-            <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">               
-                <af:quickQuery id="qryId1" value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
+            <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">
+                <af:quickQuery id="qryId1"
+                               value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
                                model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
-                               queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"/>                                   
+                               queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"/>
             </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc4" halign="stretch">
-               
+                <af:listView value="#{bindings.SearchTransactionDetailVO.collectionModel}" var="item"
+                             emptyText="#{bindings.SearchTransactionDetailVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.SearchTransactionDetailVO.rangeSize}" id="lv1">
+                    <af:listItem id="li1">
+                        <af:panelGridLayout id="pgl3">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                <af:gridCell marginStart="5px"  width="25%" id="gc5" halign="stretch">
+                                    <af:panelGroupLayout id="pgl3c1" layout="vertical">
+                                        <af:outputFormatted value="Type: #{item.bindings.TransactionType.inputValue}" id="of2"/>
+                                        <!-- <af:outputLabel value="Transaction No: #{item.bindings.TransactionNumber}" id="ol1"/>-->
+                                        <af:link id="ot1"
+                                                 inlineStyle="font-size:large; font-weight:bold;" text="#{item.bindings.TransactionNumber}"
+                                                 action="addEdit">                                                        
+                                            <af:setActionListener from="#{item.bindings.TransactionId.inputValue}"
+                                                                  to="#{pageFlowScope.selectedTransactionId}"/>                                                 
+                                        </af:link>
+                                        <af:outputFormatted value="Transaction Date #{item.bindings.TransactionDate.inputValue}" id="of3">
+                                            <af:convertDateTime pattern="#{bindings.SearchTransactionDetailVO.hints.TransactionDate.format}"/>
+                                        </af:outputFormatted>                                     
+                                    </af:panelGroupLayout>                                
+                                </af:gridCell>
+
+                                <af:gridCell marginStart="5px" width="25%" id="gc6">
+                                    <af:panelGroupLayout id="pgl4" layout="vertical">
+                                        <af:outputFormatted value="Bank: #{item.bindings.IssuingBankName}" id="of4"
+                                                            styleClass="WBJobTitleText"/>
+                                        <af:outputFormatted value="Beneficiary : #{item.bindings.BeneficiaryBankName}"
+                                                            id="of5" styleClass="WBDeptText"/>                                    
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                
+                                <af:gridCell marginStart="5px" width="25%" id="gc8">
+                                    <af:panelGroupLayout id="pgl5" layout="vertical">
+                                        <af:outputFormatted value="Status: #{item.bindings.ApprovalStatus}" id="of8"
+                                                            styleClass="WBJobTitleText"/>                                                                                                                    
+                                    </af:panelGroupLayout>
+                                </af:gridCell>                                
+                                
+                                <af:gridCell marginStart="5px" width="25%" id="gc7">
+                                    <af:outputText value="Txn. Value: #{item.bindings.InvoiceValue}"
+                                                   shortDesc="#{item.bindings.InvoiceValue.hints.tooltip}" id="ot4"
+                                                   inlineStyle="font-weight:bold; font-size:medium;">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{item.bindings.InvoiceValue.format}"/>
+                                    </af:outputText>   
+                                </af:gridCell>                                
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                        <!--
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <f:facet name="separator">
+                                <af:spacer width="10" id="s1"/>
+                            </f:facet>
+                            <af:outputFormatted value="#{item.bindings.TransactionType.inputValue}" id="of2"/>
+                            <af:outputFormatted value="#{item.bindings.TransactionDate.inputValue}" id="of3">
+                                <af:convertDateTime pattern="#{bindings.SearchTransactionDetailVO.hints.TransactionDate.format}"/>
+                            </af:outputFormatted>
+                            <af:outputFormatted value="#{item.bindings.TransactionNumber.inputValue}" id="of4"/>
+                            <af:outputFormatted value="#{item.bindings.InvoiceValue.inputValue}" id="of5">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SearchTransactionDetailVO.hints.InvoiceValue.format}"/>
+                            </af:outputFormatted>
+                            <af:outputFormatted value="#{item.bindings.ApprovalStatus.inputValue}" id="of6"/>
+                            <af:outputFormatted value="#{item.bindings.IssuingBankName.inputValue}" id="of7"/>
+                            <af:outputFormatted value="#{item.bindings.BeneficiaryBankName.inputValue}" id="of8"/>
+                        </af:panelGroupLayout>
+                        -->
+                    </af:listItem>
+                </af:listView>
+                <!--
                 <af:listView value="#{bindings.SearchInwardLCTransactionDetailVO.collectionModel}" var="item"
                              emptyText="#{bindings.SearchInwardLCTransactionDetailVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.SearchInwardLCTransactionDetailVO.rangeSize}" id="lv1"
-                             partialTriggers="::qryId1" selection="single" selectedRowKeys="#{bindings.SearchInwardLCTransactionDetailVO.collectionModel.selectedRow}">
+                             partialTriggers="::qryId1" selection="single"
+                             selectedRowKeys="#{bindings.SearchInwardLCTransactionDetailVO.collectionModel.selectedRow}">
                     <af:listItem id="li1" styleClass="WBListPadding">
                         <af:panelGridLayout id="pgl3">
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                            
                                 <af:gridCell marginStart="5px" id="gc5" halign="stretch">
-                                                                <!--  
-                                <af:image id="i1" styleClass="WBImage WBImageBorder"
-                                          source="/resources/images/qual_myorg_70.png"/>
-
-            -->
-                                <af:commandImageLink action="addEdit" partialSubmit="true" id="cl1" icon="/resources/images/qual_myorg_70.png">
-                                    <af:setActionListener from="#{item.bindings.TransactionId}" to="#{pageFlowScope.selectedTransactionId}"/>
-                                </af:commandImageLink>                                          
-                                
+                                    <af:commandImageLink action="addEdit" partialSubmit="true" id="cl1"
+                                                         icon="/resources/images/qual_myorg_70.png">
+                                        <af:setActionListener from="#{item.bindings.TransactionId}"
+                                                              to="#{pageFlowScope.selectedTransactionId}"/>
+                                    </af:commandImageLink>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="20%" id="gc6">
-                                <af:panelGroupLayout id="pgl3c1" layout="vertical">
-                                        <af:outputLabel value="LC: #{item.bindings.TransactionNumber}"
-                                                            id="of2" 
-                                                        inlineStyle="font-weight:bold; font-size:large;"/>
+                                    <af:panelGroupLayout id="pgl3c1" layout="vertical">
+                                        <af:outputLabel value="LC: #{item.bindings.TransactionNumber}" id="of2"
+                                                        inlineStyle="font-weight:bold; font-size:medium;"/>
                                         <af:outputFormatted value="Bank: #{item.bindings.IssuingBankId}" id="of4"
                                                             styleClass="WBJobTitleText"/>
                                         <af:outputFormatted value="Facility: #{item.bindings.FacilityTrackerId}"
                                                             id="of5" styleClass="WBDeptText"/>
-                                </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="17%" id="gc7">
-                                <af:panelGroupLayout id="pgl4b" layout="vertical">
-                                    <af:outputFormatted value="#{item.bindings.BeneficiaryBankId}" id="of3"
-                                                        />
-                                    <af:outputLabel value="Beneficiary Bank" id="ol3"
-                                                            styleClass="WBMetricLabelMedium"/>
-                                </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl4b" layout="vertical">
+                                        <af:outputFormatted value="#{item.bindings.BeneficiaryBankId}" id="of3"/>
+                                        <af:outputLabel value="Beneficiary Bank" id="ol3"
+                                                        styleClass="WBMetricLabelMedium"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="17%" id="gc8">
                                     <af:panelGroupLayout id="pgl4" layout="vertical">
-                                    <af:outputFormatted value="Source: #{item.bindings.SourceId}" id="of6"/>
-                                    <af:outputFormatted value="Source Type: #{item.bindings.SourceType}" id="of6t"/>
+                                        <af:outputFormatted value="Source: #{item.bindings.SourceId}" id="of6"/>
+                                        <af:outputFormatted value="Source Type: #{item.bindings.SourceType}" id="of6t"/>
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="14%" id="gc9">
@@ -75,6 +140,7 @@
                         </af:panelGridLayout>
                     </af:listItem>
                 </af:listView>
+                -->
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>
