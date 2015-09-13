@@ -22,6 +22,10 @@
     Name="ApprovalStatusBind"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="TransactionNumberBind"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT TRANSACTION_TYPE, TRANSACTION_ID, TRANSACTION_DATE, TRANSACTION_NUMBER, INVOICE_VALUE, APPROVAL_STATUS, (SELECT BANK_NAME FROM XXBFM_BANK_ALL   
 WHERE BANK_ID=ISSUING_BANK_ID) ISSUING_BANK_NAME, (SELECT BANK_NAME FROM XXBFM_BANK_ALL   
 WHERE BANK_ID=BENEFICIARY_BANK_ID) BENEFICIARY_BANK_NAME    
@@ -75,6 +79,12 @@ FROM XXBFM_INWARD_LC_TRANS_DTL]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.SearchTransactionDetailVO.TransactionNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="InvoiceValue"
@@ -100,6 +110,12 @@ FROM XXBFM_INWARD_LC_TRANS_DTL]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.SearchTransactionDetailVO.ApprovalStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="IssuingBankName"
@@ -131,6 +147,50 @@ FROM XXBFM_INWARD_LC_TRANS_DTL]]></SQLQuery>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="SearchTransactionDetailVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionDetailVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SearchTransactionDetailVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="TransactionNumber"
+        ViewAttribute="TransactionNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":TransactionNumberBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SearchTransactionDetailVOCriteria_SearchTransactionDetailVOCriteria_row_0_ApprovalStatus"
+        ViewAttribute="ApprovalStatus"
+        Operator="="
+        Conjunction="AND"
+        Value=":ApprovalStatusBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="rbmbfm.model.BfmModelBundle"/>

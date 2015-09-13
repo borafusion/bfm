@@ -53,7 +53,11 @@
     ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
   <ViewUsage
     Name="SearchTransactionDetailVO"
-    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionDetailVO"/>
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionDetailVO">
+    <ViewCriteriaUsage
+      Name="SearchTransactionDetailVOCriteria"
+      FullName="rbmbfm.model.vo.app.SearchTransactionDetailVO.SearchTransactionDetailVOCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"

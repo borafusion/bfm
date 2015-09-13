@@ -4,32 +4,14 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SearchInwardLCTransactionDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
-              id="SearchInwardLCTransactionDetailVOIterator"/>
-    <searchRegion Criteria="InwardLCTransactionDetailSearchCriteria"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="SearchInwardLCTransactionDetailVOIterator" id="InwardLCTransactionDetailSearchCriteriaQuery"/>
     <iterator Binds="SearchTransactionDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="SearchTransactionDetailVOIterator"/>
+    <iterator Binds="SearchInwardLCTransactionDetailVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="SearchInwardLCTransactionDetailVOIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SearchTransactionDetailVOIterator" id="ImplicitViewCriteriaQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="SearchInwardLCTransactionDetailVOIterator" id="SearchInwardLCTransactionDetailVO">
-      <nodeDefinition DefName="rbmbfm.model.vo.app.InwardLCTransactionDetailVO"
-                      Name="SearchInwardLCTransactionDetailVO0">
-        <AttrNames>
-          <Item Value="TransactionType"/>
-          <Item Value="TransactionDate"/>
-          <Item Value="TransactionNumber"/>
-          <Item Value="SourceId"/>
-          <Item Value="BusinessEntityId"/>
-          <Item Value="IssuingBankId"/>
-          <Item Value="FacilityTrackerId"/>
-          <Item Value="ApprovalStatus"/>
-          <Item Value="BeneficiaryBankId"/>
-          <Item Value="SourceType"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="SearchTransactionDetailVOIterator" id="SearchTransactionDetailVO">
       <nodeDefinition DefName="rbmbfm.model.vo.app.SearchTransactionDetailVO" Name="SearchTransactionDetailVO0">
         <AttrNames>

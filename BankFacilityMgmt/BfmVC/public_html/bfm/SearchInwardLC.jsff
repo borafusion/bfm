@@ -13,15 +13,29 @@
                 </af:button>
             </af:gridCell>
             <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="SearchTransactionDetailVO" id="ph1">
+                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                            <f:facet name="end">
+                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                            </f:facet>
+                        </af:quickQuery>
+                    </af:panelHeader>
+                </af:panelGroupLayout>
+                <!--
                 <af:quickQuery id="qryId1"
                                value="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryDescriptor}"
                                model="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.queryModel}"
                                queryListener="#{bindings.InwardLCTransactionDetailSearchCriteriaQuery.processQuery}"/>
+                -->
             </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc4" halign="stretch">
-                <af:listView value="#{bindings.SearchTransactionDetailVO.collectionModel}" var="item"
+                <af:listView value="#{bindings.SearchTransactionDetailVO.collectionModel}" var="item"  partialTriggers="::qryId1"
                              emptyText="#{bindings.SearchTransactionDetailVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.SearchTransactionDetailVO.rangeSize}" id="lv1">
                     <af:listItem id="li1">
