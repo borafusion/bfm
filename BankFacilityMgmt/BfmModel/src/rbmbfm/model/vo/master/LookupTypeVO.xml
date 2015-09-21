@@ -14,6 +14,10 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindLookupType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="LookupTypeEO"
     Entity="rbmbfm.model.eo.master.LookupTypeEO"/>
@@ -93,9 +97,50 @@
     EntityAttrName="TenantId"
     EntityUsage="LookupTypeEO"
     AliasName="TENANT_ID"/>
+  <ViewCriteria
+    Name="LookupTypeVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.LookupTypeVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="LookupTypeVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LookupType"
+        ViewAttribute="LookupType"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindLookupType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="LookupValueVO"
     ViewLink="rbmbfm.model.vo.master.vlink.LookupTypeToValueVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="LookupValueVO1"
+    ViewLink="rbmbfm.model.vo.master.vlink.LookupTypeToValueManageVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

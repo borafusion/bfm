@@ -33,7 +33,11 @@
     ViewObjectName="rbmbfm.model.vo.master.LookupTypeVO"/>
   <ViewUsage
     Name="LookupValueVO1"
-    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"/>
+    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO">
+    <ViewCriteriaUsage
+      Name="EnabledVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.EnabledVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="DiscountingLimitVO2"
     ViewObjectName="rbmbfm.model.vo.master.DiscountingLimitVO"/>
@@ -54,6 +58,16 @@
     ViewObjectName="rbmbfm.model.vo.master.FacilityTrackerVO"/>
   <ViewUsage
     Name="LookupValueVO2"
+    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO">
+    <ViewCriteriaUsage
+      Name="EnabledVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.EnabledVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="LookupTypeManageVO1"
+    ViewObjectName="rbmbfm.model.vo.master.LookupTypeVO"/>
+  <ViewUsage
+    Name="LookupValueManageVO1"
     ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"/>
   <ViewLinkUsage
     Name="XxbfmDiscountingLimitFk1Link1"
@@ -96,5 +110,11 @@
     ViewLinkObjectName="rbmbfm.model.vo.master.vlink.LookupTypeToValueVL"
     SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupTypeVO1"
     DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupValueVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LookupTypeToValueVL1"
+    ViewLinkObjectName="rbmbfm.model.vo.master.vlink.LookupTypeToValueVL"
+    SrcViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupTypeManageVO1"
+    DstViewUsageName="rbmbfm.model.am.master.BfmMasterAM.LookupValueManageVO1"
     Reversed="false"/>
 </AppModule>

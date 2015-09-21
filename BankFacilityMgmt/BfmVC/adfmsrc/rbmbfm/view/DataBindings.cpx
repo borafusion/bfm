@@ -44,6 +44,8 @@
     <page path="/FacilityTrackerMain.jsf" usageId="rbmbfm_view_FacilityTrackerMainPageDef"/>
     <page path="/bfm/FacilityTrackerSearchPg.jsff" usageId="rbmbfm_view_FacilityTrackerSearchPgPageDef"/>
     <page path="/bfm/FacilityTrackerPg.jsff" usageId="rbmbfm_view_FacilityTrackerPgPageDef"/>
+    <page path="/bfm/LookupPg.jsff" usageId="rbmbfm_view_LookupPgPageDef"/>
+    <page path="/LookupMain.jsf" usageId="rbmbfm_view_LookupPgPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -84,6 +86,8 @@
     <page id="rbmbfm_view_FacilityTrackerMainPageDef" path="rbmbfm.view.pageDefs.FacilityTrackerMainPageDef"/>
     <page id="rbmbfm_view_FacilityTrackerSearchPgPageDef" path="bfm.FacilityTrackerSearchPgPageDef"/>
     <page id="rbmbfm_view_FacilityTrackerPgPageDef" path="bfm.FacilityTrackerPgPageDef"/>
+    <page id="rbmbfm_view_LookupPgPageDef" path="bfm.LookupPgPageDef"/>
+    <page id="rbmbfm_view_LookupPgPageDef1" path="bfm.LookupPgPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

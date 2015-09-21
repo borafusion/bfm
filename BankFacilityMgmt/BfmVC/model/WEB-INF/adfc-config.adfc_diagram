@@ -34,7 +34,7 @@
       <property
          name="fromOutcome">InwardLC</property>
       <property
-         name="sdm:polyPoints">R66,150.0,251.94824,510.02637,323.99414,L50</property>
+         name="sdm:polyPoints">R72,150.0,255.44824,510.02637,323.99414,L50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -84,7 +84,7 @@
       <property
          name="fromOutcome">bank_master</property>
       <property
-         name="sdm:polyPoints">R34,150.0,230.94824,236.5,148.0459,B50</property>
+         name="sdm:polyPoints">R28,150.0,227.44824,236.5,148.0459,B50</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -109,7 +109,7 @@
       <property
          name="fromOutcome">business_entity_master</property>
       <property
-         name="sdm:polyPoints">R45,152.51947,237.94824,354.35645,93.34473,L50</property>
+         name="sdm:polyPoints">R39,152.45378,234.44824,354.35645,93.34473,L50</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -134,7 +134,7 @@
       <property
          name="fromOutcome">facility-structure-master</property>
       <property
-         name="sdm:polyPoints">R55,154.03532,244.94824,574.0156,146.0459,B50</property>
+         name="sdm:polyPoints">R50,153.9364,241.44824,574.0156,145.34473,B50</property>
    </ControlFlowCase>
    <View
       id="View13">
@@ -159,6 +159,31 @@
       <property
          name="fromOutcome">facility-tracker-master</property>
       <property
-         name="sdm:polyPoints">R39,L66</property>
+         name="sdm:polyPoints">R61,154.62357,248.44824,748.0078,146.74707,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View15">
+      <property
+         name="activityId">LookupMain</property>
+      <property
+         name="page">/LookupMain.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LookupMain&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">131.09766</property>
+      <property
+         name="x">863.68945</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="WildcardControlFlowRule2"
+      to="View15">
+      <property
+         name="fromOutcome">lookup</property>
+      <property
+         name="sdm:polyPoints">R66,155.47626,251.94824,822.68945,130.74707,L50</property>
    </ControlFlowCase>
 </SDM>

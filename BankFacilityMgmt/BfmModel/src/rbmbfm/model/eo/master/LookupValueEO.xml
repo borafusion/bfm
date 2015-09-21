@@ -19,12 +19,16 @@
     ColumnType="NUMBER"
     TableName="XXBFM_LOOKUP_VALUE_ALL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_LOOKUP_VALUE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_LOOKUP_VALUE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupValueEO.LookupValueId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LookupType"
-    IsUnique="true"
     IsNotNull="true"
     Precision="256"
     ColumnName="LOOKUP_TYPE"
@@ -35,6 +39,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupValueEO.LookupType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LookupValue"
@@ -49,6 +59,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupValueEO.LookupValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Description"
@@ -62,6 +78,39 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DisplayOrder"
+    ColumnName="DISPLAY_ORDER"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_LOOKUP_VALUE_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupValueEO.DisplayOrder_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Disable"
+    Precision="1"
+    ColumnName="DISABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_LOOKUP_VALUE_ALL"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupValueEO.Disable_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="StartDate"
@@ -96,7 +145,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_LOOKUP_VALUE_ALL">
+    TableName="XXBFM_LOOKUP_VALUE_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -107,7 +158,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_LOOKUP_VALUE_ALL"/>
+    TableName="XXBFM_LOOKUP_VALUE_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="256"
@@ -115,7 +168,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_LOOKUP_VALUE_ALL">
+    TableName="XXBFM_LOOKUP_VALUE_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -126,7 +180,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_LOOKUP_VALUE_ALL"/>
+    TableName="XXBFM_LOOKUP_VALUE_ALL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -185,4 +240,8 @@
       <Item Value="rbmbfm.model.eo.master.LookupValueEO.LookupType"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </Entity>

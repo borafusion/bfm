@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl2">
+    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+      <af:gridCell width="25%" id="gc1" halign="stretch">
+        <af:panelBox text="PanelBox2" id="pb1" showHeader="never">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.LookupTypeVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.LookupTypeVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.LookupTypeVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.LookupTypeVOCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::md1" saveQueryMode="hidden" labelAlignment="top"
+                    labelWidth="20" fieldWidth="15" modeButtonPosition="footer"/>
+         
+        </af:panelBox>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc2" halign="stretch">
+        <af:panelGroupLayout id="pgl1">
+          <af:panelBox text="Look Type" id="ph1" partialTriggers="b1 b2" background="medium">
+            <af:table id="md1" rows="#{bindings.LookupTypeManageVO1.rangeSize}"
+                      fetchSize="#{bindings.LookupTypeManageVO1.rangeSize}"
+                      emptyText="#{bindings.LookupTypeManageVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.LookupTypeManageVO1.collectionModel}" rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.LookupTypeManageVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.LookupTypeManageVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" filterModel="#{bindings.LookupTypeManageVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.LookupTypeManageVO1Query.processQuery}" filterVisible="true"
+                      varStatus="vs" columnStretching="column:c2" width="100%" partialTriggers="::b1 ::b2">
+              <af:column headerText="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.label}"
+                         sortProperty="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.name}" sortable="true" id="c1"
+                         filterable="true" width="50">
+                <af:inputText value="#{row.bindings.LookupTypeId.inputValue}"
+                              label="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.label}"
+                              required="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.mandatory}"
+                              columns="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.displayWidth}"
+                              maximumLength="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.precision}"
+                              shortDesc="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.tooltip}" id="it5"
+                              readOnly="true">
+                  <f:validator binding="#{row.bindings.LookupTypeId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.LookupTypeManageVO1.hints.LookupTypeId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.LookupTypeManageVO1.hints.LookupType.label}"
+                         sortProperty="#{bindings.LookupTypeManageVO1.hints.LookupType.name}" sortable="true" id="c2"
+                         filterable="true" width="150">
+                <af:inputText value="#{row.bindings.LookupType.inputValue}"
+                              label="#{bindings.LookupTypeManageVO1.hints.LookupType.label}"
+                              required="#{bindings.LookupTypeManageVO1.hints.LookupType.mandatory}"
+                              columns="#{bindings.LookupTypeManageVO1.hints.LookupType.displayWidth}"
+                              maximumLength="#{bindings.LookupTypeManageVO1.hints.LookupType.precision}"
+                              shortDesc="#{bindings.LookupTypeManageVO1.hints.LookupType.tooltip}" id="it6">
+                  <f:validator binding="#{row.bindings.LookupType.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.LookupTypeManageVO1.hints.Description.label}"
+                         sortProperty="#{bindings.LookupTypeManageVO1.hints.Description.name}" sortable="true" id="c3"
+                         filterable="true" width="150">
+                <af:inputText value="#{row.bindings.Description.inputValue}"
+                              label="#{bindings.LookupTypeManageVO1.hints.Description.label}"
+                              required="#{bindings.LookupTypeManageVO1.hints.Description.mandatory}"
+                              columns="#{bindings.LookupTypeManageVO1.hints.Description.displayWidth}"
+                              maximumLength="#{bindings.LookupTypeManageVO1.hints.Description.precision}"
+                              shortDesc="#{bindings.LookupTypeManageVO1.hints.Description.tooltip}" id="it4">
+                  <f:validator binding="#{row.bindings.Description.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Lookup Type" id="b1"/>
+                <af:button actionListener="#{bindings.Delete.execute}" text="Delete Lookup Type" id="b2"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4">
+                  <af:resetActionListener/>
+                </af:button>
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b3"/>
+              </af:toolbar>
+            </f:facet>
+          </af:panelBox>
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:panelBox text="Lookup Values: #{bindings.LookupType.inputValue}" id="ph2" partialTriggers="ph2 b7 b8"
+                       background="dark">
+            <af:table rows="#{bindings.LookupValueManageVO1.rangeSize}"
+                      fetchSize="#{bindings.LookupValueManageVO1.rangeSize}"
+                      emptyText="#{bindings.LookupValueManageVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.LookupValueManageVO1.collectionModel}" rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.LookupValueManageVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.LookupValueManageVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" filterModel="#{bindings.LookupValueManageVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.LookupValueManageVO1Query.processQuery}" filterVisible="true"
+                      varStatus="vs" columnStretching="column:c15" width="100%" partialTriggers="::b7 ::b8">
+              <af:column headerText="#{bindings.LookupValueManageVO1.hints.LookupValueId.label}"
+                         sortProperty="#{bindings.LookupValueManageVO1.hints.LookupValueId.name}" sortable="true"
+                         id="c13" filterable="true" width="50">
+                <af:inputText value="#{row.bindings.LookupValueId.inputValue}"
+                              label="#{bindings.LookupValueManageVO1.hints.LookupValueId.label}"
+                              required="#{bindings.LookupValueManageVO1.hints.LookupValueId.mandatory}"
+                              columns="#{bindings.LookupValueManageVO1.hints.LookupValueId.displayWidth}"
+                              maximumLength="#{bindings.LookupValueManageVO1.hints.LookupValueId.precision}"
+                              shortDesc="#{bindings.LookupValueManageVO1.hints.LookupValueId.tooltip}" id="it7"
+                              readOnly="true">
+                  <f:validator binding="#{row.bindings.LookupValueId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.LookupValueManageVO1.hints.LookupValueId.format}"/>
+                </af:inputText>
+              </af:column>
+              <!--   <af:column headerText="#{bindings.LookupValueManageVO1.hints.LookupType.label}"
+                   sortProperty="#{bindings.LookupValueManageVO1.hints.LookupType.name}" sortable="true" id="c14"
+                   filterable="true">
+          <af:inputText value="#{row.bindings.LookupType.inputValue}"
+                        label="#{bindings.LookupValueManageVO1.hints.LookupType.label}"
+                        required="#{bindings.LookupValueManageVO1.hints.LookupType.mandatory}"
+                        columns="#{bindings.LookupValueManageVO1.hints.LookupType.displayWidth}"
+                        maximumLength="#{bindings.LookupValueManageVO1.hints.LookupType.precision}"
+                        shortDesc="#{bindings.LookupValueManageVO1.hints.LookupType.tooltip}" id="it11"
+                        readOnly="false">
+            <f:validator binding="#{row.bindings.LookupType.validator}"/>
+          </af:inputText>
+        </af:column> -->
+              <af:column headerText="#{bindings.LookupValueManageVO1.hints.LookupValue.label}"
+                         sortProperty="#{bindings.LookupValueManageVO1.hints.LookupValue.name}" sortable="true" id="c15"
+                         filterable="true" width="150">
+                <af:inputText value="#{row.bindings.LookupValue.inputValue}"
+                              label="#{bindings.LookupValueManageVO1.hints.LookupValue.label}"
+                              required="#{bindings.LookupValueManageVO1.hints.LookupValue.mandatory}"
+                              columns="#{bindings.LookupValueManageVO1.hints.LookupValue.displayWidth}"
+                              maximumLength="#{bindings.LookupValueManageVO1.hints.LookupValue.precision}"
+                              shortDesc="#{bindings.LookupValueManageVO1.hints.LookupValue.tooltip}" id="it10">
+                  <f:validator binding="#{row.bindings.LookupValue.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.LookupValueManageVO1.hints.Description.label}"
+                         sortProperty="#{bindings.LookupValueManageVO1.hints.Description.name}" sortable="true" id="c16"
+                         filterable="true" width="150">
+                <af:inputText value="#{row.bindings.Description.inputValue}"
+                              label="#{bindings.LookupValueManageVO1.hints.Description.label}"
+                              required="#{bindings.LookupValueManageVO1.hints.Description.mandatory}"
+                              columns="#{bindings.LookupValueManageVO1.hints.Description.displayWidth}"
+                              maximumLength="#{bindings.LookupValueManageVO1.hints.Description.precision}"
+                              shortDesc="#{bindings.LookupValueManageVO1.hints.Description.tooltip}" id="it1">
+                  <f:validator binding="#{row.bindings.Description.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.LookupValueManageVO1.hints.DisplayOrder.label}"
+                         sortProperty="#{bindings.LookupValueManageVO1.hints.DisplayOrder.name}" sortable="true"
+                         id="c17" filterable="true" width="50">
+                <af:inputText value="#{row.bindings.DisplayOrder.inputValue}"
+                              label="#{bindings.LookupValueManageVO1.hints.DisplayOrder.label}"
+                              required="#{bindings.LookupValueManageVO1.hints.DisplayOrder.mandatory}"
+                              columns="#{bindings.LookupValueManageVO1.hints.DisplayOrder.displayWidth}"
+                              maximumLength="#{bindings.LookupValueManageVO1.hints.DisplayOrder.precision}"
+                              shortDesc="#{bindings.LookupValueManageVO1.hints.DisplayOrder.tooltip}" id="it9">
+                  <f:validator binding="#{row.bindings.DisplayOrder.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.LookupValueManageVO1.hints.DisplayOrder.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.LookupValueManageVO1.hints.Disable.label}"
+                         sortProperty="#{bindings.LookupValueManageVO1.hints.Disable.name}" sortable="true" id="c18"
+                         filterable="true">
+                <af:inputText value="#{row.bindings.Disable.inputValue}"
+                              label="#{bindings.LookupValueManageVO1.hints.Disable.label}"
+                              required="#{bindings.LookupValueManageVO1.hints.Disable.mandatory}"
+                              columns="#{bindings.LookupValueManageVO1.hints.Disable.displayWidth}"
+                              maximumLength="#{bindings.LookupValueManageVO1.hints.Disable.precision}"
+                              shortDesc="#{bindings.LookupValueManageVO1.hints.Disable.tooltip}" id="it8">
+                  <f:validator binding="#{row.bindings.Disable.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+            <f:facet name="toolbar">
+              <af:toolbar id="t3">
+                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="New Lookup Value" id="b7"/>
+                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Lookup Value" id="b8"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b5">
+                  <af:resetActionListener/>
+                </af:button>
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b6"/>
+              </af:toolbar>
+            </f:facet>
+          </af:panelBox>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+</ui:composition>

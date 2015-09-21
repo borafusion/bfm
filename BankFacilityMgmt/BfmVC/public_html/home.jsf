@@ -156,13 +156,15 @@
                                                             </af:gridCell>
                                                         </af:gridRow>
                                                         <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                                            <af:gridCell marginStart="5px" width="25%" id="gc3">
-                                                                <af:panelBox text="" id="pb3" showDisclosure="false">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1cbec"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1c"
+                                                                             showDisclosure="false">
                                                                     <f:facet name="toolbar"/>
-                                                                    <af:link text="" id="l2"
+                                                                    <af:link text="" id="l1bec"
                                                                              styleClass="WBPageTitleText"
-                                                                             action="importLC"
-                                                                             icon=""/>
+                                                                             action="currency-master"
+                                                                             icon="/resources/images/BANK-50.png"/>
                                                                 </af:panelBox>
                                                             </af:gridCell>
                                                             <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
@@ -171,6 +173,28 @@
                                                                     <af:outputText value="Currency - " id="ot3"/>
                                                                     <af:outputFormatted value="This Master entry screen allows the user to record Currency details"
                                                                                         id="of2"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                         <af:gridRow marginTop="5px" height="auto" id="gr2l">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc1l"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelBox text="" id="pb1l"
+                                                                             showDisclosure="false">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l1bel"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="lookup"
+                                                                             icon="/resources/images/BANK-50.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc4l">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb4l">
+                                                                    <af:outputText value="Lookup - " id="ot3l"/>
+                                                                    <af:outputFormatted value="This Master entry screen allows the user to manage lookup entries"
+                                                                                        id="of2l"/>
                                                                     <f:facet name="toolbar"/>
                                                                 </af:panelBox>
                                                             </af:gridCell>

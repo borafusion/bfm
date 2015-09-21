@@ -19,8 +19,13 @@
     ColumnType="NUMBER"
     TableName="XXBFM_LOOKUP_TYPE_ALL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_LOOKUP_TYPE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_LOOKUP_TYPE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupTypeEO.LookupTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LookupType"
@@ -35,6 +40,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.LookupTypeEO.LookupType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Description"
@@ -82,7 +95,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_LOOKUP_TYPE_ALL">
+    TableName="XXBFM_LOOKUP_TYPE_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -93,7 +108,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_LOOKUP_TYPE_ALL"/>
+    TableName="XXBFM_LOOKUP_TYPE_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="256"
@@ -101,7 +118,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_LOOKUP_TYPE_ALL">
+    TableName="XXBFM_LOOKUP_TYPE_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
@@ -112,7 +130,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_LOOKUP_TYPE_ALL"/>
+    TableName="XXBFM_LOOKUP_TYPE_ALL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -159,4 +178,8 @@
       <Item Value="rbmbfm.model.eo.master.LookupTypeEO.LookupType"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </Entity>

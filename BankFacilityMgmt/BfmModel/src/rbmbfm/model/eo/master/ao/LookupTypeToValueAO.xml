@@ -13,7 +13,9 @@
     Name="LookupTypeEO"
     Cardinality="1"
     Source="true"
-    Owner="rbmbfm.model.eo.master.LookupTypeEO">
+    Owner="rbmbfm.model.eo.master.LookupTypeEO"
+    LockLevel="NONE"
+    CascadeUpdate="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="LookupTypeEO"/>
@@ -28,7 +30,8 @@
   <AssociationEnd
     Name="LookupValueEO"
     Cardinality="-1"
-    Owner="rbmbfm.model.eo.master.LookupValueEO">
+    Owner="rbmbfm.model.eo.master.LookupValueEO"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="LookupValueEO"/>

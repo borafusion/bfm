@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="LookupPgPageDef" Package="bfm">
+  <parameters/>
+  <executables>
+    <iterator Binds="LookupTypeManageVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="LookupTypeManageVO1Iterator"/>
+    <iterator Binds="LookupValueManageVO1" RangeSize="25" DataControl="BfmMasterAMDataControl"
+              id="LookupValueManageVO1Iterator"/>
+    <searchRegion Binds="LookupTypeManageVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LookupTypeManageVO1Query"/>
+    <searchRegion Binds="LookupValueManageVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LookupValueManageVO1Query"/>
+    <searchRegion Criteria="LookupTypeVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="LookupTypeManageVO1Iterator" id="LookupTypeVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="LookupTypeManageVO1Iterator" id="LookupTypeManageVO1">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.LookupTypeVO" Name="LookupTypeManageVO10">
+        <AttrNames>
+          <Item Value="LookupTypeId"/>
+          <Item Value="LookupType"/>
+          <Item Value="Description"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LookupValueManageVO1Iterator" id="LookupValueManageVO1">
+      <nodeDefinition DefName="rbmbfm.model.vo.master.LookupValueVO" Name="LookupValueManageVO10">
+        <AttrNames>
+          <Item Value="LookupValueId"/>
+          <Item Value="LookupType"/>
+          <Item Value="LookupValue"/>
+          <Item Value="Description"/>
+          <Item Value="DisplayOrder"/>
+          <Item Value="Disable"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="LookupTypeManageVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="LookupTypeManageVO1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BfmMasterAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="BfmMasterAMDataControl"/>
+    <action IterBinding="LookupValueManageVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="LookupValueManageVO1Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="LookupTypeManageVO1Iterator" id="LookupType">
+      <AttrNames>
+        <Item Value="LookupType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
