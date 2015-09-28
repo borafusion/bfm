@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionDetailEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XXBFM_TRANSACTION_DTL"
+  AliasName="TransactionDetailEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TransactionDtlId"
+    IsNotNull="true"
+    ColumnName="TRANSACTION_DTL_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"
+    PrimaryKey="true">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="TransactionId"
+    ColumnName="TRANSACTION_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="TransactionVersion"
+    ColumnName="TRANSACTION_VERSION"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="TransactionDate"
+    ColumnName="TRANSACTION_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="BusinessEntityId"
+    ColumnName="BUSINESS_ENTITY_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="IssuingBankId"
+    ColumnName="ISSUING_BANK_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="BeneficiaryBankId"
+    ColumnName="BENEFICIARY_BANK_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="FacilityTrackerId"
+    ColumnName="FACILITY_TRACKER_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
+  <Attribute
+    Name="ApprovalStatus"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="APPROVAL_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_TRANSACTION_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SourceType"
+    Precision="100"
+    ColumnName="SOURCE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_TRANSACTION_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_TRANSACTION_DTL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_TRANSACTION_DTL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_TRANSACTION_DTL"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXBFM_TRANSACTION_DTL"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdateLogin"
+    Precision="32"
+    ColumnName="LAST_UPDATE_LOGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXBFM_TRANSACTION_DTL"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="32"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Version"
+    ColumnName="VERSION"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"
+    HistoryColumn="VersionHistory"/>
+  <AccessorAttribute
+    Name="TransactionBaseEO"
+    Association="rbmbfm.model.eo.app.XxbfmTransactionDtlFk1Assoc"
+    AssociationEnd="rbmbfm.model.eo.app.XxbfmTransactionDtlFk1Assoc.TransactionBaseEO"
+    AssociationOtherEnd="rbmbfm.model.eo.app.XxbfmTransactionDtlFk1Assoc.TransactionDetailEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TransactionDocumentRefEO"
+    Association="rbmbfm.model.eo.app.XxbfmTransactionDocRefFk2Assoc"
+    AssociationEnd="rbmbfm.model.eo.app.XxbfmTransactionDocRefFk2Assoc.TransactionDocumentRefEO"
+    AssociationOtherEnd="rbmbfm.model.eo.app.XxbfmTransactionDocRefFk2Assoc.TransactionDetailEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="XxbfmTransactionDtlPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.TransactionDtlId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmTransactionDtlFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_TRANSACTION_BASE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.TransactionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmTransactionDtlFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_BUSINESS_ENTITY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.BusinessEntityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmTransactionDtlFk3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_BANK_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_FK3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.IssuingBankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmTransactionDtlFk4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_BANK_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_FK4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.BeneficiaryBankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxbfmTransactionDtlFk5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXBFM_FACILITY_TRACKER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_DTL_FK5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.FacilityTrackerId"/>
+    </AttrArray>
+  </Key>
+</Entity>

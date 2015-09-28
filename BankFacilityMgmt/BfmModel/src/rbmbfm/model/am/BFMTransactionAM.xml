@@ -6,7 +6,12 @@
   Name="BFMTransactionAM"
   Version="12.1.3.10.8"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="rbmbfm.model.am.BFMTransactionAMImpl"
+  ComponentInterface="rbmbfm.model.am.common.BFMTransactionAM">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -58,6 +63,15 @@
       Name="SearchTransactionDetailVOCriteria"
       FullName="rbmbfm.model.vo.app.SearchTransactionDetailVO.SearchTransactionDetailVOCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="TransactionBaseVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionBaseVO"/>
+  <ViewUsage
+    Name="TransactionDetailVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDetailVO"/>
+  <ViewUsage
+    Name="TransactionDocumentRefVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDocumentRefVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
@@ -70,10 +84,35 @@
     SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.InwardLCTransactionDetailVO1"
     DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.FacilityAvailableLimitVO"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxbfmTransactionDtlFk1Link1"
+    ViewLinkObjectName="rbmbfm.model.vo.app.XxbfmTransactionDtlFk1Link"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionBaseVO"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDetailVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxbfmTransactionDocRefFk1Link1"
+    ViewLinkObjectName="rbmbfm.model.vo.app.XxbfmTransactionDocRefFk1Link"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionBaseVO"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDocumentRefVO"
+    Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"
     SharedScope="0"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="createTransaction"
+      MethodName="createTransaction">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="type"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="rbmbfm.model.BfmModelBundle"/>
