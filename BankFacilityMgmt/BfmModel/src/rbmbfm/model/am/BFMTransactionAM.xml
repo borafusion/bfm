@@ -99,6 +99,18 @@
   <ViewUsage
     Name="TransactionDocumentRefPageVO"
     ViewObjectName="rbmbfm.model.vo.app.TransactionDocumentRefVO"/>
+  <ViewUsage
+    Name="TransactionBaseVO1"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionBaseVO"/>
+  <ViewUsage
+    Name="TransactionSourceDetailVO1"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionSourceDetailVO"/>
+  <ViewUsage
+    Name="TransactionSourceDetailVO2"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionSourceDetailVO"/>
+  <ViewUsage
+    Name="TransactionInvoiceDetailVO1"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionInvoiceDetailVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
@@ -135,12 +147,35 @@
     SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDetailPageVO"
     DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDocumentRefPageVO"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxbfmTransactionSrcDtlFk1Link"
+    ViewLinkObjectName="rbmbfm.model.vo.app.XxbfmTransactionSrcDtlFk1Link"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionBaseVO1"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionSourceDetailVO1"
+    Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"
     SharedScope="0"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="createTransaction"
+      MethodName="createTransaction">
+      <Return
+        Name="_return_type_"
+        Type="java.math.BigDecimal"/>
+      <Parameter
+        Name="type"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="prepareTransactionDocumentHistoryVO"
+      MethodName="prepareTransactionDocumentHistoryVO">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
     <Method
       Name="createTransaction"
       MethodName="createTransaction">

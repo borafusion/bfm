@@ -114,4 +114,9 @@
     ViewLink="rbmbfm.model.vo.app.XxbfmTransactionDocRefFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TransactionSourceDetailVO"
+    ViewLink="rbmbfm.model.vo.app.XxbfmTransactionSrcDtlFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

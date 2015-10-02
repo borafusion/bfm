@@ -36,14 +36,14 @@
                             <f:validator binding="#{bindings.TransactionNumber.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.Creator.inputValue}" label="#{bindings.Creator.hints.label}"
-                                      required="#{bindings.Creator.hints.mandatory}" readOnly="true"
+                                      required="#{bindings.Creator.hints.mandatory}"
                                       columns="#{bindings.Creator.hints.displayWidth}"
                                       maximumLength="#{bindings.Creator.hints.precision}"
                                       shortDesc="#{bindings.Creator.hints.tooltip}" id="it2">
                             <f:validator binding="#{bindings.Creator.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.Approver.inputValue}" label="#{bindings.Approver.hints.label}"
-                                      required="#{bindings.Approver.hints.mandatory}" readOnly="true"
+                                      required="#{bindings.Approver.hints.mandatory}"
                                       columns="#{bindings.Approver.hints.displayWidth}"
                                       maximumLength="#{bindings.Approver.hints.precision}"
                                       shortDesc="#{bindings.Approver.hints.tooltip}" id="it3">
@@ -169,6 +169,7 @@
                             </af:column>
                         </af:table>
                     </af:panelFormLayout>
+                    
                 </af:panelBox>
                 <af:panelBox text="Document Details" id="pb5">
                     <af:subform>

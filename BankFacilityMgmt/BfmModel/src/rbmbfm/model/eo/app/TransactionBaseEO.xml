@@ -164,6 +164,13 @@
     AssociationOtherEnd="rbmbfm.model.eo.app.XxbfmTransactionDocRefFk1Assoc.TransactionBaseEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionSourceDetail"
+    Association="rbmbfm.model.eo.app.XxbfmTransactionSrcDtlFk1Assoc"
+    AssociationEnd="rbmbfm.model.eo.app.XxbfmTransactionSrcDtlFk1Assoc.TransactionSourceDetail"
+    AssociationOtherEnd="rbmbfm.model.eo.app.XxbfmTransactionSrcDtlFk1Assoc.TransactionBaseEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XxbfmTransactionBasePk"
     PrimaryKey="true">

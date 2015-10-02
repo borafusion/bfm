@@ -192,6 +192,7 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         RowIterator transDetailIter = newRow.getTransactionDetailVO();
         TransactionDetailVORowImpl transDetailRow = (TransactionDetailVORowImpl)transDetailIter.createRow();
         transDetailRow.setAttribute("ApprovalStatus", TransactionType.DRAFT);
+        transDetailRow.setAttribute("TransactionVersion", new BigDecimal(1.0));
         transDetailIter.insertRow(transDetailRow);
         this.getDBTransaction().commit();
         transBaseVO.executeQuery();
@@ -272,6 +273,46 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
      */
     public ViewLinkImpl getXxbfmTransactionDocRefFk2Link1() {
         return (ViewLinkImpl) findViewLink("XxbfmTransactionDocRefFk2Link1");
+    }
+
+    /**
+     * Container's getter for TransactionBaseVO1.
+     * @return TransactionBaseVO1
+     */
+    public ViewObjectImpl getTransactionBaseVO1() {
+        return (ViewObjectImpl) findViewObject("TransactionBaseVO1");
+    }
+
+    /**
+     * Container's getter for TransactionSourceDetailVO1.
+     * @return TransactionSourceDetailVO1
+     */
+    public ViewObjectImpl getTransactionSourceDetailVO1() {
+        return (ViewObjectImpl) findViewObject("TransactionSourceDetailVO1");
+    }
+
+    /**
+     * Container's getter for TransactionSourceDetailVO2.
+     * @return TransactionSourceDetailVO2
+     */
+    public ViewObjectImpl getTransactionSourceDetailVO2() {
+        return (ViewObjectImpl) findViewObject("TransactionSourceDetailVO2");
+    }
+
+    /**
+     * Container's getter for XxbfmTransactionSrcDtlFk1Link.
+     * @return XxbfmTransactionSrcDtlFk1Link
+     */
+    public ViewLinkImpl getXxbfmTransactionSrcDtlFk1Link() {
+        return (ViewLinkImpl) findViewLink("XxbfmTransactionSrcDtlFk1Link");
+    }
+
+    /**
+     * Container's getter for TransactionInvoiceDetailVO1.
+     * @return TransactionInvoiceDetailVO1
+     */
+    public ViewObjectImpl getTransactionInvoiceDetailVO1() {
+        return (ViewObjectImpl) findViewObject("TransactionInvoiceDetailVO1");
     }
 }
 

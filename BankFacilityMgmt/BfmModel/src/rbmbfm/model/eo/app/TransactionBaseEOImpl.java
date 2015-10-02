@@ -35,7 +35,8 @@ public class TransactionBaseEOImpl extends EntityImpl {
         Version,
         TenantId,
         TransactionDetailEO,
-        TransactionDocumentRefEO;
+        TransactionDocumentRefEO,
+        TransactionSourceDetail;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -58,6 +59,8 @@ public class TransactionBaseEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int TRANSACTIONID = AttributesEnum.TransactionId.index();
     public static final int TYPE = AttributesEnum.Type.index();
     public static final int TRANSACTIONNUMBER = AttributesEnum.TransactionNumber.index();
@@ -72,12 +75,21 @@ public class TransactionBaseEOImpl extends EntityImpl {
     public static final int TENANTID = AttributesEnum.TenantId.index();
     public static final int TRANSACTIONDETAILEO = AttributesEnum.TransactionDetailEO.index();
     public static final int TRANSACTIONDOCUMENTREFEO = AttributesEnum.TransactionDocumentRefEO.index();
+    public static final int TRANSACTIONSOURCEDETAIL = AttributesEnum.TransactionSourceDetail.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public TransactionBaseEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("rbmbfm.model.eo.app.TransactionBaseEO");
+    }
+
 
     /**
      * Gets the attribute value for TransactionId, using the alias name TransactionId.
@@ -238,19 +250,20 @@ public class TransactionBaseEOImpl extends EntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getTransactionSourceDetail() {
+        return (RowIterator) getAttributeInternal(TRANSACTIONSOURCEDETAIL);
+    }
+
+
+    /**
      * @param transactionId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(BigDecimal transactionId) {
         return new Key(new Object[] { transactionId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("rbmbfm.model.eo.app.TransactionBaseEO");
     }
 
     /**
