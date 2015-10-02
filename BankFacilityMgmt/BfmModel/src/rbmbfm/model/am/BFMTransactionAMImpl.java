@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.VariableValueManager;
+import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewCriteriaManager;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 
@@ -196,6 +200,22 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         
         return transId;
     }
+    
+    public void prepareTransactionDocumentHistoryVO() {
+        ViewObjectImpl transDetailVerVO = this.getTransactionDetailVersionsPageVO();
+        Row[] rows = transDetailVerVO.getAllRowsInRange();
+        Row transDtlRow = rows[0];
+        
+        BigDecimal transactionId = (BigDecimal)transDtlRow.getAttribute("TransactionId");
+        BigDecimal transactionDtlId = (BigDecimal)transDtlRow.getAttribute("TransactionDtlId");
+        
+        ViewObjectImpl transDocRefPageVO = this.getTransactionDocumentRefPageHistoryVO();
+     
+        transDocRefPageVO.setApplyViewCriteriaName("TransactionDocumentRefHistoryVOCriteria");
+        transDocRefPageVO.setNamedWhereClauseParam("transactionIdBind", transactionId);
+        transDocRefPageVO.setNamedWhereClauseParam("transactionDtlIdBind", transactionDtlId);
+        transDocRefPageVO.executeQuery();
+    }
 
 
     /**
@@ -236,6 +256,22 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
      */
     public ViewLinkImpl getTransactionDetailToBankFacilityStructureVL1() {
         return (ViewLinkImpl) findViewLink("TransactionDetailToBankFacilityStructureVL1");
+    }
+
+    /**
+     * Container's getter for TransactionDocumentRefVO1.
+     * @return TransactionDocumentRefVO1
+     */
+    public ViewObjectImpl getTransactionDocumentRefPageVO() {
+        return (ViewObjectImpl) findViewObject("TransactionDocumentRefPageVO");
+    }
+
+    /**
+     * Container's getter for XxbfmTransactionDocRefFk2Link1.
+     * @return XxbfmTransactionDocRefFk2Link1
+     */
+    public ViewLinkImpl getXxbfmTransactionDocRefFk2Link1() {
+        return (ViewLinkImpl) findViewLink("XxbfmTransactionDocRefFk2Link1");
     }
 }
 

@@ -7,7 +7,7 @@
           xmlns:f="http://java.sun.com/jsf/core">
     <af:panelStretchLayout id="psl1" topHeight="60px">
         <f:facet name="top">
-            <af:panelHeader text="Inward LC" id="pb1">
+            <af:panelHeader text="Inward LC" id="ph1">
                 <f:facet name="toolbar"/>
                 <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
                     <af:button text="Submit" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}"

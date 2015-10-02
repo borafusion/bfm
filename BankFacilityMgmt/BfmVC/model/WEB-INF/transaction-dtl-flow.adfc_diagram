@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">232.79883</property>
+         name="y">223.09766</property>
       <property
-         name="x">382.35156</property>
+         name="x">338.35156</property>
    </MethodCall>
    <View
       id="View3">
@@ -28,22 +28,12 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">233.0459</property>
+         name="y">380.34473</property>
       <property
-         name="x">724.6875</property>
+         name="x">842.6875</property>
       <property
          name="pageFragment">true</property>
    </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase4"
-      from="MethodCall2"
-      to="View3">
-      <property
-         name="fromOutcome">ExecuteWithParams</property>
-      <property
-         name="sdm:polyPoints">R50,423.35156,232.44824,683.6875,232.69531,L50</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall5">
       <property
@@ -67,6 +57,72 @@
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">R50,173.68848,133.09766,341.35156,232.44824,L50</property>
+         name="sdm:polyPoints">R50,173.68848,133.09766,297.35156,222.74707,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall8">
+      <property
+         name="activityId">prepareTransactionDocumentHistoryVO</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>prepareTransactionDocumentHistoryVO&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">386.1494</property>
+      <property
+         name="x">576.71094</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall2"
+      to="MethodCall8">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">B50,338.35156,276.74707,535.71094,385.79883,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="MethodCall8"
+      to="View3">
+      <property
+         name="fromOutcome">prepareTransactionDocumentHistoryVO</property>
+      <property
+         name="sdm:polyPoints">R50,617.71094,385.79883,801.6875,379.99414,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall11">
+      <property
+         name="activityId">CreateInsert</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateInsert&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">543.1494</property>
+      <property
+         name="x">846.01465</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="View3"
+      to="MethodCall11">
+      <property
+         name="fromOutcome">createDocRef</property>
+      <property
+         name="sdm:polyPoints">B44,839.1875,434.20642,842.51465,488.79883,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="MethodCall11"
+      to="View3">
+      <property
+         name="fromOutcome">CreateInsert</property>
+      <property
+         name="sdm:polyPoints">T56,849.51465,488.58612,846.1875,433.99414,B56</property>
    </ControlFlowCase>
 </SDM>

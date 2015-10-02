@@ -56,6 +56,10 @@
     <page path="/bfm/TransactionDetail.jsff" usageId="rbmbfm_view_TransactionDetailPageDef"/>
     <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@createTransaction"
           usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@prepareTransactionDocumentHistoryVO"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@CreateInsert"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -108,6 +112,10 @@
     <page id="rbmbfm_view_TransactionDetailPageDef" path="bfm.TransactionDetailPageDef"/>
     <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"
           path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

@@ -10,6 +10,10 @@
               id="TransactionDetailPageVOIterator"/>
     <iterator Binds="BankFacilityStructurePageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="BankFacilityStructurePageVOIterator"/>
+    <iterator Binds="TransactionDocumentRefPageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="TransactionDocumentRefPageVOIterator"/>
+    <iterator Binds="TransactionDocumentRefPageHistoryVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="TransactionDocumentRefPageHistoryVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="TransactionDetailVersionsPageVOIterator" id="Type">
@@ -74,6 +78,50 @@
           <Item Value="FacilityValue"/>
           <Item Value="UtilizedValue"/>
           <Item Value="FacilityName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="TransactionDocumentRefPageVOIterator" id="DocumentRef">
+      <AttrNames>
+        <Item Value="DocumentRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TransactionDocumentRefPageVOIterator" id="DocumentDate">
+      <AttrNames>
+        <Item Value="DocumentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="TransactionDocumentRefPageVOIterator" StaticList="false" Uses="LOV_CurrencyId" id="CurrencyId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="TransactionDocumentRefPageVOIterator" id="DocumentVal">
+      <AttrNames>
+        <Item Value="DocumentVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TransactionDocumentRefPageVOIterator" id="ExchgRate">
+      <AttrNames>
+        <Item Value="ExchgRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TransactionDocumentRefPageVOIterator" id="OtherRef">
+      <AttrNames>
+        <Item Value="OtherRef"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="BFMTransactionAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="BFMTransactionAMDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <tree IterBinding="TransactionDocumentRefPageHistoryVOIterator" id="TransactionDocumentRefPageHistoryVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.TransactionDocumentRefVO"
+                      Name="TransactionDocumentRefPageHistoryVO0">
+        <AttrNames>
+          <Item Value="DocumentRef"/>
+          <Item Value="DocumentDate"/>
+          <Item Value="CurrencyId"/>
+          <Item Value="DocumentVal"/>
+          <Item Value="ExchgRate"/>
+          <Item Value="OtherRef"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

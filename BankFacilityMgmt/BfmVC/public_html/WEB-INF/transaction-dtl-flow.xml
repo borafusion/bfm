@@ -26,18 +26,51 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
-    <control-flow-rule id="__2">
-      <from-activity-id>ExecuteWithParams</from-activity-id>
-      <control-flow-case id="__3">
-        <from-outcome>ExecuteWithParams</from-outcome>
-        <to-activity-id>TransactionDetail</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
+    <method-call id="prepareTransactionDocumentHistoryVO">
+      <method>#{bindings.prepareTransactionDocumentHistoryVO.execute}</method>
+      <outcome>
+        <fixed-outcome>prepareTransactionDocumentHistoryVO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__4">
       <from-activity-id>ExecuteWithParams1</from-activity-id>
       <control-flow-case id="__5">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>prepareTransactionDocumentHistoryVO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>prepareTransactionDocumentHistoryVO</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>prepareTransactionDocumentHistoryVO</from-outcome>
+        <to-activity-id>TransactionDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>TransactionDetail</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>createDocRef</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>TransactionDetail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

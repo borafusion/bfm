@@ -21,6 +21,29 @@
     Name="transactionDtlIdBind"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <ViewAccessor
+    Name="CurrencyVO"
+    ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CurrencyId"
+    ListVOName="CurrencyVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="TransactionDocumentRefEO"
     Entity="rbmbfm.model.eo.app.TransactionDocumentRefEO"/>
@@ -48,7 +71,16 @@
     PrecisionRule="true"
     EntityAttrName="DocumentRef"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="DOCUMENT_REF"/>
+    AliasName="DOCUMENT_REF">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DocumentDate"
     PrecisionRule="true"
@@ -60,13 +92,25 @@
     PrecisionRule="true"
     EntityAttrName="CurrencyId"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="CURRENCY_ID"/>
+    AliasName="CURRENCY_ID"
+    LOVName="LOV_CurrencyId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DocumentVal"
     PrecisionRule="true"
     EntityAttrName="DocumentVal"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="DOCUMENT_VAL"/>
+    AliasName="DOCUMENT_VAL">
+    <Properties>
+      <SchemaBasedProperties/>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ExchgRate"
     PrecisionRule="true"
@@ -78,7 +122,16 @@
     PrecisionRule="true"
     EntityAttrName="OtherRef"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="OTHER_REF"/>
+    AliasName="OTHER_REF">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"

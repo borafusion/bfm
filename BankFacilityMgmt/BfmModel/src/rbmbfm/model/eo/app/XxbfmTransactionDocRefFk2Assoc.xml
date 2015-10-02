@@ -17,11 +17,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TransactionDetailEO"/>
-      <Attr Name="_foreignKey" Value="rbmbfm.model.eo.app.TransactionDetailEO.XxbfmTransactionDtlPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.TransactionDtlId"/>
+      <Item Value="rbmbfm.model.eo.app.TransactionDetailEO.TransactionId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -31,11 +31,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TransactionDocumentRefEO"/>
-      <Attr Name="_foreignKey" Value="rbmbfm.model.eo.app.TransactionDocumentRefEO.XxbfmTransactionDocRefFk2"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="rbmbfm.model.eo.app.TransactionDocumentRefEO.TransactionDtlId"/>
+      <Item Value="rbmbfm.model.eo.app.TransactionDocumentRefEO.TransactionId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

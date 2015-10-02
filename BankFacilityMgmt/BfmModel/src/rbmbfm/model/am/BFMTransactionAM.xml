@@ -96,6 +96,9 @@
   <ViewUsage
     Name="BankFacilityStructurePageVO"
     ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
+  <ViewUsage
+    Name="TransactionDocumentRefPageVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDocumentRefVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
@@ -126,6 +129,12 @@
     SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDetailPageVO"
     DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.BankFacilityStructurePageVO"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxbfmTransactionDocRefFk2Link1"
+    ViewLinkObjectName="rbmbfm.model.vo.app.XxbfmTransactionDocRefFk2Link"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDetailPageVO"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDocumentRefPageVO"
+    Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"
@@ -141,6 +150,13 @@
       <Parameter
         Name="type"
         Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="prepareTransactionDocumentHistoryVO"
+      MethodName="prepareTransactionDocumentHistoryVO">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
     </Method>
   </ClientInterface>
   <ResourceBundle>

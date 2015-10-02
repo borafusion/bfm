@@ -19,8 +19,7 @@
     ColumnType="NUMBER"
     TableName="XXBFM_TRANSACTION_DOC_REF"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_DOC_REF_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_DOC_REF_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="TransactionDtlId"
