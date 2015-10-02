@@ -6,6 +6,8 @@ import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
+
+
 import oracle.jbo.server.ViewObjectImpl;
 
 import rbmbfm.model.am.common.BFMTransactionAM;
@@ -177,21 +179,63 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         return (ApplicationModuleImpl) findApplicationModule("BfmMasterAM1");
     }
 
-    public void createTransaction(String type) {
+    public BigDecimal createTransaction(String type) {
         ViewObjectImpl transBaseVO = this.getTransactionBaseVO();
         TransactionBaseVORowImpl newRow = (TransactionBaseVORowImpl)transBaseVO.createRow();
         newRow.setAttribute("Type", type);
-
         transBaseVO.insertRow(newRow);
-        
-        BigDecimal transId = (BigDecimal)newRow.getAttribute("TransactionId");
         
         RowIterator transDetailIter = newRow.getTransactionDetailVO();
         TransactionDetailVORowImpl transDetailRow = (TransactionDetailVORowImpl)transDetailIter.createRow();
         transDetailRow.setAttribute("ApprovalStatus", TransactionType.DRAFT);
         transDetailIter.insertRow(transDetailRow);
-        this.getDBTransaction().commit(); //Commit the changes
+        this.getDBTransaction().commit();
         transBaseVO.executeQuery();
+        
+        BigDecimal transId = (BigDecimal)transDetailRow.getAttribute("TransactionDtlId");
+        
+        return transId;
+    }
+
+
+    /**
+     * Container's getter for TransactionDetailVO1.
+     * @return TransactionDetailVO1
+     */
+    public ViewObjectImpl getTransactionDetailPageVO() {
+        return (ViewObjectImpl) findViewObject("TransactionDetailPageVO");
+    }
+
+    /**
+     * Container's getter for TransactionDocumentRefVO1.
+     * @return TransactionDocumentRefVO1
+     */
+    public ViewObjectImpl getTransactionDocumentRefPageHistoryVO() {
+        return (ViewObjectImpl) findViewObject("TransactionDocumentRefPageHistoryVO");
+    }
+
+    /**
+     * Container's getter for TransactionDetailVersionsVO1.
+     * @return TransactionDetailVersionsVO1
+     */
+    public ViewObjectImpl getTransactionDetailVersionsPageVO() {
+        return (ViewObjectImpl) findViewObject("TransactionDetailVersionsPageVO");
+    }
+
+    /**
+     * Container's getter for BankFacilityStructureVO2.
+     * @return BankFacilityStructureVO2
+     */
+    public ViewObjectImpl getBankFacilityStructurePageVO() {
+        return (ViewObjectImpl) findViewObject("BankFacilityStructurePageVO");
+    }
+
+    /**
+     * Container's getter for TransactionDetailToBankFacilityStructureVL1.
+     * @return TransactionDetailToBankFacilityStructureVL1
+     */
+    public ViewLinkImpl getTransactionDetailToBankFacilityStructureVL1() {
+        return (ViewLinkImpl) findViewLink("TransactionDetailToBankFacilityStructureVL1");
     }
 }
 

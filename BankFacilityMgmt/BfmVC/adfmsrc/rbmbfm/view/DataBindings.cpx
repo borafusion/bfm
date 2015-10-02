@@ -46,6 +46,16 @@
     <page path="/bfm/FacilityTrackerPg.jsff" usageId="rbmbfm_view_FacilityTrackerPgPageDef"/>
     <page path="/bfm/LookupPg.jsff" usageId="rbmbfm_view_LookupPgPageDef"/>
     <page path="/LookupMain.jsf" usageId="rbmbfm_view_LookupPgPageDef1"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@ExecuteWithParams"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/document-ref-flow.xml#document-ref-flow@ExecuteWithParams"
+          usageId="rbmbfm_view_document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"/>
+    <page path="/bfm/DocumentRef.jsff" usageId="rbmbfm_view_DocumentRefPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@ExecuteWithParams1"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"/>
+    <page path="/bfm/TransactionDetail.jsff" usageId="rbmbfm_view_TransactionDetailPageDef"/>
+    <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@createTransaction"
+          usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -88,6 +98,16 @@
     <page id="rbmbfm_view_FacilityTrackerPgPageDef" path="bfm.FacilityTrackerPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef" path="bfm.LookupPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef1" path="bfm.LookupPgPageDef1"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"/>
+    <page id="rbmbfm_view_document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"
+          path="rbmbfm.view.pageDefs.document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"/>
+    <page id="rbmbfm_view_DocumentRefPageDef" path="bfm.DocumentRefPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"/>
+    <page id="rbmbfm_view_TransactionDetailPageDef" path="bfm.TransactionDetailPageDef"/>
+    <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"
+          path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

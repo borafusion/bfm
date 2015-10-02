@@ -72,6 +72,30 @@
   <ViewUsage
     Name="TransactionDocumentRefVO"
     ViewObjectName="rbmbfm.model.vo.app.TransactionDocumentRefVO"/>
+  <ViewUsage
+    Name="TransactionDetailPageVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDetailVO">
+    <ViewCriteriaUsage
+      Name="TransactionDetailVOCriteria"
+      FullName="rbmbfm.model.vo.app.TransactionDetailVO.TransactionDetailVOCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="TransactionDocumentRefPageHistoryVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDocumentRefVO">
+    <ViewCriteriaUsage
+      Name="TransactionDocumentRefHistoryVOCriteria"
+      FullName="rbmbfm.model.vo.app.TransactionDocumentRefVO.TransactionDocumentRefHistoryVOCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="TransactionDetailVersionsPageVO"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDetailVersionsVO">
+    <ViewCriteriaUsage
+      Name="TransactionDetailByDtlIdVOCriteria"
+      FullName="rbmbfm.model.vo.app.TransactionDetailVersionsVO.TransactionDetailByDtlIdVOCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="BankFacilityStructurePageVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
@@ -96,6 +120,12 @@
     SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionBaseVO"
     DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDocumentRefVO"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="TransactionDetailToBankFacilityStructureVL1"
+    ViewLinkObjectName="rbmbfm.model.vo.master.vlink.TransactionDetailToBankFacilityStructureVL"
+    SrcViewUsageName="rbmbfm.model.am.BFMTransactionAM.TransactionDetailPageVO"
+    DstViewUsageName="rbmbfm.model.am.BFMTransactionAM.BankFacilityStructurePageVO"
+    Reversed="false"/>
   <AppModuleUsage
     Name="BfmMasterAM1"
     FullName="rbmbfm.model.am.master.BfmMasterAM"
@@ -107,7 +137,7 @@
       MethodName="createTransaction">
       <Return
         Name="_return_type_"
-        Type="void"/>
+        Type="java.math.BigDecimal"/>
       <Parameter
         Name="type"
         Type="java.lang.String"/>

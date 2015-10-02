@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XXBFM_TRANSACTION_DTL"
   AliasName="TransactionDetailEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="rbmbfm.model.eo.app.TransactionDetailEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+  </DesignTime>
   <Attribute
     Name="TransactionDtlId"
     IsNotNull="true"
@@ -19,8 +24,7 @@
     ColumnType="NUMBER"
     TableName="XXBFM_TRANSACTION_DTL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_DTL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="TransactionId"
@@ -42,7 +46,9 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="XXBFM_TRANSACTION_DTL"/>
+    TableName="XXBFM_TRANSACTION_DTL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="BusinessEntityId"
     ColumnName="BUSINESS_ENTITY_ID"
@@ -165,6 +171,14 @@
     ColumnType="NUMBER"
     TableName="XXBFM_TRANSACTION_DTL"
     HistoryColumn="VersionHistory"/>
+  <Attribute
+    Name="FacilityStructureId"
+    ColumnName="FACILITY_STRUCTURE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false"/>
   <AccessorAttribute
     Name="TransactionBaseEO"
     Association="rbmbfm.model.eo.app.XxbfmTransactionDtlFk1Assoc"

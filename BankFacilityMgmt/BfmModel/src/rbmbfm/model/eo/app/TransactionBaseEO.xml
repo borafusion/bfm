@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XXBFM_TRANSACTION_BASE"
   AliasName="TransactionBaseEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="rbmbfm.model.eo.app.TransactionBaseEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="TransactionId"
     IsNotNull="true"
@@ -19,8 +24,7 @@
     ColumnType="NUMBER"
     TableName="XXBFM_TRANSACTION_BASE"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_BASE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_TRANSACTION_BASE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="Type"

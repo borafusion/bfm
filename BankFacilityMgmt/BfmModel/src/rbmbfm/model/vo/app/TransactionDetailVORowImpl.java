@@ -12,6 +12,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class TransactionDetailVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_TRANSACTIONDETAILEO = 0;
 
     /**
@@ -34,8 +36,17 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
         LastUpdateDate,
         LastUpdateLogin,
         Version,
-        TransactionDocumentRefVO;
-        private static AttributesEnum[] vals = null;
+        FacilityStructureId,
+        TransactionDocumentRefVO,
+        BankFacilityStructureVO,
+        BusinessEntityVVO,
+        BankFacilityStructureVVO,
+        BeneficiaryBankVVO,
+        IssuingBankVVO,
+        SourceTypeVVO,
+        CurrencyVVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -57,6 +68,8 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int TRANSACTIONDTLID = AttributesEnum.TransactionDtlId.index();
     public static final int TRANSACTIONID = AttributesEnum.TransactionId.index();
     public static final int TRANSACTIONVERSION = AttributesEnum.TransactionVersion.index();
@@ -73,7 +86,15 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
     public static final int LASTUPDATELOGIN = AttributesEnum.LastUpdateLogin.index();
     public static final int VERSION = AttributesEnum.Version.index();
+    public static final int FACILITYSTRUCTUREID = AttributesEnum.FacilityStructureId.index();
     public static final int TRANSACTIONDOCUMENTREFVO = AttributesEnum.TransactionDocumentRefVO.index();
+    public static final int BANKFACILITYSTRUCTUREVO = AttributesEnum.BankFacilityStructureVO.index();
+    public static final int BUSINESSENTITYVVO = AttributesEnum.BusinessEntityVVO.index();
+    public static final int BANKFACILITYSTRUCTUREVVO = AttributesEnum.BankFacilityStructureVVO.index();
+    public static final int BENEFICIARYBANKVVO = AttributesEnum.BeneficiaryBankVVO.index();
+    public static final int ISSUINGBANKVVO = AttributesEnum.IssuingBankVVO.index();
+    public static final int SOURCETYPEVVO = AttributesEnum.SourceTypeVVO.index();
+    public static final int CURRENCYVVO = AttributesEnum.CurrencyVVO.index();
 
     /**
      * This is the default constructor (do not remove).

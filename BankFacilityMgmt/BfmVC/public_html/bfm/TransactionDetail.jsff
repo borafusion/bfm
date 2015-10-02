@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1" topHeight="60px">
+        <f:facet name="center">
+            <af:panelGroupLayout layout="scroll" id="pgl2" inlineStyle="padding:10px;">
+                <af:panelBox text="Transaction Details" id="pb2">
+                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="4" fieldWidth="200px" labelWidth="250px">
+                        <af:inputText value="#{bindings.Type.inputValue}" label="#{bindings.Type.hints.label}"
+                                      required="#{bindings.Type.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Type.hints.displayWidth}"
+                                      maximumLength="#{bindings.Type.hints.precision}"
+                                      shortDesc="#{bindings.Type.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.Type.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TransactionNumber.inputValue}" readOnly="true"
+                                      label="#{bindings.TransactionNumber.hints.label}"
+                                      required="#{bindings.TransactionNumber.hints.mandatory}"
+                                      columns="#{bindings.TransactionNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.TransactionNumber.hints.precision}"
+                                      shortDesc="#{bindings.TransactionNumber.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.TransactionNumber.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Creator.inputValue}" label="#{bindings.Creator.hints.label}"
+                                      required="#{bindings.Creator.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Creator.hints.displayWidth}"
+                                      maximumLength="#{bindings.Creator.hints.precision}"
+                                      shortDesc="#{bindings.Creator.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.Creator.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Approver.inputValue}" label="#{bindings.Approver.hints.label}"
+                                      required="#{bindings.Approver.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Approver.hints.displayWidth}"
+                                      maximumLength="#{bindings.Approver.hints.precision}"
+                                      shortDesc="#{bindings.Approver.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.Approver.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TransactionId.inputValue}"
+                                      label="#{bindings.TransactionId.hints.label}"
+                                      required="#{bindings.TransactionId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.TransactionId.hints.displayWidth}"
+                                      maximumLength="#{bindings.TransactionId.hints.precision}"
+                                      shortDesc="#{bindings.TransactionId.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.TransactionId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TransactionId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TransactionVersion.inputValue}"
+                                      label="#{bindings.TransactionVersion.hints.label}"
+                                      required="#{bindings.TransactionVersion.hints.mandatory}"
+                                      columns="#{bindings.TransactionVersion.hints.displayWidth}"
+                                      maximumLength="#{bindings.TransactionVersion.hints.precision}"
+                                      shortDesc="#{bindings.TransactionVersion.hints.tooltip}" id="it5" readOnly="true">
+                            <f:validator binding="#{bindings.TransactionVersion.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TransactionVersion.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.TransactionDate.inputValue}"
+                                      label="#{bindings.TransactionDate.hints.label}"
+                                      required="#{bindings.TransactionDate.hints.mandatory}"
+                                      columns="#{bindings.TransactionDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.TransactionDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.TransactionDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.TransactionDate.format}"/>
+                        </af:inputDate>
+                    </af:panelFormLayout>
+                </af:panelBox>
+                <af:panelBox text="Source Details" id="pb3">
+                    <af:panelFormLayout id="pfl4" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="250px"
+                                        styleClass="AFStretchWidth">
+                        <af:selectOneChoice value="#{bindings.BusinessEntityId.inputValue}"
+                                            label="#{bindings.BusinessEntityId.label}" autoSubmit="true"
+                                            required="#{bindings.BusinessEntityId.hints.mandatory}"
+                                            shortDesc="#{bindings.BusinessEntityId.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si1"/>
+                            <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}"
+                                            label="#{bindings.IssuingBankId.label}" autoSubmit="true"
+                                            required="#{bindings.IssuingBankId.hints.mandatory}"
+                                            shortDesc="#{bindings.IssuingBankId.hints.tooltip}" id="soc2">
+                            <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
+                            <f:validator binding="#{bindings.IssuingBankId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
+                                            label="#{bindings.BeneficiaryBankId.label}"
+                                            required="#{bindings.BeneficiaryBankId.hints.mandatory}"
+                                            shortDesc="#{bindings.BeneficiaryBankId.hints.tooltip}" id="soc3">
+                            <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si3"/>
+                            <f:validator binding="#{bindings.BeneficiaryBankId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.FacilityTrackerId.inputValue}"
+                                      label="#{bindings.FacilityTrackerId.hints.label}"
+                                      required="#{bindings.FacilityTrackerId.hints.mandatory}"
+                                      columns="#{bindings.FacilityTrackerId.hints.displayWidth}"
+                                      maximumLength="#{bindings.FacilityTrackerId.hints.precision}"
+                                      shortDesc="#{bindings.FacilityTrackerId.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.FacilityTrackerId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ApprovalStatus.inputValue}"
+                                      label="#{bindings.ApprovalStatus.hints.label}"
+                                      required="#{bindings.ApprovalStatus.hints.mandatory}"
+                                      columns="#{bindings.ApprovalStatus.hints.displayWidth}"
+                                      maximumLength="#{bindings.ApprovalStatus.hints.precision}"
+                                      shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="it7" readOnly="true">
+                            <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
+                        </af:inputText>
+                        <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
+                                            label="#{bindings.SourceType.label}"
+                                            required="#{bindings.SourceType.hints.mandatory}"
+                                            shortDesc="#{bindings.SourceType.hints.tooltip}" id="soc4">
+                            <f:selectItems value="#{bindings.SourceType.items}" id="si4"/>
+                            <f:validator binding="#{bindings.SourceType.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.FacilityStructureId.inputValue}"
+                                            label="#{bindings.FacilityStructureId.label}"
+                                            required="#{bindings.FacilityStructureId.hints.mandatory}"
+                                            shortDesc="#{bindings.FacilityStructureId.hints.tooltip}" id="soc5">
+                            <f:selectItems value="#{bindings.FacilityStructureId.items}" id="si5"/>
+                            <f:validator binding="#{bindings.FacilityStructureId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:table value="#{bindings.BankFacilityStructurePageVO.collectionModel}" var="row"
+                                  rows="#{bindings.BankFacilityStructurePageVO.rangeSize}"
+                                  emptyText="#{bindings.BankFacilityStructurePageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructurePageVO.rangeSize}"
+                                  id="t1" partialTriggers="::soc1 ::soc2">
+                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.label}"
+                                       id="c1">
+                                <af:outputText value="#{row.FacilityCombination}"
+                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.label}"
+                                       id="c2">
+                                <af:outputText value="#{row.FacilityValue}"
+                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.tooltip}"
+                                               id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.label}"
+                                       id="c3">
+                                <af:outputText value="#{row.UtilizedValue}"
+                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.label}"
+                                       id="c4">
+                                <af:outputText value="#{row.FacilityName}"
+                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.tooltip}"
+                                               id="ot4"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelFormLayout>
+                </af:panelBox>
+            </af:panelGroupLayout>
+        </f:facet>
+    </af:panelStretchLayout>
+</jsp:root>

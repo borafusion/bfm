@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="transaction-dtl-flow">
+    <default-activity>ExecuteWithParams1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>transactionDtlId</name>
+      <value>#{pageFlowScope.transactionDtlId}</value>
+      <class>java.math.BigDecimal</class>
+      <required/>
+    </input-parameter-definition>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="TransactionDetail">
+      <page>/bfm/TransactionDetail.jsff</page>
+    </view>
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>TransactionDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
