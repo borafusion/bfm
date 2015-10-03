@@ -159,9 +159,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">198.14941</property>
+         name="y">170.79883</property>
       <property
-         name="x">998.3613</property>
+         name="x">977.3613</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -171,7 +171,7 @@
       <property
          name="fromOutcome">setNewStatus</property>
       <property
-         name="sdm:polyPoints">T50,842.6875,325.99414,957.3613,197.79883,L50</property>
+         name="sdm:polyPoints">T56,846.1875,325.99414,973.8613,224.79883,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -181,6 +181,39 @@
       <property
          name="fromOutcome">setTransactionStatus</property>
       <property
-         name="sdm:polyPoints">B50,998.3613,251.79883,1110.0,317.59766,T50</property>
+         name="sdm:polyPoints">B56,980.8613,224.79883,1106.5,317.59766,T44</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall19">
+      <property
+         name="activityId">copyToNewTransactionVersion</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>copyToNewTransactionVersion&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-12.25293</property>
+      <property
+         name="x">971.3701</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="View3"
+      to="MethodCall19">
+      <property
+         name="fromOutcome">createRevision</property>
+      <property
+         name="sdm:polyPoints">T44,839.1875,323.5477,967.8701,41.396484,B44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="MethodCall19"
+      to="TaskFlowReturn14">
+      <property
+         name="fromOutcome">copyToNewTransactionVersion</property>
+      <property
+         name="sdm:polyPoints">B56,974.8701,41.396484,1113.5,315.00253,T56</property>
    </ControlFlowCase>
 </SDM>

@@ -18,28 +18,18 @@
       <property
          name="page">/bfm/SearchTransaction.jsff</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>SearchTransaction&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>SearchTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
          name="y">197.79883</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">454.3584</property>
+      <property
+         name="pageFragment">true</property>
    </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase4"
-      from="WildcardControlFlowRule2"
-      to="View3">
-      <property
-         name="fromOutcome">search</property>
-      <property
-         name="sdm:polyPoints">R50,199.0,168.44824,413.3584,197.44824,L50</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall5">
       <property
@@ -99,5 +89,40 @@
          name="fromOutcome">edit</property>
       <property
          name="sdm:polyPoints">R50,495.3584,197.44824,885.35254,177.59766,L54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall10">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">299.1494</property>
+      <property
+         name="x">290.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="WildcardControlFlowRule2"
+      to="MethodCall10">
+      <property
+         name="fromOutcome">search</property>
+      <property
+         name="sdm:polyPoints">R50,199.0,168.44824,290.5,244.79883,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="MethodCall10"
+      to="View3">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,331.5,298.79883,413.3584,197.44824,L50</property>
    </ControlFlowCase>
 </SDM>

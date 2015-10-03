@@ -14,6 +14,9 @@ import oracle.jbo.server.ViewLinkImpl;
 
 import oracle.jbo.server.ViewObjectImpl;
 
+import oracle.sql.DATE;
+import oracle.sql.NUMBER;
+
 import rbmbfm.model.am.common.BFMTransactionAM;
 import rbmbfm.model.common.TransactionType;
 import rbmbfm.model.vo.app.TransactionBaseVORowImpl;
@@ -219,7 +222,41 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
     }
     
     public BigDecimal copyToNewTransactionVersion (BigDecimal transactionDtlId) {
-        return new BigDecimal(10);
+        ViewObjectImpl transDetailVerPageVO = this.getTransactionDetailPageVO();
+        transDetailVerPageVO.setApplyViewCriteriaName("TransactionDetailVOCriteria");
+        transDetailVerPageVO.setNamedWhereClauseParam("transactionDtlIdBind", transactionDtlId);
+        transDetailVerPageVO.executeQuery();
+        
+        Row[] rows = transDetailVerPageVO.getAllRowsInRange();
+        Row transDtlRow = rows[0];
+        BigDecimal transactionVersion = (BigDecimal) transDtlRow.getAttribute("TransactionVersion");
+        BigDecimal transactionId = (BigDecimal)transDtlRow.getAttribute("TransactionId");
+            
+            
+        Row transDetailRevRow = transDetailVerPageVO.createRow();
+        transDetailRevRow.setAttribute("TransactionVersion", transactionVersion.add(new BigDecimal(1)));
+        transDetailRevRow.setAttribute("TransactionId", transDtlRow.getAttribute("TransactionId"));
+        transDetailRevRow.setAttribute("BusinessEntityId", transDtlRow.getAttribute("BusinessEntityId"));
+        transDetailRevRow.setAttribute("IssuingBankId", transDtlRow.getAttribute("IssuingBankId"));
+        transDetailRevRow.setAttribute("BeneficiaryBankId", transDtlRow.getAttribute("BeneficiaryBankId"));
+        transDetailRevRow.setAttribute("ApprovalStatus", "DRAFT_REVISION");
+        transDetailRevRow.setAttribute("SourceType", transDtlRow.getAttribute("SourceType"));
+        
+        transDtlRow.refresh(Row.REFRESH_WITH_DB_FORGET_CHANGES);
+        this.getDBTransaction().commit();
+        return (BigDecimal)transDetailRevRow.getAttribute("TransactionDtlId");
+        
+        /*
+        "TRANSACTION_ID"      NUMBER,
+        "TRANSACTION_VERSION" NUMBER,
+        "TRANSACTION_DATE"    DATE,
+        "BUSINESS_ENTITY_ID"  NUMBER,
+        "ISSUING_BANK_ID"     NUMBER,
+        "BENEFICIARY_BANK_ID" NUMBER,
+        "FACILITY_TRACKER_ID" NUMBER,
+        "APPROVAL_STATUS"     VARCHAR2(50 BYTE) NOT NULL ENABLE,
+        "SOURCE_TYPE"         VARCHAR2(100 BYTE),
+        */
     }
 
     public void setTransactionStatus (BigDecimal transactionDtlId, String status) {

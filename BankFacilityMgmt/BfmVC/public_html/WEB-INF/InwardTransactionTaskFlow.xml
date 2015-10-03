@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="InwardTransactionTaskFlow">
-    <default-activity>SearchTransaction</default-activity>
+    <default-activity>Execute</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -25,11 +25,17 @@
         <value>#{pageFlowScope.transactionDtlId}</value>
       </input-parameter>
     </task-flow-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
-      <control-flow-case id="__2">
+      <control-flow-case id="__9">
         <from-outcome>search</from-outcome>
-        <to-activity-id>SearchTransaction</to-activity-id>
+        <to-activity-id>Execute</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__3">
@@ -48,6 +54,13 @@
       <control-flow-case id="__7">
         <from-outcome>createTransaction</from-outcome>
         <to-activity-id>transaction-dtl-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>SearchTransaction</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

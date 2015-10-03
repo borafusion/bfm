@@ -227,6 +227,16 @@
         Name="status"
         Type="java.lang.String"/>
     </Method>
+    <Method
+      Name="copyToNewTransactionVersion"
+      MethodName="copyToNewTransactionVersion">
+      <Return
+        Name="_return_type_"
+        Type="java.math.BigDecimal"/>
+      <Parameter
+        Name="transactionDtlId"
+        Type="java.math.BigDecimal"/>
+    </Method>
   </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle

@@ -61,7 +61,9 @@
                                 <af:gridCell marginStart="5px" width="25%" id="gc8">
                                     <af:panelGroupLayout id="pgl5" layout="vertical">
                                         <af:outputFormatted value="Status: #{item.bindings.ApprovalStatus}" id="of8"
-                                                            styleClass="WBJobTitleText"/>                                                                                                                    
+                                                            styleClass="WBJobTitleText"/>    
+                                        <af:outputFormatted value="Status: #{item.bindings.TransactionVersion}" id="of6"
+                                                            styleClass="WBJobTitleText"/>                                                            
                                     </af:panelGroupLayout>
                                 </af:gridCell>                                                                                                
                             </af:gridRow>

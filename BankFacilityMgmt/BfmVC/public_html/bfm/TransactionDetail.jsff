@@ -4,9 +4,10 @@
     <af:panelStretchLayout id="psl1" topHeight="60px">
         <f:facet name="top">
             <af:panelHeader text="Inward LC" id="pb1">
-                <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT'}" scope="request" />
+                <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT' or bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}" scope="request" />
                 <c:set var="isSubmittedForApproval" value="#{bindings.ApprovalStatus.inputValue == 'SUBMITTED_FOR_APPROVAL'}" scope="request" />            
                 <c:set var="isTxnApproved" value="#{bindings.ApprovalStatus.inputValue == 'APPROVED'}" scope="request" />            
+                <c:set var="isDraftRevision" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}" scope="request" />            
                 <f:facet name="toolbar"/>
                 <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
                     <af:button text="Save" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}"
@@ -23,7 +24,7 @@
                     </af:button>                    
                     <af:spacer width="10px" id="s3" visible="#{isSubmittedForApproval}"/>                    
                     <af:button text="Create Revision" id="b8" partialSubmit="true"
-                               action="setNewStatus" visible="#{isTxnApproved}">
+                               action="createRevision" visible="#{isTxnApproved}">
                         <af:setActionListener from="DRAFT_REVISION" to="#{pageFlowScope.status}"/>
                     </af:button>                    
                     <af:spacer width="10px" id="s4" visible="#{isTxnApproved}"/>

@@ -49,6 +49,12 @@
         <fixed-outcome>setTransactionStatus</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="copyToNewTransactionVersion">
+      <method>#{bindings.copyToNewTransactionVersion.execute}</method>
+      <outcome>
+        <fixed-outcome>copyToNewTransactionVersion</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__4">
       <from-activity-id>ExecuteWithParams1</from-activity-id>
       <control-flow-case id="__5">
@@ -84,6 +90,10 @@
         <from-outcome>setNewStatus</from-outcome>
         <to-activity-id>setTransactionStatus</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>createRevision</from-outcome>
+        <to-activity-id>copyToNewTransactionVersion</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
       <from-activity-id>CreateInsert</from-activity-id>
@@ -96,6 +106,13 @@
       <from-activity-id>setTransactionStatus</from-activity-id>
       <control-flow-case id="__15">
         <from-outcome>setTransactionStatus</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>copyToNewTransactionVersion</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>copyToNewTransactionVersion</from-outcome>
         <to-activity-id>taskFlowReturn1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
