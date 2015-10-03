@@ -71,40 +71,46 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Version"
     PrecisionRule="true"
     EntityAttrName="Version"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="VERSION"/>
+    AliasName="VERSION"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="TenantId"
     PrecisionRule="true"

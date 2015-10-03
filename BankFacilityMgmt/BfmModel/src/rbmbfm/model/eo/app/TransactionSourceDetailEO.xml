@@ -174,5 +174,6 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_SRC_DTL_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

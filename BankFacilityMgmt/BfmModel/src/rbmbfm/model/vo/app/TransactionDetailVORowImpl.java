@@ -39,6 +39,7 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
         FacilityStructureId,
         TransactionDocumentRefVO,
         BankFacilityStructureVO,
+        TransactionSourceDetailVO,
         BusinessEntityVVO,
         BankFacilityStructureVVO,
         BeneficiaryBankVVO,
@@ -89,6 +90,7 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
     public static final int FACILITYSTRUCTUREID = AttributesEnum.FacilityStructureId.index();
     public static final int TRANSACTIONDOCUMENTREFVO = AttributesEnum.TransactionDocumentRefVO.index();
     public static final int BANKFACILITYSTRUCTUREVO = AttributesEnum.BankFacilityStructureVO.index();
+    public static final int TRANSACTIONSOURCEDETAILVO = AttributesEnum.TransactionSourceDetailVO.index();
     public static final int BUSINESSENTITYVVO = AttributesEnum.BusinessEntityVVO.index();
     public static final int BANKFACILITYSTRUCTUREVVO = AttributesEnum.BankFacilityStructureVVO.index();
     public static final int BENEFICIARYBANKVVO = AttributesEnum.BeneficiaryBankVVO.index();

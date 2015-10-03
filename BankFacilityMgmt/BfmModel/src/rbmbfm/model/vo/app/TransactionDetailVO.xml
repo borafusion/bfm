@@ -348,6 +348,11 @@
     ViewLink="rbmbfm.model.vo.master.vlink.TransactionDetailToBankFacilityStructureVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TransactionSourceDetailVO"
+    ViewLink="rbmbfm.model.vo.app.vlink.TransactionDetailToSourceDetailVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="rbmbfm.model.BfmModelBundle"/>

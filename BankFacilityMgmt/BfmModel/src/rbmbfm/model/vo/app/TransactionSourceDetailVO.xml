@@ -173,4 +173,9 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="TransactionInvoiceDetailVO"
+    ViewLink="rbmbfm.model.vo.app.vlink.TransactionSourceDetailToInvoiceVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -14,6 +14,10 @@
               id="TransactionDocumentRefPageVOIterator"/>
     <iterator Binds="TransactionDocumentRefPageHistoryVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
               id="TransactionDocumentRefPageHistoryVOIterator"/>
+    <iterator Binds="TransactionSourceDetailPageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="TransactionSourceDetailPageVOIterator"/>
+    <iterator Binds="TransactionInvoiceDetailPageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="TransactionInvoiceDetailPageVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="TransactionDetailVersionsPageVOIterator" id="Type">
@@ -125,5 +129,31 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="TransactionSourceDetailPageVOIterator" id="TransactionSourceDetailPageVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.TransactionSourceDetailVO" Name="TransactionSourceDetailPageVO0">
+        <AttrNames>
+          <Item Value="BeneficiaryId"/>
+          <Item Value="SourceRef"/>
+          <Item Value="SourceDocDate"/>
+          <Item Value="SourceCurrency"/>
+          <Item Value="SourceVal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TransactionSourceDetailPageVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="TransactionInvoiceDetailPageVOIterator" id="TransactionInvoiceDetailPageVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.TransactionInvoiceDetailVO" Name="TransactionInvoiceDetailPageVO0">
+        <AttrNames>
+          <Item Value="InvoiceNum"/>
+          <Item Value="InvoiceDate"/>
+          <Item Value="InvoiceVal"/>
+          <Item Value="InvoiceDueDate"/>
+          <Item Value="InvoiceStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TransactionInvoiceDetailPageVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

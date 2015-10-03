@@ -169,7 +169,151 @@
                             </af:column>
                         </af:table>
                     </af:panelFormLayout>
-                    
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create Source"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b4"/>
+                    <af:table value="#{bindings.TransactionSourceDetailPageVO.collectionModel}" var="row"
+                              rows="#{bindings.TransactionSourceDetailPageVO.rangeSize}"
+                              emptyText="#{bindings.TransactionSourceDetailPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.TransactionSourceDetailPageVO.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.TransactionSourceDetailPageVO.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.TransactionSourceDetailPageVO.rangeSize}"
+                              id="t3" partialTriggers="::b4">
+                        <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.label}"
+                                   id="c11">
+                            <af:selectOneChoice value="#{row.bindings.BeneficiaryId.inputValue}"
+                                                label="#{row.bindings.BeneficiaryId.label}"
+                                                required="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.mandatory}"
+                                                shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.tooltip}"
+                                                id="soc8">
+                                <f:selectItems value="#{row.bindings.BeneficiaryId.items}" id="si8"/>
+                                <f:validator binding="#{row.bindings.BeneficiaryId.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.label}"
+                                   id="c12">
+                            <af:inputText value="#{row.bindings.SourceRef.inputValue}"
+                                          label="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.label}"
+                                          required="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.mandatory}"
+                                          columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.displayWidth}"
+                                          maximumLength="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.precision}"
+                                          shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.tooltip}"
+                                          id="it13">
+                                <f:validator binding="#{row.bindings.SourceRef.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.label}"
+                                   id="c13">
+                            <af:inputDate value="#{row.bindings.SourceDocDate.inputValue}"
+                                          label="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.label}"
+                                          required="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.mandatory}"
+                                          columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.displayWidth}"
+                                          shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.tooltip}"
+                                          id="id3">
+                                <f:validator binding="#{row.bindings.SourceDocDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.label}"
+                                   id="c14">
+                            <af:selectOneChoice value="#{row.bindings.SourceCurrency.inputValue}"
+                                                label="#{row.bindings.SourceCurrency.label}"
+                                                required="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.mandatory}"
+                                                shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.tooltip}"
+                                                id="soc9">
+                                <f:selectItems value="#{row.bindings.SourceCurrency.items}" id="si9"/>
+                                <f:validator binding="#{row.bindings.SourceCurrency.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.label}"
+                                   id="c15">
+                            <af:inputText value="#{row.bindings.SourceVal.inputValue}"
+                                          label="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.label}"
+                                          required="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.mandatory}"
+                                          columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.displayWidth}"
+                                          maximumLength="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.precision}"
+                                          shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.tooltip}"
+                                          id="it14">
+                                <f:validator binding="#{row.bindings.SourceVal.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.format}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                    <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create Invoice"
+                               disabled="#{!bindings.CreateInsert1.enabled}" id="b5"/>
+                    <af:table value="#{bindings.TransactionInvoiceDetailPageVO.collectionModel}" var="row"
+                              rows="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}"
+                              emptyText="#{bindings.TransactionInvoiceDetailPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}"
+                              id="t4" partialTriggers="::b5">
+                        <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
+                                   id="c16">
+                            <af:inputText value="#{row.bindings.InvoiceNum.inputValue}"
+                                          label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
+                                          required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.mandatory}"
+                                          columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.displayWidth}"
+                                          maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.precision}"
+                                          shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.tooltip}"
+                                          id="it15">
+                                <f:validator binding="#{row.bindings.InvoiceNum.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
+                                   id="c17">
+                            <af:inputDate value="#{row.bindings.InvoiceDate.inputValue}"
+                                          label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
+                                          required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.mandatory}"
+                                          columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.displayWidth}"
+                                          shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.tooltip}"
+                                          id="id4">
+                                <f:validator binding="#{row.bindings.InvoiceDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
+                                   id="c18">
+                            <af:inputText value="#{row.bindings.InvoiceVal.inputValue}"
+                                          label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
+                                          required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.mandatory}"
+                                          columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.displayWidth}"
+                                          maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.precision}"
+                                          shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.tooltip}"
+                                          id="it16">
+                                <f:validator binding="#{row.bindings.InvoiceVal.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
+                                   id="c19">
+                            <af:inputDate value="#{row.bindings.InvoiceDueDate.inputValue}"
+                                          label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
+                                          required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.mandatory}"
+                                          columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.displayWidth}"
+                                          shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.tooltip}"
+                                          id="id5">
+                                <f:validator binding="#{row.bindings.InvoiceDueDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
+                                   id="c20">
+                            <af:inputText value="#{row.bindings.InvoiceStatus.inputValue}"
+                                          label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
+                                          required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.mandatory}"
+                                          columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.displayWidth}"
+                                          maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.precision}"
+                                          shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.tooltip}"
+                                          id="it17">
+                                <f:validator binding="#{row.bindings.InvoiceStatus.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.format}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
                 </af:panelBox>
                 <af:panelBox text="Document Details" id="pb5">
                     <af:subform>

@@ -157,6 +157,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_INVC_DTL_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="XxbfmTransactionInvcDtlFk1">
@@ -165,6 +166,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_INVC_DTL_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="XxbfmTransactionInvcDtlFk2">
@@ -173,5 +175,6 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="XXBFM_TRANSACTION_INVC_DTL_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>
