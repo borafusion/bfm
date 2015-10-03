@@ -64,7 +64,11 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[select * from XXBFM_TRANSACTION_V]]></SQLQuery>
+  <SQLQuery><![CDATA[select TRANSACTION_ID, TRANSACTION_NUMBER, TYPE, CREATOR, APPROVER, TRANSACTION_DTL_ID, TRANSACTION_VERSION, TRANSACTION_DATE, BUSINESS_ENTITY_ID, ISSUING_BANK_ID, BENEFICIARY_BANK_ID, FACILITY_TRACKER_ID, APPROVAL_STATUS, 
+(SELECT BANK_NAME FROM XXBFM_BANK_ALL      
+WHERE BANK_ID=ISSUING_BANK_ID) ISSUING_BANK_NAME, (SELECT BANK_NAME FROM XXBFM_BANK_ALL      
+WHERE BANK_ID=BENEFICIARY_BANK_ID) BENEFICIARY_BANK_NAME 
+from XXBFM_TRANSACTION_V]]></SQLQuery>
   <ViewAttribute
     Name="TransactionId"
     IsUpdateable="false"
@@ -234,6 +238,36 @@
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuingBankName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="256"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ISSUING_BANK_NAME"
+    Expression="ISSUING_BANK_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BeneficiaryBankName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="256"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BENEFICIARY_BANK_NAME"
+    Expression="BENEFICIARY_BANK_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">

@@ -51,9 +51,9 @@
 
                                 <af:gridCell marginStart="5px" width="25%" id="gc6">
                                     <af:panelGroupLayout id="pgl4" layout="vertical">
-                                        <af:outputFormatted value="Bank: #{bindings.IssuingBankId.inputValue}" id="of4"
+                                        <af:outputFormatted value="Bank: #{item.bindings.IssuingBankName.inputValue}" id="of4"
                                                             styleClass="WBJobTitleText"/>
-                                        <af:outputFormatted value="Beneficiary : #{bindings.BeneficiaryBankId.inputValue}"
+                                        <af:outputFormatted value="Beneficiary : #{item.bindings.BeneficiaryBankName.inputValue}"
                                                             id="of5" styleClass="WBDeptText"/>
                                     </af:panelGroupLayout>
                                 </af:gridCell>
