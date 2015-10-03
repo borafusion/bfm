@@ -29,5 +29,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SearchTransactionPageVOIterator" id="IssuingBankId">
+      <AttrNames>
+        <Item Value="IssuingBankId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SearchTransactionPageVOIterator" id="BeneficiaryBankId">
+      <AttrNames>
+        <Item Value="BeneficiaryBankId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

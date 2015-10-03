@@ -38,6 +38,11 @@
         <fixed-outcome>CreateInsert</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>search</name>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__4">
       <from-activity-id>ExecuteWithParams1</from-activity-id>
       <control-flow-case id="__5">
@@ -64,6 +69,10 @@
       <control-flow-case id="__9">
         <from-outcome>createDocRef</from-outcome>
         <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>search</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
