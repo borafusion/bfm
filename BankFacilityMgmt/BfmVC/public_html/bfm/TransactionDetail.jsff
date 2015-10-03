@@ -75,6 +75,14 @@
                             <f:validator binding="#{bindings.TransactionDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.TransactionDate.format}"/>
                         </af:inputDate>
+                        <af:inputText value="#{bindings.ApprovalStatus.inputValue}"
+                                      label="#{bindings.ApprovalStatus.hints.label}"
+                                      required="#{bindings.ApprovalStatus.hints.mandatory}"
+                                      columns="#{bindings.ApprovalStatus.hints.displayWidth}"
+                                      maximumLength="#{bindings.ApprovalStatus.hints.precision}"
+                                      shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="it7" readOnly="true">
+                            <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
+                        </af:inputText>                        
                     </af:panelFormLayout>
                 </af:panelBox>
                 <af:panelBox text="Source Details" id="pb3">
@@ -109,14 +117,6 @@
                                       shortDesc="#{bindings.FacilityTrackerId.hints.tooltip}" id="it6">
                             <f:validator binding="#{bindings.FacilityTrackerId.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.FacilityTrackerId.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.ApprovalStatus.inputValue}"
-                                      label="#{bindings.ApprovalStatus.hints.label}"
-                                      required="#{bindings.ApprovalStatus.hints.mandatory}"
-                                      columns="#{bindings.ApprovalStatus.hints.displayWidth}"
-                                      maximumLength="#{bindings.ApprovalStatus.hints.precision}"
-                                      shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="it7" readOnly="true">
-                            <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
                         </af:inputText>
                         <af:selectOneChoice value="#{bindings.SourceType.inputValue}"
                                             label="#{bindings.SourceType.label}"
