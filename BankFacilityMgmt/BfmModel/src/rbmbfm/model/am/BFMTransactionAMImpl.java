@@ -217,7 +217,23 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         transDocRefPageVO.setNamedWhereClauseParam("transactionDtlIdBind", transactionDtlId);
         transDocRefPageVO.executeQuery();
     }
+    
+    public BigDecimal copyToNewTransactionVersion (BigDecimal transactionDtlId) {
+        return new BigDecimal(10);
+    }
 
+    public void setTransactionStatus (BigDecimal transactionDtlId, String status) {
+        ViewObjectImpl transDetailVerPageVO = this.getTransactionDetailPageVO();
+        transDetailVerPageVO.setApplyViewCriteriaName("TransactionDetailVOCriteria");
+        transDetailVerPageVO.setNamedWhereClauseParam("transactionDtlIdBind", transactionDtlId);
+        transDetailVerPageVO.executeQuery();
+        
+        Row[] rows = transDetailVerPageVO.getAllRowsInRange();
+        Row transDtlRow = rows[0];
+        transDtlRow.setAttribute("ApprovalStatus", status);
+        
+        this.getDBTransaction().commit();
+    }
 
     /**
      * Container's getter for TransactionDetailVO1.

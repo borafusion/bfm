@@ -30,9 +30,9 @@
       <property
          name="y">380.34473</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">842.6875</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <MethodCall
       id="MethodCall5">
@@ -149,5 +149,38 @@
          name="fromOutcome">search</property>
       <property
          name="sdm:polyPoints">R50,883.6875,379.99414,1069.0,371.59766,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall16">
+      <property
+         name="activityId">setTransactionStatus</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setTransactionStatus&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">198.14941</property>
+      <property
+         name="x">998.3613</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase17"
+      from="View3"
+      to="MethodCall16">
+      <property
+         name="fromOutcome">setNewStatus</property>
+      <property
+         name="sdm:polyPoints">T50,842.6875,325.99414,957.3613,197.79883,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase18"
+      from="MethodCall16"
+      to="TaskFlowReturn14">
+      <property
+         name="fromOutcome">setTransactionStatus</property>
+      <property
+         name="sdm:polyPoints">B50,998.3613,251.79883,1110.0,317.59766,T50</property>
    </ControlFlowCase>
 </SDM>

@@ -43,6 +43,12 @@
         <name>search</name>
       </outcome>
     </task-flow-return>
+    <method-call id="setTransactionStatus">
+      <method>#{bindings.setTransactionStatus.execute}</method>
+      <outcome>
+        <fixed-outcome>setTransactionStatus</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__4">
       <from-activity-id>ExecuteWithParams1</from-activity-id>
       <control-flow-case id="__5">
@@ -74,12 +80,23 @@
         <from-outcome>search</from-outcome>
         <to-activity-id>taskFlowReturn1</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>setNewStatus</from-outcome>
+        <to-activity-id>setTransactionStatus</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
       <from-activity-id>CreateInsert</from-activity-id>
       <control-flow-case id="__11">
         <from-outcome>CreateInsert</from-outcome>
         <to-activity-id>TransactionDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>setTransactionStatus</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>setTransactionStatus</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

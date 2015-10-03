@@ -214,6 +214,19 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
+    <Method
+      Name="setTransactionStatus"
+      MethodName="setTransactionStatus">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="transactionDtlId"
+        Type="java.math.BigDecimal"/>
+      <Parameter
+        Name="status"
+        Type="java.lang.String"/>
+    </Method>
   </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle

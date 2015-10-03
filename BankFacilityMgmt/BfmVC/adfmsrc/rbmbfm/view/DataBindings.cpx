@@ -63,6 +63,8 @@
     <page path="/bfm/SearchTransaction.jsff" usageId="rbmbfm_view_SearchTransactionPageDef"/>
     <page path="/WEB-INF/InwardTransactionTaskFlow.xml#InwardTransactionTaskFlow@createTransaction"
           usageId="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@setTransactionStatus"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -122,6 +124,8 @@
     <page id="rbmbfm_view_SearchTransactionPageDef" path="bfm.SearchTransactionPageDef"/>
     <page id="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"
           path="rbmbfm.view.pageDefs.InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

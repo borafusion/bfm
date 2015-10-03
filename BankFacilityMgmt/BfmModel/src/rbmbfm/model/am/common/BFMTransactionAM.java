@@ -11,5 +11,7 @@ public interface BFMTransactionAM extends ApplicationModule {
     BigDecimal createTransaction(String type);
 
     void prepareTransactionDocumentHistoryVO();
+
+    void setTransactionStatus(BigDecimal transactionDtlId, String status);
 }
 
