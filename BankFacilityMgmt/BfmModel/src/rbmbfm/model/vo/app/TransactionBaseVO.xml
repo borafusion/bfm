@@ -39,7 +39,14 @@
     PrecisionRule="true"
     EntityAttrName="TransactionNumber"
     EntityUsage="TransactionBaseEO"
-    AliasName="TRANSACTION_NUMBER"/>
+    AliasName="TRANSACTION_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionBaseVO.TransactionNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Creator"
     PrecisionRule="true"
@@ -119,4 +126,8 @@
     ViewLink="rbmbfm.model.vo.app.XxbfmTransactionSrcDtlFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

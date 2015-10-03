@@ -47,6 +47,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.TransactionNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Type"
@@ -112,7 +118,14 @@
     ColumnType="NUMBER"
     AliasName="TRANSACTION_VERSION"
     Expression="TRANSACTION_VERSION"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.TransactionVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionDate"
     IsUpdateable="false"
@@ -122,7 +135,14 @@
     ColumnType="DATE"
     AliasName="TRANSACTION_DATE"
     Expression="TRANSACTION_DATE"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.TransactionDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BusinessEntityId"
     IsUpdateable="false"
@@ -132,7 +152,14 @@
     ColumnType="NUMBER"
     AliasName="BUSINESS_ENTITY_ID"
     Expression="BUSINESS_ENTITY_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.BusinessEntityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IssuingBankId"
     IsUpdateable="false"
@@ -142,7 +169,14 @@
     ColumnType="NUMBER"
     AliasName="ISSUING_BANK_ID"
     Expression="ISSUING_BANK_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.IssuingBankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BeneficiaryBankId"
     IsUpdateable="false"
@@ -152,7 +186,14 @@
     ColumnType="NUMBER"
     AliasName="BENEFICIARY_BANK_ID"
     Expression="BENEFICIARY_BANK_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.BeneficiaryBankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FacilityTrackerId"
     IsUpdateable="false"
@@ -162,7 +203,14 @@
     ColumnType="NUMBER"
     AliasName="FACILITY_TRACKER_ID"
     Expression="FACILITY_TRACKER_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.FacilityTrackerId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ApprovalStatus"
     IsUpdateable="false"
@@ -177,6 +225,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVersionsVO.ApprovalStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="TransactionDetailByDtlIdVOCriteria"

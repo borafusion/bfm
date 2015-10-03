@@ -161,14 +161,28 @@
     PrecisionRule="true"
     EntityAttrName="TransactionVersion"
     EntityUsage="TransactionDetailEO"
-    AliasName="TRANSACTION_VERSION"/>
+    AliasName="TRANSACTION_VERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.TransactionVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionDate"
     PrecisionRule="true"
     EntityAttrName="TransactionDate"
     EntityUsage="TransactionDetailEO"
     AliasName="TRANSACTION_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.TransactionDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BusinessEntityId"
     PrecisionRule="true"
@@ -180,6 +194,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.BusinessEntityId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -194,6 +210,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.IssuingBankId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -208,6 +226,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.BeneficiaryBankId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -223,7 +243,14 @@
     PrecisionRule="true"
     EntityAttrName="ApprovalStatus"
     EntityUsage="TransactionDetailEO"
-    AliasName="APPROVAL_STATUS"/>
+    AliasName="APPROVAL_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.ApprovalStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceType"
     PrecisionRule="true"
@@ -235,6 +262,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.SourceType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

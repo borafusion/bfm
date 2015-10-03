@@ -80,13 +80,27 @@
     PrecisionRule="true"
     EntityAttrName="SourceRef"
     EntityUsage="TransactionSourceDetail"
-    AliasName="SOURCE_REF"/>
+    AliasName="SOURCE_REF">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionSourceDetailVO.SourceRef_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceDocDate"
     PrecisionRule="true"
     EntityAttrName="SourceDocDate"
     EntityUsage="TransactionSourceDetail"
-    AliasName="SOURCE_DOC_DATE"/>
+    AliasName="SOURCE_DOC_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionSourceDetailVO.SourceDocDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceCurrency"
     PrecisionRule="true"
@@ -98,6 +112,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionSourceDetailVO.SourceCurrency_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -106,7 +122,14 @@
     PrecisionRule="true"
     EntityAttrName="SourceVal"
     EntityUsage="TransactionSourceDetail"
-    AliasName="SOURCE_VAL"/>
+    AliasName="SOURCE_VAL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionSourceDetailVO.SourceVal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -170,6 +193,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionSourceDetailVO.BeneficiaryId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -178,4 +203,8 @@
     ViewLink="rbmbfm.model.vo.app.vlink.TransactionSourceDetailToInvoiceVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

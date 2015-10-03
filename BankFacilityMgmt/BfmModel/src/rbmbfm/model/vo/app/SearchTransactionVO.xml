@@ -18,6 +18,52 @@
         ResId="rbmbfm.model.vo.app.SearchTransactionVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewAccessor
+    Name="BeneficiaryBankVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IssuingBankVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IssuingBankId"
+    ListVOName="IssuingBankVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IssuingBankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BeneficiaryBankId"
+    ListVOName="BeneficiaryBankVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BeneficiaryBankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[select * from XXBFM_TRANSACTION_V]]></SQLQuery>
   <ViewAttribute
     Name="TransactionId"
@@ -138,7 +184,15 @@
     ColumnType="NUMBER"
     AliasName="ISSUING_BANK_ID"
     Expression="ISSUING_BANK_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC"
+    LOVName="LOV_IssuingBankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BeneficiaryBankId"
     IsUpdateable="false"
@@ -148,7 +202,15 @@
     ColumnType="NUMBER"
     AliasName="BENEFICIARY_BANK_ID"
     Expression="BENEFICIARY_BANK_ID"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC"
+    LOVName="LOV_BeneficiaryBankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FacilityTrackerId"
     IsUpdateable="false"

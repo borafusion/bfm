@@ -78,6 +78,8 @@
           Value="50"/>
         <DISPLAYHEIGHT
           Value="3"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.DocumentRef_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -86,7 +88,14 @@
     PrecisionRule="true"
     EntityAttrName="DocumentDate"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="DOCUMENT_DATE"/>
+    AliasName="DOCUMENT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.DocumentDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CurrencyId"
     PrecisionRule="true"
@@ -98,6 +107,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.CurrencyId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -108,7 +119,10 @@
     EntityUsage="TransactionDocumentRefEO"
     AliasName="DOCUMENT_VAL">
     <Properties>
-      <SchemaBasedProperties/>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.DocumentVal_LABEL"/>
+      </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
@@ -116,7 +130,14 @@
     PrecisionRule="true"
     EntityAttrName="ExchgRate"
     EntityUsage="TransactionDocumentRefEO"
-    AliasName="EXCHG_RATE"/>
+    AliasName="EXCHG_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.ExchgRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OtherRef"
     PrecisionRule="true"
@@ -129,6 +150,8 @@
           Value="50"/>
         <DISPLAYHEIGHT
           Value="3"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDocumentRefVO.OtherRef_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -228,4 +251,8 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

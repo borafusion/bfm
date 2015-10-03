@@ -40,31 +40,66 @@
     PrecisionRule="true"
     EntityAttrName="InvoiceNum"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="INVOICE_NUM"/>
+    AliasName="INVOICE_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionInvoiceDetailVO.InvoiceNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceDate"
     PrecisionRule="true"
     EntityAttrName="InvoiceDate"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="INVOICE_DATE"/>
+    AliasName="INVOICE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionInvoiceDetailVO.InvoiceDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceVal"
     PrecisionRule="true"
     EntityAttrName="InvoiceVal"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="INVOICE_VAL"/>
+    AliasName="INVOICE_VAL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionInvoiceDetailVO.InvoiceVal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceDueDate"
     PrecisionRule="true"
     EntityAttrName="InvoiceDueDate"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="INVOICE_DUE_DATE"/>
+    AliasName="INVOICE_DUE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionInvoiceDetailVO.InvoiceDueDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceStatus"
     PrecisionRule="true"
     EntityAttrName="InvoiceStatus"
     EntityUsage="TransactionInvoiceDetail"
-    AliasName="INVOICE_STATUS"/>
+    AliasName="INVOICE_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionInvoiceDetailVO.InvoiceStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -117,4 +152,8 @@
     EntityAttrName="TenantId"
     EntityUsage="TransactionInvoiceDetail"
     AliasName="TENANT_ID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
