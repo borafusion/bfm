@@ -346,5 +346,14 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
     public ViewLinkImpl getTransactionSourceDetailToInvoiceVL1() {
         return (ViewLinkImpl) findViewLink("TransactionSourceDetailToInvoiceVL1");
     }
+
+
+    /**
+     * Container's getter for SearchTransactionVO2.
+     * @return SearchTransactionVO2
+     */
+    public ViewObjectImpl getSearchTransactionPageVO() {
+        return (ViewObjectImpl) findViewObject("SearchTransactionPageVO");
+    }
 }
 

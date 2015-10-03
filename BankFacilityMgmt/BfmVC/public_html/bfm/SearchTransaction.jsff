@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+            <af:gridCell valign="middle" id="gc1">
+                <af:outputFormatted value="Inward LC" id="of1" styleClass="WBPageTitleText"
+                                    inlineStyle="font-size:large; font-weight:bold;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">
+                <af:button text="New" id="b1" action="add" partialSubmit="true">
+                    <af:setActionListener from="INWARD" to="#{pageFlowScope.type}"/>
+                </af:button>                
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                        <f:facet name="end">
+                            <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                        </f:facet>
+                    </af:quickQuery>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc4" halign="stretch">
+                <af:listView value="#{bindings.SearchTransactionPageVO.collectionModel}" var="item"  partialTriggers="::qryId1"
+                             emptyText="#{bindings.SearchTransactionPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.SearchTransactionPageVO.rangeSize}" id="lv2">
+                    <af:listItem id="li2">                                        
+                        <af:panelGridLayout id="pgl3">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                <af:gridCell marginStart="5px"  width="25%" id="gc5" halign="stretch">
+                                    <af:panelGroupLayout id="pgl3c1" layout="vertical">
+                                        <af:outputFormatted value="Type: #{item.bindings.Type.inputValue}" id="of2"/>
+                                        <!-- <af:outputLabel value="Transaction No: #{item.bindings.TransactionNumber}" id="ol1"/>-->
+                                        <af:link id="ot1"
+                                                 inlineStyle="font-size:large; font-weight:bold;" text="#{item.bindings.TransactionNumber}"
+                                                 action="edit">                                                        
+                                            <af:setActionListener from="#{item.bindings.TransactionDtlId.inputValue}"
+                                                                  to="#{pageFlowScope.transactionDtlId}"/>                                                 
+                                        </af:link>
+                                        <af:outputFormatted value="Transaction Date #{item.bindings.TransactionDate.inputValue}" id="of3">
+                                            <af:convertDateTime pattern="#{bindings.SearchTransactionPageVO.hints.TransactionDate.format}"/>
+                                        </af:outputFormatted>                                     
+                                    </af:panelGroupLayout>                                
+                                </af:gridCell>
+
+                                <af:gridCell marginStart="5px" width="25%" id="gc6">
+                                    <af:panelGroupLayout id="pgl4" layout="vertical">
+                                        <af:outputFormatted value="Bank: #{item.bindings.IssuingBankId}" id="of4"
+                                                            styleClass="WBJobTitleText"/>
+                                        <af:outputFormatted value="Beneficiary : #{item.bindings.BeneficiaryBankId}"
+                                                            id="of5" styleClass="WBDeptText"/>                                    
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                
+                                <af:gridCell marginStart="5px" width="25%" id="gc8">
+                                    <af:panelGroupLayout id="pgl5" layout="vertical">
+                                        <af:outputFormatted value="Status: #{item.bindings.ApprovalStatus}" id="of8"
+                                                            styleClass="WBJobTitleText"/>                                                                                                                    
+                                    </af:panelGroupLayout>
+                                </af:gridCell>                                                                                                
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:listItem>
+                </af:listView>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</jsp:root>

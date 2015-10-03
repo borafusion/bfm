@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"
+                Package="rbmbfm.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="createTransaction" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createTransaction"
+                  IsViewObjectMethod="false" DataControl="BFMTransactionAMDataControl"
+                  InstanceName="data.BFMTransactionAMDataControl.dataProvider"
+                  ReturnName="data.BFMTransactionAMDataControl.methodResults.createTransaction_BFMTransactionAMDataControl_dataProvider_createTransaction_result">
+      <NamedData NDName="type" NDValue="#{pageFlowScope.type}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

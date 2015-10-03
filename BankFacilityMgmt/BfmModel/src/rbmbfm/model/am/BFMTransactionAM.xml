@@ -117,6 +117,9 @@
   <ViewUsage
     Name="TransactionInvoiceDetailPageVO"
     ViewObjectName="rbmbfm.model.vo.app.TransactionInvoiceDetailVO"/>
+  <ViewUsage
+    Name="SearchTransactionPageVO"
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"
