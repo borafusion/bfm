@@ -62,7 +62,7 @@
                                     <af:panelGroupLayout id="pgl5" layout="vertical">
                                         <af:outputFormatted value="Status: #{item.bindings.ApprovalStatus}" id="of8"
                                                             styleClass="WBJobTitleText"/>    
-                                        <af:outputFormatted value="Status: #{item.bindings.TransactionVersion}" id="of6"
+                                        <af:outputFormatted value="Version: #{item.bindings.TransactionVersion}" id="of6"
                                                             styleClass="WBJobTitleText"/>                                                            
                                     </af:panelGroupLayout>
                                 </af:gridCell>                                                                                                
