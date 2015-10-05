@@ -7,6 +7,9 @@
     <taskFlow id="InwardLCTransactionTaskFlow1"
               taskFlowId="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="InwardTransactionTaskFlow1"
+              taskFlowId="/WEB-INF/InwardTransactionTaskFlow.xml#InwardTransactionTaskFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

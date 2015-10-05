@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionDetailToBankFacilityStructureVL"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="rbmbfm.model.vo.master.vlink.TransactionDetailToBankFacilityStructureVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="TransactionDetailVO"
+    Cardinality="1"
+    Source="true"
+    Owner="rbmbfm.model.vo.app.TransactionDetailVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TransactionDetailVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.vo.app.TransactionDetailVO.IssuingBankId"/>
+      <Item Value="rbmbfm.model.vo.app.TransactionDetailVO.BusinessEntityId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="BankFacilityStructureVO"
+    Cardinality="-1"
+    Owner="rbmbfm.model.vo.master.BankFacilityStructureVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="BankFacilityStructureVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="rbmbfm.model.vo.master.BankFacilityStructureVO.BankId"/>
+      <Item Value="rbmbfm.model.vo.master.BankFacilityStructureVO.BusinessEntityId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

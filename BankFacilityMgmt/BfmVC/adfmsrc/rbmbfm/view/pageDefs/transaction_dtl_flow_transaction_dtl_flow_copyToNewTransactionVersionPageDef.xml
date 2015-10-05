@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="transaction_dtl_flow_transaction_dtl_flow_copyToNewTransactionVersionPageDef"
+                Package="rbmbfm.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="copyToNewTransactionVersion" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyToNewTransactionVersion" IsViewObjectMethod="false"
+                  DataControl="BFMTransactionAMDataControl" InstanceName="data.BFMTransactionAMDataControl.dataProvider"
+                  ReturnName="data.BFMTransactionAMDataControl.methodResults.copyToNewTransactionVersion_BFMTransactionAMDataControl_dataProvider_copyToNewTransactionVersion_result">
+      <NamedData NDName="transactionDtlId" NDValue="#{pageFlowScope.transactionDtlId}" NDType="java.math.BigDecimal"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

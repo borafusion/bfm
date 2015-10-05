@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="SearchTransactionPageDef"
+                Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SearchTransactionPageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="SearchTransactionPageVOIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SearchTransactionPageVOIterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SearchTransactionPageVOIterator" id="SearchTransactionPageVO">
+      <nodeDefinition DefName="rbmbfm.model.vo.app.SearchTransactionVO" Name="SearchTransactionPageVO0">
+        <AttrNames>
+          <Item Value="TransactionId"/>
+          <Item Value="TransactionNumber"/>
+          <Item Value="Type"/>
+          <Item Value="Creator"/>
+          <Item Value="Approver"/>
+          <Item Value="TransactionDtlId"/>
+          <Item Value="TransactionVersion"/>
+          <Item Value="TransactionDate"/>
+          <Item Value="BusinessEntityId"/>
+          <Item Value="IssuingBankId"/>
+          <Item Value="BeneficiaryBankId"/>
+          <Item Value="FacilityTrackerId"/>
+          <Item Value="ApprovalStatus"/>
+          <Item Value="BeneficiaryBankName"/>
+          <Item Value="IssuingBankName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

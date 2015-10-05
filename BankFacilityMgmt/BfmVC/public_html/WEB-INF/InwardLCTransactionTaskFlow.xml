@@ -40,6 +40,23 @@
     <view id="SearchInwardLC">
       <page>/bfm/SearchInwardLC.jsff</page>
     </view>
+    <method-call id="createTransaction">
+      <method>#{bindings.createTransaction.execute}</method>
+      <return-value>#{pageFlowScope.transactionDtlId}</return-value>
+      <outcome>
+        <fixed-outcome>createTransaction</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="transaction-dtl-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/transaction-dtl-flow.xml</document>
+        <id>transaction-dtl-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__17">
+        <name>transactionDtlId</name>
+        <value>#{pageFlowScope.transactionDtlId}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__3">
       <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__4">
@@ -64,6 +81,10 @@
         <from-outcome>addEdit</from-outcome>
         <to-activity-id>addEditRouter</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>createTransaction</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__7">
       <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
@@ -77,6 +98,13 @@
       <control-flow-case id="__13">
         <from-outcome>search</from-outcome>
         <to-activity-id>SearchInwardLC</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>createTransaction</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>createTransaction</from-outcome>
+        <to-activity-id>transaction-dtl-flow</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

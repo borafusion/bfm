@@ -51,6 +51,29 @@
     <page path="/bfm/CurrencySearchPg.jsff" usageId="rbmbfm_view_CurrencySearchPgPageDef"/>
     <page path="/bfm/CurrencyPg.jsff" usageId="rbmbfm_view_CurrencyPgPageDef"/>
     <page path="/CurrencyMain.jsf" usageId="rbmbfm_view_CurrencyMainPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@ExecuteWithParams"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/document-ref-flow.xml#document-ref-flow@ExecuteWithParams"
+          usageId="rbmbfm_view_document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"/>
+    <page path="/bfm/DocumentRef.jsff" usageId="rbmbfm_view_DocumentRefPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@ExecuteWithParams1"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"/>
+    <page path="/bfm/TransactionDetail.jsff" usageId="rbmbfm_view_TransactionDetailPageDef"/>
+    <page path="/WEB-INF/InwardLCTransactionTaskFlow.xml#InwardLCTransactionTaskFlow@createTransaction"
+          usageId="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@prepareTransactionDocumentHistoryVO"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@CreateInsert"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"/>
+    <page path="/bfm/SearchTransaction.jsff" usageId="rbmbfm_view_SearchTransactionPageDef"/>
+    <page path="/WEB-INF/InwardTransactionTaskFlow.xml#InwardTransactionTaskFlow@createTransaction"
+          usageId="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@setTransactionStatus"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"/>
+    <page path="/WEB-INF/transaction-dtl-flow.xml#transaction-dtl-flow@copyToNewTransactionVersion"
+          usageId="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_copyToNewTransactionVersionPageDef"/>
+    <page path="/WEB-INF/InwardTransactionTaskFlow.xml#InwardTransactionTaskFlow@Execute"
+          usageId="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_ExecutePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -93,11 +116,37 @@
     <page id="rbmbfm_view_FacilityTrackerPgPageDef" path="bfm.FacilityTrackerPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef" path="bfm.LookupPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef1" path="bfm.LookupPgPageDef1"/>
+
     <page id="rbmbfm_view_currency_flow_currency_flow_CreateInsertPageDef"
           path="rbmbfm.view.pageDefs.currency_flow_currency_flow_CreateInsertPageDef"/>
     <page id="rbmbfm_view_CurrencySearchPgPageDef" path="bfm.CurrencySearchPgPageDef"/>
     <page id="rbmbfm_view_CurrencyPgPageDef" path="bfm.CurrencyPgPageDef"/>
     <page id="rbmbfm_view_CurrencyMainPageDef" path="rbmbfm.view.pageDefs.CurrencyMainPageDef"/>
+
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParamsPageDef"/>
+    <page id="rbmbfm_view_document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"
+          path="rbmbfm.view.pageDefs.document_ref_flow_document_ref_flow_ExecuteWithParamsPageDef"/>
+    <page id="rbmbfm_view_DocumentRefPageDef" path="bfm.DocumentRefPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef"/>
+    <page id="rbmbfm_view_TransactionDetailPageDef" path="bfm.TransactionDetailPageDef"/>
+    <page id="rbmbfm_view_InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"
+          path="rbmbfm.view.pageDefs.InwardLCTransactionTaskFlow_InwardLCTransactionTaskFlow_createTransactionPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_prepareTransactionDocumentHistoryVOPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_SearchTransactionPageDef" path="bfm.SearchTransactionPageDef"/>
+    <page id="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"
+          path="rbmbfm.view.pageDefs.InwardTransactionTaskFlow_InwardTransactionTaskFlow_createTransactionPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_setTransactionStatusPageDef"/>
+    <page id="rbmbfm_view_transaction_dtl_flow_transaction_dtl_flow_copyToNewTransactionVersionPageDef"
+          path="rbmbfm.view.pageDefs.transaction_dtl_flow_transaction_dtl_flow_copyToNewTransactionVersionPageDef"/>
+    <page id="rbmbfm_view_InwardTransactionTaskFlow_InwardTransactionTaskFlow_ExecutePageDef"
+          path="rbmbfm.view.pageDefs.InwardTransactionTaskFlow_InwardTransactionTaskFlow_ExecutePageDef"/>
+
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"

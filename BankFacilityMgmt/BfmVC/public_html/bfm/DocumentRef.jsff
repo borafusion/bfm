@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1" topHeight="60px">
+        <f:facet name="center">
+            <af:table value="#{bindings.TransactionDocumentRefPageHistoryVO.collectionModel}" var="row"
+                      rows="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}"
+                      emptyText="#{bindings.TransactionDocumentRefPageHistoryVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" fetchSize="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}"
+                      id="t1">
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.label}" id="c1">
+                    <af:outputText value="#{row.DocumentRef}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.tooltip}"
+                                   id="ot1"/>
+                </af:column>
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.label}"
+                           id="c2">
+                    <af:outputText value="#{row.DocumentDate}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.tooltip}"
+                                   id="ot2">
+                        <af:convertDateTime pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.label}" id="c3">
+                    <af:outputText value="#{row.CurrencyId}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.tooltip}"
+                                   id="ot3">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.label}" id="c4">
+                    <af:outputText value="#{row.DocumentVal}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.tooltip}"
+                                   id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.label}" id="c5">
+                    <af:outputText value="#{row.ExchgRate}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.tooltip}"
+                                   id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.label}" id="c6">
+                    <af:outputText value="#{row.OtherRef}"
+                                   shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.tooltip}"
+                                   id="ot6"/>
+                </af:column>
+            </af:table>
+        </f:facet>
+    </af:panelStretchLayout>
+</jsp:root>

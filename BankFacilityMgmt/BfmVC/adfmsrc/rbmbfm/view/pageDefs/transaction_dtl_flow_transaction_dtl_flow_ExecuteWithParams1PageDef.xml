@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="transaction_dtl_flow_transaction_dtl_flow_ExecuteWithParams1PageDef" Package="rbmbfm.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="TransactionDetailVersionsPageVO" RangeSize="25" DataControl="BFMTransactionAMDataControl"
+              id="TransactionDetailVersionsPageVOIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="TransactionDetailVersionsPageVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="transactionDtlIdBind" NDValue="#{pageFlowScope.transactionDtlId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

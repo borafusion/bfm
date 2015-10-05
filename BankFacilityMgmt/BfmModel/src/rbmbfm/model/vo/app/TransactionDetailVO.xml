@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionDetailVO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="rbmbfm.model.vo.app.TransactionDetailVORowImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="transactionDtlIdBind"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <ViewAccessor
+    Name="BusinessEntityVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BusinessEntityVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BankFacilityStructureVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankFacilityStructureVVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BeneficiaryBankVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IssuingBankVVO"
+    ViewObjectName="rbmbfm.model.vo.master.BankVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SourceTypeVVO"
+    ViewObjectName="rbmbfm.model.vo.master.SourceTypeVVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrencyVVO"
+    ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_BusinessEntityId"
+    ListVOName="BusinessEntityVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BusinessEntityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessEntityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Combination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BeneficiaryBankId"
+    ListVOName="BeneficiaryBankVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BeneficiaryBankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SourceType"
+    ListVOName="SourceTypeVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SourceType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IssuingBankId"
+    ListVOName="IssuingBankVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IssuingBankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FacilityStructureId"
+    ListVOName="BankFacilityStructureVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FacilityStructureId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FacilityCombination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="TransactionDetailEO"
+    Entity="rbmbfm.model.eo.app.TransactionDetailEO"/>
+  <ViewAttribute
+    Name="TransactionDtlId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransactionDtlId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="TRANSACTION_DTL_ID"/>
+  <ViewAttribute
+    Name="TransactionId"
+    PrecisionRule="true"
+    EntityAttrName="TransactionId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="TRANSACTION_ID"/>
+  <ViewAttribute
+    Name="TransactionVersion"
+    PrecisionRule="true"
+    EntityAttrName="TransactionVersion"
+    EntityUsage="TransactionDetailEO"
+    AliasName="TRANSACTION_VERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.TransactionVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionDate"
+    PrecisionRule="true"
+    EntityAttrName="TransactionDate"
+    EntityUsage="TransactionDetailEO"
+    AliasName="TRANSACTION_DATE"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.TransactionDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BusinessEntityId"
+    PrecisionRule="true"
+    EntityAttrName="BusinessEntityId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="BUSINESS_ENTITY_ID"
+    LOVName="LOV_BusinessEntityId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.BusinessEntityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuingBankId"
+    PrecisionRule="true"
+    EntityAttrName="IssuingBankId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="ISSUING_BANK_ID"
+    LOVName="LOV_IssuingBankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.IssuingBankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BeneficiaryBankId"
+    PrecisionRule="true"
+    EntityAttrName="BeneficiaryBankId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="BENEFICIARY_BANK_ID"
+    LOVName="LOV_BeneficiaryBankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.BeneficiaryBankId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FacilityTrackerId"
+    PrecisionRule="true"
+    EntityAttrName="FacilityTrackerId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="FACILITY_TRACKER_ID"/>
+  <ViewAttribute
+    Name="ApprovalStatus"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApprovalStatus"
+    EntityUsage="TransactionDetailEO"
+    AliasName="APPROVAL_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.ApprovalStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SourceType"
+    PrecisionRule="true"
+    EntityAttrName="SourceType"
+    EntityUsage="TransactionDetailEO"
+    AliasName="SOURCE_TYPE"
+    LOVName="LOV_SourceType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.SourceType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="TransactionDetailEO"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="TransactionDetailEO"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="TransactionDetailEO"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="TransactionDetailEO"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="TransactionDetailEO"
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Version"
+    PrecisionRule="true"
+    EntityAttrName="Version"
+    EntityUsage="TransactionDetailEO"
+    AliasName="VERSION"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="FacilityStructureId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="FacilityStructureId"
+    EntityUsage="TransactionDetailEO"
+    AliasName="FACILITY_STRUCTURE_ID"
+    LOVName="LOV_FacilityStructureId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.app.TransactionDetailVO.FacilityStructureId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="TransactionDetailVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.app.TransactionDetailVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="TransactionDetailVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="TransactionDtlId"
+        ViewAttribute="TransactionDtlId"
+        Operator="="
+        Conjunction="AND"
+        Value=":transactionDtlIdBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="TransactionDocumentRefVO"
+    ViewLink="rbmbfm.model.vo.app.XxbfmTransactionDocRefFk2Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="BankFacilityStructureVO"
+    ViewLink="rbmbfm.model.vo.master.vlink.TransactionDetailToBankFacilityStructureVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TransactionSourceDetailVO"
+    ViewLink="rbmbfm.model.vo.app.vlink.TransactionDetailToSourceDetailVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
