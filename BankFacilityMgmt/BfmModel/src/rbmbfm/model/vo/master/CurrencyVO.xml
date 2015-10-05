@@ -14,6 +14,87 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CurrencyCodeLov"
+    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"
+    RowLevelBinds="true"
+    OrderBy="LookupValueEO.DISPLAY_ORDER">
+    <ViewCriteriaUsage
+      Name="EnabledVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.EnabledVC"/>
+    <ViewCriteriaUsage
+      Name="LookupTypeVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.LookupTypeVC"/>
+    <ParameterMap>
+      <PIMap Variable="BindLookupType">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA['CURRENCY_CODES']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="BaseCurrencyCodeLov"
+    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"
+    RowLevelBinds="true"
+    OrderBy="LookupValueEO.DISPLAY_ORDER">
+    <ViewCriteriaUsage
+      Name="EnabledVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.EnabledVC"/>
+    <ViewCriteriaUsage
+      Name="LookupTypeVC"
+      FullName="rbmbfm.model.vo.master.LookupValueVO.LookupTypeVC"/>
+    <ParameterMap>
+      <PIMap Variable="BindLookupType">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA['CURRENCY_CODES']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_CurrencyCode"
+    ListVOName="CurrencyCodeLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BaseCurrency"
+    ListVOName="BaseCurrencyCodeLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BaseCurrency"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CurrencyEO"
     Entity="rbmbfm.model.eo.master.CurrencyEO"/>
@@ -30,7 +111,15 @@
     PrecisionRule="true"
     EntityAttrName="CurrencyCode"
     EntityUsage="CurrencyEO"
-    AliasName="CURRENCY_CODE"/>
+    AliasName="CURRENCY_CODE"
+    LOVName="LOV_CurrencyCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Name"
     IsNotNull="true"
@@ -43,7 +132,15 @@
     PrecisionRule="true"
     EntityAttrName="BaseCurrency"
     EntityUsage="CurrencyEO"
-    AliasName="BASE_CURRENCY"/>
+    AliasName="BASE_CURRENCY"
+    LOVName="LOV_BaseCurrency">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ConversionRate"
     PrecisionRule="true"
@@ -68,28 +165,32 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="CurrencyEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="CurrencyEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="CurrencyEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="CurrencyEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -102,6 +203,42 @@
     EntityAttrName="TenantId"
     EntityUsage="CurrencyEO"
     AliasName="TENANT_ID"/>
+  <ViewCriteria
+    Name="CurrencyVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CurrencyVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Name"
+        ViewAttribute="Name"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="DiscountingLimitVO"
     ViewLink="rbmbfm.model.vo.master.vlink.CurrencyToDiscountingLimitVL"

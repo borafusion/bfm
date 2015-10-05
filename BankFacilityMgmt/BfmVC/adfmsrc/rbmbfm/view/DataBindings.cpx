@@ -46,6 +46,11 @@
     <page path="/bfm/FacilityTrackerPg.jsff" usageId="rbmbfm_view_FacilityTrackerPgPageDef"/>
     <page path="/bfm/LookupPg.jsff" usageId="rbmbfm_view_LookupPgPageDef"/>
     <page path="/LookupMain.jsf" usageId="rbmbfm_view_LookupPgPageDef1"/>
+    <page path="/WEB-INF/currency-flow.xml#currency-flow@CreateInsert"
+          usageId="rbmbfm_view_currency_flow_currency_flow_CreateInsertPageDef"/>
+    <page path="/bfm/CurrencySearchPg.jsff" usageId="rbmbfm_view_CurrencySearchPgPageDef"/>
+    <page path="/bfm/CurrencyPg.jsff" usageId="rbmbfm_view_CurrencyPgPageDef"/>
+    <page path="/CurrencyMain.jsf" usageId="rbmbfm_view_CurrencyMainPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="rbmbfm_view_loginPageDef" path="rbmbfm.view.pageDefs.loginPageDef"/>
@@ -88,6 +93,11 @@
     <page id="rbmbfm_view_FacilityTrackerPgPageDef" path="bfm.FacilityTrackerPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef" path="bfm.LookupPgPageDef"/>
     <page id="rbmbfm_view_LookupPgPageDef1" path="bfm.LookupPgPageDef1"/>
+    <page id="rbmbfm_view_currency_flow_currency_flow_CreateInsertPageDef"
+          path="rbmbfm.view.pageDefs.currency_flow_currency_flow_CreateInsertPageDef"/>
+    <page id="rbmbfm_view_CurrencySearchPgPageDef" path="bfm.CurrencySearchPgPageDef"/>
+    <page id="rbmbfm_view_CurrencyPgPageDef" path="bfm.CurrencyPgPageDef"/>
+    <page id="rbmbfm_view_CurrencyMainPageDef" path="rbmbfm.view.pageDefs.CurrencyMainPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="BFMTransactionAMDataControl" Package="rbmbfm.model.am"
