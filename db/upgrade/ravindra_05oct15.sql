@@ -1,0 +1,6 @@
+/*
+RUN THIS SCRIPT ONLY IF YOU HAVE NOT USED LATEST - create-bfm-objects.sql file 05/10/2015.
+*/
+
+alter table XXBFM_FACILITY_TRACKER_ALL
+add LOCKED_VALUE NUMBER (38,2);
