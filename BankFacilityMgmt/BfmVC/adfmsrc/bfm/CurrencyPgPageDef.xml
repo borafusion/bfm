@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="CurrencyPgPageDef" Package="bfm">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CurrencyVO1" RangeSize="25" DataControl="BfmMasterAMDataControl" id="CurrencyVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="CurrencyId">
+      <AttrNames>
+        <Item Value="CurrencyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="CurrencyCode">
+      <AttrNames>
+        <Item Value="CurrencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="BaseCurrency">
+      <AttrNames>
+        <Item Value="BaseCurrency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="ConversionRate">
+      <AttrNames>
+        <Item Value="ConversionRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="LastUpdateLogin">
+      <AttrNames>
+        <Item Value="LastUpdateLogin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyVO1Iterator" id="TenantId">
+      <AttrNames>
+        <Item Value="TenantId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BfmMasterAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="BfmMasterAMDataControl"/>
+    <list IterBinding="CurrencyVO1Iterator" StaticList="false" Uses="LOV_CurrencyCode" id="CurrencyCode1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CurrencyVO1Iterator" StaticList="false" Uses="LOV_BaseCurrency" id="BaseCurrency1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

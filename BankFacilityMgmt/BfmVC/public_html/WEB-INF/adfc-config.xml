@@ -21,6 +21,9 @@
   <view id="LookupMain">
     <page>/LookupMain.jsf</page>
   </view>
+  <view id="CurrencyMain">
+    <page>/CurrencyMain.jsf</page>
+  </view>
   <control-flow-rule id="__2">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__3">
@@ -50,6 +53,10 @@
     <control-flow-case id="__9">
       <from-outcome>lookup</from-outcome>
       <to-activity-id>LookupMain</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__10">
+      <from-outcome>currency-master</from-outcome>
+      <to-activity-id>CurrencyMain</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">

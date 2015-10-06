@@ -14,6 +14,10 @@
   SelectAllAttributes="false"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
+  <Variable
+    Name="BindLookupType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="LookupValueEO"
     Entity="rbmbfm.model.eo.master.LookupValueEO"/>
@@ -76,25 +80,29 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="LookupValueEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="LookupValueEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="LookupValueEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="LookupValueEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
@@ -131,38 +139,51 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
+      Name="EnabledVC_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Disable"
+        ViewAttribute="Disable"
+        Operator="="
+        Conjunction="AND"
+        Value="N"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="LookupTypeVC"
+    ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
       Name="LookupValueVOCriteria_row_0"
       UpperColumns="1">
-      <ViewCriteriaItemCompound
-        Name="Disable"
-        ViewAttribute="Disable">
-        <ViewCriteria
-          Name="EnabledVC_LookupValueVOCriteria_row_0_Disable_itemHolder"
-          ViewObjectName="rbmbfm.model.vo.master.LookupValueVO"
-          Conjunction="OR">
-          <ViewCriteriaRow
-            Name="EnabledVC_LookupValueVOCriteria_row_0_Disable_itemHolder_row_0"
-            Conjunction="AND">
-            <ViewCriteriaItem
-              Name="Disable"
-              ViewAttribute="Disable"
-              Operator="="
-              Conjunction="AND"
-              Value="N"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-          <ViewCriteriaRow
-            Name="EnabledVC_LookupValueVOCriteria_row_0_Disable_itemHolder_row_1"
-            Conjunction="AND">
-            <ViewCriteriaItem
-              Name="EnabledVC_LookupValueVOCriteria_row_0_Disable_EnabledVC_LookupValueVOCriteria_row_0_Disable_itemHolder_EnabledVC_LookupValueVOCriteria_row_0_Disable_itemHolder_row_1_Disable"
-              ViewAttribute="Disable"
-              Operator="ISBLANK"
-              Conjunction="OR"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItemCompound>
+      <ViewCriteriaItem
+        Name="LookupType"
+        ViewAttribute="LookupType"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindLookupType"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

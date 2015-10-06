@@ -19,8 +19,13 @@
     ColumnType="NUMBER"
     TableName="XXBFM_CURRENCY_ALL"
     PrimaryKey="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_CURRENCY_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXBFM.XXBFM_CURRENCY_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.CurrencyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CurrencyCode"
@@ -34,6 +39,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.CurrencyCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Name"
@@ -47,6 +60,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.Name_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BaseCurrency"
@@ -59,6 +80,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.BaseCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ConversionRate"
@@ -66,7 +93,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XXBFM_CURRENCY_ALL"/>
+    TableName="XXBFM_CURRENCY_ALL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.ConversionRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="StartDate"
     ColumnName="START_DATE"
@@ -89,10 +125,18 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_CURRENCY_ALL">
+    TableName="XXBFM_CURRENCY_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -101,7 +145,16 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_CURRENCY_ALL"/>
+    TableName="XXBFM_CURRENCY_ALL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.CreationDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -110,10 +163,17 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XXBFM_CURRENCY_ALL">
+    TableName="XXBFM_CURRENCY_ALL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LastUpdateDate"
@@ -122,7 +182,15 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XXBFM_CURRENCY_ALL"/>
+    TableName="XXBFM_CURRENCY_ALL"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.eo.master.CurrencyEO.LastUpdateDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"
@@ -166,4 +234,8 @@
       <Item Value="rbmbfm.model.eo.master.CurrencyEO.CurrencyId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="rbmbfm.model.BfmModelBundle"/>
+  </ResourceBundle>
 </Entity>
