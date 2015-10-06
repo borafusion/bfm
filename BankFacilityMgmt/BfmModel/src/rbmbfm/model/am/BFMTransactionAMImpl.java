@@ -236,6 +236,7 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         Row transDetailRevRow = transDetailVerPageVO.createRow();
         transDetailRevRow.setAttribute("TransactionVersion", transactionVersion.add(new BigDecimal(1)));
         transDetailRevRow.setAttribute("TransactionId", transDtlRow.getAttribute("TransactionId"));
+        transDetailRevRow.setAttribute("TransactionValue", transDtlRow.getAttribute("TransactionValue"));
         transDetailRevRow.setAttribute("BusinessEntityId", transDtlRow.getAttribute("BusinessEntityId"));
         transDetailRevRow.setAttribute("IssuingBankId", transDtlRow.getAttribute("IssuingBankId"));
         transDetailRevRow.setAttribute("BeneficiaryBankId", transDtlRow.getAttribute("BeneficiaryBankId"));

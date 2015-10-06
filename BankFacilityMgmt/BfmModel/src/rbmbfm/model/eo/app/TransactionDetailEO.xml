@@ -179,6 +179,15 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false"/>
+  <Attribute
+    Name="TransactionValue"
+    Precision="38"
+    Scale="2"
+    ColumnName="TRANSACTION_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_TRANSACTION_DTL"/>
   <AccessorAttribute
     Name="TransactionBaseEO"
     Association="rbmbfm.model.eo.app.XxbfmTransactionDtlFk1Assoc"

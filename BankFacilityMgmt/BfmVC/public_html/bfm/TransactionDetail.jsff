@@ -1,43 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <af:panelStretchLayout id="psl1" topHeight="60px">
+    <af:panelStretchLayout id="psl1" topHeight="50px">
         <f:facet name="top">
-            <af:panelHeader text="Inward LC" id="pb1">
-                <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT' or bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}" scope="request" />
-                <c:set var="isSubmittedForApproval" value="#{bindings.ApprovalStatus.inputValue == 'SUBMITTED_FOR_APPROVAL'}" scope="request" />            
-                <c:set var="isTxnApproved" value="#{bindings.ApprovalStatus.inputValue == 'APPROVED'}" scope="request" />            
-                <c:set var="isDraftRevision" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}" scope="request" />            
-                <f:facet name="toolbar"/>
-                <af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">
-                    <af:button text="Save" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}"
-                               action="search"/>
-                    <af:spacer width="10px" id="s1"/>
-                    <af:button text="Submit for Approval" id="b6" partialSubmit="true"
-                               action="setNewStatus" visible="#{isDraftStatus}">
-                        <af:setActionListener from="SUBMITTED_FOR_APPROVAL" to="#{pageFlowScope.status}"/>
-                    </af:button>
-                    <af:spacer width="10px" id="s2" visible="#{isDraftStatus}"/>                    
-                    <af:button text="Approve Transaction" id="b7" partialSubmit="true"
-                               action="setNewStatus" visible="#{isSubmittedForApproval}">
-                        <af:setActionListener from="APPROVED" to="#{pageFlowScope.status}"/>
-                    </af:button>                    
-                    <af:spacer width="10px" id="s3" visible="#{isSubmittedForApproval}"/>                    
-                    <af:button text="Create Revision" id="b8" partialSubmit="true"
-                               action="createRevision" visible="#{isTxnApproved}">
-                        <af:setActionListener from="DRAFT_REVISION" to="#{pageFlowScope.status}"/>
-                    </af:button>                    
-                    <af:spacer width="10px" id="s4" visible="#{isTxnApproved}"/>
-                    <af:button text="Cancel" id="b2" partialSubmit="true" actionListener="#{bindings.Rollback.execute}"
-                               action="search" immediate="true">
-                        <af:resetActionListener/>
-                    </af:button>
-                </af:panelGroupLayout>
-            </af:panelHeader>
+            <!--<af:panelHeader text="Inward LC" id="pb1">-->
+            <!--</af:panelHeader>-->
+            <af:showDetailHeader text="Inward LC Transaction" id="showDetailHeader" disclosed="true">
+                <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT'}" scope="request"/>
+                <c:set var="isSubmittedForApproval"
+                       value="#{bindings.ApprovalStatus.inputValue == 'SUBMITTED_FOR_APPROVAL'}" scope="request"/>
+                <c:set var="isTxnApproved" value="#{bindings.ApprovalStatus.inputValue == 'APPROVED'}" scope="request"/>
+                <c:set var="isDraftRevision" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}"
+                       scope="request"/>
+                <f:facet name="toolbar">
+                    <!--<af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">-->
+                    <af:toolbar id="t1">
+                        <af:button text="Save" id="b1" partialSubmit="true" actionListener="#{bindings.Commit.execute}"
+                                   action="search"/>
+                        <af:spacer width="10px" id="s1"/>
+                        <af:button text="Submit for Approval" id="b6" partialSubmit="true" action="setNewStatus"
+                                   visible="#{isDraftStatus or isDraftRevision}">
+                            <af:setActionListener from="SUBMITTED_FOR_APPROVAL" to="#{pageFlowScope.status}"/>
+                        </af:button>
+                        <af:spacer width="10px" id="s2" visible="#{isDraftStatus}"/>
+                        <af:button text="Approve Transaction" id="b7" partialSubmit="true" action="setNewStatus"
+                                   visible="#{isSubmittedForApproval}">
+                            <af:setActionListener from="APPROVED" to="#{pageFlowScope.status}"/>
+                        </af:button>
+                        <af:spacer width="10px" id="s3" visible="#{isSubmittedForApproval}"/>
+                        <af:button text="Create Revision" id="b8" partialSubmit="true" action="createRevision"
+                                   visible="#{isTxnApproved}">
+                            <af:setActionListener from="DRAFT_REVISION" to="#{pageFlowScope.status}"/>
+                        </af:button>
+                        <af:spacer width="10px" id="s4" visible="#{isTxnApproved}"/>
+                        <af:button text="Cancel" id="b2" partialSubmit="true"
+                                   actionListener="#{bindings.Rollback.execute}" action="search" immediate="true">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <!--</af:panelGroupLayout>-->
+                    </af:toolbar>
+                </f:facet>
+            </af:showDetailHeader>
         </f:facet>
         <f:facet name="center">
-            <af:panelGroupLayout layout="scroll" id="pgl2" inlineStyle="padding:10px;">
-                <af:panelBox text="Transaction Details" id="pb2">
+            <af:panelGroupLayout layout="scroll">
+                <af:showDetailHeader text="Transaction Details" headerLevel="1" disclosed="true">
                     <af:panelFormLayout id="pfl1" maxColumns="2" rows="4" fieldWidth="200px" labelWidth="250px">
                         <af:inputText value="#{bindings.Type.inputValue}" label="#{bindings.Type.hints.label}"
                                       required="#{bindings.Type.hints.mandatory}" readOnly="true"
@@ -68,15 +75,17 @@
                                       shortDesc="#{bindings.Approver.hints.tooltip}" id="it3">
                             <f:validator binding="#{bindings.Approver.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.TransactionId.inputValue}"
-                                      label="#{bindings.TransactionId.hints.label}"
-                                      required="#{bindings.TransactionId.hints.mandatory}" readOnly="true"
-                                      columns="#{bindings.TransactionId.hints.displayWidth}"
-                                      maximumLength="#{bindings.TransactionId.hints.precision}"
-                                      shortDesc="#{bindings.TransactionId.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.TransactionId.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TransactionId.format}"/>
-                        </af:inputText>
+                        <!--
+                            <af:inputText value="#{bindings.TransactionId.inputValue}"
+                                          label="#{bindings.TransactionId.hints.label}"
+                                          required="#{bindings.TransactionId.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.TransactionId.hints.displayWidth}"
+                                          maximumLength="#{bindings.TransactionId.hints.precision}"
+                                          shortDesc="#{bindings.TransactionId.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.TransactionId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.TransactionId.format}"/>
+                            </af:inputText>
+                            -->
                         <af:inputText value="#{bindings.TransactionVersion.inputValue}"
                                       label="#{bindings.TransactionVersion.hints.label}"
                                       required="#{bindings.TransactionVersion.hints.mandatory}"
@@ -101,35 +110,39 @@
                                       maximumLength="#{bindings.ApprovalStatus.hints.precision}"
                                       shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="it7" readOnly="true">
                             <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
-                        </af:inputText>                        
+                        </af:inputText>
+                        <af:inputText value="5500" label="Transaction Value"
+                                      shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="it4" readOnly="true"></af:inputText>
                     </af:panelFormLayout>
-                </af:panelBox>
-
-                <af:panelBox text="Source Details" id="pb3">
-                    <af:panelFormLayout id="pfl4" maxColumns="2" rows="5" fieldWidth="200px" labelWidth="250px"
+                </af:showDetailHeader>
+                <af:showDetailHeader text="Source Details" headerLevel="1" disclosed="true">
+                    <af:panelFormLayout id="pfl4" maxColumns="2" rows="3" fieldWidth="200px" labelWidth="250px"
                                         styleClass="AFStretchWidth">
                         <af:selectOneChoice value="#{bindings.BusinessEntityId.inputValue}"
                                             label="#{bindings.BusinessEntityId.label}" autoSubmit="true"
-                                            required="#{bindings.BusinessEntityId.hints.mandatory}" readOnly="#{isSubmittedForApproval}"
+                                            required="#{bindings.BusinessEntityId.hints.mandatory}"
+                                            readOnly="#{isSubmittedForApproval}"
                                             shortDesc="#{bindings.BusinessEntityId.hints.tooltip}" id="soc1">
                             <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si1"/>
                             <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                            label="#{bindings.IssuingBankId.label}" autoSubmit="true"
-                                            required="#{bindings.IssuingBankId.hints.mandatory}"
+                        <af:selectOneChoice value="#{bindings.IssuingBankId.inputValue}"
+                                            readOnly="#{isSubmittedForApproval}" label="#{bindings.IssuingBankId.label}"
+                                            autoSubmit="true" required="#{bindings.IssuingBankId.hints.mandatory}"
                                             shortDesc="#{bindings.IssuingBankId.hints.tooltip}" id="soc2">
                             <f:selectItems value="#{bindings.IssuingBankId.items}" id="si2"/>
                             <f:validator binding="#{bindings.IssuingBankId.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}" readOnly="#{isSubmittedForApproval}"
+                        <af:selectOneChoice value="#{bindings.BeneficiaryBankId.inputValue}"
+                                            readOnly="#{isSubmittedForApproval}"
                                             label="#{bindings.BeneficiaryBankId.label}"
                                             required="#{bindings.BeneficiaryBankId.hints.mandatory}"
                                             shortDesc="#{bindings.BeneficiaryBankId.hints.tooltip}" id="soc3">
                             <f:selectItems value="#{bindings.BeneficiaryBankId.items}" id="si3"/>
                             <f:validator binding="#{bindings.BeneficiaryBankId.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputText value="#{bindings.FacilityTrackerId.inputValue}" readOnly="#{isSubmittedForApproval}"
+                        <af:inputText value="#{bindings.FacilityTrackerId.inputValue}"
+                                      readOnly="#{isSubmittedForApproval}"
                                       label="#{bindings.FacilityTrackerId.hints.label}"
                                       required="#{bindings.FacilityTrackerId.hints.mandatory}"
                                       columns="#{bindings.FacilityTrackerId.hints.displayWidth}"
@@ -146,55 +159,73 @@
                             <f:validator binding="#{bindings.SourceType.validator}"/>
                         </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.FacilityStructureId.inputValue}"
-                                            label="#{bindings.FacilityStructureId.label}" readOnly="#{isSubmittedForApproval}"
+                                            label="#{bindings.FacilityStructureId.label}"
+                                            readOnly="#{isSubmittedForApproval}"
                                             required="#{bindings.FacilityStructureId.hints.mandatory}"
                                             shortDesc="#{bindings.FacilityStructureId.hints.tooltip}" id="soc5">
                             <f:selectItems value="#{bindings.FacilityStructureId.items}" id="si5"/>
                             <f:validator binding="#{bindings.FacilityStructureId.validator}"/>
                         </af:selectOneChoice>
-                        <af:table value="#{bindings.BankFacilityStructurePageVO.collectionModel}" var="row"
-                                  rows="#{bindings.BankFacilityStructurePageVO.rangeSize}"
-                                  emptyText="#{bindings.BankFacilityStructurePageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  rowBandingInterval="0" fetchSize="#{bindings.BankFacilityStructurePageVO.rangeSize}"
-                                  id="t1" partialTriggers="::soc1 ::soc2">
-                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.label}"
-                                       id="c1">
-                                <af:outputText value="#{row.FacilityCombination}"
-                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.tooltip}"
-                                               id="ot1"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.label}"
-                                       id="c2">
-                                <af:outputText value="#{row.FacilityValue}"
-                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.tooltip}"
-                                               id="ot2">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.label}"
-                                       id="c3">
-                                <af:outputText value="#{row.UtilizedValue}"
-                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.tooltip}"
-                                               id="ot3">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.label}"
-                                       id="c4">
-                                <af:outputText value="#{row.FacilityName}"
-                                               shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.tooltip}"
-                                               id="ot4"/>
-                            </af:column>
-                        </af:table>
                     </af:panelFormLayout>
-                    <af:spacer height="5"/>                    
-                    <af:panelGroupLayout layout="vertical">
-                        <af:panelGroupLayout layout="vertical">
-                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create Source"
-                                       disabled="#{!bindings.CreateInsert.enabled}" id="b4"/>
-                            <af:spacer height="5"/>
+                    <af:spacer height="5"/>
+                    <af:showDetailHeader text="Facility Details" headerLevel="2">
+                        <af:panelLabelAndMessage inlineStyle="padding-left:50px;" styleClass="AFStretchWidth">
+                            <af:table value="#{bindings.BankFacilityStructurePageVO.collectionModel}" var="row"
+                                      rows="#{bindings.BankFacilityStructurePageVO.rangeSize}"
+                                      emptyText="#{bindings.BankFacilityStructurePageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      fetchSize="#{bindings.BankFacilityStructurePageVO.rangeSize}" id="t5"
+                                      partialTriggers="::soc1 ::soc2" columnStretching="column:c4">
+                                <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.label}"
+                                           id="c1">
+                                    <af:outputText value="#{row.FacilityCombination}"
+                                                   shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityCombination.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.label}"
+                                           id="c2">
+                                    <af:outputText value="#{row.FacilityValue}"
+                                                   shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.tooltip}"
+                                                   id="ot2">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.BankFacilityStructurePageVO.hints.FacilityValue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.LockedValue.label}"
+                                           id="c21">
+                                    <af:outputText value="#{row.LockedValue}"
+                                                   shortDesc="#{bindings.BankFacilityStructurePageVO.hints.LockedValue.tooltip}"
+                                                   id="ot10">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.BankFacilityStructurePageVO.hints.LockedValue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.label}"
+                                           id="c3">
+                                    <af:outputText value="#{row.UtilizedValue}"
+                                                   shortDesc="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.BankFacilityStructurePageVO.hints.UtilizedValue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.label}"
+                                           id="c4">
+                                    <af:outputText value="#{row.FacilityName}"
+                                                   shortDesc="#{bindings.BankFacilityStructurePageVO.hints.FacilityName.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelLabelAndMessage>
+                    </af:showDetailHeader>
+                    <af:showDetailHeader text="Source Order Details" headerLevel="2" disclosed="true">
+                        <f:facet name="toolbar">
+                            <af:toolbar>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Source"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" visible="#{isDraftStatus}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:panelLabelAndMessage inlineStyle="padding-left:50px;" styleClass="AFStretchWidth">
                             <af:table value="#{bindings.TransactionSourceDetailPageVO.collectionModel}" var="row"
                                       rows="#{bindings.TransactionSourceDetailPageVO.rangeSize}"
                                       emptyText="#{bindings.TransactionSourceDetailPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -207,7 +238,8 @@
                                 <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.label}"
                                            id="c11">
                                     <af:selectOneChoice value="#{row.bindings.BeneficiaryId.inputValue}"
-                                                        label="#{row.bindings.BeneficiaryId.label}" readOnly="#{isSubmittedForApproval}"
+                                                        label="#{row.bindings.BeneficiaryId.label}"
+                                                        readOnly="#{isSubmittedForApproval}"
                                                         required="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.mandatory}"
                                                         shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.BeneficiaryId.tooltip}"
                                                         id="soc8">
@@ -217,7 +249,8 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.label}"
                                            id="c12">
-                                    <af:inputText value="#{row.bindings.SourceRef.inputValue}" readOnly="#{isSubmittedForApproval}"
+                                    <af:inputText value="#{row.bindings.SourceRef.inputValue}"
+                                                  readOnly="#{isSubmittedForApproval}"
                                                   label="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.label}"
                                                   required="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.mandatory}"
                                                   columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceRef.displayWidth}"
@@ -231,7 +264,8 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.label}"
                                            id="c13">
-                                    <af:inputDate value="#{row.bindings.SourceDocDate.inputValue}" readOnly="#{isSubmittedForApproval}"
+                                    <af:inputDate value="#{row.bindings.SourceDocDate.inputValue}"
+                                                  readOnly="#{isSubmittedForApproval}"
                                                   label="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.label}"
                                                   required="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.mandatory}"
                                                   columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceDocDate.displayWidth}"
@@ -244,7 +278,8 @@
                                 <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.label}"
                                            id="c14">
                                     <af:selectOneChoice value="#{row.bindings.SourceCurrency.inputValue}"
-                                                        label="#{row.bindings.SourceCurrency.label}" readOnly="#{isSubmittedForApproval}"
+                                                        label="#{row.bindings.SourceCurrency.label}"
+                                                        readOnly="#{isSubmittedForApproval}"
                                                         required="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.mandatory}"
                                                         shortDesc="#{bindings.TransactionSourceDetailPageVO.hints.SourceCurrency.tooltip}"
                                                         id="soc9">
@@ -254,7 +289,8 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.label}"
                                            id="c15">
-                                    <af:inputText value="#{row.bindings.SourceVal.inputValue}" readOnly="#{isSubmittedForApproval}"
+                                    <af:inputText value="#{row.bindings.SourceVal.inputValue}"
+                                                  readOnly="#{isSubmittedForApproval}"
                                                   label="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.label}"
                                                   required="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.mandatory}"
                                                   columns="#{bindings.TransactionSourceDetailPageVO.hints.SourceVal.displayWidth}"
@@ -267,205 +303,220 @@
                                     </af:inputText>
                                 </af:column>
                             </af:table>
-                        </af:panelGroupLayout>
-                        <af:spacer height="5"/>
-                        <af:panelGroupLayout layout="vertical">
-                            <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create Invoice"
-                                       disabled="#{!bindings.CreateInsert1.enabled}" id="b5"/>
-                            <af:spacer height="5"/>
-                            <af:table value="#{bindings.TransactionInvoiceDetailPageVO.collectionModel}" var="row"
-                                      rows="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}"
-                                      emptyText="#{bindings.TransactionInvoiceDetailPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      fetchSize="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}" id="t4"
-                                      partialTriggers="::b5">
-                                <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
-                                           id="c16">
-                                    <af:inputText value="#{row.bindings.InvoiceNum.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                                  label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
-                                                  required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.mandatory}"
-                                                  columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.displayWidth}"
-                                                  maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.precision}"
-                                                  shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.tooltip}"
-                                                  id="it15">
-                                        <f:validator binding="#{row.bindings.InvoiceNum.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
-                                           id="c17">
-                                    <af:inputDate value="#{row.bindings.InvoiceDate.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                                  label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
-                                                  required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.mandatory}"
-                                                  columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.displayWidth}"
-                                                  shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.tooltip}"
-                                                  id="id4">
-                                        <f:validator binding="#{row.bindings.InvoiceDate.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
-                                           id="c18">
-                                    <af:inputText value="#{row.bindings.InvoiceVal.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                                  label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
-                                                  required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.mandatory}"
-                                                  columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.displayWidth}"
-                                                  maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.precision}"
-                                                  shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.tooltip}"
-                                                  id="it16">
-                                        <f:validator binding="#{row.bindings.InvoiceVal.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.format}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
-                                           id="c19">
-                                    <af:inputDate value="#{row.bindings.InvoiceDueDate.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                                  label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
-                                                  required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.mandatory}"
-                                                  columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.displayWidth}"
-                                                  shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.tooltip}"
-                                                  id="id5">
-                                        <f:validator binding="#{row.bindings.InvoiceDueDate.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
-                                           id="c20">
-                                    <af:inputText value="#{row.bindings.InvoiceStatus.inputValue}" readOnly="#{isSubmittedForApproval}"
-                                                  label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
-                                                  required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.mandatory}"
-                                                  columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.displayWidth}"
-                                                  maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.precision}"
-                                                  shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.tooltip}"
-                                                  id="it17">
-                                        <f:validator binding="#{row.bindings.InvoiceStatus.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.format}"/>
-                                    </af:inputText>
-                                </af:column>
-                            </af:table>
-                        </af:panelGroupLayout>
-                    </af:panelGroupLayout>
-                </af:panelBox>
-                <af:panelBox text="Document Details" id="pb5" visible="#{!isDraftStatus}">
-                    <af:subform>
+                        </af:panelLabelAndMessage>
+                        <af:showDetailHeader text="Invoice Details" headerLevel="3" disclosed="true">
+                            <f:facet name="toolbar">
+                                <af:toolbar>
+                                    <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Invoice"
+                                               disabled="#{!bindings.CreateInsert1.enabled}" id="b5" visible="#{isDraftStatus}"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <af:panelLabelAndMessage inlineStyle="padding-left:50px;" styleClass="AFStretchWidth">
+                                <af:table value="#{bindings.TransactionInvoiceDetailPageVO.collectionModel}" var="row"
+                                          rows="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}"
+                                          emptyText="#{bindings.TransactionInvoiceDetailPageVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          fetchSize="#{bindings.TransactionInvoiceDetailPageVO.rangeSize}" id="t4"
+                                          partialTriggers="::b5">
+                                    <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
+                                               id="c16">
+                                        <af:inputText value="#{row.bindings.InvoiceNum.inputValue}"
+                                                      readOnly="#{isSubmittedForApproval}"
+                                                      label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.label}"
+                                                      required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.mandatory}"
+                                                      columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.displayWidth}"
+                                                      maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.precision}"
+                                                      shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceNum.tooltip}"
+                                                      id="it15">
+                                            <f:validator binding="#{row.bindings.InvoiceNum.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
+                                               id="c17">
+                                        <af:inputDate value="#{row.bindings.InvoiceDate.inputValue}"
+                                                      readOnly="#{isSubmittedForApproval}"
+                                                      label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.label}"
+                                                      required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.mandatory}"
+                                                      columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.displayWidth}"
+                                                      shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.tooltip}"
+                                                      id="id4">
+                                            <f:validator binding="#{row.bindings.InvoiceDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
+                                               id="c18">
+                                        <af:inputText value="#{row.bindings.InvoiceVal.inputValue}"
+                                                      readOnly="#{isSubmittedForApproval}"
+                                                      label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.label}"
+                                                      required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.mandatory}"
+                                                      columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.displayWidth}"
+                                                      maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.precision}"
+                                                      shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.tooltip}"
+                                                      id="it16">
+                                            <f:validator binding="#{row.bindings.InvoiceVal.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceVal.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
+                                               id="c19">
+                                        <af:inputDate value="#{row.bindings.InvoiceDueDate.inputValue}"
+                                                      readOnly="#{isSubmittedForApproval}"
+                                                      label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.label}"
+                                                      required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.mandatory}"
+                                                      columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.displayWidth}"
+                                                      shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.tooltip}"
+                                                      id="id5">
+                                            <f:validator binding="#{row.bindings.InvoiceDueDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceDueDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
+                                               id="c20">
+                                        <af:inputText value="#{row.bindings.InvoiceStatus.inputValue}"
+                                                      readOnly="#{isSubmittedForApproval}"
+                                                      label="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.label}"
+                                                      required="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.mandatory}"
+                                                      columns="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.displayWidth}"
+                                                      maximumLength="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.precision}"
+                                                      shortDesc="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.tooltip}"
+                                                      id="it17">
+                                            <f:validator binding="#{row.bindings.InvoiceStatus.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.TransactionInvoiceDetailPageVO.hints.InvoiceStatus.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelLabelAndMessage>
+                        </af:showDetailHeader>
+                    </af:showDetailHeader>
+                </af:showDetailHeader>
+                <af:showDetailHeader text="Document Details" headerLevel="1" disclosed="true">
+                    <!--<af:showDetailHeader text="Enter Document" headerLevel="2">-->
+                    <f:facet name="toolbar">
                         <af:button text="Create Document Ref." id="b3" action="createDocRef" partialSubmit="true"
-                                   partialTriggers="b3"
-                                   visible="#{pageFlowScope.showCreateDocumentSection != 'true'}">
+                                   partialTriggers="b3" visible="#{!isDraftStatus and !isSubmittedForApproval and pageFlowScope.showCreateDocumentSection != 'true'}">
                             <af:setActionListener from="#{true}" to="#{pageFlowScope.showCreateDocumentSection}"/>
                         </af:button>
-                        <af:panelFormLayout id="pfl2" maxColumns="2" rows="3" fieldWidth="200px" labelWidth="250px"
-                                            partialTriggers="b3" styleClass="AFStretchWidth"
-                                            visible="#{pageFlowScope.showCreateDocumentSection == 'true'}">
-                            <af:inputText value="#{bindings.DocumentRef.inputValue}"
-                                          label="#{bindings.DocumentRef.hints.label}"
-                                          required="#{bindings.DocumentRef.hints.mandatory}" autoSubmit="true"
-                                          columns="#{bindings.DocumentRef.hints.displayWidth}"
-                                          maximumLength="#{bindings.DocumentRef.hints.precision}"
-                                          shortDesc="#{bindings.DocumentRef.hints.tooltip}" id="it9">
-                                <f:validator binding="#{bindings.DocumentRef.validator}"/>
-                            </af:inputText>
-                            <af:inputDate value="#{bindings.DocumentDate.inputValue}"
-                                          label="#{bindings.DocumentDate.hints.label}"
-                                          required="#{bindings.DocumentDate.hints.mandatory}"
-                                          columns="#{bindings.DocumentDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id2">
-                                <f:validator binding="#{bindings.DocumentDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
-                            </af:inputDate>
-                            <af:selectOneChoice value="#{bindings.CurrencyId.inputValue}"
-                                                label="#{bindings.CurrencyId.label}"
-                                                required="#{bindings.CurrencyId.hints.mandatory}"
-                                                shortDesc="#{bindings.CurrencyId.hints.tooltip}" id="soc6">
-                                <f:selectItems value="#{bindings.CurrencyId.items}" id="si6"/>
-                                <f:validator binding="#{bindings.CurrencyId.validator}"/>
-                            </af:selectOneChoice>
-                            <af:inputText value="#{bindings.DocumentVal.inputValue}"
-                                          label="#{bindings.DocumentVal.hints.label}"
-                                          required="#{bindings.DocumentVal.hints.mandatory}"
-                                          columns="#{bindings.DocumentVal.hints.displayWidth}"
-                                          maximumLength="#{bindings.DocumentVal.hints.precision}"
-                                          shortDesc="#{bindings.DocumentVal.hints.tooltip}" id="it10">
-                                <f:validator binding="#{bindings.DocumentVal.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DocumentVal.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.ExchgRate.inputValue}"
-                                          label="#{bindings.ExchgRate.hints.label}"
-                                          required="#{bindings.ExchgRate.hints.mandatory}"
-                                          columns="#{bindings.ExchgRate.hints.displayWidth}"
-                                          maximumLength="#{bindings.ExchgRate.hints.precision}"
-                                          shortDesc="#{bindings.ExchgRate.hints.tooltip}" id="it11">
-                                <f:validator binding="#{bindings.ExchgRate.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.ExchgRate.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.OtherRef.inputValue}"
-                                          label="#{bindings.OtherRef.hints.label}"
-                                          required="#{bindings.OtherRef.hints.mandatory}"
-                                          columns="#{bindings.OtherRef.hints.displayWidth}"
-                                          maximumLength="#{bindings.OtherRef.hints.precision}"
-                                          shortDesc="#{bindings.OtherRef.hints.tooltip}" id="it12">
-                                <f:validator binding="#{bindings.OtherRef.validator}"/>
-                            </af:inputText>
-                        </af:panelFormLayout>
-                    </af:subform>
-                </af:panelBox>
-                <af:panelBox text="Document Details History" id="pb4" visible="#{!isDraftStatus}">
-                    <af:table value="#{bindings.TransactionDocumentRefPageHistoryVO.collectionModel}" var="row"
-                              rows="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}"
-                              emptyText="#{bindings.TransactionDocumentRefPageHistoryVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0"
-                              fetchSize="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}" id="t2">
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.label}"
-                                   id="c5">
-                            <af:outputText value="#{row.DocumentRef}"
-                                           shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.tooltip}"
-                                           id="ot5"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.label}"
-                                   id="c6">
-                            <af:outputText value="#{row.DocumentDate}"
-                                           shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.tooltip}"
-                                           id="ot6">
-                                <af:convertDateTime pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.label}"
-                                   id="c7">
-                            <af:selectOneChoice value="#{row.bindings.CurrencyId.inputValue}"
-                                                label="#{row.bindings.CurrencyId.label}"
-                                                required="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.mandatory}"
-                                                shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.tooltip}"
-                                                readOnly="true" id="soc7">
-                                <f:selectItems value="#{row.bindings.CurrencyId.items}" id="si7"/>
-                                <f:validator binding="#{row.bindings.CurrencyId.validator}"/>
-                            </af:selectOneChoice>
-                        </af:column>
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.label}"
-                                   id="c8">
-                            <af:outputText value="#{row.DocumentVal}"
-                                           shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.tooltip}"
-                                           id="ot7">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.label}"
-                                   id="c9">
-                            <af:outputText value="#{row.ExchgRate}"
-                                           shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.tooltip}"
-                                           id="ot8">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.label}"
-                                   id="c10">
-                            <af:outputText value="#{row.OtherRef}"
-                                           shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.tooltip}"
-                                           id="ot9"/>
-                        </af:column>
-                    </af:table>
-                </af:panelBox>
+                    </f:facet>
+                    <af:panelFormLayout id="pfl2" maxColumns="2" rows="3" fieldWidth="200px" labelWidth="250px"
+                                        partialTriggers="b3" styleClass="AFStretchWidth"
+                                        visible="#{pageFlowScope.showCreateDocumentSection == 'true'}">
+                        <af:inputText value="#{bindings.DocumentRef.inputValue}"
+                                      label="#{bindings.DocumentRef.hints.label}"
+                                      required="#{bindings.DocumentRef.hints.mandatory}" autoSubmit="true"
+                                      columns="#{bindings.DocumentRef.hints.displayWidth}"
+                                      maximumLength="#{bindings.DocumentRef.hints.precision}"
+                                      shortDesc="#{bindings.DocumentRef.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.DocumentRef.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.DocumentDate.inputValue}"
+                                      label="#{bindings.DocumentDate.hints.label}"
+                                      required="#{bindings.DocumentDate.hints.mandatory}"
+                                      columns="#{bindings.DocumentDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.DocumentDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
+                        </af:inputDate>
+                        <af:selectOneChoice value="#{bindings.CurrencyId.inputValue}"
+                                            label="#{bindings.CurrencyId.label}"
+                                            required="#{bindings.CurrencyId.hints.mandatory}"
+                                            shortDesc="#{bindings.CurrencyId.hints.tooltip}" id="soc6">
+                            <f:selectItems value="#{bindings.CurrencyId.items}" id="si6"/>
+                            <f:validator binding="#{bindings.CurrencyId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.DocumentVal.inputValue}"
+                                      label="#{bindings.DocumentVal.hints.label}"
+                                      required="#{bindings.DocumentVal.hints.mandatory}"
+                                      columns="#{bindings.DocumentVal.hints.displayWidth}"
+                                      maximumLength="#{bindings.DocumentVal.hints.precision}"
+                                      shortDesc="#{bindings.DocumentVal.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.DocumentVal.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DocumentVal.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ExchgRate.inputValue}" label="#{bindings.ExchgRate.hints.label}"
+                                      required="#{bindings.ExchgRate.hints.mandatory}"
+                                      columns="#{bindings.ExchgRate.hints.displayWidth}"
+                                      maximumLength="#{bindings.ExchgRate.hints.precision}"
+                                      shortDesc="#{bindings.ExchgRate.hints.tooltip}" id="it11">
+                            <f:validator binding="#{bindings.ExchgRate.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ExchgRate.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.OtherRef.inputValue}" label="#{bindings.OtherRef.hints.label}"
+                                      required="#{bindings.OtherRef.hints.mandatory}"
+                                      columns="#{bindings.OtherRef.hints.displayWidth}"
+                                      maximumLength="#{bindings.OtherRef.hints.precision}"
+                                      shortDesc="#{bindings.OtherRef.hints.tooltip}" id="it12">
+                            <f:validator binding="#{bindings.OtherRef.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                    <!--</af:showDetailHeader>
+                        -->
+                    <!--
+                        <af:showDetailHeader text="Document History" headerLevel="2" id="sdh1">
+                        -->
+                    <af:spacer height="5px"/>
+                    <af:panelLabelAndMessage inlineStyle="padding-left:50px;" id="plam1" styleClass="AFStretchWidth">
+                        <af:table value="#{bindings.TransactionDocumentRefPageHistoryVO.collectionModel}" var="row"
+                                  rows="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}"
+                                  emptyText="#{bindings.TransactionDocumentRefPageHistoryVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  fetchSize="#{bindings.TransactionDocumentRefPageHistoryVO.rangeSize}" id="t2">
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.label}"
+                                       id="c5">
+                                <af:outputText value="#{row.DocumentRef}"
+                                               shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentRef.tooltip}"
+                                               id="ot5"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.label}"
+                                       id="c6">
+                                <af:outputText value="#{row.DocumentDate}"
+                                               shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.tooltip}"
+                                               id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.label}"
+                                       id="c7">
+                                <af:selectOneChoice value="#{row.bindings.CurrencyId.inputValue}"
+                                                    label="#{row.bindings.CurrencyId.label}"
+                                                    required="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.mandatory}"
+                                                    shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.CurrencyId.tooltip}"
+                                                    readOnly="true" id="soc7">
+                                    <f:selectItems value="#{row.bindings.CurrencyId.items}" id="si7"/>
+                                    <f:validator binding="#{row.bindings.CurrencyId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.label}"
+                                       id="c8">
+                                <af:outputText value="#{row.DocumentVal}"
+                                               shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.DocumentVal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.label}"
+                                       id="c9">
+                                <af:outputText value="#{row.ExchgRate}"
+                                               shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TransactionDocumentRefPageHistoryVO.hints.ExchgRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.label}"
+                                       id="c10">
+                                <af:outputText value="#{row.OtherRef}"
+                                               shortDesc="#{bindings.TransactionDocumentRefPageHistoryVO.hints.OtherRef.tooltip}"
+                                               id="ot9"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelLabelAndMessage>
+                    <af:spacer height="5px"/>
+                    <!--</af:showDetailHeader>-->
+                </af:showDetailHeader>
             </af:panelGroupLayout>
         </f:facet>
     </af:panelStretchLayout>

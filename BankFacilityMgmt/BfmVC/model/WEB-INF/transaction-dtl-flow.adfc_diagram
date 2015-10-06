@@ -159,7 +159,7 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">170.79883</property>
+         name="y">170.44824</property>
       <property
          name="x">977.3613</property>
    </MethodCall>
@@ -171,7 +171,7 @@
       <property
          name="fromOutcome">setNewStatus</property>
       <property
-         name="sdm:polyPoints">T56,846.1875,325.99414,973.8613,224.79883,B44</property>
+         name="sdm:polyPoints">T56,846.1875,325.99414,973.8613,224.09766,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -181,7 +181,7 @@
       <property
          name="fromOutcome">setTransactionStatus</property>
       <property
-         name="sdm:polyPoints">B56,980.8613,224.79883,1106.5,317.59766,T44</property>
+         name="sdm:polyPoints">B56,980.8613,224.09766,1106.5,317.59766,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall19">
@@ -204,7 +204,7 @@
       <property
          name="fromOutcome">createRevision</property>
       <property
-         name="sdm:polyPoints">T44,839.1875,323.5477,967.8701,41.396484,B44</property>
+         name="sdm:polyPoints">T44,839.1875,323.55496,967.8701,41.396484,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -214,6 +214,6 @@
       <property
          name="fromOutcome">copyToNewTransactionVersion</property>
       <property
-         name="sdm:polyPoints">B56,974.8701,41.396484,1113.5,315.00253,T56</property>
+         name="sdm:polyPoints">B56,974.8701,41.396484,1113.5,315.01044,T56</property>
    </ControlFlowCase>
 </SDM>

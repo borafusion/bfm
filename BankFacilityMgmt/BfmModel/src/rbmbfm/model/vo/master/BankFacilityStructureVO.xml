@@ -18,8 +18,8 @@
         ResId="rbmbfm.model.vo.master.BankFacilityStructureVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE, XFS.FACILITY_COMBINATION        
-from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE_ALL XFS    
+  <SQLQuery><![CDATA[select XFS.FACILITY_NAME, XFT.BANK_ID, XFS.FACILITY_STRUCTURE_ID, XFT.FACILITY_TRACKER_ID, XFT.BUSINESS_ENTITY_ID, XFT.FACILITY_VALUE, XFT.UTILIZED_VALUE, XFT.LOCKED_VALUE, XFS.FACILITY_COMBINATION          
+from XXBFM_FACILITY_TRACKER_ALL XFT, XXBFM_FACILITY_STRUCTURE_ALL XFS      
 where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
   <ViewAttribute
     Name="FacilityName"
@@ -111,6 +111,25 @@ where XFT.FACILITY_STRUCTURE_ID=XFS.FACILITY_STRUCTURE_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="rbmbfm.model.vo.master.BankFacilityStructureVO.UtilizedValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LockedValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="2"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="LOCKED_VALUE"
+    Expression="LOCKED_VALUE"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="rbmbfm.model.vo.master.BankFacilityStructureVO.LockedValue_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -37,6 +37,7 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
         LastUpdateLogin,
         Version,
         FacilityStructureId,
+        TransactionValue,
         TransactionDocumentRefVO,
         BankFacilityStructureVO,
         TransactionSourceDetailVO,
@@ -88,6 +89,7 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATELOGIN = AttributesEnum.LastUpdateLogin.index();
     public static final int VERSION = AttributesEnum.Version.index();
     public static final int FACILITYSTRUCTUREID = AttributesEnum.FacilityStructureId.index();
+    public static final int TRANSACTIONVALUE = AttributesEnum.TransactionValue.index();
     public static final int TRANSACTIONDOCUMENTREFVO = AttributesEnum.TransactionDocumentRefVO.index();
     public static final int BANKFACILITYSTRUCTUREVO = AttributesEnum.BankFacilityStructureVO.index();
     public static final int TRANSACTIONSOURCEDETAILVO = AttributesEnum.TransactionSourceDetailVO.index();

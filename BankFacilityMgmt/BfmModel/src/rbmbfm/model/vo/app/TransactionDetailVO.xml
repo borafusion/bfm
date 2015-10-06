@@ -331,6 +331,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionValue"
+    PrecisionRule="true"
+    EntityAttrName="TransactionValue"
+    EntityUsage="TransactionDetailEO"
+    AliasName="TRANSACTION_VALUE"/>
   <ViewCriteria
     Name="TransactionDetailVOCriteria"
     ViewObjectName="rbmbfm.model.vo.app.TransactionDetailVO"

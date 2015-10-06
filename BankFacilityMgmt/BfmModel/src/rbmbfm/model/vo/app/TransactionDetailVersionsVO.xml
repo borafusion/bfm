@@ -127,6 +127,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="TransactionValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="2"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TRANSACTION_VALUE"
+    Expression="TRANSACTION_VALUE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
     Name="TransactionDate"
     IsUpdateable="false"
     IsPersistent="false"
