@@ -231,6 +231,15 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="LockedValue"
+    Precision="38"
+    Scale="2"
+    ColumnName="LOCKED_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXBFM_FACILITY_TRACKER_ALL"/>
   <AccessorAttribute
     Name="BankEO"
     Association="rbmbfm.model.eo.master.ao.BankToFacilityTrackerAO"

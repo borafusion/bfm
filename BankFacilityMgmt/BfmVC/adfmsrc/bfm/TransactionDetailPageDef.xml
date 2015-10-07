@@ -82,6 +82,7 @@
           <Item Value="FacilityValue"/>
           <Item Value="UtilizedValue"/>
           <Item Value="FacilityName"/>
+          <Item Value="LockedValue"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

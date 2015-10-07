@@ -41,6 +41,7 @@ public class TransactionDetailEOImpl extends EntityImpl {
         LastUpdateLogin,
         Version,
         FacilityStructureId,
+        TransactionValue,
         TransactionBaseEO,
         TransactionDocumentRefEO;
         private static AttributesEnum[] vals = null;
@@ -84,6 +85,7 @@ public class TransactionDetailEOImpl extends EntityImpl {
     public static final int LASTUPDATELOGIN = AttributesEnum.LastUpdateLogin.index();
     public static final int VERSION = AttributesEnum.Version.index();
     public static final int FACILITYSTRUCTUREID = AttributesEnum.FacilityStructureId.index();
+    public static final int TRANSACTIONVALUE = AttributesEnum.TransactionValue.index();
     public static final int TRANSACTIONBASEEO = AttributesEnum.TransactionBaseEO.index();
     public static final int TRANSACTIONDOCUMENTREFEO = AttributesEnum.TransactionDocumentRefEO.index();
 
@@ -315,6 +317,22 @@ public class TransactionDetailEOImpl extends EntityImpl {
      */
     public void setFacilityStructureId(BigDecimal value) {
         setAttributeInternal(FACILITYSTRUCTUREID, value);
+    }
+
+    /**
+     * Gets the attribute value for TransactionValue, using the alias name TransactionValue.
+     * @return the value of TransactionValue
+     */
+    public BigDecimal getTransactionValue() {
+        return (BigDecimal) getAttributeInternal(TRANSACTIONVALUE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TransactionValue.
+     * @param value value to set the TransactionValue
+     */
+    public void setTransactionValue(BigDecimal value) {
+        setAttributeInternal(TRANSACTIONVALUE, value);
     }
 
     /**
