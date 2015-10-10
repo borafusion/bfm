@@ -119,7 +119,14 @@
     ViewObjectName="rbmbfm.model.vo.app.TransactionInvoiceDetailVO"/>
   <ViewUsage
     Name="SearchTransactionPageVO"
-    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionVO"/>
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionVO">
+    <ViewCriteriaUsage
+      Name="SearchTransactionVOCriteria"
+      FullName="rbmbfm.model.vo.app.SearchTransactionVO.SearchTransactionVOCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="FacilityTrackerTransactionRefVO"
+    ViewObjectName="rbmbfm.model.vo.master.FacilityTrackerVO"/>
   <ViewLinkUsage
     Name="InwardLCToBeneficiaryDetailsVL1"
     ViewLinkObjectName="rbmbfm.model.vo.app.vlink.InwardLCToBeneficiaryDetailsVL"

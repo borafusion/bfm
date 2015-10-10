@@ -18,6 +18,10 @@
         ResId="rbmbfm.model.vo.app.SearchTransactionVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="typeBind"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="BeneficiaryBankVO"
     ViewObjectName="rbmbfm.model.vo.master.BankVO"
@@ -270,6 +274,44 @@ from XXBFM_TRANSACTION_V]]></SQLQuery>
       <Attr Name="_DisplaySize" Value="256"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="SearchTransactionVOCriteria"
+    ViewObjectName="rbmbfm.model.vo.app.SearchTransactionVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SearchTransactionVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Type"
+        ViewAttribute="Type"
+        Operator="="
+        Conjunction="AND"
+        Value=":typeBind"
+        UpperColumns="1"
+        ValidateBindVars="true"
+        IsBindVarValue="true"
+        Required="Required"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="TransactionId"/>
   </AttrArray>

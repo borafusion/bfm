@@ -34,7 +34,7 @@
       <property
          name="fromOutcome">InwardLC</property>
       <property
-         name="sdm:polyPoints">R77,150.0,258.94824,510.02637,323.99414,L50</property>
+         name="sdm:polyPoints">R77,151.32642,258.94824,510.02637,323.99414,L50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -84,7 +84,7 @@
       <property
          name="fromOutcome">bank_master</property>
       <property
-         name="sdm:polyPoints">R23,150.0,223.94824,236.5,148.0459,B50</property>
+         name="sdm:polyPoints">R12,150.0,216.94824,236.5,148.0459,B50</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -109,7 +109,7 @@
       <property
          name="fromOutcome">business_entity_master</property>
       <property
-         name="sdm:polyPoints">R34,152.38641,230.94824,354.35645,93.34473,L50</property>
+         name="sdm:polyPoints">R23,152.24649,223.94824,354.35645,93.34473,L50</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -134,7 +134,7 @@
       <property
          name="fromOutcome">facility-structure-master</property>
       <property
-         name="sdm:polyPoints">R55,154.7579,244.94824,574.0156,145.34473,B50</property>
+         name="sdm:polyPoints">R45,154.50256,237.94824,574.0156,145.34473,B50</property>
    </ControlFlowCase>
    <View
       id="View13">
@@ -159,7 +159,7 @@
       <property
          name="fromOutcome">facility-tracker-master</property>
       <property
-         name="sdm:polyPoints">R45,153.90364,237.94824,707.0078,92.74707,L50</property>
+         name="sdm:polyPoints">R34,153.6971,230.94824,707.0078,92.74707,L50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -184,7 +184,7 @@
       <property
          name="fromOutcome">lookup</property>
       <property
-         name="sdm:polyPoints">R66,155.47626,251.94824,822.68945,130.74707,L50</property>
+         name="sdm:polyPoints">R55,155.17528,244.94824,822.68945,130.74707,L50</property>
    </ControlFlowCase>
    <View
       id="View17">
@@ -209,6 +209,56 @@
       <property
          name="fromOutcome">currency-master</property>
       <property
-         name="sdm:polyPoints">R72,150.34976,255.44824,846.3447,276.44824,L50</property>
+         name="sdm:polyPoints">R66,151.70161,251.94824,846.3447,276.44824,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View19">
+      <property
+         name="activityId">ExportLCTransaction</property>
+      <property
+         name="page">/ExportLCTransaction.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExportLCTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">465.79883</property>
+      <property
+         name="x">380.3584</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="WildcardControlFlowRule2"
+      to="View19">
+      <property
+         name="fromOutcome">ExportLC</property>
+      <property
+         name="sdm:polyPoints">R88,150.0,265.94824,380.3584,411.44824,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View21">
+      <property
+         name="activityId">LoanTransaction</property>
+      <property
+         name="page">/LoanTransaction.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LoanTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">592.7988</property>
+      <property
+         name="x">296.6953</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="WildcardControlFlowRule2"
+      to="View21">
+      <property
+         name="fromOutcome">Loan</property>
+      <property
+         name="sdm:polyPoints">B80,T17</property>
    </ControlFlowCase>
 </SDM>

@@ -245,19 +245,46 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         
         transDtlRow.refresh(Row.REFRESH_WITH_DB_FORGET_CHANGES);
         this.getDBTransaction().commit();
-        return (BigDecimal)transDetailRevRow.getAttribute("TransactionDtlId");
-        
+        return (BigDecimal)transDetailRevRow.getAttribute("TransactionDtlId");        
+    }
+    
+    public boolean updateFacilityTransactionAmount(BigDecimal businessEntityId, BigDecimal issuingBankId, BigDecimal facilityStructureId, BigDecimal transactionValue, String status) {
         /*
-        "TRANSACTION_ID"      NUMBER,
-        "TRANSACTION_VERSION" NUMBER,
-        "TRANSACTION_DATE"    DATE,
-        "BUSINESS_ENTITY_ID"  NUMBER,
-        "ISSUING_BANK_ID"     NUMBER,
-        "BENEFICIARY_BANK_ID" NUMBER,
-        "FACILITY_TRACKER_ID" NUMBER,
-        "APPROVAL_STATUS"     VARCHAR2(50 BYTE) NOT NULL ENABLE,
-        "SOURCE_TYPE"         VARCHAR2(100 BYTE),
-        */
+         * If the status is APPROVED
+         *      - Subtract that transaction Value from the LockedValue and add to UtilizedValue
+         *
+         * If the status is SAVE/SUBMITTED_FOR_APPROVAL
+         *      - Add the transaction value to LockedValue
+         */
+        ViewObjectImpl facilityTrackerTransRefVO = this.getFacilityTrackerTransactionRefVO();
+        facilityTrackerTransRefVO.setApplyViewCriteriaName("FacilityTrackerVOCriteria");
+        facilityTrackerTransRefVO.setNamedWhereClauseParam("BindBank", issuingBankId);
+        facilityTrackerTransRefVO.setNamedWhereClauseParam("BindBentity", businessEntityId);
+        facilityTrackerTransRefVO.setNamedWhereClauseParam("BindFStructure", facilityStructureId);
+        facilityTrackerTransRefVO.executeQuery();
+        
+        Row[] allRows = facilityTrackerTransRefVO.getAllRowsInRange();
+        
+        boolean isTransactionAmtAvailable = false;
+        
+        
+        for (Row row : allRows) {
+            BigDecimal utilizedValue = (BigDecimal)row.getAttribute("UtilizedValue");
+            BigDecimal lockedValue = (BigDecimal)row.getAttribute("LockedValue");
+            
+            
+            if (TransactionType.APPROVED.toString().equalsIgnoreCase(status)) {
+                if (utilizedValue.doubleValue() > transactionValue.doubleValue()) {
+                    isTransactionAmtAvailable = true;
+                    
+                    row.setAttribute("UtilizedValue", utilizedValue.doubleValue() + transactionValue.doubleValue());
+                    row.setAttribute("LockedValue", lockedValue.doubleValue() - transactionValue.doubleValue());
+                    break;   
+                }
+            }
+            
+        }
+        return true;
     }
 
     public void setTransactionStatus (BigDecimal transactionDtlId, String status) {
@@ -265,13 +292,24 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
         transDetailVerPageVO.setApplyViewCriteriaName("TransactionDetailVOCriteria");
         transDetailVerPageVO.setNamedWhereClauseParam("transactionDtlIdBind", transactionDtlId);
         transDetailVerPageVO.executeQuery();
-        
+
         Row[] rows = transDetailVerPageVO.getAllRowsInRange();
         Row transDtlRow = rows[0];
         transDtlRow.setAttribute("ApprovalStatus", status);
         
+        
+        BigDecimal businessEntityId = (BigDecimal) transDtlRow.getAttribute("BusinessEntityId");
+        BigDecimal issuingBankId = (BigDecimal)transDtlRow.getAttribute("IssuingBankId");
+        BigDecimal facilityStructureId = (BigDecimal)transDtlRow.getAttribute("FacilityStructureId");
+        //BigDecimal transactionValue = (BigDecimal)transDtlRow.getAttribute("TransactionValue");
+        BigDecimal transactionValue = new BigDecimal(250);
+        
+        this.updateFacilityTransactionAmount(businessEntityId, issuingBankId, facilityStructureId, transactionValue, status);
+
         this.getDBTransaction().commit();
     }
+    
+    
 
     /**
      * Container's getter for TransactionDetailVO1.
@@ -408,6 +446,14 @@ public class BFMTransactionAMImpl extends ApplicationModuleImpl implements BFMTr
      */
     public ViewObjectImpl getSearchTransactionPageVO() {
         return (ViewObjectImpl) findViewObject("SearchTransactionPageVO");
+    }
+
+    /**
+     * Container's getter for FacilityTrackerVO1.
+     * @return FacilityTrackerVO1
+     */
+    public ViewObjectImpl getFacilityTrackerTransactionRefVO() {
+        return (ViewObjectImpl) findViewObject("FacilityTrackerTransactionRefVO");
     }
 }
 

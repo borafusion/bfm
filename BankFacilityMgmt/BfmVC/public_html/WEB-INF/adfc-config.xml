@@ -24,6 +24,12 @@
   <view id="CurrencyMain">
     <page>/CurrencyMain.jsf</page>
   </view>
+  <view id="ExportLCTransaction">
+    <page>/ExportLCTransaction.jsf</page>
+  </view>
+  <view id="LoanTransaction">
+    <page>/LoanTransaction.jsf</page>
+  </view>
   <control-flow-rule id="__2">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__3">
@@ -57,6 +63,14 @@
     <control-flow-case id="__10">
       <from-outcome>currency-master</from-outcome>
       <to-activity-id>CurrencyMain</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__11">
+      <from-outcome>ExportLC</from-outcome>
+      <to-activity-id>ExportLCTransaction</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__12">
+      <from-outcome>Loan</from-outcome>
+      <to-activity-id>LoanTransaction</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">

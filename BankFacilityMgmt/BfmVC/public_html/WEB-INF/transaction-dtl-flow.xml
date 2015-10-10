@@ -11,6 +11,11 @@
       <class>java.math.BigDecimal</class>
       <required/>
     </input-parameter-definition>
+    <managed-bean id="__19">
+      <managed-bean-name>transactionDetailBean</managed-bean-name>
+      <managed-bean-class>rbmbfm.view.TransactionDetailBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>

@@ -45,6 +45,10 @@
     Name="CurrencyVVO"
     ViewObjectName="rbmbfm.model.vo.master.CurrencyVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FacilityTrackerVO"
+    ViewObjectName="rbmbfm.model.vo.master.FacilityTrackerVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BusinessEntityId"
     ListVOName="BusinessEntityVVO"

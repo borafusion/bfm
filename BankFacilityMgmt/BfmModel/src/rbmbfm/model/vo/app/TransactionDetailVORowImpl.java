@@ -46,7 +46,8 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
         BeneficiaryBankVVO,
         IssuingBankVVO,
         SourceTypeVVO,
-        CurrencyVVO;
+        CurrencyVVO,
+        FacilityTrackerVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -99,6 +100,7 @@ public class TransactionDetailVORowImpl extends ViewRowImpl {
     public static final int ISSUINGBANKVVO = AttributesEnum.IssuingBankVVO.index();
     public static final int SOURCETYPEVVO = AttributesEnum.SourceTypeVVO.index();
     public static final int CURRENCYVVO = AttributesEnum.CurrencyVVO.index();
+    public static final int FACILITYTRACKERVO = AttributesEnum.FacilityTrackerVO.index();
 
     /**
      * This is the default constructor (do not remove).

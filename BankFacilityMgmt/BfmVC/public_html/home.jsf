@@ -264,6 +264,30 @@
                                                                 </af:panelBox>
                                                             </af:gridCell>
                                                         </af:gridRow>
+                                                        
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr16">
+                                                            <af:gridCell marginStart="5px" width="25%" id="gc3"
+                                                                         halign="stretch">
+                                                                <af:panelBox text="" id="pb3" showDisclosure="false"
+                                                                             showHeader="never">
+                                                                    <f:facet name="toolbar"/>
+                                                                    <af:link text="" id="l2"
+                                                                             styleClass="WBPageTitleText"
+                                                                             action="Loan"
+                                                                             icon="/resources/images/organizations/100.png"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px"
+                                                                         id="gc26" halign="stretch">
+                                                                <af:panelBox text="" showDisclosure="false" id="pb11">
+                                                                    <af:outputText value="Loan LC - " id="ot1"/>
+                                                                    <af:outputFormatted value="This transaction entry screen allows the user to record Loan LC details"
+                                                                                        id="of5"/>
+                                                                    <f:facet name="toolbar"/>
+                                                                </af:panelBox>
+                                                            </af:gridCell>
+                                                        </af:gridRow>                                                        
+                                                        
                                                         <af:gridRow marginTop="5px" height="auto" id="gr13">
                                                             <af:gridCell marginStart="5px" width="25%" id="gc20"/>
                                                             <af:gridCell marginStart="5px" width="75%" marginEnd="5px"

@@ -4,12 +4,24 @@
     <af:panelGridLayout id="pgl1">
         <af:gridRow marginTop="5px" height="auto" id="gr1">
             <af:gridCell valign="middle" id="gc1">
-                <af:outputFormatted value="Inward LC" id="of1" styleClass="WBPageTitleText"
-                                    inlineStyle="font-size:large; font-weight:bold;"/>
+                <af:switcher facetName="#{pageFlowScope.type}">
+                    <f:facet name="INWARD">
+                        <af:outputFormatted value="Inward LC" id="of1" styleClass="WBPageTitleText"
+                                            inlineStyle="font-size:large; font-weight:bold;"/>                    
+                    </f:facet>
+                    <f:facet name="EXPORTLC">
+                        <af:outputFormatted value="Export LC" id="of7" styleClass="WBPageTitleText"
+                                            inlineStyle="font-size:large; font-weight:bold;"/>                    
+                    </f:facet>
+                    <f:facet name="LOAN">
+                        <af:outputFormatted value="Loan LC" id="of9" styleClass="WBPageTitleText"
+                                            inlineStyle="font-size:large; font-weight:bold;"/>                    
+                    </f:facet>                    
+                </af:switcher>
             </af:gridCell>
             <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2">
                 <af:button text="New" id="b1" action="add" partialSubmit="true">
-                    <af:setActionListener from="INWARD" to="#{pageFlowScope.type}"/>
+                    <!--<af:setActionListener from="INWARD" to="#{pageFlowScope.type}"/>-->
                 </af:button>                
             </af:gridCell>
             <af:gridCell marginStart="5px" width="auto" id="gc3" valign="middle" marginEnd="20px">

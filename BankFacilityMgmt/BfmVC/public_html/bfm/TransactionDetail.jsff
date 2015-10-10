@@ -5,13 +5,15 @@
         <f:facet name="top">
             <!--<af:panelHeader text="Inward LC" id="pb1">-->
             <!--</af:panelHeader>-->
-            <af:showDetailHeader text="Inward LC Transaction" id="showDetailHeader" disclosed="true">
-                <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT'}" scope="request"/>
-                <c:set var="isSubmittedForApproval"
-                       value="#{bindings.ApprovalStatus.inputValue == 'SUBMITTED_FOR_APPROVAL'}" scope="request"/>
-                <c:set var="isTxnApproved" value="#{bindings.ApprovalStatus.inputValue == 'APPROVED'}" scope="request"/>
-                <c:set var="isDraftRevision" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}"
-                       scope="request"/>
+            <c:set var="isDraftStatus" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT'}" scope="request"/>
+            <c:set var="isSubmittedForApproval"
+                   value="#{bindings.ApprovalStatus.inputValue == 'SUBMITTED_FOR_APPROVAL'}" scope="request"/>
+            <c:set var="isTxnApproved" value="#{bindings.ApprovalStatus.inputValue == 'APPROVED'}" scope="request"/>
+            <c:set var="isDraftRevision" value="#{bindings.ApprovalStatus.inputValue == 'DRAFT_REVISION'}"
+                   scope="request"/>            
+            <c:set var="isLoanTransaction" value="#{bindings.Type.inputValue == 'LOAN'}"
+                   scope="request"/>                   
+            <af:showDetailHeader text="" id="showDetailHeader" disclosed="true" showMaximize="never">
                 <f:facet name="toolbar">
                     <!--<af:panelGroupLayout layout="horizontal" id="pgl1" halign="right" styleClass="AFStretchWidth">-->
                     <af:toolbar id="t1">
@@ -122,6 +124,7 @@
                                             label="#{bindings.BusinessEntityId.label}" autoSubmit="true"
                                             required="#{bindings.BusinessEntityId.hints.mandatory}"
                                             readOnly="#{isSubmittedForApproval}"
+                                            valueChangeListener="#{pageFlowScope.transactionDetailBean.businessEntityValueChangeListener}"
                                             shortDesc="#{bindings.BusinessEntityId.hints.tooltip}" id="soc1">
                             <f:selectItems value="#{bindings.BusinessEntityId.items}" id="si1"/>
                             <f:validator binding="#{bindings.BusinessEntityId.validator}"/>
@@ -168,7 +171,7 @@
                         </af:selectOneChoice>
                     </af:panelFormLayout>
                     <af:spacer height="5"/>
-                    <af:showDetailHeader text="Facility Details" headerLevel="2">
+                    <af:showDetailHeader text="Facility Details" headerLevel="2" visible="#{!isLoanTransaction}">
                         <af:panelLabelAndMessage inlineStyle="padding-left:50px;" styleClass="AFStretchWidth">
                             <af:table value="#{bindings.BankFacilityStructurePageVO.collectionModel}" var="row"
                                       rows="#{bindings.BankFacilityStructurePageVO.rangeSize}"
@@ -304,7 +307,7 @@
                                 </af:column>
                             </af:table>
                         </af:panelLabelAndMessage>
-                        <af:showDetailHeader text="Invoice Details" headerLevel="3" disclosed="true">
+                        <af:showDetailHeader text="Invoice Details" headerLevel="3" disclosed="true" visible="#{!isLoanTransaction}">
                             <f:facet name="toolbar">
                                 <af:toolbar>
                                     <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Invoice"
@@ -392,7 +395,8 @@
                         </af:showDetailHeader>
                     </af:showDetailHeader>
                 </af:showDetailHeader>
-                <af:showDetailHeader text="Document Details" headerLevel="1" disclosed="true">
+                <af:showDetailHeader text="Document Details" headerLevel="1" disclosed="true" visible="#{!isLoanTransaction}"
+                                     id="sdh1">
                     <!--<af:showDetailHeader text="Enter Document" headerLevel="2">-->
                     <f:facet name="toolbar">
                         <af:button text="Create Document Ref." id="b3" action="createDocRef" partialSubmit="true"

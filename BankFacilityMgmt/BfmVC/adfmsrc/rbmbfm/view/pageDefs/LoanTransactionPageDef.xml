@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="InwardLCTransactionPageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="LoanTransactionPageDef"
                 Package="rbmbfm.view.pageDefs">
   <parameters/>
   <executables>
@@ -8,7 +8,7 @@
               taskFlowId="/WEB-INF/InwardTransactionTaskFlow.xml#InwardTransactionTaskFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
-        <parameter id="type" value="INWARD"/>
+        <parameter id="type" value="LOAN"/>
       </parameters>
     </taskFlow>
   </executables>
